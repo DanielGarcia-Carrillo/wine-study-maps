@@ -1,0 +1,1412 @@
+palette:
+  italy: '#6e2639'
+  spain: '#8a5a1f'
+  germany: '#2f6d6a'
+  portugal: '#4a5f2f'
+  australia: '#8a3f2a'
+  south-africa: '#7a5a8a'
+  chile: '#a04a3a'
+  argentina: '#3f6f9a'
+  hungary: '#8a6a2f'
+  south-australia: '#7a1f2b'
+  new-south-wales: '#2f7d8c'
+  victoria: '#a8661f'
+  western-australia: '#5f8a34'
+  piemonte: '#7a1f2b'
+  veneto: '#2f7d8c'
+  tuscany: '#a8661f'
+  bordeaux: '#7a1f2b'
+  burgundy: '#7d4a86'
+  beaujolais: '#b5654f'
+  loire: '#2f7d8c'
+  rhone: '#a8661f'
+  languedoc-roussillon: '#5f8a34'
+  provence: '#bf5f88'
+  alsace: '#3c6aa5'
+  champagne: '#8a7c2f'
+maps:
+- id: france
+  title: France
+  bbox: auto
+  pad: 0.06
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Bordeaux
+    region_of: bordeaux
+    aoc: Bordeaux
+    tier: 1
+    extent: large
+  - name: Burgundy
+    region_of: burgundy
+    aoc: Bourgogne
+    tier: 1
+    extent: large
+  - name: Beaujolais
+    region_of: beaujolais
+    aoc: Beaujolais
+    tier: 1
+    extent: medium
+  - name: Loire
+    region_of: loire
+    aoc:
+    - Touraine
+    - Vouvray
+    - Sancerre
+    - Pouilly-Fumé ou Blanc Fumé de Pouilly et Pouilly-sur-Loire
+    tier: 1
+    extent: large
+  - name: Rhône
+    region_of: rhone
+    aoc: Côtes du Rhône
+    tier: 1
+    extent: large
+  - name: Languedoc-Roussillon
+    region_of: languedoc-roussillon
+    aoc: Languedoc
+    tier: 1
+    extent: large
+  - name: Provence
+    region_of: provence
+    aoc: Côtes de Provence
+    tier: 1
+    extent: medium
+  - name: Alsace
+    region_of: alsace
+    aoc: Alsace suivi d’un nom de lieu-dit
+    tier: 1
+    extent: medium
+  - name: Champagne
+    region_of: champagne
+    aoc: Champagne
+    tier: 1
+    extent: large
+  - name: South-west France
+    wikidata: Q23047
+    wd_desc: commune in Lot, France
+    colour: '#4d5a6a'
+    tier: 1
+    extent: broad
+- id: bordeaux
+  title: Bordeaux
+  bbox: auto
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Médoc
+    aoc: Médoc
+    tier: 1
+    extent: large
+    group: Left Bank
+    label: w
+  - name: Haut-Médoc
+    aoc: Haut-Médoc
+    tier: 1
+    extent: large
+    group: Left Bank
+    label: w
+  - name: Margaux
+    aoc: Margaux
+    tier: 2
+    extent: small
+    group: Left Bank
+    label: w
+  - name: Pauillac
+    aoc: Pauillac
+    tier: 2
+    extent: small
+    group: Left Bank
+    label: w
+  - name: Graves
+    aoc: Graves
+    tier: 1
+    extent: medium
+    group: Left Bank
+    label: w
+  - name: Pessac-Léognan
+    aoc: Pessac-Léognan
+    tier: 2
+    extent: small
+    group: Left Bank
+    label: w
+  - name: Sauternes
+    aoc: Sauternes
+    tier: 2
+    extent: small
+    group: Left Bank
+    label: w
+  - name: Saint-Émilion
+    aoc: Saint-Emilion
+    tier: 1
+    extent: medium
+    group: Right Bank
+    label: e
+  - name: Pomerol
+    aoc: Pomerol
+    tier: 2
+    extent: small
+    group: Right Bank
+    label: e
+- id: burgundy
+  title: Burgundy
+  bbox: auto
+  min_aspect: 0.95
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Chablis
+    aoc: Chablis
+    tier: 1
+    extent: medium
+  - name: Côte de Nuits
+    aoc:
+    - Côte de Nuits-Villages
+    - Marsannay
+    - Fixin
+    - Gevrey-Chambertin
+    - Morey-Saint-Denis
+    - Chambolle-Musigny
+    - Vougeot
+    - Vosne-Romanée
+    - Nuits-Saint-Georges
+    tier: 1
+    extent: small
+    fill: false
+    dot: false
+    outline: dashed
+    label: e
+  - name: Côte de Beaune
+    aoc:
+    - Côte de Beaune-Villages
+    - Ladoix
+    - Aloxe-Corton
+    - Pernand-Vergelesses
+    - Savigny-lès-Beaune
+    - Chorey-lès-Beaune
+    - Beaune
+    - Côte de Beaune
+    - Pommard
+    - Volnay
+    - Monthélie
+    - Auxey-Duresses
+    - Saint-Romain
+    - Meursault
+    - Blagny
+    - Puligny-Montrachet
+    - Chassagne-Montrachet
+    - Saint-Aubin
+    - Santenay
+    - Maranges
+    tier: 1
+    extent: small
+    fill: false
+    dot: false
+    outline: dashed
+    label: e
+  - name: Gevrey-Chambertin
+    aoc: Gevrey-Chambertin
+    tier: 2
+    extent: small
+    label: w
+  - name: Nuits-Saint-Georges
+    aoc: Nuits-Saint-Georges
+    tier: 2
+    extent: small
+    label: w
+  - name: Beaune
+    aoc: Beaune
+    tier: 2
+    extent: small
+    label: w
+  - name: Pommard
+    aoc: Pommard
+    tier: 2
+    extent: small
+    label: w
+  - name: Meursault
+    aoc: Meursault
+    tier: 2
+    extent: small
+    label: w
+  - name: Puligny-Montrachet
+    aoc: Puligny-Montrachet
+    tier: 2
+    extent: small
+    label: w
+  - name: Mâcon
+    aoc: Mâcon
+    tier: 1
+    extent: medium
+  - name: Pouilly-Fuissé
+    aoc: Pouilly-Fuissé
+    tier: 2
+    extent: small
+- id: beaujolais
+  title: Beaujolais
+  bbox: auto
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Beaujolais
+    aoc: Beaujolais
+    tier: 1
+    extent: large
+  - name: Beaujolais Villages
+    aoc: Beaujolais Villages
+    tier: 1
+    extent: medium
+  - name: Fleurie
+    aoc: Fleurie
+    tier: 2
+    extent: small
+- id: loire
+  title: Loire Valley
+  bbox: auto
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Touraine
+    aoc: Touraine
+    tier: 1
+    extent: large
+  - name: Vouvray
+    aoc: Vouvray
+    tier: 2
+    extent: small
+  - name: Sancerre
+    aoc: Sancerre
+    tier: 1
+    extent: medium
+  - name: Pouilly-Fumé
+    aoc: Pouilly-Fumé ou Blanc Fumé de Pouilly et Pouilly-sur-Loire
+    tier: 2
+    extent: small
+- id: rhone
+  title: Rhône Valley
+  bbox: auto
+  min_aspect: 0.75
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  inset:
+    regions:
+    - Hermitage
+    - Crozes-Hermitage
+    base:
+    - land
+    - places
+    at:
+    - 0.015
+    - 0.22
+    size:
+    - 238
+    - 240
+    pad: 0.05
+    min_aspect: 1.0
+    align: 0.9
+  regions:
+  - name: Côtes du Rhône
+    aoc: Côtes du Rhône
+    tier: 1
+    extent: large
+    label: e
+  - name: Côtes du Rhône Villages
+    aoc: Côtes du Rhône Villages
+    tier: 1
+    extent: large
+    label: e
+  - name: Northern Rhône
+    aoc:
+    - Côte Rôtie
+    - Condrieu
+    - Château-Grillet
+    - Saint-Joseph
+    - Hermitage
+    - Crozes-Hermitage
+    - Cornas
+    - Saint-Péray
+    tier: 1
+    extent: large
+    fill: false
+    dot: false
+    outline: dashed
+    label: e
+  - name: Southern Rhône
+    aoc:
+    - Côtes du Rhône Villages
+    - Châteauneuf-du-Pape
+    - Gigondas
+    - Vacqueyras
+    - Vinsobres
+    - Rasteau
+    - Cairanne
+    - Beaumes de Venise
+    - Lirac
+    - Tavel
+    tier: 1
+    extent: large
+    fill: false
+    dot: false
+    outline: dashed
+    label: w
+  - name: Côte Rôtie
+    aoc: Côte Rôtie
+    tier: 2
+    extent: small
+    outline: true
+    label: e
+    group: Northern Rhône
+  - name: Condrieu
+    aoc: Condrieu
+    tier: 2
+    extent: small
+    outline: true
+    label: e
+    group: Northern Rhône
+  - name: Hermitage
+    aoc: Hermitage
+    tier: 2
+    extent: small
+    outline: true
+    label: w
+    group: Northern Rhône
+  - name: Crozes-Hermitage
+    aoc: Crozes-Hermitage
+    anchor:
+    - 4.86
+    - 45.02
+    tier: 2
+    extent: small
+    outline: true
+    label: w
+    group: Northern Rhône
+  - name: Châteauneuf-du-Pape
+    aoc: Châteauneuf-du-Pape
+    tier: 2
+    extent: small
+    outline: true
+    label: e
+    group: Southern Rhône
+- id: languedoc-roussillon
+  title: Languedoc-Roussillon
+  bbox: auto
+  pad: 1.6
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Minervois
+    aoc: Minervois
+    tier: 1
+    extent: medium
+- id: provence
+  title: Provence
+  bbox: auto
+  pad: 1.1
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Côtes de Provence
+    aoc: Côtes de Provence
+    tier: 1
+    extent: large
+- id: alsace
+  title: Alsace
+  bbox: auto
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Alsace AOC
+    aoc: Alsace suivi d’un nom de lieu-dit
+    tier: 1
+    extent: large
+  - name: Alsace Grand Cru
+    aoc: Alsace grand cru Brand
+    tier: 1
+    extent: medium
+- id: champagne
+  title: Champagne
+  bbox: auto
+  pad: 1.3
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Champagne
+    aoc: Champagne
+    tier: 1
+    extent: large
+- id: napa
+  title: Napa & Sonoma
+  distinct: true
+  bbox: auto
+  pad: 0.12
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Napa Valley
+    ava: napa_valley
+    anchor:
+    - -122.28
+    - 38.58
+    tier: 1
+    extent: large
+    dot: false
+    outline: true
+  - name: Sonoma
+    county: US06097
+    tier: 1
+    extent: large
+    dot: false
+    outline: true
+  - name: Oakville
+    parent: Napa Valley
+    ava: oakville
+    tier: 2
+    extent: small
+  - name: Rutherford
+    parent: Napa Valley
+    ava: rutherford
+    tier: 2
+    extent: small
+  - name: Calistoga
+    parent: Napa Valley
+    ava: calistoga
+    tier: 2
+    extent: small
+  - name: Los Carneros
+    parent: Napa Valley
+    ava: los_carneros
+    tier: 2
+    extent: small
+- id: oregon
+  title: Oregon
+  distinct: true
+  bbox: auto
+  pad: 0.4
+  thin_places: true
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Oregon
+    admin1: United States of America/Oregon
+    tier: 1
+    extent: large
+    dot: false
+    outline: true
+  - name: California
+    admin1: United States of America/California
+    anchor:
+    - -121.2
+    - 40.6
+    fit: false
+    tier: 1
+    extent: large
+    dot: false
+    outline: true
+- id: california
+  title: California
+  distinct: true
+  bbox: auto
+  pad: 0.18
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Napa Valley
+    region_of: napa
+    ava: napa_valley
+    tier: 1
+    extent: medium
+  - name: Sonoma
+    county: US06097
+    tier: 1
+    extent: medium
+  - name: Los Carneros
+    parent: Napa Valley
+    ava: los_carneros
+    tier: 2
+    extent: small
+  - name: Central Coast
+    ava: central_coast
+    tier: 1
+    extent: large
+  - name: Santa Barbara County
+    parent: Central Coast
+    county: US06083
+    tier: 2
+    extent: medium
+  - name: Central Valley
+    wikidata: Q27026
+    wd_desc: valley in central California, USA
+    tier: 1
+    extent: large
+- id: italy
+  title: Italy
+  distinct: true
+  bbox: auto
+  pad: 0.1
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Piemonte
+    region_of: piemonte
+    admin1: Italy/Piemonte
+    tier: 1
+    extent: large
+  - name: Veneto
+    region_of: veneto
+    admin1: Italy/Veneto
+    tier: 1
+    extent: large
+  - name: Friuli-Venezia Giulia
+    admin1: Italy/Friuli-Venezia Giulia
+    colour: '#7d4a86'
+    tier: 1
+    extent: medium
+  - name: Marche
+    admin1: Italy/Marche
+    tier: 1
+    extent: medium
+  - name: Tuscany
+    region_of: tuscany
+    admin1: Italy/Toscana
+    tier: 1
+    extent: large
+  - name: Abruzzo
+    admin1: Italy/Abruzzo
+    tier: 1
+    extent: medium
+  - name: Campania
+    admin1: Italy/Campania
+    tier: 1
+    extent: medium
+  - name: Puglia
+    admin1: Italy/Apulia
+    tier: 1
+    extent: medium
+- id: piemonte
+  title: Piemonte
+  bbox: auto
+  pad: 0.1
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  inset:
+    regions:
+    - Barolo
+    - Barbaresco
+    base:
+    - land
+    - places
+    at:
+    - 0.015
+    - 0.68
+    size:
+    - 300
+    - 240
+    pad: 0.08
+    min_aspect: 1.2
+  regions:
+  - name: Piemonte
+    admin1: Italy/Piemonte
+    tier: 1
+    extent: large
+  - name: Barolo
+    outline: true
+    doc: Barolo
+    parent: Piemonte
+    tier: 2
+    extent: small
+  - name: Barbaresco
+    outline: true
+    doc: Barbaresco
+    parent: Piemonte
+    tier: 2
+    extent: small
+  - name: Barbera d'Asti
+    doc: Barbera D'Asti
+    parent: Piemonte
+    tier: 2
+    extent: small
+  - name: Gavi
+    doc: Gavi o Cortese di Gavi
+    parent: Piemonte
+    tier: 2
+    extent: small
+  - name: Asti
+    doc: Asti
+    parent: Piemonte
+    tier: 2
+    extent: small
+- id: veneto
+  title: Veneto & Friuli
+  bbox: auto
+  pad: 0.1
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Veneto
+    admin1: Italy/Veneto
+    outline: true
+    tier: 1
+    extent: large
+  - name: Friuli-Venezia Giulia
+    admin1: Italy/Friuli-Venezia Giulia
+    colour: '#7d4a86'
+    outline: true
+    tier: 1
+    extent: medium
+  - name: Valpolicella
+    pdo: PDO-IT-A0442
+    wikidata: Q852467
+    wd_desc: valley and wine region in Verona, Italy
+    tier: 2
+    extent: small
+  - name: Soave
+    pdo: PDO-IT-A0472
+    wikidata: Q47876
+    wd_desc: Italian comune
+    tier: 2
+    extent: small
+- id: tuscany
+  title: Tuscany
+  bbox: auto
+  pad: 0.1
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Tuscany
+    fill: false
+    outline: true
+    dot: false
+    anchor:
+    - 10.89
+    - 43.21
+    admin1: Italy/Toscana
+    tier: 1
+    extent: large
+  - name: Chianti
+    colour: '#a8661f'
+    dot: false
+    anchor:
+    - 10.87
+    - 43.57
+    pdo: PDO-IT-A1228
+    wikidata: Q1071629
+    wd_desc: wine-producing area in Tuscany, Italy
+    tier: 2
+    extent: medium
+  - name: Chianti Classico
+    pdo: PDO-IT-A1514
+    colour: '#7a1f2b'
+    outline: true
+    tier: 2
+    extent: small
+  - name: Montalcino
+    colour: '#2f7d8c'
+    outline: true
+    label: s
+    pdo: PDO-IT-A1199
+    wikidata: Q91208
+    wd_desc: Italian comune
+    tier: 2
+    extent: small
+- id: spain
+  title: Spain
+  distinct: true
+  bbox: auto
+  pad: 0.1
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Rioja
+    pdo: PDO-ES-A0117
+    wikidata: Q1569384
+    wd_desc: Spanish wine region
+    region_of: northern-spain
+    colour: '#7a1f2b'
+    tier: 1
+    extent: medium
+  - name: Navarra
+    pdo: PDO-ES-A0127
+    colour: '#2f7d8c'
+    tier: 1
+    extent: medium
+  - name: Catalunya
+    admin1: Spain/Cataluña
+    colour: '#a8661f'
+    tier: 1
+    extent: large
+  - name: Priorat
+    pdo: PDO-ES-A1560
+    wikidata: Q1754563
+    wd_desc: Spanish Denominación de Origen Calificada
+    parent: Catalunya
+    tier: 2
+    extent: small
+  - name: Ribera del Duero
+    pdo: PDO-ES-A0626
+    wikidata: Q631876
+    wd_desc: comarca of Burgos Province
+    colour: '#5f8a34'
+    tier: 1
+    extent: medium
+  - name: Rías Baixas
+    pdo: PDO-ES-A1119
+    wikidata: Q1482982
+    wd_desc: coast to the west of Galicia, Spain
+    colour: '#7d4a86'
+    tier: 1
+    extent: medium
+  - name: Jerez
+    pdo: PDO-ES-A1483
+    wikidata: Q12303
+    wd_desc: municipality and city in the Province of Cádiz, Spain
+    colour: '#3c6aa5'
+    tier: 1
+    extent: medium
+- id: northern-spain
+  title: Northern Spain
+  bbox: auto
+  pad: 0.12
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Rioja
+    pdo: PDO-ES-A0117
+    wikidata: Q1569384
+    wd_desc: Spanish wine region
+    colour: '#7a1f2b'
+    outline: true
+    tier: 1
+    extent: medium
+  - name: Navarra
+    pdo: PDO-ES-A0127
+    colour: '#2f7d8c'
+    outline: true
+    tier: 1
+    extent: medium
+  - name: Ribera del Duero
+    pdo: PDO-ES-A0626
+    wikidata: Q631876
+    wd_desc: comarca of Burgos Province
+    colour: '#5f8a34'
+    outline: true
+    tier: 1
+    extent: medium
+- id: catalunya
+  title: Catalunya
+  bbox: auto
+  pad: 0.1
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Catalunya
+    admin1: Spain/Cataluña
+    colour: '#a8661f'
+    tier: 1
+    extent: large
+  - name: Priorat
+    pdo: PDO-ES-A1560
+    wikidata: Q1754563
+    wd_desc: Spanish Denominación de Origen Calificada
+    parent: Catalunya
+    outline: true
+    tier: 2
+    extent: small
+- id: germany
+  title: Germany
+  distinct: true
+  bbox: auto
+  min_span: 4.0
+  pad: 0.35
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Mosel
+    pdo: PDO-DE-A1270
+    wikidata: Q155622
+    wd_desc: town in Rhineland-Palatinate, Germany
+    tier: 1
+    extent: medium
+  - name: Rheingau
+    pdo: PDO-DE-A1273
+    wikidata: Q212376
+    wd_desc: landscape at the Northern side of the Rine between Wiesbaden
+    tier: 1
+    extent: medium
+  - name: Pfalz
+    pdo: PDO-DE-A1272
+    wikidata: Q326359
+    wd_desc: historical region in the south-west of Germany
+    tier: 1
+    extent: medium
+- id: portugal
+  title: Portugal
+  bbox: auto
+  min_span: 5.5
+  pad: 0.9
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Douro
+    pdo: PDO-PT-A1539
+    wikidata: Q1252756
+    wd_desc: NUTS 3 subregion of Portugal
+    tier: 1
+    extent: large
+- id: australia
+  title: Australia
+  distinct: true
+  bbox: auto
+  pad: 0.06
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: South Australia
+    dot: false
+    region_of: south-australia
+    admin1: Australia/South Australia
+    tier: 1
+    extent: large
+  - name: New South Wales
+    dot: false
+    anchor:
+    - 146.5
+    - -31.3
+    region_of: new-south-wales
+    admin1: Australia/New South Wales
+    tier: 1
+    extent: large
+  - name: Victoria
+    dot: false
+    anchor:
+    - 145.5
+    - -36.4
+    region_of: victoria
+    admin1: Australia/Victoria
+    tier: 1
+    extent: large
+  - name: Western Australia
+    dot: false
+    region_of: western-australia
+    admin1: Australia/Western Australia
+    tier: 1
+    extent: large
+  - name: Barossa Valley
+    gi: au/Barossa Valley
+    named: false
+    parent: South Australia
+    wikidata: Q698920
+    wd_desc: valley and wine-producing region in South Australia
+    tier: 2
+    extent: small
+  - name: Eden Valley
+    gi: au/Eden Valley
+    named: false
+    parent: South Australia
+    wikidata: Q5336950
+    wd_desc: town in South Australia
+    tier: 2
+    extent: small
+  - name: Clare Valley
+    gi: au/Clare Valley
+    named: false
+    parent: South Australia
+    wikidata: Q1612687
+    wd_desc: region of South Australia
+    tier: 2
+    extent: small
+  - name: McLaren Vale
+    gi: au/McLaren Vale
+    named: false
+    parent: South Australia
+    wikidata: Q6802082
+    wd_desc: Australian Geographical indication
+    tier: 2
+    extent: small
+  - name: Coonawarra
+    gi: au/Coonawarra
+    named: false
+    parent: South Australia
+    wikidata: Q1129760
+    wd_desc: Australian Geographical Indication
+    tier: 2
+    extent: small
+  - name: Adelaide Hills
+    gi: au/Adelaide Hills
+    named: false
+    parent: South Australia
+    wikidata: Q353992
+    wd_desc: range of hills
+    tier: 2
+    extent: small
+  - name: Hunter Valley
+    gi: au/Hunter
+    named: false
+    parent: New South Wales
+    wikidata: Q1638164
+    wd_desc: region of New South Wales, Australia
+    tier: 2
+    extent: small
+  - name: Yarra Valley
+    gi: au/Yarra Valley
+    named: false
+    parent: Victoria
+    wikidata: Q8049508
+    wd_desc: wine region in Victoria, Australia
+    tier: 2
+    extent: small
+  - name: Mornington Peninsula
+    gi: au/Mornington Peninsula
+    named: false
+    parent: Victoria
+    wikidata: Q6913026
+    wd_desc: Australian wine region
+    tier: 2
+    extent: small
+  - name: Margaret River
+    gi: au/Margaret River
+    named: false
+    parent: Western Australia
+    wikidata: Q6759841
+    wd_desc: Wine region in Western Australia
+    tier: 2
+    extent: small
+- id: australian-chardonnay
+  title: Australian Chardonnay
+  distinct: true
+  bbox:
+  - 113.5
+  - -39.4
+  - 148.8
+  - -29.0
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Western Australia
+    anchor:
+    - 120.5
+    - -31.2
+    region_of: western-australia
+    admin1: Australia/Western Australia
+    fit: false
+    dot: false
+    tier: 0
+    extent: large
+  - name: South Australia
+    anchor:
+    - 135.5
+    - -30.8
+    region_of: south-australia
+    admin1: Australia/South Australia
+    fit: false
+    dot: false
+    tier: 0
+    extent: large
+  - name: Victoria
+    anchor:
+    - 143.6
+    - -36.6
+    region_of: victoria
+    admin1: Australia/Victoria
+    fit: false
+    dot: false
+    tier: 0
+    extent: large
+  - name: Margaret River
+    gi: au/Margaret River
+    tier: 1
+    extent: small
+  - name: Adelaide Hills
+    gi: au/Adelaide Hills
+    tier: 1
+    extent: small
+  - name: Yarra Valley
+    gi: au/Yarra Valley
+    tier: 1
+    extent: small
+- id: south-africa
+  title: South Africa
+  distinct: true
+  bbox: auto
+  pad: 0.1
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Western Cape
+    admin1: South Africa/Western Cape
+    tier: 1
+    extent: large
+  - name: Stellenbosch
+    parent: Western Cape
+    wikidata: Q522028
+    wd_desc: local municipality in the Western Cape, South Africa
+    tier: 2
+    extent: small
+  - name: Constantia
+    parent: Western Cape
+    wikidata: Q1127739
+    wd_desc: suburb of Cape Town, South Africa
+    tier: 2
+    extent: small
+  - name: Elgin
+    parent: Western Cape
+    wikidata: Q2263903
+    wd_desc: populated place in Western Cape, South Africa
+    tier: 2
+    extent: small
+  - name: Walker Bay
+    parent: Western Cape
+    wikidata: Q7962218
+    wd_desc: body of water
+    tier: 2
+    extent: small
+- id: chile
+  title: Chile
+  distinct: true
+  bbox: auto
+  min_span: 7.0
+  pad: 0.1
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Central Valley
+    colour: '#b07a6e'
+    admin1:
+    - Chile/Región Metropolitana de Santiago
+    - Chile/Libertador General Bernardo O'Higgins
+    - Chile/Maule
+    wikidata: Q1031793
+    wd_desc: depression between the Chilean Costal Range and the
+    tier: 1
+    extent: large
+  - name: Maipo Valley
+    colour: '#7a1f2b'
+    admin1: Chile/Región Metropolitana de Santiago
+    parent: Central Valley
+    wikidata: Q721450
+    wd_desc: province of Chile
+    tier: 2
+    extent: small
+  - name: Colchagua Valley
+    colour: '#a8661f'
+    osm:
+    - R1661314
+    - R1561024
+    parent: Central Valley
+    wikidata: Q201304
+    wd_desc: province of Chile
+    tier: 2
+    extent: small
+  - name: Casablanca Valley
+    colour: '#2f7d8c'
+    osm: R112129
+    wikidata: Q3742
+    wd_desc: Chilean commune
+    tier: 2
+    extent: small
+- id: argentina
+  title: Argentina
+  bbox: auto
+  pad: 0.25
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Mendoza
+    admin1: Argentina/Mendoza
+    tier: 1
+    extent: large
+- id: hungary
+  title: Hungary
+  bbox: auto
+  min_span: 5.5
+  pad: 0.9
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Tokaj
+    pdo: PDO-HU-A1254
+    wikidata: Q582209
+    wd_desc: town in Hungary
+    tier: 1
+    extent: medium
+- id: south-australia
+  title: South Australia
+  distinct: true
+  bbox: auto
+  pad: 0.12
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: South Australia
+    admin1: Australia/South Australia
+    fit: false
+    fill: false
+    outline: true
+    tier: 0
+    extent: large
+  - name: Barossa Valley
+    gi: au/Barossa Valley
+    wikidata: Q698920
+    wd_desc: valley and wine-producing region in South Australia
+    tier: 1
+    extent: small
+  - name: Eden Valley
+    gi: au/Eden Valley
+    wikidata: Q5336950
+    wd_desc: town in South Australia
+    tier: 1
+    extent: small
+  - name: Clare Valley
+    gi: au/Clare Valley
+    wikidata: Q1612687
+    wd_desc: region of South Australia
+    tier: 1
+    extent: small
+  - name: McLaren Vale
+    gi: au/McLaren Vale
+    wikidata: Q6802082
+    wd_desc: Australian Geographical indication
+    tier: 1
+    extent: small
+  - name: Coonawarra
+    gi: au/Coonawarra
+    wikidata: Q1129760
+    wd_desc: Australian Geographical Indication
+    tier: 1
+    extent: small
+  - name: Adelaide Hills
+    gi: au/Adelaide Hills
+    wikidata: Q353992
+    wd_desc: range of hills
+    tier: 1
+    extent: small
+- id: western-australia
+  title: Western Australia
+  distinct: true
+  bbox: auto
+  min_span: 4.5
+  pad: 0.12
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Western Australia
+    admin1: Australia/Western Australia
+    fit: false
+    fill: false
+    outline: true
+    tier: 0
+    extent: large
+  - name: Margaret River
+    gi: au/Margaret River
+    wikidata: Q6759841
+    wd_desc: Wine region in Western Australia
+    tier: 1
+    extent: small
+- id: victoria
+  title: Victoria
+  distinct: true
+  bbox: auto
+  min_span: 2.5
+  pad: 0.12
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Victoria
+    admin1: Australia/Victoria
+    fit: false
+    fill: false
+    outline: true
+    tier: 0
+    extent: large
+  - name: Yarra Valley
+    gi: au/Yarra Valley
+    wikidata: Q8049508
+    wd_desc: wine region in Victoria, Australia
+    tier: 1
+    extent: small
+  - name: Mornington Peninsula
+    gi: au/Mornington Peninsula
+    wikidata: Q6913026
+    wd_desc: Australian wine region
+    tier: 1
+    extent: small
+- id: new-south-wales
+  title: New South Wales
+  distinct: true
+  bbox: auto
+  min_span: 3.5
+  pad: 0.12
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: New South Wales
+    admin1: Australia/New South Wales
+    fit: false
+    fill: false
+    outline: true
+    tier: 0
+    extent: large
+  - name: Hunter Valley
+    gi: au/Hunter
+    wikidata: Q1638164
+    wd_desc: region of New South Wales, Australia
+    tier: 1
+    extent: small

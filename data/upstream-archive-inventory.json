@@ -1,0 +1,65 @@
+[
+  {
+    "filename": "EU_PDO.gpkg",
+    "sha256": "8df0dc759f9c1bc17fff12d653b224282382d6a10f4a15c2cf937d5ab13f0356",
+    "bytes": 44580864,
+    "acquired_at": null,
+    "stored_in_map_ready_archive": false
+  },
+  {
+    "filename": "PDO_EU_id.csv",
+    "sha256": "d85fb0bb091d86bde2b457dc03fd23788bda3965e70af3c369606ed8f9849c17",
+    "bytes": 1266130,
+    "acquired_at": null,
+    "stored_in_map_ready_archive": false
+  },
+  {
+    "filename": "communes-aires-ao.csv",
+    "sha256": "7e2472ab7550d8cc3426816040310952365148b5483d0b6cb9a7e70c33fa9cbe",
+    "bytes": 3632054,
+    "acquired_at": null,
+    "stored_in_map_ready_archive": false
+  },
+  {
+    "filename": "piemonte-doc.cpg",
+    "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+    "bytes": 5,
+    "acquired_at": null,
+    "stored_in_map_ready_archive": false
+  },
+  {
+    "filename": "piemonte-doc.dbf",
+    "sha256": "9a03ca7bef268914cc5371fdeee30c7e19cac355c3815045c228bf2072bb4f22",
+    "bytes": 5122,
+    "acquired_at": null,
+    "stored_in_map_ready_archive": false
+  },
+  {
+    "filename": "piemonte-doc.prj",
+    "sha256": "10a2674d7bc43a70df19daf98d0b1deb3f5222f03659e1b4d82b395c20177cb9",
+    "bytes": 400,
+    "acquired_at": null,
+    "stored_in_map_ready_archive": false
+  },
+  {
+    "filename": "piemonte-doc.shp",
+    "sha256": "5f7ff6ccd0e61726e9956e64593ccbc36b60a14650310b6c884fa43e47c2e0b5",
+    "bytes": 11082004,
+    "acquired_at": null,
+    "stored_in_map_ready_archive": false
+  },
+  {
+    "filename": "piemonte-doc.shx",
+    "sha256": "d31e347b7cbd785e6c522f01c61a804b4c3d54b2200952dd4572cf50935b29ab",
+    "bytes": 612,
+    "acquired_at": null,
+    "stored_in_map_ready_archive": false
+  },
+  {
+    "filename": "piemonte-doc.zip",
+    "sha256": "1289c6e2b3508b59496ea97c5bc2d02d1110ba8a4afd99012e652757b974ed5a",
+    "bytes": 8172133,
+    "acquired_at": null,
+    "stored_in_map_ready_archive": false
+  }
+]
