@@ -1,5 +1,4 @@
 from pathlib import Path
-import importlib.util
 import json
 import shutil
 import sys
@@ -10,6 +9,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import render_maps
+import source_geodata as geo
 from snapshots import prepare
 
 class ExtractionTests(unittest.TestCase):
@@ -45,6 +45,24 @@ class ExtractionTests(unittest.TestCase):
             path.unlink()
             with self.assertRaisesRegex(FileNotFoundError, 'Missing pinned source input'):
                 prepare(root)
+
+    def test_projection_origins_and_independent_pdo_towns(self):
+        lon, lat = geo.utm_to_wgs84(500000, 0, zone=32)
+        self.assertAlmostEqual(lon, 9, places=7)
+        self.assertAlmostEqual(lat, 0, places=7)
+        lon, lat = geo.laea_to_wgs84(4321000, 3210000)
+        self.assertAlmostEqual(lon, 10, places=7)
+        self.assertAlmostEqual(lat, 52, places=7)
+        near_lon, near_lat = geo.laea_to_wgs84(4321000.001, 3210000.001)
+        self.assertAlmostEqual(near_lon, 10, places=6)
+        self.assertAlmostEqual(near_lat, 52, places=6)
+        self.assertGreater(near_lon, lon)
+        self.assertGreater(near_lat, lat)
+        prepare()
+        for pdo_id, points in geo.PDO_CONTROL.items():
+            area = geo.pdo_area(pdo_id)
+            for point in points:
+                self.assertTrue(geo.in_rings(list(point), area['rings']), pdo_id)
 
     def test_png_requires_cairo(self):
         with tempfile.TemporaryDirectory() as tmp, patch.object(sys, 'argv', ['render_maps', '--only', 'bordeaux', '--out', tmp]), patch.object(render_maps, 'load_cairosvg', return_value=None):

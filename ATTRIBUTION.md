@@ -79,7 +79,7 @@ halo, which indicates position and rough size only and is **not** a boundary.
 Côte de Nuits, the Northern Rhône, Crozes-Hermitage - the line is the outer
 boundary of the same sourced polygons that are filled: edges shared by two
 communes cancel, and what is left is the union's edge. A label `anchor:` is
-the one hand-typed coordinate in `maps.yaml`, and `source_geodata.py` checks
+the one hand-typed coordinate in `catalogue.yaml`, and `source_geodata.py` checks
 each one lies inside its own sourced area.
 
 Appellation boundaries were deliberately **not** taken from OpenStreetMap. Its
@@ -91,4 +91,4 @@ eight, and Barossa Valley has no region object at all.
 **A correction found in the source data.** Wikidata's "Jurisdiction of
 Saint-Emilion" (`Q2987951`) carries a longitude sign error — `+0.1553` where
 the true value is `-0.1557` — which places it some 25 km east, on the wrong
-side of the Dordogne. `maps.yaml` pins the commune instead and says why.
+side of the Dordogne. `catalogue.yaml` pins the commune instead and says why.

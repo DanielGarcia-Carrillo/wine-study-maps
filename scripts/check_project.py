@@ -26,6 +26,24 @@ def check(root=ROOT):
         assert "gi-nz-" not in row["path"]
     with tarfile.open(root / "data/map-inputs.tar.gz") as tar:
         assert all("gi-nz-" not in m.name and m.isfile() for m in tar.getmembers())
+    # A curated allowlist also checks untracked files before publication reviews.
+    roots = {".gitignore", "ATTRIBUTION.md", "LICENSE", "LICENSE-ARTWORK.md", "README.md", "catalogue.yaml", "pyproject.toml", "uv.lock"}
+    for path in root.iterdir():
+        if path.name in {".git", ".venv", ".cache", "work"}:
+            continue
+        assert path.name in roots | {"assets", "scripts", "tests", "data"}, path
+        assert not path.is_symlink(), path
+    allowed_data = {"asset-manifest.json", "input-manifest.json", "label-colours.json", "map-inputs.tar.gz", "upstream-archive-inventory.json"}
+    assert {p.name for p in (root / "data").iterdir()} == allowed_data
+    for directory in ("scripts", "tests"):
+        for path in (root / directory).rglob("*"):
+            if "__pycache__" in path.parts:
+                continue
+            assert path.suffix == ".py" and not path.is_symlink(), path
+            if path.name == "check_project.py":
+                continue  # This checker contains the forbidden-token definitions.
+            content = path.read_text()
+            assert all(token not in content for token in ("/Users/", "@gmail.com", "textbook/dist/", "source/course-materials/")), path
     prepare(root)
     print(f"PASS: {len(ids)} maps, {len(expected)-1} assets, contact sheet, {len(inputs)} licensed pinned inputs")
 

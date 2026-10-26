@@ -16,7 +16,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-argentina-mendoza",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-australia-new-south-wales.json",
@@ -36,7 +38,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-australia-new-south-wales",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-australia-south-australia.json",
@@ -60,7 +64,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-australia-south-australia",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-australia-victoria.json",
@@ -84,7 +90,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-australia-victoria",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-australia-western-australia.json",
@@ -108,7 +116,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-australia-western-australia",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-chile-libertador-general-bernardo-o-higgins.json",
@@ -124,7 +134,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-chile-libertador-general-bernardo-o-higgins",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-chile-maule.json",
@@ -140,7 +152,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-chile-maule",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-chile-regi-n-metropolitana-de-santiago.json",
@@ -156,7 +170,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-chile-regi-n-metropolitana-de-santiago",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-italy-abruzzo.json",
@@ -172,7 +188,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-italy-abruzzo",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-italy-apulia.json",
@@ -188,7 +206,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-italy-apulia",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-italy-campania.json",
@@ -204,7 +224,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-italy-campania",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-italy-friuli-venezia-giulia.json",
@@ -224,7 +246,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-italy-friuli-venezia-giulia",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-italy-marche.json",
@@ -240,7 +264,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-italy-marche",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-italy-piemonte.json",
@@ -260,7 +286,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-italy-piemonte",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-italy-toscana.json",
@@ -280,7 +308,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-italy-toscana",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-italy-veneto.json",
@@ -300,7 +330,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-italy-veneto",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-south-africa-western-cape.json",
@@ -316,7 +348,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-south-africa-western-cape",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-spain-catalu-a.json",
@@ -336,7 +370,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-spain-catalu-a",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-united-states-of-america-california.json",
@@ -352,7 +388,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-united-states-of-america-california",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/admin1-united-states-of-america-oregon.json",
@@ -368,7 +406,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "admin1-united-states-of-america-oregon",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/aoc-alsace-grand-cru-brand.json",
@@ -384,7 +424,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-alsace-grand-cru-brand",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-alsace-suivi-d-un-nom-de-lieu-dit.json",
@@ -404,7 +446,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-alsace-suivi-d-un-nom-de-lieu-dit",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-beaujolais-villages.json",
@@ -420,7 +464,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-beaujolais-villages",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-beaujolais.json",
@@ -440,7 +486,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-beaujolais",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-beaune.json",
@@ -456,7 +504,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-beaune",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-bordeaux.json",
@@ -472,7 +522,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-bordeaux",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-bourgogne.json",
@@ -488,7 +540,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-bourgogne",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-c-te-de-beaune-villages-ladoix-aloxe-corton-pernand-vergelesses-savigny-l-s-beau.json",
@@ -504,7 +558,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-c-te-de-beaune-villages-ladoix-aloxe-corton-pernand-vergelesses-savigny-l-s-beau",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-c-te-de-nuits-villages-marsannay-fixin-gevrey-chambertin-morey-saint-denis-chamb.json",
@@ -520,7 +576,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-c-te-de-nuits-villages-marsannay-fixin-gevrey-chambertin-morey-saint-denis-chamb",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-c-te-r-tie-condrieu-ch-teau-grillet-saint-joseph-hermitage-crozes-hermitage-corn.json",
@@ -536,7 +594,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-c-te-r-tie-condrieu-ch-teau-grillet-saint-joseph-hermitage-crozes-hermitage-corn",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-c-te-r-tie.json",
@@ -552,7 +612,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-c-te-r-tie",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-c-tes-de-provence.json",
@@ -572,7 +634,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-c-tes-de-provence",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-c-tes-du-rh-ne-villages-ch-teauneuf-du-pape-gigondas-vacqueyras-vinsobres-rastea.json",
@@ -588,7 +652,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-c-tes-du-rh-ne-villages-ch-teauneuf-du-pape-gigondas-vacqueyras-vinsobres-rastea",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-c-tes-du-rh-ne-villages.json",
@@ -604,7 +670,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-c-tes-du-rh-ne-villages",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-c-tes-du-rh-ne.json",
@@ -624,7 +692,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-c-tes-du-rh-ne",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-ch-teauneuf-du-pape.json",
@@ -640,7 +710,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-ch-teauneuf-du-pape",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-chablis.json",
@@ -656,7 +728,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-chablis",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-champagne.json",
@@ -676,7 +750,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-champagne",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-condrieu.json",
@@ -692,7 +768,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-condrieu",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-crozes-hermitage.json",
@@ -708,7 +786,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-crozes-hermitage",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-fleurie.json",
@@ -724,7 +804,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-fleurie",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-gevrey-chambertin.json",
@@ -740,7 +822,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-gevrey-chambertin",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-graves.json",
@@ -756,7 +840,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-graves",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-haut-m-doc.json",
@@ -772,7 +858,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-haut-m-doc",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-hermitage.json",
@@ -788,7 +876,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-hermitage",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-languedoc.json",
@@ -804,7 +894,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-languedoc",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-m-con.json",
@@ -820,7 +912,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-m-con",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-m-doc.json",
@@ -836,7 +930,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-m-doc",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-margaux.json",
@@ -852,7 +948,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-margaux",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-meursault.json",
@@ -868,7 +966,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-meursault",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-minervois.json",
@@ -884,7 +984,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-minervois",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-nuits-saint-georges.json",
@@ -900,7 +1002,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-nuits-saint-georges",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-pauillac.json",
@@ -916,7 +1020,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-pauillac",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-pessac-l-ognan.json",
@@ -932,7 +1038,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-pessac-l-ognan",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-pomerol.json",
@@ -948,7 +1056,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-pomerol",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-pommard.json",
@@ -964,7 +1074,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-pommard",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-pouilly-fuiss.json",
@@ -980,7 +1092,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-pouilly-fuiss",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loire.json",
@@ -996,7 +1110,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loire",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-puligny-montrachet.json",
@@ -1012,7 +1128,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-puligny-montrachet",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-saint-emilion.json",
@@ -1028,7 +1146,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-saint-emilion",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-sancerre.json",
@@ -1044,7 +1164,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-sancerre",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-sauternes.json",
@@ -1060,7 +1182,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-sauternes",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-touraine-vouvray-sancerre-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loi.json",
@@ -1076,7 +1200,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-touraine-vouvray-sancerre-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loi",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-touraine.json",
@@ -1092,7 +1218,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-touraine",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/aoc-vouvray.json",
@@ -1108,7 +1236,9 @@
       "licence": "Licence Ouverte 2.0",
       "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "aoc-vouvray",
+      "version": "2025-10-09"
     },
     {
       "path": ".inao-cache/ava-calistoga.json",
@@ -1124,7 +1254,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/5208ac65eeb9c3250945f1fa182b4f2ebb7756a9/avas/calistoga.geojson",
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ava-calistoga",
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
     },
     {
       "path": ".inao-cache/ava-central_coast.json",
@@ -1140,7 +1272,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/5208ac65eeb9c3250945f1fa182b4f2ebb7756a9/avas/central_coast.geojson",
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ava-central_coast",
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
     },
     {
       "path": ".inao-cache/ava-los_carneros.json",
@@ -1160,7 +1294,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/5208ac65eeb9c3250945f1fa182b4f2ebb7756a9/avas/los_carneros.geojson",
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ava-los_carneros",
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
     },
     {
       "path": ".inao-cache/ava-napa_valley.json",
@@ -1180,7 +1316,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/5208ac65eeb9c3250945f1fa182b4f2ebb7756a9/avas/napa_valley.geojson",
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ava-napa_valley",
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
     },
     {
       "path": ".inao-cache/ava-oakville.json",
@@ -1196,7 +1334,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/5208ac65eeb9c3250945f1fa182b4f2ebb7756a9/avas/oakville.geojson",
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ava-oakville",
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
     },
     {
       "path": ".inao-cache/ava-rutherford.json",
@@ -1212,7 +1352,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/5208ac65eeb9c3250945f1fa182b4f2ebb7756a9/avas/rutherford.geojson",
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ava-rutherford",
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
     },
     {
       "path": ".inao-cache/county-US06083.json",
@@ -1228,7 +1370,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_2_counties.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "county-US06083",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/county-US06097.json",
@@ -1248,7 +1392,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_2_counties.geojson",
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "county-US06097",
+      "version": "v5.1.2"
     },
     {
       "path": ".inao-cache/doc-asti.json",
@@ -1264,7 +1410,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip",
       "transformations": "Selected denominazi records; UTM 32N transformed to WGS84; exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "doc-asti",
+      "version": null
     },
     {
       "path": ".inao-cache/doc-barbaresco.json",
@@ -1280,7 +1428,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip",
       "transformations": "Selected denominazi records; UTM 32N transformed to WGS84; exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "doc-barbaresco",
+      "version": null
     },
     {
       "path": ".inao-cache/doc-barbera-d-asti.json",
@@ -1296,7 +1446,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip",
       "transformations": "Selected denominazi records; UTM 32N transformed to WGS84; exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "doc-barbera-d-asti",
+      "version": null
     },
     {
       "path": ".inao-cache/doc-barolo.json",
@@ -1312,7 +1464,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip",
       "transformations": "Selected denominazi records; UTM 32N transformed to WGS84; exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "doc-barolo",
+      "version": null
     },
     {
       "path": ".inao-cache/doc-gavi-o-cortese-di-gavi.json",
@@ -1328,7 +1482,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip",
       "transformations": "Selected denominazi records; UTM 32N transformed to WGS84; exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "doc-gavi-o-cortese-di-gavi",
+      "version": null
     },
     {
       "path": ".inao-cache/gi-au-adelaide-hills.json",
@@ -1352,7 +1508,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer",
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "gi-au-adelaide-hills",
+      "version": null
     },
     {
       "path": ".inao-cache/gi-au-barossa-valley.json",
@@ -1372,7 +1530,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer",
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "gi-au-barossa-valley",
+      "version": null
     },
     {
       "path": ".inao-cache/gi-au-clare-valley.json",
@@ -1392,7 +1552,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer",
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "gi-au-clare-valley",
+      "version": null
     },
     {
       "path": ".inao-cache/gi-au-coonawarra.json",
@@ -1412,7 +1574,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer",
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "gi-au-coonawarra",
+      "version": null
     },
     {
       "path": ".inao-cache/gi-au-eden-valley.json",
@@ -1432,7 +1596,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer",
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "gi-au-eden-valley",
+      "version": null
     },
     {
       "path": ".inao-cache/gi-au-hunter.json",
@@ -1452,7 +1618,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer",
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "gi-au-hunter",
+      "version": null
     },
     {
       "path": ".inao-cache/gi-au-margaret-river.json",
@@ -1476,7 +1644,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer",
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "gi-au-margaret-river",
+      "version": null
     },
     {
       "path": ".inao-cache/gi-au-mclaren-vale.json",
@@ -1496,7 +1666,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer",
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "gi-au-mclaren-vale",
+      "version": null
     },
     {
       "path": ".inao-cache/gi-au-mornington-peninsula.json",
@@ -1516,7 +1688,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer",
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "gi-au-mornington-peninsula",
+      "version": null
     },
     {
       "path": ".inao-cache/gi-au-yarra-valley.json",
@@ -1540,7 +1714,9 @@
       "licence": "CC-BY-4.0",
       "source_url": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer",
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "gi-au-yarra-valley",
+      "version": null
     },
     {
       "path": ".inao-cache/osm-R112129.json",
@@ -1556,7 +1732,9 @@
       "licence": "ODbL-1.0",
       "source_url": "https://nominatim.openstreetmap.org/lookup?osm_ids=R112129&polygon_geojson=1&format=json",
       "transformations": "Administrative relation polygon; retained exterior rings, OSM relation id in filename",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "osm-R112129",
+      "version": null
     },
     {
       "path": ".inao-cache/osm-R1561024.json",
@@ -1572,7 +1750,9 @@
       "licence": "ODbL-1.0",
       "source_url": "https://nominatim.openstreetmap.org/lookup?osm_ids=R1561024&polygon_geojson=1&format=json",
       "transformations": "Administrative relation polygon; retained exterior rings, OSM relation id in filename",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "osm-R1561024",
+      "version": null
     },
     {
       "path": ".inao-cache/osm-R1661314.json",
@@ -1588,7 +1768,9 @@
       "licence": "ODbL-1.0",
       "source_url": "https://nominatim.openstreetmap.org/lookup?osm_ids=R1661314&polygon_geojson=1&format=json",
       "transformations": "Administrative relation polygon; retained exterior rings, OSM relation id in filename",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "osm-R1661314",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-DE-A1270.json",
@@ -1604,7 +1786,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-DE-A1270",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-DE-A1272.json",
@@ -1620,7 +1804,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-DE-A1272",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-DE-A1273.json",
@@ -1636,7 +1822,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-DE-A1273",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-ES-A0117.json",
@@ -1656,7 +1844,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-ES-A0117",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-ES-A0127.json",
@@ -1676,7 +1866,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-ES-A0127",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-ES-A0626.json",
@@ -1696,7 +1888,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-ES-A0626",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-ES-A1119.json",
@@ -1712,7 +1906,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-ES-A1119",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-ES-A1483.json",
@@ -1728,7 +1924,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-ES-A1483",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-ES-A1560.json",
@@ -1748,7 +1946,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-ES-A1560",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-HU-A1254.json",
@@ -1764,7 +1964,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-HU-A1254",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-IT-A0442.json",
@@ -1780,7 +1982,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-IT-A0442",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-IT-A0472.json",
@@ -1796,7 +2000,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-IT-A0472",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-IT-A1199.json",
@@ -1812,7 +2018,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-IT-A1199",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-IT-A1228.json",
@@ -1828,7 +2036,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-IT-A1228",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-IT-A1514.json",
@@ -1844,7 +2054,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-IT-A1514",
+      "version": null
     },
     {
       "path": ".inao-cache/pdo-PDO-PT-A1539.json",
@@ -1860,7 +2072,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://ndownloader.figshare.com/files/35955185",
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "pdo-PDO-PT-A1539",
+      "version": null
     },
     {
       "path": ".naturalearth-cache/ne_10m_admin_0_boundary_lines_land.geojson",
@@ -2000,7 +2214,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_0_boundary_lines_land.geojson",
       "transformations": "Unmodified upstream GeoJSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ne_10m_admin_0_boundary_lines_land",
+      "version": "v5.1.2"
     },
     {
       "path": ".naturalearth-cache/ne_10m_admin_0_countries.geojson",
@@ -2140,7 +2356,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_0_countries.geojson",
       "transformations": "Unmodified upstream GeoJSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ne_10m_admin_0_countries",
+      "version": "v5.1.2"
     },
     {
       "path": ".naturalearth-cache/ne_10m_coastline.geojson",
@@ -2280,7 +2498,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_coastline.geojson",
       "transformations": "Unmodified upstream GeoJSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ne_10m_coastline",
+      "version": "v5.1.2"
     },
     {
       "path": ".naturalearth-cache/ne_10m_lakes.geojson",
@@ -2420,7 +2640,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_lakes.geojson",
       "transformations": "Unmodified upstream GeoJSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ne_10m_lakes",
+      "version": "v5.1.2"
     },
     {
       "path": ".naturalearth-cache/ne_10m_populated_places.geojson",
@@ -2560,7 +2782,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_populated_places.geojson",
       "transformations": "Unmodified upstream GeoJSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ne_10m_populated_places",
+      "version": "v5.1.2"
     },
     {
       "path": ".naturalearth-cache/ne_10m_rivers_lake_centerlines.geojson",
@@ -2700,7 +2924,9 @@
       "licence": "Public domain",
       "source_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_rivers_lake_centerlines.geojson",
       "transformations": "Unmodified upstream GeoJSON",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "ne_10m_rivers_lake_centerlines",
+      "version": "v5.1.2"
     },
     {
       "path": ".wikidata-cache/Q1031793.json",
@@ -2716,7 +2942,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q1031793",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q1031793",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q1071629.json",
@@ -2732,7 +2960,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q1071629",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q1071629",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q1127739.json",
@@ -2748,7 +2978,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q1127739",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q1127739",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q1129760.json",
@@ -2768,7 +3000,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q1129760",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q1129760",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q12303.json",
@@ -2784,7 +3018,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q12303",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q12303",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q1252756.json",
@@ -2800,7 +3036,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q1252756",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q1252756",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q1482982.json",
@@ -2816,7 +3054,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q1482982",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q1482982",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q155622.json",
@@ -2832,7 +3072,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q155622",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q155622",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q1569384.json",
@@ -2852,7 +3094,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q1569384",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q1569384",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q1612687.json",
@@ -2872,7 +3116,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q1612687",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q1612687",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q1638164.json",
@@ -2892,7 +3138,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q1638164",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q1638164",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q1754563.json",
@@ -2912,7 +3160,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q1754563",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q1754563",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q201304.json",
@@ -2928,7 +3178,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q201304",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q201304",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q212376.json",
@@ -2944,7 +3196,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q212376",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q212376",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q2263903.json",
@@ -2960,7 +3214,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q2263903",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q2263903",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q23047.json",
@@ -2976,7 +3232,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q23047",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q23047",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q27026.json",
@@ -2992,7 +3250,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q27026",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q27026",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q326359.json",
@@ -3008,7 +3268,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q326359",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q326359",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q353992.json",
@@ -3028,7 +3290,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q353992",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q353992",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q3742.json",
@@ -3044,7 +3308,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q3742",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q3742",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q47876.json",
@@ -3060,7 +3326,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q47876",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q47876",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q522028.json",
@@ -3076,7 +3344,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q522028",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q522028",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q5336950.json",
@@ -3096,7 +3366,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q5336950",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q5336950",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q582209.json",
@@ -3112,7 +3384,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q582209",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q582209",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q631876.json",
@@ -3132,7 +3406,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q631876",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q631876",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q6759841.json",
@@ -3152,7 +3428,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q6759841",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q6759841",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q6802082.json",
@@ -3172,7 +3450,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q6802082",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q6802082",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q6913026.json",
@@ -3192,7 +3472,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q6913026",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q6913026",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q698920.json",
@@ -3212,7 +3494,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q698920",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q698920",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q721450.json",
@@ -3228,7 +3512,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q721450",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q721450",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q7962218.json",
@@ -3244,7 +3530,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q7962218",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q7962218",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q8049508.json",
@@ -3264,7 +3552,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q8049508",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q8049508",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q852467.json",
@@ -3280,7 +3570,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q852467",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q852467",
+      "version": null
     },
     {
       "path": ".wikidata-cache/Q91208.json",
@@ -3296,7 +3588,9 @@
       "licence": "CC0-1.0",
       "source_url": "https://www.wikidata.org/wiki/Q91208",
       "transformations": "Selected P625 coordinate, label and description; JSON record",
-      "acquired_at": null
+      "acquired_at": null,
+      "source_id": "Q91208",
+      "version": null
     }
   ],
   "archive_sha256": "f6c7b3f2f68df2933a99de01bf892ce0e54fa7da959de45d8bc7fa1c9f776e7b"

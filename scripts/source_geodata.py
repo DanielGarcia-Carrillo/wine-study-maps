@@ -369,6 +369,8 @@ def laea_to_wgs84(x: float, y: float) -> tuple[float, float]:
     d = a * (math.cos(lat0) / math.sqrt(1 - e2 * math.sin(lat0) ** 2)) / (rq * math.cos(beta0))
     dx, dy = x - fe, y - fn
     rho = math.hypot(dx / d, d * dy)
+    if rho == 0:
+        return (math.degrees(lon0), math.degrees(lat0))
     c = 2 * math.asin(rho / (2 * rq))
     beta = math.asin(math.cos(c) * math.sin(beta0)
                      + d * dy * math.sin(c) * math.cos(beta0) / rho)

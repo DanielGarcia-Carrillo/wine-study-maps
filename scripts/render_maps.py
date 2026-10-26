@@ -53,11 +53,6 @@ CITY_PX = 14
 CITY_EM = 0.59 * CITY_PX
 
 
-def _rgb(hex_colour: str) -> tuple[int, int, int]:
-    h = hex_colour.lstrip("#")
-    return (int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16))
-
-
 # Reviewed label colours preserve the original palette without embedding a
 # third-party contrast implementation. Extend data/label-colours.json explicitly.
 def readable(hex_colour: str, bg: str, target: float = 75.0) -> str:

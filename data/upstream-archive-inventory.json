@@ -4,62 +4,98 @@
     "sha256": "8df0dc759f9c1bc17fff12d653b224282382d6a10f4a15c2cf937d5ab13f0356",
     "bytes": 44580864,
     "acquired_at": null,
-    "stored_in_map_ready_archive": false
+    "stored_in_map_ready_archive": false,
+    "source_url": "https://ndownloader.figshare.com/files/35955185",
+    "licence": "CC0-1.0",
+    "version": "collection v1",
+    "transformations": "Cached upstream download; not needed by renderer"
   },
   {
     "filename": "PDO_EU_id.csv",
     "sha256": "d85fb0bb091d86bde2b457dc03fd23788bda3965e70af3c369606ed8f9849c17",
     "bytes": 1266130,
     "acquired_at": null,
-    "stored_in_map_ready_archive": false
+    "stored_in_map_ready_archive": false,
+    "source_url": "https://doi.org/10.6084/m9.figshare.c.5877659.v1",
+    "licence": "CC0-1.0",
+    "version": "collection v1",
+    "transformations": "Cached upstream download; not needed by renderer"
   },
   {
     "filename": "communes-aires-ao.csv",
     "sha256": "7e2472ab7550d8cc3426816040310952365148b5483d0b6cb9a7e70c33fa9cbe",
     "bytes": 3632054,
     "acquired_at": null,
-    "stored_in_map_ready_archive": false
+    "stored_in_map_ready_archive": false,
+    "source_url": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
+    "licence": "Licence Ouverte 2.0",
+    "version": "2025-10-09",
+    "transformations": "Unmodified cached upstream CSV"
   },
   {
     "filename": "piemonte-doc.cpg",
     "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
     "bytes": 5,
     "acquired_at": null,
-    "stored_in_map_ready_archive": false
+    "stored_in_map_ready_archive": false,
+    "source_url": "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip",
+    "licence": "CC-BY-4.0",
+    "version": null,
+    "transformations": "Extracted shapefile component from original ZIP"
   },
   {
     "filename": "piemonte-doc.dbf",
     "sha256": "9a03ca7bef268914cc5371fdeee30c7e19cac355c3815045c228bf2072bb4f22",
     "bytes": 5122,
     "acquired_at": null,
-    "stored_in_map_ready_archive": false
+    "stored_in_map_ready_archive": false,
+    "source_url": "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip",
+    "licence": "CC-BY-4.0",
+    "version": null,
+    "transformations": "Extracted shapefile component from original ZIP"
   },
   {
     "filename": "piemonte-doc.prj",
     "sha256": "10a2674d7bc43a70df19daf98d0b1deb3f5222f03659e1b4d82b395c20177cb9",
     "bytes": 400,
     "acquired_at": null,
-    "stored_in_map_ready_archive": false
+    "stored_in_map_ready_archive": false,
+    "source_url": "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip",
+    "licence": "CC-BY-4.0",
+    "version": null,
+    "transformations": "Extracted shapefile component from original ZIP"
   },
   {
     "filename": "piemonte-doc.shp",
     "sha256": "5f7ff6ccd0e61726e9956e64593ccbc36b60a14650310b6c884fa43e47c2e0b5",
     "bytes": 11082004,
     "acquired_at": null,
-    "stored_in_map_ready_archive": false
+    "stored_in_map_ready_archive": false,
+    "source_url": "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip",
+    "licence": "CC-BY-4.0",
+    "version": null,
+    "transformations": "Extracted shapefile component from original ZIP"
   },
   {
     "filename": "piemonte-doc.shx",
     "sha256": "d31e347b7cbd785e6c522f01c61a804b4c3d54b2200952dd4572cf50935b29ab",
     "bytes": 612,
     "acquired_at": null,
-    "stored_in_map_ready_archive": false
+    "stored_in_map_ready_archive": false,
+    "source_url": "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip",
+    "licence": "CC-BY-4.0",
+    "version": null,
+    "transformations": "Extracted shapefile component from original ZIP"
   },
   {
     "filename": "piemonte-doc.zip",
     "sha256": "1289c6e2b3508b59496ea97c5bc2d02d1110ba8a4afd99012e652757b974ed5a",
     "bytes": 8172133,
     "acquired_at": null,
-    "stored_in_map_ready_archive": false
+    "stored_in_map_ready_archive": false,
+    "source_url": "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip",
+    "licence": "CC-BY-4.0",
+    "version": null,
+    "transformations": "Original ZIP download"
   }
 ]
