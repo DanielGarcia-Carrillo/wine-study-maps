@@ -5,3 +5,4 @@ __pycache__/
 work/
 *.apkg
 .DS_Store
+.maintenance-cache/

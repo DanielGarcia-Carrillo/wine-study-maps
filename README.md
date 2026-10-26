@@ -49,8 +49,11 @@ versions are in the source adapters and input manifest; re-downloading an unvers
 upstream endpoint can change bytes. A future full-download mirror should be a
 checksummed archive linked from that inventory, checked against the recorded hashes.
 Do not invent acquisition dates. `source_geodata.py --refresh` explicitly permits
-source-maintenance downloads for missing cache entries; it is never a routine build
-step, and does not update the checked-in snapshot or manifest automatically.
+source-maintenance downloads in a separate ignored `.maintenance-cache`; it is never
+a routine build step and does not alter pinned `.cache`, the checked-in snapshot or
+manifest. It reuses existing maintenance entries; remove `.maintenance-cache` before
+a fresh upstream check. Review and curate any changed inputs before making a new
+snapshot and updating hashes.
 
 New Zealand GI recipes, processed IPONZ inputs, images and thumbnails are excluded
 pending redistribution-rights resolution. Existing private consumers may add their

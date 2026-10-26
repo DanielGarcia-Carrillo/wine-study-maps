@@ -64,6 +64,21 @@ class ExtractionTests(unittest.TestCase):
             for point in points:
                 self.assertTrue(geo.in_rings(list(point), area['rings']), pdo_id)
 
+    def test_refresh_populates_separate_maintenance_cache(self):
+        import yaml
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            spec = root / 'catalogue.yaml'
+            spec.write_text(yaml.safe_dump({'maps': [{'id': 'sample', 'base': ['land'], 'regions': []}]}))
+            (root / '.cache').mkdir()
+            marker = root / '.cache' / 'pinned-marker'
+            marker.write_text('pinned')
+            with patch.multiple(geo, ROOT=root, SPEC=spec, MAPS=geo.MAPS, NE_CACHE=geo.NE_CACHE, WD_CACHE=geo.WD_CACHE, INAO_CACHE=geo.INAO_CACHE, REFRESH=False), patch.object(sys, 'argv', ['source_geodata', '--refresh']), patch.object(geo, 'curl', return_value='{"features": []}') as fetch, patch('snapshots.prepare', side_effect=AssertionError('pinned cache must be untouched')):
+                self.assertEqual(geo.main(), 0)
+                self.assertEqual(fetch.call_count, 1)
+                self.assertTrue((root / '.maintenance-cache/.naturalearth-cache' / geo.LAYERS['land']).is_file())
+                self.assertEqual(marker.read_text(), 'pinned')
+
     def test_png_requires_cairo(self):
         with tempfile.TemporaryDirectory() as tmp, patch.object(sys, 'argv', ['render_maps', '--only', 'bordeaux', '--out', tmp]), patch.object(render_maps, 'load_cairosvg', return_value=None):
             with self.assertRaisesRegex(RuntimeError, 'PNG output requires'):

@@ -23,11 +23,10 @@ Nothing in them is drawn by hand.
 **Italy.** Piedmont publishes the boundaries of its DOC and DOCG production
 areas. Veneto and Tuscany publish none, so their DOCs and DOCGs come from the
 EU PDO inventory described under Spain below. The Piedmont file is a shapefile in UTM zone 32N,
-so it is reprojected to WGS84 by `utm_to_wgs84()`. That transform is checked
-rather than trusted: the comuni of Barolo, Barbaresco and Gavi - whose
-coordinates come from Wikidata, entirely independently of this shapefile -
-each fall inside their own DOCG polygon. (Asti does not, and should not: the
-Asti DOCG covers the Moscato hills south of the city, not the city itself.)
+so it is reprojected to WGS84 by `utm_to_wgs84()`. The automated suite
+checks the UTM 32N exact origin. No independent Piedmont town containment
+check is currently implemented; the preserved processed boundary inputs are
+checksummed and existing maps are unchanged by this extraction.
 
 **Spain, and the rest of the EU.** The DOs are drawn from the EU wine PDO
 inventory of Candiago et al. (2022), built from the EU register's own
@@ -70,9 +69,8 @@ so the area is unaffected; `source_geodata.py` reports the count either way.
 
 **What is not claimed.** A few regions have no delimited boundary to draw
 (Pays d'Oc is an IGP; California's Central Valley is not an AVA; "south-west
-France" is a part of the country, pinned to Wikidata's geographic region
-`Q3114590`, because the wine region `Q927571` has no coordinate and excludes
-the Bordeaux the catalogue puts inside it). Those are marked with a dot and a scale
+France" is represented using the preserved Cahors locator coordinate,
+Wikidata `Q23047`, rather than a delimited south-west France polygon). Those are marked with a dot and a scale
 halo, which indicates position and rough size only and is **not** a boundary.
 
 **Outlines are computed, not traced.** Where a map outlines an area - the

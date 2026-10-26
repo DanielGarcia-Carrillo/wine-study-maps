@@ -29,7 +29,7 @@ def check(root=ROOT):
     # A curated allowlist also checks untracked files before publication reviews.
     roots = {".gitignore", "ATTRIBUTION.md", "LICENSE", "LICENSE-ARTWORK.md", "README.md", "catalogue.yaml", "pyproject.toml", "uv.lock"}
     for path in root.iterdir():
-        if path.name in {".git", ".venv", ".cache", "work"}:
+        if path.name in {".git", ".venv", ".cache", ".maintenance-cache", "work"}:
             continue
         assert path.name in roots | {"assets", "scripts", "tests", "data"}, path
         assert not path.is_symlink(), path

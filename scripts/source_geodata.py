@@ -768,20 +768,23 @@ def verify(spec: dict) -> int:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--refresh", action="store_true", help="explicitly allow upstream fetches into the working cache")
+    ap.add_argument("--refresh", action="store_true", help="fetch/verify upstream inputs in a separate, unpinned maintenance cache")
     ap.add_argument("--candidates", metavar="NAME", help="list Q-id options for a region")
     ap.add_argument("--country", metavar="QID", help="narrow --candidates to a country, e.g. Q142")
     ap.add_argument("--layers", action="store_true", help="pre-fetch all Natural Earth layers")
     args = ap.parse_args()
 
-    global REFRESH
+    global REFRESH, MAPS, NE_CACHE, WD_CACHE, INAO_CACHE
     REFRESH = args.refresh
+    MAPS = ROOT / (".maintenance-cache" if REFRESH else ".cache")
+    NE_CACHE, WD_CACHE, INAO_CACHE = (MAPS / ".naturalearth-cache", MAPS / ".wikidata-cache", MAPS / ".inao-cache")
     if args.candidates:
         candidates(args.candidates, args.country)
         return 0
 
-    from snapshots import prepare
-    prepare()
+    if not REFRESH:
+        from snapshots import prepare
+        prepare()
     spec = yaml.safe_load(SPEC.read_text(encoding="utf-8"))
     wanted = sorted({l for m in spec["maps"] for l in m.get("base", [])})
     for name in (sorted(LAYERS) if args.layers else wanted):
@@ -789,7 +792,7 @@ def main() -> int:
 
     problems = verify(spec)
     if problems:
-        print(f"\n{problems} problem(s) - fix maps.yaml before rendering")
+        print(f"\n{problems} problem(s) - fix catalogue.yaml before rendering")
         return 1
     print("\nall pinned entities verified")
     return 0
