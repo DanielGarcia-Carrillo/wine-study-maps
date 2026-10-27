@@ -470,7 +470,7 @@ maps:
 - id: champagne
   title: Champagne
   bbox: auto
-  pad: 1.3
+  pad: 0.9
   base:
   - land
   - coastline
