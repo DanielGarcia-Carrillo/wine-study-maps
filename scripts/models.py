@@ -83,6 +83,7 @@ class Region(TypedDict, total=False):
     fit: bool
     named: bool
     wrap: bool
+    keep: Annotated[list[Position], Field(min_length=1)]
 
 
 @with_config(ConfigDict(extra="forbid", strict=True))

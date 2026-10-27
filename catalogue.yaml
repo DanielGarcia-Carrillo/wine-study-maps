@@ -184,6 +184,9 @@ maps:
     group: Right Bank
     label: e
   - name: Pomerol
+    keep:
+    - - -0.2003
+      - 44.9306
     colour: '#7a1f2b'
     outline: true
     aoc: Pomerol
