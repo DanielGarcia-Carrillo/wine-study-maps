@@ -134,6 +134,25 @@ def tint(hex_colour: str, amount: float) -> str:
     return "#" + "".join(f"{round(c + (255 - c) * amount):02x}" for c in rgb)
 
 
+# Line height of a wrapped label, as a multiple of its font size.
+LINE = 1.1
+
+
+def wrap(name: str) -> list[str]:
+    """Split a name at the space nearest its middle, for `wrap: true`."""
+    spaces = [i for i, c in enumerate(name) if c == " "]
+    if not spaces:
+        return [name]
+    cut = min(spaces, key=lambda i: abs(i - len(name) / 2))
+    return [name[:cut], name[cut + 1 :]]
+
+
+def label_size(m: Mark) -> tuple[float, float]:
+    """Approximate width and height of a region label's box."""
+    w = 0.55 * m["size"] * max(len(line) for line in m["lines"]) + 10
+    return w, m["size"] * LINE * (len(m["lines"]) - 1) + m["size"] + 6
+
+
 def same_name(a: str, b: str) -> bool:
     return a.casefold() == b.casefold()
 
@@ -520,7 +539,7 @@ def column_labels(
         )
         if not col:
             continue
-        hs = [m["size"] + 6 for m in col]
+        hs = [label_size(m)[1] for m in col]
         ys = [m["y"] for m in col]
         for _ in range(200):
             moved = False
@@ -534,7 +553,7 @@ def column_labels(
             if not moved:
                 break
         for m, y, h in zip(col, ys, hs, strict=True):
-            w = 0.55 * m["size"] * len(m["name"]) + 10
+            w = label_size(m)[0]
             xs = [m["x"] + side * (m["r"] + 9)] if m["dot"] else []
             xs += [px + side * 8 for pts in outlines for px, py in pts if abs(py - y) <= h / 2 + 4]
             x0 = (max(xs) if side > 0 else min(xs)) if xs else m["x"]
@@ -570,8 +589,7 @@ def place_labels(
     for m in sorted(
         (m for m in marks if m.get("side") not in ("e", "w")), key=lambda m: -m["size"]
     ):
-        w = 0.55 * m["size"] * len(m["name"]) + 10
-        h = m["size"] + 6
+        w, h = label_size(m)
         # A region drawn without a dot is an area label: try its own centre
         # first, so the name sits inside the shape it names.
         cands = [] if m.get("dot", True) else [(m["x"], m["y"])]
@@ -886,6 +904,7 @@ def render(
                 "tier": r.get("tier", 1),
                 "anchored": bool(r.get("anchor")),
                 "named": labelled and r["name"] not in inset_names,
+                "lines": wrap(r["name"]) if r.get("wrap") else [r["name"]],
             }
         )
 
@@ -936,10 +955,10 @@ def render(
         # Wine-region labels take priority over contextual city labels.
         label_boxes = [
             (
-                m["lx"] - (0.55 * m["size"] * len(m["name"]) + 10) / 2,
-                m["ly"] - (m["size"] + 6) / 2,
-                m["lx"] + (0.55 * m["size"] * len(m["name"]) + 10) / 2,
-                m["ly"] + (m["size"] + 6) / 2,
+                m["lx"] - label_size(m)[0] / 2,
+                m["ly"] - label_size(m)[1] / 2,
+                m["lx"] + label_size(m)[0] / 2,
+                m["ly"] + label_size(m)[1] / 2,
             )
             for m in named
         ]
@@ -967,16 +986,25 @@ def render(
                 )
             # Two passes, not paint-order="stroke": that is SVG2, and cairosvg
             # silently ignores it, painting the white halo over the letters.
+            # A wrapped label is centred on its position as a block of lines.
+            top = m["ly"] - (len(m["lines"]) - 1) * m["size"] * LINE / 2
             common = (
-                f'x="{m["lx"]:.1f}" y="{m["ly"] + m["size"] / 3:.1f}" '
+                f'x="{m["lx"]:.1f}" y="{top + m["size"] / 3:.1f}" '
                 f'text-anchor="middle" font-size="{m["size"]}" '
                 f'font-weight="{m["weight"]}"'
             )
+            text = "".join(
+                f'<tspan x="{m["lx"]:.1f}" dy="{0 if i == 0 else m["size"] * LINE:.1f}">'
+                f"{esc(line)}</tspan>"
+                if len(m["lines"]) > 1
+                else esc(line)
+                for i, line in enumerate(m["lines"])
+            )
             body.append(
                 f'<text {common} fill="none" stroke="{LAND}" stroke-width="5.5" '
-                f'stroke-linejoin="round" stroke-opacity="0.9">{esc(m["name"])}</text>'
+                f'stroke-linejoin="round" stroke-opacity="0.9">{text}</text>'
             )
-            body.append(f'<text {common} fill="{m["ink"]}">{esc(m["name"])}</text>')
+            body.append(f'<text {common} fill="{m["ink"]}">{text}</text>')
 
     title = (
         ""

@@ -40,6 +40,7 @@ maps:
   - places
   regions:
   - name: Bordeaux
+    label: w
     region_of: bordeaux
     aoc: Bordeaux
     tier: 1
@@ -305,6 +306,8 @@ maps:
     tier: 1
     extent: large
   - name: Beaujolais Villages
+    wrap: true
+    dot: false
     aoc: Beaujolais Villages
     tier: 1
     extent: medium
@@ -503,6 +506,7 @@ maps:
   - places
   regions:
   - name: Alsace AOC
+    named: false
     aoc: Alsace suivi d’un nom de lieu-dit
     tier: 1
     extent: large
@@ -680,11 +684,13 @@ maps:
     tier: 1
     extent: large
   - name: Veneto
+    label: w
     region_of: veneto
     admin1: Italy/Veneto
     tier: 1
     extent: large
   - name: Friuli-Venezia Giulia
+    label: e
     admin1: Italy/Friuli-Venezia Giulia
     colour: '#7d4a86'
     tier: 1
@@ -703,6 +709,7 @@ maps:
     tier: 1
     extent: medium
   - name: Campania
+    label: w
     admin1: Italy/Campania
     tier: 1
     extent: medium
@@ -785,11 +792,13 @@ maps:
   - places
   regions:
   - name: Veneto
+    dot: false
     admin1: Italy/Veneto
     outline: true
     tier: 1
     extent: large
   - name: Friuli-Venezia Giulia
+    dot: false
     admin1: Italy/Friuli-Venezia Giulia
     colour: '#7d4a86'
     outline: true
@@ -935,6 +944,7 @@ maps:
   - places
   regions:
   - name: Rioja
+    dot: false
     pdo: PDO-ES-A0117
     wikidata: Q1569384
     wd_desc: Spanish wine region
@@ -943,6 +953,7 @@ maps:
     tier: 1
     extent: medium
   - name: Navarra
+    dot: false
     pdo: PDO-ES-A0127
     colour: '#2f7d8c'
     outline: true

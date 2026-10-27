@@ -564,7 +564,6 @@
 <path d="M979.3,576.4L980.0,578.9L979.7,579.8L978.5,581.8L977.4,583.3L973.4,585.6L972.0,586.2L973.5,584.9L975.4,583.6L977.0,581.9L977.4,580.0L975.6,578.5L975.5,577.6L976.7,576.2L978.1,575.4L979.1,575.4L979.3,576.4Z" fill="#dbe7ef" stroke="#9db4c4" stroke-width="0.7"/>
 <g data-city="0"><circle cx="385.4" cy="330.1" r="2.4" fill="#6f6f79"/><text x="391.4" y="334.7" class="city" text-anchor="start" fill="none" stroke="#f6f3ec" stroke-width="3.6" stroke-linejoin="round">Florence</text><text x="391.4" y="334.7" class="city" text-anchor="start">Florence</text></g>
 <g data-city="1"><circle cx="450.7" cy="193.0" r="2.4" fill="#6f6f79"/><text x="456.7" y="197.7" class="city" text-anchor="start" fill="none" stroke="#f6f3ec" stroke-width="3.6" stroke-linejoin="round">Venice</text><text x="456.7" y="197.7" class="city" text-anchor="start">Venice</text></g>
-<g data-city="2"><circle cx="565.6" cy="572.8" r="2.4" fill="#6f6f79"/><text x="571.6" y="577.5" class="city" text-anchor="start" fill="none" stroke="#f6f3ec" stroke-width="3.6" stroke-linejoin="round">Naples</text><text x="571.6" y="577.5" class="city" text-anchor="start">Naples</text></g>
 <g data-city="3"><circle cx="262.2" cy="190.3" r="2.4" fill="#6f6f79"/><text x="268.2" y="195.0" class="city" text-anchor="start" fill="none" stroke="#f6f3ec" stroke-width="3.6" stroke-linejoin="round">Milan</text><text x="268.2" y="195.0" class="city" text-anchor="start">Milan</text></g>
 <g data-city="4"><circle cx="459.5" cy="485.6" r="2.4" fill="#6f6f79"/><text x="465.5" y="490.2" class="city" text-anchor="start" fill="none" stroke="#f6f3ec" stroke-width="3.6" stroke-linejoin="round">Rome</text><text x="465.5" y="490.2" class="city" text-anchor="start">Rome</text></g>
 <text x="322.0" y="42.1" class="country" text-anchor="middle" fill="none" stroke="#f6f3ec" stroke-width="3.6" stroke-linejoin="round">GERMANY</text><text x="322.0" y="42.1" class="country" text-anchor="middle">GERMANY</text>
@@ -595,12 +594,12 @@
 <line x1="184.5" y1="224.1" x2="251.4" y2="224.1" stroke="#7a1f2b" stroke-width="0.9" stroke-opacity="0.6"/>
 <text x="251.4" y="230.8" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Piemonte</text>
 <text x="251.4" y="230.8" text-anchor="middle" font-size="20.0" font-weight="700" fill="#7a1f2b">Piemonte</text>
-<line x1="421.8" y1="174.6" x2="572.7" y2="174.6" stroke="#266470" stroke-width="0.9" stroke-opacity="0.6"/>
-<text x="572.7" y="181.3" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Veneto</text>
-<text x="572.7" y="181.3" text-anchor="middle" font-size="20.0" font-weight="700" fill="#266470">Veneto</text>
-<line x1="493.8" y1="133.4" x2="359.1" y2="133.4" stroke="#7d4a86" stroke-width="0.9" stroke-opacity="0.6"/>
-<text x="359.1" y="140.1" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Friuli-Venezia Giulia</text>
-<text x="359.1" y="140.1" text-anchor="middle" font-size="20.0" font-weight="700" fill="#7d4a86">Friuli-Venezia Giulia</text>
+<line x1="421.8" y1="174.6" x2="365.9" y2="174.6" stroke="#266470" stroke-width="0.9" stroke-opacity="0.6"/>
+<text x="365.9" y="181.3" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Veneto</text>
+<text x="365.9" y="181.3" text-anchor="middle" font-size="20.0" font-weight="700" fill="#266470">Veneto</text>
+<line x1="493.8" y1="133.4" x2="628.5" y2="133.4" stroke="#7d4a86" stroke-width="0.9" stroke-opacity="0.6"/>
+<text x="628.5" y="140.1" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Friuli-Venezia Giulia</text>
+<text x="628.5" y="140.1" text-anchor="middle" font-size="20.0" font-weight="700" fill="#7d4a86">Friuli-Venezia Giulia</text>
 <line x1="498.9" y1="365.4" x2="551.1" y2="365.4" stroke="#456426" stroke-width="0.9" stroke-opacity="0.6"/>
 <text x="551.1" y="372.0" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Marche</text>
 <text x="551.1" y="372.0" text-anchor="middle" font-size="20.0" font-weight="700" fill="#456426">Marche</text>
@@ -610,11 +609,11 @@
 <line x1="541.8" y1="458.1" x2="599.5" y2="458.1" stroke="#365f94" stroke-width="0.9" stroke-opacity="0.6"/>
 <text x="599.5" y="464.8" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Abruzzo</text>
 <text x="599.5" y="464.8" text-anchor="middle" font-size="20.0" font-weight="700" fill="#365f94">Abruzzo</text>
-<line x1="601.2" y1="571.1" x2="681.4" y2="571.1" stroke="#884c3b" stroke-width="0.9" stroke-opacity="0.6"/>
-<text x="681.4" y="577.8" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Campania</text>
-<text x="681.4" y="577.8" text-anchor="middle" font-size="20.0" font-weight="700" fill="#884c3b">Campania</text>
-<line x1="708.7" y1="560.9" x2="777.9" y2="560.9" stroke="#685d23" stroke-width="0.9" stroke-opacity="0.6"/>
-<text x="777.9" y="567.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Puglia</text>
-<text x="777.9" y="567.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="#685d23">Puglia</text>
+<line x1="601.2" y1="571.1" x2="538.0" y2="571.1" stroke="#884c3b" stroke-width="0.9" stroke-opacity="0.6"/>
+<text x="538.0" y="577.8" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Campania</text>
+<text x="538.0" y="577.8" text-anchor="middle" font-size="20.0" font-weight="700" fill="#884c3b">Campania</text>
+<line x1="708.7" y1="560.9" x2="760.9" y2="560.9" stroke="#685d23" stroke-width="0.9" stroke-opacity="0.6"/>
+<text x="760.9" y="567.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Puglia</text>
+<text x="760.9" y="567.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="#685d23">Puglia</text>
 <text x="34" y="38" class="ti">Italy</text>
 </svg>

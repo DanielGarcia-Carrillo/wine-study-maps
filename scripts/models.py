@@ -82,6 +82,7 @@ class Region(TypedDict, total=False):
     parent: Text
     fit: bool
     named: bool
+    wrap: bool
 
 
 @with_config(ConfigDict(extra="forbid", strict=True))
@@ -293,5 +294,6 @@ class Mark(TypedDict):
     tier: int
     anchored: bool
     named: bool
+    lines: list[str]
     lx: NotRequired[float]
     ly: NotRequired[float]

@@ -349,9 +349,9 @@
 <circle cx="581.4" cy="172.3" r="3.4" fill="#365f94" stroke="#fff" stroke-width="1.4"/>
 <circle cx="382.6" cy="120.7" r="3.4" fill="#685d23" stroke="#fff" stroke-width="1.4"/>
 <circle cx="224.3" cy="503.0" r="3.4" fill="#4d5a6a" stroke="#fff" stroke-width="1.4"/>
-<line x1="109.8" y1="463.1" x2="240.2" y2="463.1" stroke="#7a1f2b" stroke-width="0.9" stroke-opacity="0.6"/>
-<text x="240.2" y="469.7" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Bordeaux</text>
-<text x="240.2" y="469.7" text-anchor="middle" font-size="20.0" font-weight="700" fill="#7a1f2b">Bordeaux</text>
+<line x1="109.8" y1="463.1" x2="51.0" y2="463.1" stroke="#7a1f2b" stroke-width="0.9" stroke-opacity="0.6"/>
+<text x="51.0" y="469.7" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Bordeaux</text>
+<text x="51.0" y="469.7" text-anchor="middle" font-size="20.0" font-weight="700" fill="#7a1f2b">Bordeaux</text>
 <line x1="406.9" y1="274.4" x2="474.3" y2="274.4" stroke="#7d4a86" stroke-width="0.9" stroke-opacity="0.6"/>
 <text x="474.3" y="281.1" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Burgundy</text>
 <text x="474.3" y="281.1" text-anchor="middle" font-size="20.0" font-weight="700" fill="#7d4a86">Burgundy</text>
@@ -376,9 +376,9 @@
 <line x1="382.6" y1="120.7" x2="455.4" y2="120.7" stroke="#685d23" stroke-width="0.9" stroke-opacity="0.6"/>
 <text x="455.4" y="127.4" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Champagne</text>
 <text x="455.4" y="127.4" text-anchor="middle" font-size="20.0" font-weight="700" fill="#685d23">Champagne</text>
-<line x1="224.3" y1="503.0" x2="395.5" y2="430.4" stroke="#4d5a6a" stroke-width="0.9" stroke-opacity="0.6"/>
-<text x="395.5" y="437.0" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">South-west France</text>
-<text x="395.5" y="437.0" text-anchor="middle" font-size="20.0" font-weight="700" fill="#4d5a6a">South-west France</text>
+<line x1="224.3" y1="503.0" x2="378.5" y2="447.4" stroke="#4d5a6a" stroke-width="0.9" stroke-opacity="0.6"/>
+<text x="378.5" y="454.0" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">South-west France</text>
+<text x="378.5" y="454.0" text-anchor="middle" font-size="20.0" font-weight="700" fill="#4d5a6a">South-west France</text>
 <text x="34" y="38" class="ti">France</text>
 <rect x="417.8" y="731.8" width="267.9" height="14.1" rx="2.1" fill="#ffffff" fill-opacity="0.85"/>
 <text x="681.5" y="741.6" text-anchor="end" class="credit">Data: INAO, IGN/Etalab (Licence Ouverte 2.0, 2025-10-09)</text>
