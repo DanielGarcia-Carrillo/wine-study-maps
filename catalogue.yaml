@@ -461,7 +461,7 @@ maps:
   country:
   - FRA
   bbox: auto
-  pad: 1.6
+  pad: 0.15
   base:
   - land
   - coastline
@@ -470,7 +470,13 @@ maps:
   - lakes
   - places
   regions:
+  - name: Languedoc-Roussillon
+    aoc: Languedoc
+    tier: 1
+    extent: large
   - name: Minervois
+    outline: true
+    colour: '#7a1f2b'
     aoc: Minervois
     tier: 1
     extent: medium

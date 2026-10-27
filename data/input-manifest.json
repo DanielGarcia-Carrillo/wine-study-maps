@@ -1069,10 +1069,14 @@
       "sha256": "293dac14efa67d7cd8e4942d8151f5a2919b56e09f7ebf8ae4be99431536548f",
       "bytes": 10135012,
       "outputs": [
-        "level-2-france.svg",
-        "level-2-france.png",
+        "level-2-france-blank.png",
         "level-2-france-blank.svg",
-        "level-2-france-blank.png"
+        "level-2-france.png",
+        "level-2-france.svg",
+        "level-2-languedoc-roussillon-blank.png",
+        "level-2-languedoc-roussillon-blank.svg",
+        "level-2-languedoc-roussillon.png",
+        "level-2-languedoc-roussillon.svg"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
