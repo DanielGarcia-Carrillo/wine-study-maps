@@ -1,14 +1,27 @@
 # WSET 2 Maps
 
-Standalone wine region maps: 32 recipes, 128 labelled/blank SVG and PNG assets,
-and a contact sheet. No course text, card matching rules or Anki dependencies
-are required. This extraction preserves the existing image bytes and geographic
-representations; markers indicate position and rough scale, not legal boundaries.
+Wine-region maps for WSET Level 2 study can be hard to access, and many available
+maps are crowded or difficult to read, even though much of the underlying
+geographic data is freely available. This project provides clear, focused
+alternatives: 32 maps, each with labelled and blank SVG and PNG versions, plus
+a contact sheet for reviewing the set.
 
-## Offline build
+Wine annotations are deliberately limited to wine regions, geographical indications
+(GIs) and protected designations of origin (PDOs) explicitly named in the WSET
+Level 2 curriculum. Cities, rivers, coastlines and administrative areas provide
+orientation. Coverage is not complete; New Zealand maps are not currently included.
 
-Python 3.11 or later, `uv`, and native Cairo are required (`brew install cairo`
-on macOS). Dependencies and transitive versions are locked in `uv.lock`.
+This is an independent project, **not associated with, endorsed by, or produced by
+the Wine & Spirit Education Trust (WSET)**. The maps use real geospatial inputs,
+simplified into illustrative approximations for study. They are not official,
+legal or surveyed boundaries; consult the relevant authorities for legal delimitations.
+Dots and halos indicate position and rough scale, not boundaries.
+
+## Use and build
+
+Ready-to-use images are in `assets/`; use an exact Git revision when you need a
+stable version. Rendering requires Python 3.11 or later, `uv`, and native Cairo
+(`brew install cairo` on macOS). Python dependencies are locked in `uv.lock`.
 
 ```sh
 uv sync --locked
@@ -18,71 +31,85 @@ uv run --locked python scripts/render_maps.py --out work/rendered
 uv run --locked python -m unittest discover -s tests
 ```
 
-After dependency installation, geography validation and rendering run without
-network access. The checked-in `data/map-inputs.tar.gz` contains the exact map-ready
-inputs; `scripts/snapshots.py` verifies its SHA-256 and every materialised input.
-A missing or modified input fails clearly. Delete `.cache` to restore it from the
-archive. Builds requiring PNG fail if Cairo is unavailable. `--svg-only` explicitly
-requests SVG alone. `--only bordeaux` limits a render. `--spec` supports an external
-private catalogue without embedding that catalogue here.
+After dependency installation, validation and rendering run offline. The renderer
+writes labelled and blank SVGs and PNGs, plus a contact sheet. PNG output requires
+Cairo; `--svg-only` explicitly requests SVG alone. `--only bordeaux` limits a render,
+and `--spec` selects an external catalogue.
 
-Ordinary consumers use the checked-in assets at an exact Git commit. They do not
-fetch geography or regenerate images. Updating a consumer pin is deliberate.
-Rendering uses Helvetica Neue / Helvetica / Arial fallback, Cairo and installed
-fonts; PNG byte identity across operating systems is not promised. The checked-in
-PNGs remain the canonical consumer bytes. Compare SVGs and decoded PNG pixels when
-reviewing a rebuild, and review the contact sheet.
+The renderer uses Helvetica Neue / Helvetica / Arial fallback and installed fonts.
+PNG bytes can differ across platforms and native-library versions. Compare SVGs
+and decoded PNG pixels when reviewing a rebuild, and inspect the contact sheet.
 
-## Data and provenance
+## Source snapshots
 
-[ATTRIBUTION.md](ATTRIBUTION.md) describes source terms and geographic limits.
-`data/input-manifest.json` records input source URL, source licence, transformations,
-SHA-256, affected output filenames and unknown historical acquisition dates.
-The map-ready archive is sufficient for standalone rendering. It preserves cached
-processed inputs, including upstream names and original metadata, before any
-refresh. Modified geometry is identified as derived upstream data.
+`data/map-inputs.tar.gz` bundles 147 map-ready inputs: about 25 MiB compressed versus
+94.7 MB expanded. Compression keeps the source snapshot manageable and lets an
+offline build use exact, recorded bytes. The tradeoff is poor Git diffs: reviewers
+must inspect the per-file manifest and unpacked changes rather than the archive diff.
 
-`data/upstream-archive-inventory.json` preserves checksums of the available original
-large upstream downloads without duplicating them in this repository. Those full
-files are optional transformation-audit archives, not render dependencies. URLs and
-versions are in the source adapters and input manifest; re-downloading an unversioned
-upstream endpoint can change bytes. A future full-download mirror should be a
-checksummed archive linked from that inventory, checked against the recorded hashes.
-Do not invent acquisition dates. `source_geodata.py --refresh` explicitly permits
-source-maintenance downloads in a separate ignored `.maintenance-cache`; it is never
-a routine build step and does not alter pinned `.cache`, the checked-in snapshot or
-manifest. It reuses existing maintenance entries; remove `.maintenance-cache` before
-a fresh upstream check. Review and curate any changed inputs before making a new
-snapshot and updating hashes.
+`data/input-manifest.json` records each input's source URL/id, available version,
+licence, transformations, SHA-256 and affected outputs. Acquisition dates were not
+recorded. `scripts/snapshots.py` verifies the archive hash and every materialised
+input. Missing or modified inputs fail clearly; delete `.cache` to restore them
+from the checked-in archive. Modified geometry remains identified as derived
+upstream data. These checks establish snapshot integrity, not independent proof of
+upstream authenticity or licence rights. [ATTRIBUTION.md](ATTRIBUTION.md) describes
+the sources and their limits.
 
-New Zealand GI recipes, processed IPONZ inputs, images and thumbnails are excluded
-pending redistribution-rights resolution. Existing private consumers may add their
-own catalogue and data adapter. Natural Earth basemap geography covering New Zealand
-is distinct and is still present as public-domain global geography.
+`data/upstream-archive-inventory.json` records hashes of original large downloads
+without duplicating them here. Those optional transformation-audit files are not
+needed for rendering. Unversioned upstream endpoints can change their contents.
 
-## Label colours and licensing
+For source maintenance, `scripts/source_geodata.py --refresh` permits network
+fetches into a separate `.maintenance-cache`. It reuses existing maintenance
+entries; remove that directory for a fresh upstream check. It does not update the
+pinned `.cache`, archive or manifest. Changes need review before a new snapshot
+and its hashes are committed.
+
+## Label placement
+
+A region's position comes from its sourced area's centroid or an explicit manual
+`anchor` checked to lie inside that area. Where no area is supplied, a pinned
+Wikidata coordinate locates the marker. A centroid need not fall inside a concave
+or multipart region, so anchors can help place labels more meaningfully.
+
+Labels use approximate text boxes and a greedy search for space around cities and
+other labels. Catalogue hints can put labels in side columns ordered north to
+south, or above/below a region. Leader lines connect displaced labels to markers;
+insets enlarge crowded detail. These heuristics do not guarantee collision-free
+or unambiguous placement, so visual review of individual maps and the contact
+sheet remains necessary.
+
+## Existing checks
+
+- Seven `unittest` cases cover archive corruption, missing/changed inputs, reviewed
+  label colours, projection origins and town controls, isolated maintenance fetches,
+  required Cairo for PNGs, and missing contact-sheet tiles.
+- `scripts/check_project.py` checks catalogue and asset counts, file hashes,
+  required provenance keys and a public-content allowlist.
+- `scripts/source_geodata.py` checks recorded geographic inputs, available pinned
+  coordinates and descriptions, manual anchors and selected independent town controls.
+  Default checks use the snapshot, rather than querying current upstream data.
+- `uv.lock` fixes Python dependency versions; native Cairo and system fonts remain
+  environment dependencies.
+
+There is currently no configured linter, formatter, type checker, full catalogue or
+manifest schema validator, or CI workflow. The checks above are targeted checks,
+not a full schema or a guarantee of cartographic accuracy.
+
+## Colours and licensing
+
+Label text colours are explicit reviewed values in `data/label-colours.json`.
+To extend the palette, add a reviewed entry keyed by
+`fill-hex|background-hex|target` (currently `75`). Unknown entries fail clearly.
+The target is a lookup-key component, not a live contrast calculation or a
+compliance guarantee. Review readability at the actual display size and on the
+contact sheet. Region fill overrides use the recipe's `colour` field.
 
 Eligible project code is GPL-3.0-or-later; see [LICENSE](LICENSE). Original project
 documentation and original artwork contributions are CC BY-SA 4.0 where the author
-has the rights to grant it. Third-party source data retain the terms in the input
-manifest and [ATTRIBUTION.md](ATTRIBUTION.md); this is not a blanket relicensing of
-geometry or generated maps. OpenStreetMap-derived administrative geometry remains
+has the rights to grant it; see [LICENSE-ARTWORK.md](LICENSE-ARTWORK.md). Third-party
+source data retain their own terms in the input manifest and
+[ATTRIBUTION.md](ATTRIBUTION.md). This does not relicense upstream geometry or all
+rights in generated maps. OpenStreetMap-derived administrative geometry remains
 under ODbL; generated maps are produced works with contributor attribution.
-
-The pre-extraction renderer embedded an APCA 0.1.9 implementation. Its upstream
-[licence](https://github.com/Myndex/apca-w3/blob/master/LICENSE.md) has use and
-compliance restrictions. As a conservative provenance choice, this repository
-contains no APCA implementation/constants. It stores the existing rendered label
-colours explicitly in `data/label-colours.json`. This preserves the existing palette;
-it is not a claim about a source-code licence grant or an APCA compliance claim.
-
-To extend the palette, add an explicit reviewed text colour keyed by
-`fill-hex|background-hex|target` (currently `75`). Review readability at actual output
-size and the contact sheet; add the corresponding key to the table. Unknown entries
-fail with an actionable error rather than silently changing appearance. Per-colour
-entries can be changed independently. Do not restore third-party contrast code
-without reviewing its licence. Existing region colour overrides still use the
-recipe's `colour` field.
-
-This local repository has no published remote. The intended sibling slug is
-`WSET-2-Maps`; creating it or publishing this history needs separate authorization.

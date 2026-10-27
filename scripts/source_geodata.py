@@ -508,7 +508,7 @@ GI_CONTROL = {
 
 
 def area_of(r: dict) -> dict | None:
-    """The sourced area for one maps.yaml region, or None for a marker.
+    """The sourced area for one catalogue.yaml region, or None for a marker.
 
     admin1 and osm take a list where a region is legally a union of
     administrative units - Chile's DOs are defined by provinces and comunas.
@@ -659,7 +659,7 @@ def candidates(name: str, country: str | None) -> None:
         print(f"  {q:12} {cls[:30]:32} {b.get('desc', {}).get('value', '')[:44]:46} "
               f"{lat:8.3f},{lon:9.3f}{wine}")
     print("\nPin the wine-typed row if there is one; otherwise the commune is the "
-          "honest anchor.\nRecord its description verbatim as wd_desc in maps.yaml.")
+          "honest anchor.\nRecord its description verbatim as wd_desc in catalogue.yaml.")
 
 
 def verify(spec: dict) -> int:

@@ -24,7 +24,7 @@ PAD = 34                  # px of margin inside the frame
 # single appellation's worth of ground.
 HALO = {"small": 3.5, "medium": 7.0, "large": 12.0, "broad": 60.0}
 
-# Section-4 claret and the teal from wset.css, kept in the deck's family.
+# Muted map colours separate land, water, borders and labels.
 INK = "#2b2b33"
 SEA = "#dbe7ef"
 LAND = "#f6f3ec"
@@ -33,14 +33,12 @@ RIVER = "#6f9fc0"
 CITY = "#6f6f79"
 BORDER = "#a9a39a"
 # Hues for maps whose regions are peers rather than nested - a country and
-# its regions. Muted and well separated, in the deck's own register.
+# its regions. Muted hues keep neighbouring regions visually distinct.
 HUES = ["#7a1f2b", "#2f7d8c", "#a8661f", "#5f8a34", "#7d4a86",
         "#3c6aa5", "#b5654f", "#8a7c2f", "#bf5f88", "#2f6d6a"]
 
-# Label sizes are in canvas px, and a card shows the 1000px canvas at about
-# 520px, so a label prints at roughly half its size there. At 14px a region
-# name came out near 7px on screen and had to be zoomed to be read (PER-180);
-# these land at 9-11px, the smallest a place name should be.
+# Label sizes are canvas pixels. At about half the 1000px canvas width,
+# region labels display at roughly 9-11px; heavier weights aid readability.
 TIER = {
     0: ("#7a1f2b", 0.20, 21.0, 700),
     1: ("#7a1f2b", 0.17, 20.0, 700),
@@ -53,8 +51,8 @@ CITY_PX = 14
 CITY_EM = 0.59 * CITY_PX
 
 
-# Reviewed label colours preserve the original palette without embedding a
-# third-party contrast implementation. Extend data/label-colours.json explicitly.
+# Reviewed label colours are explicit palette values.
+# Extend data/label-colours.json after reviewing readability.
 def readable(hex_colour: str, bg: str, target: float = 75.0) -> str:
     import json
     colours = json.loads((ROOT / "data/label-colours.json").read_text())
@@ -252,10 +250,8 @@ def crowded_places(data: dict, p: Projection) -> set[int]:
     Natural Earth's SCALERANK) is left out. Decided in rank order but applied
     in file order, so a map with no collisions draws exactly as it did.
 
-    Opt-in per map (`thin_places: true`) for now: six existing maps have a
-    colliding pair (Oakland under San Francisco, Monaco under Nice, Blenheim
-    on existing maps), and switching it on everywhere would redraw them all in
-    a change that is not about them.
+    Opt-in per map (`thin_places: true`): removing contextual city labels
+    can improve readability, but each map needs visual review.
     """
     cand = []
     for f in data["features"]:
@@ -344,7 +340,7 @@ def draw_layer(name: str, p: Projection, boxes: list | None = None,
 
 def column_labels(marks: list[dict], outlines: list[list[tuple[float, float]]],
                   width: float) -> list[tuple[float, float, float, float]]:
-    """Labels given a side by `label: e|w` in maps.yaml, stacked in order.
+    """Labels given a side by `label: e|w` in catalogue.yaml, stacked in order.
 
     The free search in place_labels() sends a crowded label wherever there is
     room, which on the Côte d'Or was 150px west of Puligny-Montrachet with a
@@ -695,11 +691,8 @@ def render(spec_map: dict, ents: dict, treatment: str, blank: bool = False,
     if not blank:
         named = [m for m in marks if m["named"]]
         place_labels(named, p, city_boxes, obstacles)
-        # The free search steers round city names, but a label stacked in a
-        # column (`label: e|w`) or given up on cannot, and once labels were
-        # sized to be read on a card (PER-180) Northern Rhone landed on
-        # Grenoble. The region is what the card teaches and the city only
-        # context, so the city gives way.
+        # Column labels and fallback positions can still overlap city names.
+        # Wine-region labels take priority over contextual city labels.
         label_boxes = [(m["lx"] - (0.55 * m["size"] * len(m["name"]) + 10) / 2,
                         m["ly"] - (m["size"] + 6) / 2,
                         m["lx"] + (0.55 * m["size"] * len(m["name"]) + 10) / 2,
@@ -754,8 +747,8 @@ def render(spec_map: dict, ents: dict, treatment: str, blank: bool = False,
 def contact_sheet(ids: list[str], out_dir: Path, cols: int = 4) -> None:
     """One sheet of every map, for reviewing the set rather than one at a time.
 
-    The same review step extract_figures.py insists on: nothing here is
-    checked automatically for looking *right*, only for being sourced.
+    Geographic checks cannot establish visual clarity; inspect this sheet
+    and individual maps for ambiguous labels and layout problems.
     """
     from PIL import Image
     tiles = [out_dir / f"wset-map-{i}.png" for i in ids]
@@ -784,8 +777,8 @@ def load_cairosvg():
     cairosvg needs the native libcairo, which Homebrew installs somewhere the
     dynamic loader does not search by default - so the failure is an OSError
     from dlopen rather than an ImportError, and the naive `except ImportError`
-    misses it entirely. Point it at the Homebrew prefix first, then fall back
-    to SVG-only output the way make_icons.py does.
+    misses it entirely. Try the Homebrew library prefixes before importing.
+    The caller decides whether missing Cairo is allowed for SVG-only output.
     """
     import os
     if sys.platform == "darwin":
@@ -797,15 +790,15 @@ def load_cairosvg():
         import cairosvg
         return cairosvg
     except ImportError:
-        print("! cairosvg not installed - writing SVG only (use --group maps)")
+        print("! cairosvg not installed (run uv sync --locked)")
     except OSError:
-        print("! libcairo not found - writing SVG only (try `brew install cairo`)")
+        print("! libcairo not found (try `brew install cairo`)")
     return None
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--spec", type=Path, default=SPEC, help="catalogue or private extension catalogue")
+    ap.add_argument("--spec", type=Path, default=SPEC, help="catalogue or external catalogue")
     ap.add_argument("--svg-only", action="store_true", help="explicitly omit PNG output")
     ap.add_argument("--only", help="render just this map id")
     ap.add_argument("--treatment", default="c", choices=["a", "b", "c"])

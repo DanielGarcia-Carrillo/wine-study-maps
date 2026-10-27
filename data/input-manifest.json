@@ -1,6 +1,6 @@
 {
   "acquired_at": null,
-  "acquisition_note": "Historical acquisition dates unknown. Existing cached bytes preserved before any upstream refresh.",
+  "acquisition_note": "Acquisition dates were not recorded. Exact input hashes are recorded below.",
   "inputs": [
     {
       "path": ".inao-cache/admin1-argentina-mendoza.json",
