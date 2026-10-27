@@ -117,11 +117,11 @@ maps:
     tier: 1
     extent: large
   - name: Médoc
+    colour: '#a480aa'
     anchor:
     - -0.98
     - 45.40
     dot: false
-    colour: '#6da4ae'
     outline: true
     aoc: Médoc
     tier: 1
@@ -136,7 +136,7 @@ maps:
     group: Left Bank
     label: w
   - name: Margaux
-    colour: '#7d4a86'
+    colour: '#6da4ae'
     outline: true
     aoc: Margaux
     tier: 2
@@ -144,8 +144,8 @@ maps:
     group: Left Bank
     label: w
   - name: Pauillac
+    colour: '#3f6f9a'
     label: e
-    colour: '#3c6aa5'
     outline: true
     aoc: Pauillac
     tier: 2
@@ -361,7 +361,7 @@ maps:
     tier: 2
     extent: small
 - id: rhone
-  title: Rhône Valley
+  title: Côtes du Rhône
   country:
   - FRA
   bbox: auto
@@ -505,6 +505,7 @@ maps:
     tier: 1
     extent: large
   - name: Côtes du Rhône
+    named: false
     aoc: Côtes du Rhône
     colour: '#c29462'
     fit: false
@@ -520,6 +521,9 @@ maps:
     tier: 1
     extent: large
   - name: Châteauneuf-du-Pape
+    keep:
+    - - 4.8326
+      - 44.0566
     colour: '#7a1f2b'
     aoc: Châteauneuf-du-Pape
     tier: 2
@@ -551,11 +555,11 @@ maps:
     tier: 1
     extent: medium
 - id: provence
-  title: Provence
+  title: Côtes de Provence
   country:
   - FRA
   bbox: auto
-  pad: 0.75
+  pad: 0.35
   base:
   - land
   - coastline
@@ -861,6 +865,7 @@ maps:
     tier: 2
     extent: small
   - name: Asti
+    fill: false
     outline: true
     colour: '#2f7d8c'
     doc: Asti
