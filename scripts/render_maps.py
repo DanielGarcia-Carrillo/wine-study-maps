@@ -47,7 +47,7 @@ LAND = "#f6f3ec"
 COAST = "#9db4c4"
 RIVER = "#6f9fc0"
 CITY = "#6f6f79"
-BORDER = "#a9a39a"
+BORDER = "#857e74"
 # Hues for maps whose regions are peers rather than nested - a country and
 # its regions. Muted hues keep neighbouring regions visually distinct.
 HUES = [
@@ -407,7 +407,7 @@ def draw_layer(
             elif name == "borders":
                 out.append(
                     f'<path d="{d}" fill="none" stroke="{BORDER}" '
-                    f'stroke-width="1.1" stroke-dasharray="5 3" opacity="0.6"/>'
+                    f'stroke-width="1.2" stroke-dasharray="5 3" opacity="0.9"/>'
                 )
             elif name == "rivers":
                 out.append(
