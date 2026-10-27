@@ -34,12 +34,12 @@
 <circle cx="83.4" cy="316.3" r="3.4" fill="#7d4a86" stroke="#fff" stroke-width="1.4"/>
 <circle cx="358.5" cy="627.6" r="3.4" fill="#365f94" stroke="#fff" stroke-width="1.4"/>
 <circle cx="115.7" cy="285.9" r="3.4" fill="#884c3b" stroke="#fff" stroke-width="1.4"/>
-<line x1="129.8" y1="217.9" x2="225.5" y2="217.9" stroke="#266470" stroke-width="0.9" stroke-opacity="0.6"/>
-<text x="225.5" y="224.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Barossa Valley</text>
-<text x="225.5" y="224.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="#266470">Barossa Valley</text>
-<line x1="147.5" y1="232.4" x2="68.4" y2="232.4" stroke="#824f18" stroke-width="0.9" stroke-opacity="0.6"/>
-<text x="68.4" y="239.1" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Eden Valley</text>
-<text x="68.4" y="239.1" text-anchor="middle" font-size="20.0" font-weight="700" fill="#824f18">Eden Valley</text>
+<line x1="129.8" y1="217.9" x2="84.0" y2="217.9" stroke="#266470" stroke-width="0.9" stroke-opacity="0.6"/>
+<text x="84.0" y="224.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Barossa Valley</text>
+<text x="84.0" y="224.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="#266470">Barossa Valley</text>
+<line x1="147.5" y1="232.4" x2="226.6" y2="232.4" stroke="#824f18" stroke-width="0.9" stroke-opacity="0.6"/>
+<text x="226.6" y="239.1" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Eden Valley</text>
+<text x="226.6" y="239.1" text-anchor="middle" font-size="20.0" font-weight="700" fill="#824f18">Eden Valley</text>
 <line x1="94.1" y1="126.1" x2="178.7" y2="126.1" stroke="#456426" stroke-width="0.9" stroke-opacity="0.6"/>
 <text x="178.7" y="132.8" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Clare Valley</text>
 <text x="178.7" y="132.8" text-anchor="middle" font-size="20.0" font-weight="700" fill="#456426">Clare Valley</text>

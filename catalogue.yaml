@@ -630,11 +630,13 @@ maps:
   - places
   regions:
   - name: Napa Valley
+    label: e
     region_of: napa
     ava: napa_valley
     tier: 1
     extent: medium
   - name: Sonoma
+    label: w
     county: US06097
     tier: 1
     extent: medium
@@ -871,6 +873,7 @@ maps:
   - places
   regions:
   - name: Rioja
+    label: w
     pdo: PDO-ES-A0117
     wikidata: Q1569384
     wd_desc: Spanish wine region
@@ -884,6 +887,7 @@ maps:
     tier: 1
     extent: medium
   - name: Catalunya
+    dot: false
     admin1: Spain/Cataluña
     colour: '#a8661f'
     tier: 1
@@ -1235,6 +1239,7 @@ maps:
   - places
   regions:
   - name: Western Cape
+    dot: false
     admin1: South Africa/Western Cape
     tier: 1
     extent: large
@@ -1289,6 +1294,10 @@ maps:
     tier: 1
     extent: large
   - name: Maipo Valley
+    dot: false
+    anchor:
+    - -70.95
+    - -33.75
     colour: '#7a1f2b'
     admin1: Chile/Región Metropolitana de Santiago
     parent: Central Valley
@@ -1307,6 +1316,7 @@ maps:
     tier: 2
     extent: small
   - name: Casablanca Valley
+    label: w
     colour: '#2f7d8c'
     osm: R112129
     wikidata: Q3742
@@ -1328,6 +1338,10 @@ maps:
   - places
   regions:
   - name: Mendoza
+    dot: false
+    anchor:
+    - -68.4
+    - -34.2
     admin1: Argentina/Mendoza
     tier: 1
     extent: large
@@ -1375,12 +1389,14 @@ maps:
     tier: 0
     extent: large
   - name: Barossa Valley
+    label: w
     gi: au/Barossa Valley
     wikidata: Q698920
     wd_desc: valley and wine-producing region in South Australia
     tier: 1
     extent: small
   - name: Eden Valley
+    label: e
     gi: au/Eden Valley
     wikidata: Q5336950
     wd_desc: town in South Australia
@@ -1463,6 +1479,7 @@ maps:
     tier: 0
     extent: large
   - name: Yarra Valley
+    dot: false
     gi: au/Yarra Valley
     wikidata: Q8049508
     wd_desc: wine region in Victoria, Australia
@@ -1498,6 +1515,10 @@ maps:
     tier: 0
     extent: large
   - name: Hunter Valley
+    dot: false
+    anchor:
+    - 150.75
+    - -32.35
     gi: au/Hunter
     wikidata: Q1638164
     wd_desc: region of New South Wales, Australia

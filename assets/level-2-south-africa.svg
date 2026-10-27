@@ -52,14 +52,12 @@
 <circle cx="176.2" cy="555.9" r="4.1" fill="#a2626b" fill-opacity="0.15" stroke="#a2626b" stroke-width="1" stroke-opacity="0.5"/>
 <circle cx="244.8" cy="571.2" r="4.1" fill="#a2626b" fill-opacity="0.15" stroke="#a2626b" stroke-width="1" stroke-opacity="0.5"/>
 <circle cx="276.8" cy="617.1" r="4.1" fill="#a2626b" fill-opacity="0.15" stroke="#a2626b" stroke-width="1" stroke-opacity="0.5"/></g>
-<circle cx="423.0" cy="427.9" r="3.4" fill="#7a1f2b" stroke="#fff" stroke-width="1.4"/>
 <circle cx="234.1" cy="542.1" r="3.4" fill="#824e56" stroke="#fff" stroke-width="1.4"/>
 <circle cx="176.2" cy="555.9" r="3.4" fill="#824e56" stroke="#fff" stroke-width="1.4"/>
 <circle cx="244.8" cy="571.2" r="3.4" fill="#824e56" stroke="#fff" stroke-width="1.4"/>
 <circle cx="276.8" cy="617.1" r="3.4" fill="#824e56" stroke="#fff" stroke-width="1.4"/>
-<line x1="423.0" y1="427.9" x2="517.1" y2="427.9" stroke="#7a1f2b" stroke-width="0.9" stroke-opacity="0.6"/>
-<text x="517.1" y="434.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Western Cape</text>
-<text x="517.1" y="434.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="#7a1f2b">Western Cape</text>
+<text x="423.0" y="434.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Western Cape</text>
+<text x="423.0" y="434.6" text-anchor="middle" font-size="20.0" font-weight="700" fill="#7a1f2b">Western Cape</text>
 <line x1="234.1" y1="542.1" x2="328.6" y2="542.1" stroke="#824e56" stroke-width="0.9" stroke-opacity="0.6"/>
 <text x="328.6" y="548.1" text-anchor="middle" font-size="18.0" font-weight="600" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Stellenbosch</text>
 <text x="328.6" y="548.1" text-anchor="middle" font-size="18.0" font-weight="600" fill="#824e56">Stellenbosch</text>
