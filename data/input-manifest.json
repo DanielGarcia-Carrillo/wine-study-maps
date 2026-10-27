@@ -708,7 +708,11 @@
         "level-2-rhone.svg",
         "level-2-rhone.png",
         "level-2-rhone-blank.svg",
-        "level-2-rhone-blank.png"
+        "level-2-rhone-blank.png",
+        "level-2-northern-rhone.svg",
+        "level-2-northern-rhone.png",
+        "level-2-northern-rhone-blank.svg",
+        "level-2-northern-rhone-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -730,7 +734,11 @@
         "level-2-rhone.svg",
         "level-2-rhone.png",
         "level-2-rhone-blank.svg",
-        "level-2-rhone-blank.png"
+        "level-2-rhone-blank.png",
+        "level-2-northern-rhone.svg",
+        "level-2-northern-rhone.png",
+        "level-2-northern-rhone-blank.svg",
+        "level-2-northern-rhone-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -778,7 +786,11 @@
         "level-2-rhone.svg",
         "level-2-rhone.png",
         "level-2-rhone-blank.svg",
-        "level-2-rhone-blank.png"
+        "level-2-rhone-blank.png",
+        "level-2-southern-rhone.svg",
+        "level-2-southern-rhone.png",
+        "level-2-southern-rhone-blank.svg",
+        "level-2-southern-rhone-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -800,7 +812,11 @@
         "level-2-rhone.svg",
         "level-2-rhone.png",
         "level-2-rhone-blank.svg",
-        "level-2-rhone-blank.png"
+        "level-2-rhone-blank.png",
+        "level-2-southern-rhone.svg",
+        "level-2-southern-rhone.png",
+        "level-2-southern-rhone-blank.svg",
+        "level-2-southern-rhone-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -826,7 +842,11 @@
         "level-2-rhone.svg",
         "level-2-rhone.png",
         "level-2-rhone-blank.svg",
-        "level-2-rhone-blank.png"
+        "level-2-rhone-blank.png",
+        "level-2-southern-rhone.svg",
+        "level-2-southern-rhone.png",
+        "level-2-southern-rhone-blank.svg",
+        "level-2-southern-rhone-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -848,7 +868,11 @@
         "level-2-rhone.svg",
         "level-2-rhone.png",
         "level-2-rhone-blank.svg",
-        "level-2-rhone-blank.png"
+        "level-2-rhone-blank.png",
+        "level-2-southern-rhone.svg",
+        "level-2-southern-rhone.png",
+        "level-2-southern-rhone-blank.svg",
+        "level-2-southern-rhone-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -918,7 +942,11 @@
         "level-2-rhone.svg",
         "level-2-rhone.png",
         "level-2-rhone-blank.svg",
-        "level-2-rhone-blank.png"
+        "level-2-rhone-blank.png",
+        "level-2-northern-rhone.svg",
+        "level-2-northern-rhone.png",
+        "level-2-northern-rhone-blank.svg",
+        "level-2-northern-rhone-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -940,7 +968,11 @@
         "level-2-rhone.svg",
         "level-2-rhone.png",
         "level-2-rhone-blank.svg",
-        "level-2-rhone-blank.png"
+        "level-2-rhone-blank.png",
+        "level-2-northern-rhone.svg",
+        "level-2-northern-rhone.png",
+        "level-2-northern-rhone-blank.svg",
+        "level-2-northern-rhone-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -1050,7 +1082,11 @@
         "level-2-rhone.svg",
         "level-2-rhone.png",
         "level-2-rhone-blank.svg",
-        "level-2-rhone-blank.png"
+        "level-2-rhone-blank.png",
+        "level-2-northern-rhone.svg",
+        "level-2-northern-rhone.png",
+        "level-2-northern-rhone-blank.svg",
+        "level-2-northern-rhone-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -2644,7 +2680,15 @@
         "level-2-western-australia.svg",
         "level-2-western-australia.png",
         "level-2-western-australia-blank.svg",
-        "level-2-western-australia-blank.png"
+        "level-2-western-australia-blank.png",
+        "level-2-northern-rhone.svg",
+        "level-2-northern-rhone.png",
+        "level-2-northern-rhone-blank.svg",
+        "level-2-northern-rhone-blank.png",
+        "level-2-southern-rhone.svg",
+        "level-2-southern-rhone.png",
+        "level-2-southern-rhone-blank.svg",
+        "level-2-southern-rhone-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",
@@ -2790,7 +2834,15 @@
         "level-2-western-australia.svg",
         "level-2-western-australia.png",
         "level-2-western-australia-blank.svg",
-        "level-2-western-australia-blank.png"
+        "level-2-western-australia-blank.png",
+        "level-2-northern-rhone.svg",
+        "level-2-northern-rhone.png",
+        "level-2-northern-rhone-blank.svg",
+        "level-2-northern-rhone-blank.png",
+        "level-2-southern-rhone.svg",
+        "level-2-southern-rhone.png",
+        "level-2-southern-rhone-blank.svg",
+        "level-2-southern-rhone-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",
@@ -2936,7 +2988,15 @@
         "level-2-western-australia.svg",
         "level-2-western-australia.png",
         "level-2-western-australia-blank.svg",
-        "level-2-western-australia-blank.png"
+        "level-2-western-australia-blank.png",
+        "level-2-northern-rhone.svg",
+        "level-2-northern-rhone.png",
+        "level-2-northern-rhone-blank.svg",
+        "level-2-northern-rhone-blank.png",
+        "level-2-southern-rhone.svg",
+        "level-2-southern-rhone.png",
+        "level-2-southern-rhone-blank.svg",
+        "level-2-southern-rhone-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",
@@ -3082,7 +3142,15 @@
         "level-2-western-australia.svg",
         "level-2-western-australia.png",
         "level-2-western-australia-blank.svg",
-        "level-2-western-australia-blank.png"
+        "level-2-western-australia-blank.png",
+        "level-2-northern-rhone.svg",
+        "level-2-northern-rhone.png",
+        "level-2-northern-rhone-blank.svg",
+        "level-2-northern-rhone-blank.png",
+        "level-2-southern-rhone.svg",
+        "level-2-southern-rhone.png",
+        "level-2-southern-rhone-blank.svg",
+        "level-2-southern-rhone-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",
@@ -3228,7 +3296,15 @@
         "level-2-western-australia.svg",
         "level-2-western-australia.png",
         "level-2-western-australia-blank.svg",
-        "level-2-western-australia-blank.png"
+        "level-2-western-australia-blank.png",
+        "level-2-northern-rhone.svg",
+        "level-2-northern-rhone.png",
+        "level-2-northern-rhone-blank.svg",
+        "level-2-northern-rhone-blank.png",
+        "level-2-southern-rhone.svg",
+        "level-2-southern-rhone.png",
+        "level-2-southern-rhone-blank.svg",
+        "level-2-southern-rhone-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",
@@ -3374,7 +3450,15 @@
         "level-2-western-australia.svg",
         "level-2-western-australia.png",
         "level-2-western-australia-blank.svg",
-        "level-2-western-australia-blank.png"
+        "level-2-western-australia-blank.png",
+        "level-2-northern-rhone.svg",
+        "level-2-northern-rhone.png",
+        "level-2-northern-rhone-blank.svg",
+        "level-2-northern-rhone-blank.png",
+        "level-2-southern-rhone.svg",
+        "level-2-southern-rhone.png",
+        "level-2-southern-rhone-blank.svg",
+        "level-2-southern-rhone-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",

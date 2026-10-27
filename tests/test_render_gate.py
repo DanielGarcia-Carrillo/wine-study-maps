@@ -43,7 +43,7 @@ class RenderGateTests(unittest.TestCase):
                 ):
                     validate_render.main()
                 self.assertEqual((stale / "level-2-france.png").read_bytes(), before)
-                self.assertEqual(len(list(stale.iterdir())), 129)
+                self.assertEqual(len(list(stale.iterdir())), len(list((ROOT / "assets").iterdir())))
 
     def test_output_symlink_is_rejected_without_running_or_deleting(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

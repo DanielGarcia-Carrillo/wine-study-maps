@@ -373,38 +373,14 @@ maps:
   - rivers
   - lakes
   - places
-  inset:
-    regions:
-    - Hermitage
-    - Crozes-Hermitage
-    base:
-    - land
-    - places
-    at:
-    - 0.015
-    - 0.22
-    size:
-    - 238
-    - 240
-    pad: 0.05
-    min_aspect: 1.0
-    align: 0.9
   regions:
   - name: Côtes du Rhône
-    colour: '#c29462'
     aoc: Côtes du Rhône
-    tier: 1
-    extent: large
-    label: e
-  - name: Côtes du Rhône Villages
-    colour: '#5f8a34'
-    outline: true
-    aoc: Côtes du Rhône Villages
+    colour: '#c29462'
     tier: 1
     extent: large
     label: e
   - name: Northern Rhône
-    colour: '#4d5a6a'
     aoc:
     - Côte Rôtie
     - Condrieu
@@ -414,14 +390,12 @@ maps:
     - Crozes-Hermitage
     - Cornas
     - Saint-Péray
+    colour: '#7a1f2b'
+    outline: true
     tier: 1
     extent: large
-    fill: false
-    dot: false
-    outline: dashed
     label: e
   - name: Southern Rhône
-    colour: '#4d5a6a'
     aoc:
     - Côtes du Rhône Villages
     - Châteauneuf-du-Pape
@@ -433,12 +407,41 @@ maps:
     - Beaumes de Venise
     - Lirac
     - Tavel
+    colour: '#5f8a34'
+    outline: true
     tier: 1
     extent: large
-    fill: false
-    dot: false
-    outline: dashed
     label: w
+- id: northern-rhone
+  title: Northern Rhône
+  country:
+  - FRA
+  bbox: auto
+  pad: 0.15
+  min_aspect: 0.75
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Northern Rhône
+    aoc:
+    - Côte Rôtie
+    - Condrieu
+    - Château-Grillet
+    - Saint-Joseph
+    - Hermitage
+    - Crozes-Hermitage
+    - Cornas
+    - Saint-Péray
+    fill: false
+    outline: dashed
+    colour: '#4d5a6a'
+    tier: 1
+    extent: large
   - name: Côte Rôtie
     colour: '#7a1f2b'
     aoc: Côte Rôtie
@@ -446,7 +449,6 @@ maps:
     extent: small
     outline: true
     label: e
-    group: Northern Rhône
   - name: Condrieu
     colour: '#2f7d8c'
     aoc: Condrieu
@@ -454,7 +456,6 @@ maps:
     extent: small
     outline: true
     label: e
-    group: Northern Rhône
   - name: Hermitage
     colour: '#7d4a86'
     aoc: Hermitage
@@ -462,7 +463,6 @@ maps:
     extent: small
     outline: true
     label: w
-    group: Northern Rhône
   - name: Crozes-Hermitage
     colour: '#3c6aa5'
     aoc: Crozes-Hermitage
@@ -473,15 +473,58 @@ maps:
     extent: small
     outline: true
     label: w
-    group: Northern Rhône
+- id: southern-rhone
+  title: Southern Rhône
+  country:
+  - FRA
+  bbox: auto
+  pad: 0.12
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Southern Rhône
+    aoc:
+    - Côtes du Rhône Villages
+    - Châteauneuf-du-Pape
+    - Gigondas
+    - Vacqueyras
+    - Vinsobres
+    - Rasteau
+    - Cairanne
+    - Beaumes de Venise
+    - Lirac
+    - Tavel
+    fill: false
+    outline: dashed
+    colour: '#4d5a6a'
+    tier: 1
+    extent: large
+  - name: Côtes du Rhône
+    aoc: Côtes du Rhône
+    colour: '#c29462'
+    fit: false
+    tier: 1
+    extent: large
+    label: e
+  - name: Côtes du Rhône Villages
+    aoc: Côtes du Rhône Villages
+    colour: '#5f8a34'
+    outline: true
+    tier: 1
+    extent: large
+    label: e
   - name: Châteauneuf-du-Pape
     colour: '#7a1f2b'
     aoc: Châteauneuf-du-Pape
     tier: 2
     extent: small
     outline: true
-    label: e
-    group: Southern Rhône
+    label: w
 - id: languedoc-roussillon
   title: Languedoc-Roussillon
   country:
