@@ -613,10 +613,14 @@
       "sha256": "c6c93b4dca6e13af39cdfbc233319b4ce51a5980699e9e13ab962d6aaaf4fc9c",
       "bytes": 8181653,
       "outputs": [
-        "level-2-france.svg",
-        "level-2-france.png",
+        "level-2-bordeaux-blank.png",
+        "level-2-bordeaux-blank.svg",
+        "level-2-bordeaux.png",
+        "level-2-bordeaux.svg",
+        "level-2-france-blank.png",
         "level-2-france-blank.svg",
-        "level-2-france-blank.png"
+        "level-2-france.png",
+        "level-2-france.svg"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",

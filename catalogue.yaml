@@ -107,55 +107,80 @@ maps:
   - lakes
   - places
   regions:
+  - name: Bordeaux
+    aoc: Bordeaux
+    fill: false
+    outline: true
+    dot: false
+    tier: 1
+    extent: large
   - name: Médoc
+    colour: '#2f7d8c'
+    outline: true
     aoc: Médoc
     tier: 1
     extent: large
     group: Left Bank
     label: w
   - name: Haut-Médoc
+    colour: '#3c6aa5'
+    outline: true
     aoc: Haut-Médoc
     tier: 1
     extent: large
     group: Left Bank
     label: w
   - name: Margaux
+    colour: '#7d4a86'
+    outline: true
     aoc: Margaux
     tier: 2
     extent: small
     group: Left Bank
     label: w
   - name: Pauillac
+    colour: '#7a1f2b'
+    outline: true
     aoc: Pauillac
     tier: 2
     extent: small
     group: Left Bank
     label: w
   - name: Graves
+    colour: '#a8661f'
+    outline: true
     aoc: Graves
     tier: 1
     extent: medium
     group: Left Bank
     label: w
   - name: Pessac-Léognan
+    colour: '#b5654f'
+    outline: true
     aoc: Pessac-Léognan
     tier: 2
     extent: small
     group: Left Bank
     label: w
   - name: Sauternes
+    colour: '#8a7c2f'
+    outline: true
     aoc: Sauternes
     tier: 2
     extent: small
     group: Left Bank
     label: w
   - name: Saint-Émilion
+    colour: '#5f8a34'
+    outline: true
     aoc: Saint-Emilion
     tier: 1
     extent: medium
     group: Right Bank
     label: e
   - name: Pomerol
+    colour: '#bf5f88'
+    outline: true
     aoc: Pomerol
     tier: 2
     extent: small
