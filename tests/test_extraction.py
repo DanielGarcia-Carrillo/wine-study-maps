@@ -21,30 +21,64 @@ class ExtractionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Unreviewed label colour'):
             render_maps.readable('#abcdef', '#ffffff')
 
-    def test_corrupt_archive_fails(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            (root / 'data').mkdir()
-            shutil.copy(ROOT / 'data/input-manifest.json', root / 'data')
-            (root / 'data/map-inputs.tar.gz').write_bytes(b'corrupt')
-            with self.assertRaisesRegex(ValueError, 'archive checksum mismatch'):
-                prepare(root)
+    def fixture(self, root):
+        manifest = json.loads((ROOT / 'data/input-manifest.json').read_text())
+        manifest['inputs'] = manifest['inputs'][:1]
+        row = manifest['inputs'][0]
+        path = root / 'data' / row['path']
+        path.parent.mkdir(parents=True)
+        shutil.copyfile(ROOT / 'data' / row['path'], path)
+        (root / 'data/input-manifest.json').write_text(json.dumps(manifest))
+        return path, manifest
 
-    def test_missing_and_modified_input_fail(self):
+    def test_changed_committed_input_fails_despite_valid_cache(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            (root / 'data').mkdir()
-            for name in ('input-manifest.json', 'map-inputs.tar.gz'):
-                (root / 'data' / name).symlink_to(ROOT / 'data' / name)
+            path, manifest = self.fixture(root)
             prepare(root)
-            row = json.loads((root / 'data/input-manifest.json').read_text())['inputs'][0]
-            path = root / '.cache' / row['path']
             path.write_bytes(b'changed')
             with self.assertRaisesRegex(ValueError, 'Source checksum mismatch'):
                 prepare(root)
+
+    def test_missing_or_unexpected_committed_input_fails_despite_cache(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path, manifest = self.fixture(root)
+            prepare(root)
+            original = path.read_bytes()
             path.unlink()
-            with self.assertRaisesRegex(FileNotFoundError, 'Missing pinned source input'):
+            with self.assertRaisesRegex(FileNotFoundError, 'missing='):
                 prepare(root)
+            path.write_bytes(original)
+            path.with_name('unexpected.json').write_text('{}')
+            with self.assertRaisesRegex(FileNotFoundError, 'unexpected='):
+                prepare(root)
+
+    def test_unsafe_input_path_or_symlink_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path, manifest = self.fixture(root)
+            path.unlink()
+            path.symlink_to(ROOT / 'data' / manifest['inputs'][0]['path'])
+            with self.assertRaisesRegex(ValueError, 'Unsafe source path'):
+                prepare(root)
+            manifest['inputs'][0]['path'] = 'inputs/../../outside.json'
+            (root / 'data/input-manifest.json').write_text(json.dumps(manifest))
+            with self.assertRaisesRegex(ValueError, 'Unsafe source path'):
+                prepare(root)
+
+    def test_stale_cache_is_only_derived_from_committed_inputs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path, manifest = self.fixture(root)
+            cache = prepare(root)
+            stale = cache / '.inao-cache/orphan.json'
+            stale.write_text('{}')
+            current = cache / manifest['inputs'][0]['cache_path']
+            current.write_text('changed cache')
+            prepare(root)
+            self.assertFalse(stale.exists())
+            self.assertEqual(current.read_bytes(), path.read_bytes())
 
     def test_projection_origins_and_independent_pdo_towns(self):
         lon, lat = geo.utm_to_wgs84(500000, 0, zone=32)

@@ -42,19 +42,25 @@ and decoded PNG pixels when reviewing a rebuild, and inspect the contact sheet.
 
 ## Source snapshots
 
-`data/map-inputs.tar.gz` bundles 147 map-ready inputs: about 25 MiB compressed versus
-94.7 MB expanded. Compression keeps the source snapshot manageable and lets an
-offline build use exact, recorded bytes. The tradeoff is poor Git diffs: reviewers
-must inspect the per-file manifest and unpacked changes rather than the archive diff.
+All 147 map-ready inputs are individually tracked under `data/inputs/`, grouped
+by source: `natural-earth`, `wikidata`, `inao-ign`, `piemonte`, `eu-pdo`,
+`wine-australia`, `uc-davis-ava` and `openstreetmap`. JSON is UTF-8 with two-space
+indentation so coordinate and property changes appear directly in Git diffs.
+The formatted input checkout occupies about 234.5 MB. No input archive is needed
+to inspect or build the checkout.
 
 `data/input-manifest.json` records each input's source URL/id, available version,
 licence, transformations, SHA-256 and affected outputs. Acquisition dates were not
-recorded. `scripts/snapshots.py` verifies the archive hash and every materialised
-input. Missing or modified inputs fail clearly; delete `.cache` to restore them
-from the checked-in archive. Modified geometry remains identified as derived
-upstream data. These checks establish snapshot integrity, not independent proof of
-upstream authenticity or licence rights. [ATTRIBUTION.md](ATTRIBUTION.md) describes
-the sources and their limits.
+recorded. `pre_format_sha256` and `pre_format_bytes` describe the map-ready bytes
+before text formatting, not necessarily raw upstream downloads. Formatting preserves
+every parsed value without changing coordinate precision.
+
+`scripts/snapshots.py` checks every committed input's path, inventory and bytes on
+every build, then materialises `.cache` for the source adapters. A stale cache cannot
+hide a missing, changed, unexpected or unsafe committed input. The cache is derived
+and can be deleted; restore damaged committed files from Git. These checks establish
+snapshot integrity, not independent proof of upstream authenticity or licence rights.
+[ATTRIBUTION.md](ATTRIBUTION.md) describes the sources and their limits.
 
 `data/upstream-archive-inventory.json` records hashes of original large downloads
 without duplicating them here. Those optional transformation-audit files are not
@@ -63,7 +69,7 @@ needed for rendering. Unversioned upstream endpoints can change their contents.
 For source maintenance, `scripts/source_geodata.py --refresh` permits network
 fetches into a separate `.maintenance-cache`. It reuses existing maintenance
 entries; remove that directory for a fresh upstream check. It does not update the
-pinned `.cache`, archive or manifest. Changes need review before a new snapshot
+pinned `.cache`, input files or manifest. Changes need review before a new snapshot
 and its hashes are committed.
 
 ## Label placement
@@ -82,7 +88,7 @@ sheet remains necessary.
 
 ## Existing checks
 
-- Seven `unittest` cases cover archive corruption, missing/changed inputs, reviewed
+- Nine `unittest` cases cover input corruption, missing/changed inputs, reviewed
   label colours, projection origins and town controls, isolated maintenance fetches,
   required Cairo for PNGs, and missing contact-sheet tiles.
 - `scripts/check_project.py` checks catalogue and asset counts, file hashes,

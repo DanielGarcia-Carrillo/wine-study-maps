@@ -86,7 +86,7 @@ AVA_BASE = f"https://raw.githubusercontent.com/UCDavisLibrary/ava/{AVA_SHA}/avas
 REFRESH = False
 def require_refresh():
     if not REFRESH:
-        raise FileNotFoundError("Missing pinned source input; offline builds never fetch. Restore data/map-inputs.tar.gz or explicitly run source_geodata.py --refresh for source maintenance.")
+        raise FileNotFoundError("Missing pinned source input; offline builds never fetch. Restore the individually tracked data/inputs files or explicitly run source_geodata.py --refresh for source maintenance.")
 
 
 def curl(args: list[str]) -> str:

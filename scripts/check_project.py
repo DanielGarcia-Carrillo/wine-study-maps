@@ -2,7 +2,6 @@
 from pathlib import Path
 import hashlib
 import json
-import tarfile
 import yaml
 from snapshots import prepare
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,10 +21,8 @@ def check(root=ROOT):
     inputs = json.loads((root / "data/input-manifest.json").read_text())["inputs"]
     assert all(set(r["outputs"]) <= expected for r in inputs)
     for row in inputs:
-        assert all(k in row for k in ("source_url", "source", "licence", "transformations", "sha256", "acquired_at"))
+        assert all(k in row for k in ("source_url", "source", "licence", "transformations", "sha256", "acquired_at", "cache_path"))
         assert "gi-nz-" not in row["path"]
-    with tarfile.open(root / "data/map-inputs.tar.gz") as tar:
-        assert all("gi-nz-" not in m.name and m.isfile() for m in tar.getmembers())
     # A curated allowlist also checks untracked files before publication reviews.
     roots = {".gitignore", "ATTRIBUTION.md", "LICENSE", "LICENSE-ARTWORK.md", "README.md", "catalogue.yaml", "pyproject.toml", "uv.lock"}
     for path in root.iterdir():
@@ -33,7 +30,7 @@ def check(root=ROOT):
             continue
         assert path.name in roots | {"assets", "scripts", "tests", "data"}, path
         assert not path.is_symlink(), path
-    allowed_data = {"asset-manifest.json", "input-manifest.json", "label-colours.json", "map-inputs.tar.gz", "upstream-archive-inventory.json"}
+    allowed_data = {"asset-manifest.json", "input-manifest.json", "label-colours.json", "inputs", "upstream-archive-inventory.json"}
     assert {p.name for p in (root / "data").iterdir()} == allowed_data
     for directory in ("scripts", "tests"):
         for path in (root / directory).rglob("*"):

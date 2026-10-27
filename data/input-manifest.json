@@ -3,9 +3,9 @@
   "acquisition_note": "Acquisition dates were not recorded. Exact input hashes are recorded below.",
   "inputs": [
     {
-      "path": ".inao-cache/admin1-argentina-mendoza.json",
-      "sha256": "859522b395944a9ebe54e82d9005d508b1f0c6f917d75dce88643e2073ce01e1",
-      "bytes": 13695,
+      "path": "inputs/natural-earth/admin1-argentina-mendoza.json",
+      "sha256": "207f161d2f0605662aa47780c15a85c511c5d005ff40f41b23ab0d30bb72d4cf",
+      "bytes": 29590,
       "outputs": [
         "wset-map-argentina.svg",
         "wset-map-argentina.png",
@@ -18,12 +18,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-argentina-mendoza",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-argentina-mendoza.json",
+      "pre_format_sha256": "859522b395944a9ebe54e82d9005d508b1f0c6f917d75dce88643e2073ce01e1",
+      "pre_format_bytes": 13695,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-australia-new-south-wales.json",
-      "sha256": "17ad7fc594cb54abd2a3758b970bb7ca85bc5d3389e73ee859bc521bb3574cbc",
-      "bytes": 36114,
+      "path": "inputs/natural-earth/admin1-australia-new-south-wales.json",
+      "sha256": "fd73495796ce07a4799040d96bc34adafa56de6407498a62397e8d668c21e9e5",
+      "bytes": 78079,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -40,12 +44,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-australia-new-south-wales",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-australia-new-south-wales.json",
+      "pre_format_sha256": "17ad7fc594cb54abd2a3758b970bb7ca85bc5d3389e73ee859bc521bb3574cbc",
+      "pre_format_bytes": 36114,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-australia-south-australia.json",
-      "sha256": "1b34bcceaa7af7c10ca157441c44134f79c394b18ae1e43ce66dc21eb57391ce",
-      "bytes": 40999,
+      "path": "inputs/natural-earth/admin1-australia-south-australia.json",
+      "sha256": "87460596b9a0b9bcb51c4dc5bc16fe955634d6a136def31701a04c961e8f7486",
+      "bytes": 88694,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -66,12 +74,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-australia-south-australia",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-australia-south-australia.json",
+      "pre_format_sha256": "1b34bcceaa7af7c10ca157441c44134f79c394b18ae1e43ce66dc21eb57391ce",
+      "pre_format_bytes": 40999,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-australia-victoria.json",
-      "sha256": "29a895c8feb421d9f13b354bef9dbecb495b85f9f01e4ea21853319625be4c6b",
-      "bytes": 28164,
+      "path": "inputs/natural-earth/admin1-australia-victoria.json",
+      "sha256": "60c16becd303c773d133549a9c0a8ea02726d49629870c71ecda4473dd3e472a",
+      "bytes": 60919,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -92,12 +104,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-australia-victoria",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-australia-victoria.json",
+      "pre_format_sha256": "29a895c8feb421d9f13b354bef9dbecb495b85f9f01e4ea21853319625be4c6b",
+      "pre_format_bytes": 28164,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-australia-western-australia.json",
-      "sha256": "c655161e82b0b2406e8a5606a2066b519f002f09c20a04c9e1a9dd12cce0738e",
-      "bytes": 97400,
+      "path": "inputs/natural-earth/admin1-australia-western-australia.json",
+      "sha256": "b2b25822c8bd82f1b190221a5a81161ed89ffd77bfa12d92554ffded99f5b271",
+      "bytes": 210785,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -118,12 +134,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-australia-western-australia",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-australia-western-australia.json",
+      "pre_format_sha256": "c655161e82b0b2406e8a5606a2066b519f002f09c20a04c9e1a9dd12cce0738e",
+      "pre_format_bytes": 97400,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-chile-libertador-general-bernardo-o-higgins.json",
-      "sha256": "b249eb0a1a50a37b16095696c3e341b2f79cb4a1c77e229ae081640eaccc4c80",
-      "bytes": 5211,
+      "path": "inputs/natural-earth/admin1-chile-libertador-general-bernardo-o-higgins.json",
+      "sha256": "6f91cb16deb60ef6b4c6336a61dfa38cbbc756c6db4387d7251c191a4a21063a",
+      "bytes": 11206,
       "outputs": [
         "wset-map-chile.svg",
         "wset-map-chile.png",
@@ -136,12 +156,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-chile-libertador-general-bernardo-o-higgins",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-chile-libertador-general-bernardo-o-higgins.json",
+      "pre_format_sha256": "b249eb0a1a50a37b16095696c3e341b2f79cb4a1c77e229ae081640eaccc4c80",
+      "pre_format_bytes": 5211,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-chile-maule.json",
-      "sha256": "18469a5defefc115d67e3fc710c42d0b0b8d5d5e8d0d63035936783ff9faeb95",
-      "bytes": 6150,
+      "path": "inputs/natural-earth/admin1-chile-maule.json",
+      "sha256": "5d0ebb7423f496dce6f27c8b6f0181e8f9180de0c2d723e0dd877f4a564cfe5f",
+      "bytes": 13255,
       "outputs": [
         "wset-map-chile.svg",
         "wset-map-chile.png",
@@ -154,12 +178,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-chile-maule",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-chile-maule.json",
+      "pre_format_sha256": "18469a5defefc115d67e3fc710c42d0b0b8d5d5e8d0d63035936783ff9faeb95",
+      "pre_format_bytes": 6150,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-chile-regi-n-metropolitana-de-santiago.json",
-      "sha256": "83ab23ad42eac7b7ff24d2f60ebad2db325b7d73d00215d58a9468e6e2f7ce76",
-      "bytes": 4850,
+      "path": "inputs/natural-earth/admin1-chile-regi-n-metropolitana-de-santiago.json",
+      "sha256": "c4d4fc83843546b1016b2c67f870b48e51bc3c41eea9f87a71fd907d759d4046",
+      "bytes": 10421,
       "outputs": [
         "wset-map-chile.svg",
         "wset-map-chile.png",
@@ -172,12 +200,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-chile-regi-n-metropolitana-de-santiago",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-chile-regi-n-metropolitana-de-santiago.json",
+      "pre_format_sha256": "83ab23ad42eac7b7ff24d2f60ebad2db325b7d73d00215d58a9468e6e2f7ce76",
+      "pre_format_bytes": 4850,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-italy-abruzzo.json",
-      "sha256": "d73414af377a21c105e456aebd9dc3fbaa7b1faadd0adaa0be119dcc4366025e",
-      "bytes": 16214,
+      "path": "inputs/natural-earth/admin1-italy-abruzzo.json",
+      "sha256": "2fb869bc7063fc5fd8fb6264773d4ed5aeb9092992333bc21738d187e014956a",
+      "bytes": 36639,
       "outputs": [
         "wset-map-italy.svg",
         "wset-map-italy.png",
@@ -190,12 +222,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-italy-abruzzo",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-italy-abruzzo.json",
+      "pre_format_sha256": "d73414af377a21c105e456aebd9dc3fbaa7b1faadd0adaa0be119dcc4366025e",
+      "pre_format_bytes": 16214,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-italy-apulia.json",
-      "sha256": "9b86ea81b5f0cfac938108caab2c9c8dc71aeb12cac29e5669535a3648333193",
-      "bytes": 18716,
+      "path": "inputs/natural-earth/admin1-italy-apulia.json",
+      "sha256": "d9b3d81fbb2ec65bb6fa682ce851fbec3e01d337429820974268e04b35d6f90f",
+      "bytes": 42341,
       "outputs": [
         "wset-map-italy.svg",
         "wset-map-italy.png",
@@ -208,12 +244,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-italy-apulia",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-italy-apulia.json",
+      "pre_format_sha256": "9b86ea81b5f0cfac938108caab2c9c8dc71aeb12cac29e5669535a3648333193",
+      "pre_format_bytes": 18716,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-italy-campania.json",
-      "sha256": "77b6fbb55ffb472968d73c21b35126e7e64aea0fcdcb2c8b62e678e5b801b93a",
-      "bytes": 22429,
+      "path": "inputs/natural-earth/admin1-italy-campania.json",
+      "sha256": "98c71fef1164823b963bc19f39ace13e9afcd01ac68d0a5b41e9e0c1aa7a7d35",
+      "bytes": 50744,
       "outputs": [
         "wset-map-italy.svg",
         "wset-map-italy.png",
@@ -226,12 +266,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-italy-campania",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-italy-campania.json",
+      "pre_format_sha256": "77b6fbb55ffb472968d73c21b35126e7e64aea0fcdcb2c8b62e678e5b801b93a",
+      "pre_format_bytes": 22429,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-italy-friuli-venezia-giulia.json",
-      "sha256": "19408398627f4ba75fe5816213631ade31c9705cf7d0dff4fd75ea2e0e6f0d6e",
-      "bytes": 11513,
+      "path": "inputs/natural-earth/admin1-italy-friuli-venezia-giulia.json",
+      "sha256": "67f49f6b3f0f608024147600f471f81f0fb38cfbcd2240a44d487a0631cdb63a",
+      "bytes": 25968,
       "outputs": [
         "wset-map-italy.svg",
         "wset-map-italy.png",
@@ -248,12 +292,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-italy-friuli-venezia-giulia",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-italy-friuli-venezia-giulia.json",
+      "pre_format_sha256": "19408398627f4ba75fe5816213631ade31c9705cf7d0dff4fd75ea2e0e6f0d6e",
+      "pre_format_bytes": 11513,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-italy-marche.json",
-      "sha256": "f9dcfebe171165988701d347903ecda57a7bc5aa392708d5aa4924fff68af663",
-      "bytes": 16901,
+      "path": "inputs/natural-earth/admin1-italy-marche.json",
+      "sha256": "8bbc85f5f87884031df6f578b2bd363e22427daf33f14191dd4b57a5b482e9d1",
+      "bytes": 38206,
       "outputs": [
         "wset-map-italy.svg",
         "wset-map-italy.png",
@@ -266,12 +314,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-italy-marche",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-italy-marche.json",
+      "pre_format_sha256": "f9dcfebe171165988701d347903ecda57a7bc5aa392708d5aa4924fff68af663",
+      "pre_format_bytes": 16901,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-italy-piemonte.json",
-      "sha256": "7a61f8e001eab4b63bd73543e0f1a69e9d2e7042ef4cf74ecd1f0784a5bd9c4b",
-      "bytes": 32426,
+      "path": "inputs/natural-earth/admin1-italy-piemonte.json",
+      "sha256": "3e812e8970a387e1b1384c371fa8b8d8ac140f2a5996ae425a4fc9c4b84bbfd1",
+      "bytes": 75151,
       "outputs": [
         "wset-map-italy.svg",
         "wset-map-italy.png",
@@ -288,12 +340,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-italy-piemonte",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-italy-piemonte.json",
+      "pre_format_sha256": "7a61f8e001eab4b63bd73543e0f1a69e9d2e7042ef4cf74ecd1f0784a5bd9c4b",
+      "pre_format_bytes": 32426,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-italy-toscana.json",
-      "sha256": "4464754f95b8722711be123208c423727c940df28ff0e3981443e133ca9c83e4",
-      "bytes": 39715,
+      "path": "inputs/natural-earth/admin1-italy-toscana.json",
+      "sha256": "ad755472ab0c160eeabf364e51f216578c804095662ccc908c1492e8060d6767",
+      "bytes": 89990,
       "outputs": [
         "wset-map-italy.svg",
         "wset-map-italy.png",
@@ -310,12 +366,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-italy-toscana",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-italy-toscana.json",
+      "pre_format_sha256": "4464754f95b8722711be123208c423727c940df28ff0e3981443e133ca9c83e4",
+      "pre_format_bytes": 39715,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-italy-veneto.json",
-      "sha256": "2ce33bd3a2f70afdddbc07f165aaff157e5f13214c83712640982b20e6b61d10",
-      "bytes": 34623,
+      "path": "inputs/natural-earth/admin1-italy-veneto.json",
+      "sha256": "c9f552eafcf31f46b39173556ec74f5d84f498a6650d23c2a6ad7de1c33290ff",
+      "bytes": 78328,
       "outputs": [
         "wset-map-italy.svg",
         "wset-map-italy.png",
@@ -332,12 +392,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-italy-veneto",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-italy-veneto.json",
+      "pre_format_sha256": "2ce33bd3a2f70afdddbc07f165aaff157e5f13214c83712640982b20e6b61d10",
+      "pre_format_bytes": 34623,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-south-africa-western-cape.json",
-      "sha256": "957c816faa681e84a7dcf9c1a7304667fa1da76d642c36acdf1a8279b8728335",
-      "bytes": 20343,
+      "path": "inputs/natural-earth/admin1-south-africa-western-cape.json",
+      "sha256": "0671c88102507b9c48247ff5d75aab73376b5ec7ea696e894ea652627b90ce4d",
+      "bytes": 44928,
       "outputs": [
         "wset-map-south-africa.svg",
         "wset-map-south-africa.png",
@@ -350,12 +414,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-south-africa-western-cape",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-south-africa-western-cape.json",
+      "pre_format_sha256": "957c816faa681e84a7dcf9c1a7304667fa1da76d642c36acdf1a8279b8728335",
+      "pre_format_bytes": 20343,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-spain-catalu-a.json",
-      "sha256": "ab32c18eec2506f61bf9f3b99db65ab65aab199867c352f6ddfd2af760bf5247",
-      "bytes": 23850,
+      "path": "inputs/natural-earth/admin1-spain-catalu-a.json",
+      "sha256": "628c99bcae5bd4b1d0f3f4ed4c2f78c3f164b5ff0716f44bba0fbdd1daaa8b06",
+      "bytes": 55231,
       "outputs": [
         "wset-map-catalunya.svg",
         "wset-map-catalunya.png",
@@ -372,12 +440,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-spain-catalu-a",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-spain-catalu-a.json",
+      "pre_format_sha256": "ab32c18eec2506f61bf9f3b99db65ab65aab199867c352f6ddfd2af760bf5247",
+      "pre_format_bytes": 23850,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-united-states-of-america-california.json",
-      "sha256": "84ae656e1a84b2c2bda77ca7badde2c5f93e32d88b6b4464cb1c5de42fdb8540",
-      "bytes": 47910,
+      "path": "inputs/natural-earth/admin1-united-states-of-america-california.json",
+      "sha256": "105c0c43d72bb48275b648a2811a15fb8bf1a43104e286d5272f4c62b6c0abbb",
+      "bytes": 103685,
       "outputs": [
         "wset-map-oregon.svg",
         "wset-map-oregon.png",
@@ -390,12 +462,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-united-states-of-america-california",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-united-states-of-america-california.json",
+      "pre_format_sha256": "84ae656e1a84b2c2bda77ca7badde2c5f93e32d88b6b4464cb1c5de42fdb8540",
+      "pre_format_bytes": 47910,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/admin1-united-states-of-america-oregon.json",
-      "sha256": "531bbed8821c0afd44379b7e283d2b84c1fb5290608ad57ea9eaa8d74e232e43",
-      "bytes": 18479,
+      "path": "inputs/natural-earth/admin1-united-states-of-america-oregon.json",
+      "sha256": "9f1eb1354f2a4bb8bfa2e498b151530acf36b5f5547938c513ddb3b96ca9911f",
+      "bytes": 39964,
       "outputs": [
         "wset-map-oregon.svg",
         "wset-map-oregon.png",
@@ -408,12 +484,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "admin1-united-states-of-america-oregon",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/admin1-united-states-of-america-oregon.json",
+      "pre_format_sha256": "531bbed8821c0afd44379b7e283d2b84c1fb5290608ad57ea9eaa8d74e232e43",
+      "pre_format_bytes": 18479,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-alsace-grand-cru-brand.json",
-      "sha256": "9fbb070828f1d69045deb6e722b842930cb47b9b92ea57f5de4156d6f989d816",
-      "bytes": 342723,
+      "path": "inputs/inao-ign/aoc-alsace-grand-cru-brand.json",
+      "sha256": "0aa486c1d10e63799d55ff0172613fbeec39a9dbfe47922d6f766f4abd422c23",
+      "bytes": 794210,
       "outputs": [
         "wset-map-alsace.svg",
         "wset-map-alsace.png",
@@ -426,12 +506,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-alsace-grand-cru-brand",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-alsace-grand-cru-brand.json",
+      "pre_format_sha256": "9fbb070828f1d69045deb6e722b842930cb47b9b92ea57f5de4156d6f989d816",
+      "pre_format_bytes": 342723,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-alsace-suivi-d-un-nom-de-lieu-dit.json",
-      "sha256": "99406d4199d92a1dd294a615934bcc681574f9d93cdfa6a57777760fca3c1550",
-      "bytes": 850147,
+      "path": "inputs/inao-ign/aoc-alsace-suivi-d-un-nom-de-lieu-dit.json",
+      "sha256": "43600524cff5f25d30df47ac5fe1a0ce8f40a9189d23685d50845d557e6aeeaf",
+      "bytes": 1970365,
       "outputs": [
         "wset-map-alsace.svg",
         "wset-map-alsace.png",
@@ -448,12 +532,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-alsace-suivi-d-un-nom-de-lieu-dit",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-alsace-suivi-d-un-nom-de-lieu-dit.json",
+      "pre_format_sha256": "99406d4199d92a1dd294a615934bcc681574f9d93cdfa6a57777760fca3c1550",
+      "pre_format_bytes": 850147,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-beaujolais-villages.json",
-      "sha256": "95829ae06b4f875b736b6488da928a45778dc0395921b89b913c38b3a299cbfe",
-      "bytes": 252387,
+      "path": "inputs/inao-ign/aoc-beaujolais-villages.json",
+      "sha256": "40e76d9f24ee7b3a0ffd18e1bdb845b3576342bafa920b6cb8a79b9a28f21cbc",
+      "bytes": 585002,
       "outputs": [
         "wset-map-beaujolais.svg",
         "wset-map-beaujolais.png",
@@ -466,12 +554,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-beaujolais-villages",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-beaujolais-villages.json",
+      "pre_format_sha256": "95829ae06b4f875b736b6488da928a45778dc0395921b89b913c38b3a299cbfe",
+      "pre_format_bytes": 252387,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-beaujolais.json",
-      "sha256": "11aa0c459f990a074ed4b9bb222817169176670548ccd5063d34512f0b12d28c",
-      "bytes": 589765,
+      "path": "inputs/inao-ign/aoc-beaujolais.json",
+      "sha256": "bf35f9906db77871f359d9a64ddb73e145d72b2c3baa7a6b8456ec156c1e1478",
+      "bytes": 1366940,
       "outputs": [
         "wset-map-beaujolais.svg",
         "wset-map-beaujolais.png",
@@ -488,12 +580,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-beaujolais",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-beaujolais.json",
+      "pre_format_sha256": "11aa0c459f990a074ed4b9bb222817169176670548ccd5063d34512f0b12d28c",
+      "pre_format_bytes": 589765,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-beaune.json",
-      "sha256": "518bccfcc4459b18f1641e43cc96ccdca8aece9cf44881f050f363dc461f69d0",
-      "bytes": 11005,
+      "path": "inputs/inao-ign/aoc-beaune.json",
+      "sha256": "d5ae387a2bb677a9227ea97f3ffe3466f6613f65f6f3c2b05e70fe27a2d739a3",
+      "bytes": 25430,
       "outputs": [
         "wset-map-burgundy.svg",
         "wset-map-burgundy.png",
@@ -506,12 +602,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-beaune",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-beaune.json",
+      "pre_format_sha256": "518bccfcc4459b18f1641e43cc96ccdca8aece9cf44881f050f363dc461f69d0",
+      "pre_format_bytes": 11005,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-bordeaux.json",
-      "sha256": "7d89d6a14f6b9f6ed96b23ea680d0dc7eda02e22f17860a69aaff6290f2bca42",
-      "bytes": 3605652,
+      "path": "inputs/inao-ign/aoc-bordeaux.json",
+      "sha256": "c6c93b4dca6e13af39cdfbc233319b4ce51a5980699e9e13ab962d6aaaf4fc9c",
+      "bytes": 8181653,
       "outputs": [
         "wset-map-france.svg",
         "wset-map-france.png",
@@ -524,12 +624,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-bordeaux",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-bordeaux.json",
+      "pre_format_sha256": "7d89d6a14f6b9f6ed96b23ea680d0dc7eda02e22f17860a69aaff6290f2bca42",
+      "pre_format_bytes": 3605652,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-bourgogne.json",
-      "sha256": "6c439c6f670f66727239d4648fa21118d24b23be005ab28aee87435caee3d930",
-      "bytes": 2095963,
+      "path": "inputs/inao-ign/aoc-bourgogne.json",
+      "sha256": "3c16ad978e5b2b9606c946ab803046dfb61a49ca0ba62f00f941e8d1e8212ed2",
+      "bytes": 4858410,
       "outputs": [
         "wset-map-france.svg",
         "wset-map-france.png",
@@ -542,12 +646,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-bourgogne",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-bourgogne.json",
+      "pre_format_sha256": "6c439c6f670f66727239d4648fa21118d24b23be005ab28aee87435caee3d930",
+      "pre_format_bytes": 2095963,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-c-te-de-beaune-villages-ladoix-aloxe-corton-pernand-vergelesses-savigny-l-s-beau.json",
-      "sha256": "35c7d6d32c2c9a5fa81f2ac22eb56fd2aaf52abc8b9e71097a8eb17401e108ee",
-      "bytes": 130596,
+      "path": "inputs/inao-ign/aoc-c-te-de-beaune-villages-ladoix-aloxe-corton-pernand-vergelesses-savigny-l-s-beau.json",
+      "sha256": "1c6ef50483ca54ae9f0db540fbf434007d0a49f090e675afb0ae67636d6b374b",
+      "bytes": 302617,
       "outputs": [
         "wset-map-burgundy.svg",
         "wset-map-burgundy.png",
@@ -560,12 +668,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-c-te-de-beaune-villages-ladoix-aloxe-corton-pernand-vergelesses-savigny-l-s-beau",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-c-te-de-beaune-villages-ladoix-aloxe-corton-pernand-vergelesses-savigny-l-s-beau.json",
+      "pre_format_sha256": "35c7d6d32c2c9a5fa81f2ac22eb56fd2aaf52abc8b9e71097a8eb17401e108ee",
+      "pre_format_bytes": 130596,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-c-te-de-nuits-villages-marsannay-fixin-gevrey-chambertin-morey-saint-denis-chamb.json",
-      "sha256": "ba562c0eda59eec3117fc24e592fca08913eac9ad32dc34f2073725f89fa9012",
-      "bytes": 102662,
+      "path": "inputs/inao-ign/aoc-c-te-de-nuits-villages-marsannay-fixin-gevrey-chambertin-morey-saint-denis-chamb.json",
+      "sha256": "9e19d9bb9faaaa2d58caaa07215ff115aff4163c213029807acdfd5e8487bd69",
+      "bytes": 237793,
       "outputs": [
         "wset-map-burgundy.svg",
         "wset-map-burgundy.png",
@@ -578,12 +690,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-c-te-de-nuits-villages-marsannay-fixin-gevrey-chambertin-morey-saint-denis-chamb",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-c-te-de-nuits-villages-marsannay-fixin-gevrey-chambertin-morey-saint-denis-chamb.json",
+      "pre_format_sha256": "ba562c0eda59eec3117fc24e592fca08913eac9ad32dc34f2073725f89fa9012",
+      "pre_format_bytes": 102662,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-c-te-r-tie-condrieu-ch-teau-grillet-saint-joseph-hermitage-crozes-hermitage-corn.json",
-      "sha256": "06e35e0fc2b334735977e216948f350342659faee22674166a8548533ed6570e",
-      "bytes": 332511,
+      "path": "inputs/inao-ign/aoc-c-te-r-tie-condrieu-ch-teau-grillet-saint-joseph-hermitage-crozes-hermitage-corn.json",
+      "sha256": "66ef4b37069457b50a34c8d787d4b6cce6c5a4e1bb9993892e53ecc4b16c7650",
+      "bytes": 770708,
       "outputs": [
         "wset-map-rhone.svg",
         "wset-map-rhone.png",
@@ -596,12 +712,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-c-te-r-tie-condrieu-ch-teau-grillet-saint-joseph-hermitage-crozes-hermitage-corn",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-c-te-r-tie-condrieu-ch-teau-grillet-saint-joseph-hermitage-crozes-hermitage-corn.json",
+      "pre_format_sha256": "06e35e0fc2b334735977e216948f350342659faee22674166a8548533ed6570e",
+      "pre_format_bytes": 332511,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-c-te-r-tie.json",
-      "sha256": "2b2a2ad93e0c492b72b7d3ed616fc6fea79e79b3be0c2222e6fdb9088745a5c9",
-      "bytes": 20879,
+      "path": "inputs/inao-ign/aoc-c-te-r-tie.json",
+      "sha256": "6040285ec66b0f28e5738e67371b0157eed4521cd3f277a4ab09fb8a8e38f8a6",
+      "bytes": 48336,
       "outputs": [
         "wset-map-rhone.svg",
         "wset-map-rhone.png",
@@ -614,12 +734,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-c-te-r-tie",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-c-te-r-tie.json",
+      "pre_format_sha256": "2b2a2ad93e0c492b72b7d3ed616fc6fea79e79b3be0c2222e6fdb9088745a5c9",
+      "pre_format_bytes": 20879,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-c-tes-de-provence.json",
-      "sha256": "8ca6d288f67280d33b1e612375a3fc47b96388645c2812c79332eb9e4dc2731e",
-      "bytes": 1513291,
+      "path": "inputs/inao-ign/aoc-c-tes-de-provence.json",
+      "sha256": "11a58c435e22bf43334b1a85184e28557ddea9cc5be22b874e947a486ee0772b",
+      "bytes": 3508162,
       "outputs": [
         "wset-map-france.svg",
         "wset-map-france.png",
@@ -636,12 +760,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-c-tes-de-provence",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-c-tes-de-provence.json",
+      "pre_format_sha256": "8ca6d288f67280d33b1e612375a3fc47b96388645c2812c79332eb9e4dc2731e",
+      "pre_format_bytes": 1513291,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-c-tes-du-rh-ne-villages-ch-teauneuf-du-pape-gigondas-vacqueyras-vinsobres-rastea.json",
-      "sha256": "547e7a55731d6e6f0ab84526c3fa23aa72e0a403652adec3ae2d42227f112e60",
-      "bytes": 826090,
+      "path": "inputs/inao-ign/aoc-c-tes-du-rh-ne-villages-ch-teauneuf-du-pape-gigondas-vacqueyras-vinsobres-rastea.json",
+      "sha256": "fa80fd98241174a525e21a483ac7b23944ec90a259b4c7398b6c0ade62eb4f11",
+      "bytes": 1914787,
       "outputs": [
         "wset-map-rhone.svg",
         "wset-map-rhone.png",
@@ -654,12 +782,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-c-tes-du-rh-ne-villages-ch-teauneuf-du-pape-gigondas-vacqueyras-vinsobres-rastea",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-c-tes-du-rh-ne-villages-ch-teauneuf-du-pape-gigondas-vacqueyras-vinsobres-rastea.json",
+      "pre_format_sha256": "547e7a55731d6e6f0ab84526c3fa23aa72e0a403652adec3ae2d42227f112e60",
+      "pre_format_bytes": 826090,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-c-tes-du-rh-ne-villages.json",
-      "sha256": "b466694da4342a457263643b0dffd55c78255e726638bc32fbe97161605ebb8f",
-      "bytes": 751544,
+      "path": "inputs/inao-ign/aoc-c-tes-du-rh-ne-villages.json",
+      "sha256": "e9d5b9ac5b403afae18355d989566270a9d8da47a35ab91184a7fe55050488ae",
+      "bytes": 1741961,
       "outputs": [
         "wset-map-rhone.svg",
         "wset-map-rhone.png",
@@ -672,12 +804,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-c-tes-du-rh-ne-villages",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-c-tes-du-rh-ne-villages.json",
+      "pre_format_sha256": "b466694da4342a457263643b0dffd55c78255e726638bc32fbe97161605ebb8f",
+      "pre_format_bytes": 751544,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-c-tes-du-rh-ne.json",
-      "sha256": "cdebc3e349446a3b5ac7eef01b9ee3daa513c64dfefe3be7e89f4df6242d35ea",
-      "bytes": 1304666,
+      "path": "inputs/inao-ign/aoc-c-tes-du-rh-ne.json",
+      "sha256": "e4a10c7b6b8e1cb7f4f9e578f855e8b8b196e0b4699b30bcdaa4ea885963a73b",
+      "bytes": 3024193,
       "outputs": [
         "wset-map-france.svg",
         "wset-map-france.png",
@@ -694,12 +830,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-c-tes-du-rh-ne",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-c-tes-du-rh-ne.json",
+      "pre_format_sha256": "cdebc3e349446a3b5ac7eef01b9ee3daa513c64dfefe3be7e89f4df6242d35ea",
+      "pre_format_bytes": 1304666,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-ch-teauneuf-du-pape.json",
-      "sha256": "64e5e48ccc732eef220169b403374b4b94437b4b7128dddca7f7861a53f97063",
-      "bytes": 48958,
+      "path": "inputs/inao-ign/aoc-ch-teauneuf-du-pape.json",
+      "sha256": "1afb022375ae9ca99ab6a2d6f1d8786fc717e9b53aba8ab53dcc08d33b428134",
+      "bytes": 113399,
       "outputs": [
         "wset-map-rhone.svg",
         "wset-map-rhone.png",
@@ -712,12 +852,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-ch-teauneuf-du-pape",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-ch-teauneuf-du-pape.json",
+      "pre_format_sha256": "64e5e48ccc732eef220169b403374b4b94437b4b7128dddca7f7861a53f97063",
+      "pre_format_bytes": 48958,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-chablis.json",
-      "sha256": "41424e1e6c862a78f7b6e731b1caecd358196033ecfa95077d31e3c07a156008",
-      "bytes": 102035,
+      "path": "inputs/inao-ign/aoc-chablis.json",
+      "sha256": "ed2a58655fab8113a08dc739e6fe6bdfa21fad569548503e8bfac8bba4474f65",
+      "bytes": 236440,
       "outputs": [
         "wset-map-burgundy.svg",
         "wset-map-burgundy.png",
@@ -730,12 +874,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-chablis",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-chablis.json",
+      "pre_format_sha256": "41424e1e6c862a78f7b6e731b1caecd358196033ecfa95077d31e3c07a156008",
+      "pre_format_bytes": 102035,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-champagne.json",
-      "sha256": "df703bd0ed0dd2511915f6ff63906e0035c423a3e13e00f441a58d107ac0c8f4",
-      "bytes": 3309159,
+      "path": "inputs/inao-ign/aoc-champagne.json",
+      "sha256": "ad349c26252081e00ef5c437a8ccfd5de4b76ec4338a2fb5c0cb44e9d89ae903",
+      "bytes": 7672324,
       "outputs": [
         "wset-map-champagne.svg",
         "wset-map-champagne.png",
@@ -752,12 +900,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-champagne",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-champagne.json",
+      "pre_format_sha256": "df703bd0ed0dd2511915f6ff63906e0035c423a3e13e00f441a58d107ac0c8f4",
+      "pre_format_bytes": 3309159,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-condrieu.json",
-      "sha256": "e28601cc4e16c6d38608e5b8660d0440757d7d000f36edce5dfe234bc2e72b02",
-      "bytes": 37300,
+      "path": "inputs/inao-ign/aoc-condrieu.json",
+      "sha256": "b1406f9f7f3de108011a107829883e1bf0b6a33bbfabad4c25cf86760d360563",
+      "bytes": 86435,
       "outputs": [
         "wset-map-rhone.svg",
         "wset-map-rhone.png",
@@ -770,12 +922,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-condrieu",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-condrieu.json",
+      "pre_format_sha256": "e28601cc4e16c6d38608e5b8660d0440757d7d000f36edce5dfe234bc2e72b02",
+      "pre_format_bytes": 37300,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-crozes-hermitage.json",
-      "sha256": "78663011ae6e0193a13b941e6718d54a001aa1a0d1b037d1e61dc1fd722e6a2c",
-      "bytes": 69926,
+      "path": "inputs/inao-ign/aoc-crozes-hermitage.json",
+      "sha256": "7c82d48e2fda2b482fdd5488973fb90eba4cad6c583919878ab7400285250ed3",
+      "bytes": 162031,
       "outputs": [
         "wset-map-rhone.svg",
         "wset-map-rhone.png",
@@ -788,12 +944,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-crozes-hermitage",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-crozes-hermitage.json",
+      "pre_format_sha256": "78663011ae6e0193a13b941e6718d54a001aa1a0d1b037d1e61dc1fd722e6a2c",
+      "pre_format_bytes": 69926,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-fleurie.json",
-      "sha256": "f785d802b48c625e18d6a202ec7259b74399ab8e23663947208817b65a7870ed",
-      "bytes": 7000,
+      "path": "inputs/inao-ign/aoc-fleurie.json",
+      "sha256": "e29ac94d5f7ecc00d91ba248df35f4e7afeb248f88b19c0cdf9832dc3b344188",
+      "bytes": 16175,
       "outputs": [
         "wset-map-beaujolais.svg",
         "wset-map-beaujolais.png",
@@ -806,12 +966,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-fleurie",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-fleurie.json",
+      "pre_format_sha256": "f785d802b48c625e18d6a202ec7259b74399ab8e23663947208817b65a7870ed",
+      "pre_format_bytes": 7000,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-gevrey-chambertin.json",
-      "sha256": "19b1bd68bd4342246ea41c57b82fd97557560fdf1c4c1f74481e10e8b0f9aa17",
-      "bytes": 18566,
+      "path": "inputs/inao-ign/aoc-gevrey-chambertin.json",
+      "sha256": "d2c35d2d0a287030b9fff36c819299330e4210b8bd3ae3d02509d421689230de",
+      "bytes": 42901,
       "outputs": [
         "wset-map-burgundy.svg",
         "wset-map-burgundy.png",
@@ -824,12 +988,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-gevrey-chambertin",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-gevrey-chambertin.json",
+      "pre_format_sha256": "19b1bd68bd4342246ea41c57b82fd97557560fdf1c4c1f74481e10e8b0f9aa17",
+      "pre_format_bytes": 18566,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-graves.json",
-      "sha256": "13969ebab9599ff7a2c89fb92c0c3c7a95ebe6bc7f58d2142a2f8e5e529079ac",
-      "bytes": 295215,
+      "path": "inputs/inao-ign/aoc-graves.json",
+      "sha256": "1093b0f541a210c3367d24094930db49c198ab55f53643cee24e5b273b657c67",
+      "bytes": 667800,
       "outputs": [
         "wset-map-bordeaux.svg",
         "wset-map-bordeaux.png",
@@ -842,12 +1010,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-graves",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-graves.json",
+      "pre_format_sha256": "13969ebab9599ff7a2c89fb92c0c3c7a95ebe6bc7f58d2142a2f8e5e529079ac",
+      "pre_format_bytes": 295215,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-haut-m-doc.json",
-      "sha256": "2ae77057e59d4982b0ede2f5c1d7ab9b5375bf256ca380fd75da9f72500f9d59",
-      "bytes": 232913,
+      "path": "inputs/inao-ign/aoc-haut-m-doc.json",
+      "sha256": "e8fd33dd999d6755608c766c9b9bae74ef3dae15ce2819064398dbeb8a27eb87",
+      "bytes": 526972,
       "outputs": [
         "wset-map-bordeaux.svg",
         "wset-map-bordeaux.png",
@@ -860,12 +1032,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-haut-m-doc",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-haut-m-doc.json",
+      "pre_format_sha256": "2ae77057e59d4982b0ede2f5c1d7ab9b5375bf256ca380fd75da9f72500f9d59",
+      "pre_format_bytes": 232913,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-hermitage.json",
-      "sha256": "5be17cd4b6575fa014f00244fe94ba899dda8fb774feca22bb32c101bd87d0c0",
-      "bytes": 20227,
+      "path": "inputs/inao-ign/aoc-hermitage.json",
+      "sha256": "87e54469ef28f6851bcf57c8299498122ebadba88f303c69b70cdf4e23460b12",
+      "bytes": 46792,
       "outputs": [
         "wset-map-rhone.svg",
         "wset-map-rhone.png",
@@ -878,12 +1054,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-hermitage",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-hermitage.json",
+      "pre_format_sha256": "5be17cd4b6575fa014f00244fe94ba899dda8fb774feca22bb32c101bd87d0c0",
+      "pre_format_bytes": 20227,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-languedoc.json",
-      "sha256": "cfd9f3b087e04fcd3e87b3b6e8e3186f124370e9aec664ac7fc9a379fe92d5ab",
-      "bytes": 4372431,
+      "path": "inputs/inao-ign/aoc-languedoc.json",
+      "sha256": "293dac14efa67d7cd8e4942d8151f5a2919b56e09f7ebf8ae4be99431536548f",
+      "bytes": 10135012,
       "outputs": [
         "wset-map-france.svg",
         "wset-map-france.png",
@@ -896,12 +1076,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-languedoc",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-languedoc.json",
+      "pre_format_sha256": "cfd9f3b087e04fcd3e87b3b6e8e3186f124370e9aec664ac7fc9a379fe92d5ab",
+      "pre_format_bytes": 4372431,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-m-con.json",
-      "sha256": "122816d04303c930880985c044ebd81bc63445861568dc622f71a57fe86a9503",
-      "bytes": 603153,
+      "path": "inputs/inao-ign/aoc-m-con.json",
+      "sha256": "dab52a5d38e6374a0ac1a6225a7b894f5d3d3652d1c61044fcbf1151e9049524",
+      "bytes": 1398140,
       "outputs": [
         "wset-map-burgundy.svg",
         "wset-map-burgundy.png",
@@ -914,12 +1098,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-m-con",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-m-con.json",
+      "pre_format_sha256": "122816d04303c930880985c044ebd81bc63445861568dc622f71a57fe86a9503",
+      "pre_format_bytes": 603153,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-m-doc.json",
-      "sha256": "b7f86e7d2396cc1d7949351dbe046a022801e79a0405fada1b454ff76a4c71e9",
-      "bytes": 417331,
+      "path": "inputs/inao-ign/aoc-m-doc.json",
+      "sha256": "c7afd17a0cb91c552c792ced7e3d514f39dd962f004d51954ce5121226528268",
+      "bytes": 944274,
       "outputs": [
         "wset-map-bordeaux.svg",
         "wset-map-bordeaux.png",
@@ -932,12 +1120,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-m-doc",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-m-doc.json",
+      "pre_format_sha256": "b7f86e7d2396cc1d7949351dbe046a022801e79a0405fada1b454ff76a4c71e9",
+      "pre_format_bytes": 417331,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-margaux.json",
-      "sha256": "166f4da8bbf042ff64bff88933c4a57c8ab0511cede41f571259cbe21c2a9ab2",
-      "bytes": 31465,
+      "path": "inputs/inao-ign/aoc-margaux.json",
+      "sha256": "2baff9536ac910760df9ae408755cbfa56cfee36224349ba82ceae7a22d70ce7",
+      "bytes": 71128,
       "outputs": [
         "wset-map-bordeaux.svg",
         "wset-map-bordeaux.png",
@@ -950,12 +1142,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-margaux",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-margaux.json",
+      "pre_format_sha256": "166f4da8bbf042ff64bff88933c4a57c8ab0511cede41f571259cbe21c2a9ab2",
+      "pre_format_bytes": 31465,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-meursault.json",
-      "sha256": "4ddf48cbe7aa00b3bf3fd9d81bab673f5684061cfe8be6f0589f1769ff487746",
-      "bytes": 8928,
+      "path": "inputs/inao-ign/aoc-meursault.json",
+      "sha256": "bad6fee5a4ec23d1cafde3361267c0026b7ee0a17960cf21d51e0995635a0bc1",
+      "bytes": 20623,
       "outputs": [
         "wset-map-burgundy.svg",
         "wset-map-burgundy.png",
@@ -968,12 +1164,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-meursault",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-meursault.json",
+      "pre_format_sha256": "4ddf48cbe7aa00b3bf3fd9d81bab673f5684061cfe8be6f0589f1769ff487746",
+      "pre_format_bytes": 8928,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-minervois.json",
-      "sha256": "05c86459f72b07f91ecc54149c4ba8f58c70b5fe49bb92c36bad135d556f0f49",
-      "bytes": 479067,
+      "path": "inputs/inao-ign/aoc-minervois.json",
+      "sha256": "e6361399cf2bb0f87d1f4c4fa03023066aaadfd11c7142e76fb9ade0c9132373",
+      "bytes": 1110342,
       "outputs": [
         "wset-map-languedoc-roussillon.svg",
         "wset-map-languedoc-roussillon.png",
@@ -986,12 +1186,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-minervois",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-minervois.json",
+      "pre_format_sha256": "05c86459f72b07f91ecc54149c4ba8f58c70b5fe49bb92c36bad135d556f0f49",
+      "pre_format_bytes": 479067,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-nuits-saint-georges.json",
-      "sha256": "64f5592c6a2747f4b33a6d0d9da903b8ba5f0fddedaef9c66a4545ba7deca218",
-      "bytes": 16059,
+      "path": "inputs/inao-ign/aoc-nuits-saint-georges.json",
+      "sha256": "93ba9f880f6888d88ac918ea15d9fbe5de3bd3e9165496da86287cd962e2ce23",
+      "bytes": 37124,
       "outputs": [
         "wset-map-burgundy.svg",
         "wset-map-burgundy.png",
@@ -1004,12 +1208,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-nuits-saint-georges",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-nuits-saint-georges.json",
+      "pre_format_sha256": "64f5592c6a2747f4b33a6d0d9da903b8ba5f0fddedaef9c66a4545ba7deca218",
+      "pre_format_bytes": 16059,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-pauillac.json",
-      "sha256": "58907aec93a23567436b33a4339031e01719ed21c251728f061817f94da37b08",
-      "bytes": 28178,
+      "path": "inputs/inao-ign/aoc-pauillac.json",
+      "sha256": "a6162c028469cfa4b098c5ae55d95c9d682f7556b0e0b051375e4bc91db6639f",
+      "bytes": 63673,
       "outputs": [
         "wset-map-bordeaux.svg",
         "wset-map-bordeaux.png",
@@ -1022,12 +1230,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-pauillac",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-pauillac.json",
+      "pre_format_sha256": "58907aec93a23567436b33a4339031e01719ed21c251728f061817f94da37b08",
+      "pre_format_bytes": 28178,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-pessac-l-ognan.json",
-      "sha256": "237bda1a6891658defccded39dd37ca2e386b117c41a67ffbc9fe9494f36bc87",
-      "bytes": 80466,
+      "path": "inputs/inao-ign/aoc-pessac-l-ognan.json",
+      "sha256": "0ac4ed22bb896506ba56305db90e51f5f65db68b02fa7c8c65b64a33da578413",
+      "bytes": 181947,
       "outputs": [
         "wset-map-bordeaux.svg",
         "wset-map-bordeaux.png",
@@ -1040,12 +1252,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-pessac-l-ognan",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-pessac-l-ognan.json",
+      "pre_format_sha256": "237bda1a6891658defccded39dd37ca2e386b117c41a67ffbc9fe9494f36bc87",
+      "pre_format_bytes": 80466,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-pomerol.json",
-      "sha256": "7c9f979d1022c02da5ec0c406dd4eba1f848d96785840764f82dc7d1f27e9bdd",
-      "bytes": 89160,
+      "path": "inputs/inao-ign/aoc-pomerol.json",
+      "sha256": "8736bb41fec8042d65776efd30d3990b57e99a621c94af9d6b0081324c0230ff",
+      "bytes": 201695,
       "outputs": [
         "wset-map-bordeaux.svg",
         "wset-map-bordeaux.png",
@@ -1058,12 +1274,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-pomerol",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-pomerol.json",
+      "pre_format_sha256": "7c9f979d1022c02da5ec0c406dd4eba1f848d96785840764f82dc7d1f27e9bdd",
+      "pre_format_bytes": 89160,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-pommard.json",
-      "sha256": "baff5942547b6548bfb74ff71d41cef6550edc25201fdf7ca938eda32ffd1ddb",
-      "bytes": 8633,
+      "path": "inputs/inao-ign/aoc-pommard.json",
+      "sha256": "3af5b8502470430015f5698b83b611485f9fcef9692d5a02b16e8ce4a6f735f2",
+      "bytes": 19938,
       "outputs": [
         "wset-map-burgundy.svg",
         "wset-map-burgundy.png",
@@ -1076,12 +1296,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-pommard",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-pommard.json",
+      "pre_format_sha256": "baff5942547b6548bfb74ff71d41cef6550edc25201fdf7ca938eda32ffd1ddb",
+      "pre_format_bytes": 8633,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-pouilly-fuiss.json",
-      "sha256": "67df449f1665560db70423cabfeeeb06985fc11bc45651082adfbbc3cade13df",
-      "bytes": 21891,
+      "path": "inputs/inao-ign/aoc-pouilly-fuiss.json",
+      "sha256": "80f5c175fe02cd13f5bc7dab1fd7eccc348f19f8b4f0dd2ee1bf4f0be7b9e7a2",
+      "bytes": 50652,
       "outputs": [
         "wset-map-burgundy.svg",
         "wset-map-burgundy.png",
@@ -1094,12 +1318,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-pouilly-fuiss",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-pouilly-fuiss.json",
+      "pre_format_sha256": "67df449f1665560db70423cabfeeeb06985fc11bc45651082adfbbc3cade13df",
+      "pre_format_bytes": 21891,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loire.json",
-      "sha256": "028ef03445a79dbee9ae0c78cd32f6bfb6e3945db9603a0902bd242c5c0fb72b",
-      "bytes": 45781,
+      "path": "inputs/inao-ign/aoc-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loire.json",
+      "sha256": "970772c9cd08df541c5f364e7ef6d728184c2a1097eaef2c9123641f330c85ae",
+      "bytes": 105978,
       "outputs": [
         "wset-map-loire.svg",
         "wset-map-loire.png",
@@ -1112,12 +1340,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loire",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loire.json",
+      "pre_format_sha256": "028ef03445a79dbee9ae0c78cd32f6bfb6e3945db9603a0902bd242c5c0fb72b",
+      "pre_format_bytes": 45781,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-puligny-montrachet.json",
-      "sha256": "289cc5536db78279b5a171a9f2f1862ae01bc60662ad8608fad435aa46ffff48",
-      "bytes": 5368,
+      "path": "inputs/inao-ign/aoc-puligny-montrachet.json",
+      "sha256": "d89cc79a301a75000f1019329da4605d7c6e1db956073719036a2a23dbdd927b",
+      "bytes": 12383,
       "outputs": [
         "wset-map-burgundy.svg",
         "wset-map-burgundy.png",
@@ -1130,12 +1362,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-puligny-montrachet",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-puligny-montrachet.json",
+      "pre_format_sha256": "289cc5536db78279b5a171a9f2f1862ae01bc60662ad8608fad435aa46ffff48",
+      "pre_format_bytes": 5368,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-saint-emilion.json",
-      "sha256": "910d359bbd41caee38a65d535d6197bf1f1316ff06aeb9129f42f7750314f73c",
-      "bytes": 69095,
+      "path": "inputs/inao-ign/aoc-saint-emilion.json",
+      "sha256": "a0165dceb42061f37c3fc970fcc6a6ef4fbd473b3025543762527b72a391f22d",
+      "bytes": 156260,
       "outputs": [
         "wset-map-bordeaux.svg",
         "wset-map-bordeaux.png",
@@ -1148,12 +1384,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-saint-emilion",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-saint-emilion.json",
+      "pre_format_sha256": "910d359bbd41caee38a65d535d6197bf1f1316ff06aeb9129f42f7750314f73c",
+      "pre_format_bytes": 69095,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-sancerre.json",
-      "sha256": "78b7278b1fa957b8e253c4adaa56d08e0ecbaad803a97f6b5d9888b10d527d86",
-      "bytes": 87039,
+      "path": "inputs/inao-ign/aoc-sancerre.json",
+      "sha256": "bf736b63c4cdcfba2e865eff22f4c3621b5d7e48b4cbcb19d0b863900922da1d",
+      "bytes": 201794,
       "outputs": [
         "wset-map-loire.svg",
         "wset-map-loire.png",
@@ -1166,12 +1406,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-sancerre",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-sancerre.json",
+      "pre_format_sha256": "78b7278b1fa957b8e253c4adaa56d08e0ecbaad803a97f6b5d9888b10d527d86",
+      "pre_format_bytes": 87039,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-sauternes.json",
-      "sha256": "32401af1dd00c18c67104a8fcb7f9ec5882509d278b41478ad33e897f724398f",
-      "bytes": 32754,
+      "path": "inputs/inao-ign/aoc-sauternes.json",
+      "sha256": "fef69640090782270d5446df4f104244e56a6cf3951a506ebe6cf8823482d042",
+      "bytes": 74069,
       "outputs": [
         "wset-map-bordeaux.svg",
         "wset-map-bordeaux.png",
@@ -1184,12 +1428,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-sauternes",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-sauternes.json",
+      "pre_format_sha256": "32401af1dd00c18c67104a8fcb7f9ec5882509d278b41478ad33e897f724398f",
+      "pre_format_bytes": 32754,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-touraine-vouvray-sancerre-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loi.json",
-      "sha256": "8ebfac5199f99234711170fd3d8ba51f87f995e98535e71c8cca977378f383b0",
-      "bytes": 1311268,
+      "path": "inputs/inao-ign/aoc-touraine-vouvray-sancerre-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loi.json",
+      "sha256": "fb32e83752ce14cdefde7fe61b766297a897d0cc7d661207224c98b030ce5a90",
+      "bytes": 3039307,
       "outputs": [
         "wset-map-france.svg",
         "wset-map-france.png",
@@ -1202,12 +1450,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-touraine-vouvray-sancerre-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loi",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-touraine-vouvray-sancerre-pouilly-fum-ou-blanc-fum-de-pouilly-et-pouilly-sur-loi.json",
+      "pre_format_sha256": "8ebfac5199f99234711170fd3d8ba51f87f995e98535e71c8cca977378f383b0",
+      "pre_format_bytes": 1311268,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-touraine.json",
-      "sha256": "550447684f6043671b45f7524be5159d577c096197b51af35837c7ebb4d4d82c",
-      "bytes": 1178631,
+      "path": "inputs/inao-ign/aoc-touraine.json",
+      "sha256": "3fb77300afbe297b55c141d884f25bf44a95d87b0b9b4dc5dfc3a9b66aa74ab9",
+      "bytes": 2731740,
       "outputs": [
         "wset-map-loire.svg",
         "wset-map-loire.png",
@@ -1220,12 +1472,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-touraine",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-touraine.json",
+      "pre_format_sha256": "550447684f6043671b45f7524be5159d577c096197b51af35837c7ebb4d4d82c",
+      "pre_format_bytes": 1178631,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/aoc-vouvray.json",
-      "sha256": "458ade7ef868e8acf3e74523da1f5dce86275edcbb160bb7620bf23668fd5488",
-      "bytes": 70709,
+      "path": "inputs/inao-ign/aoc-vouvray.json",
+      "sha256": "0a6265c88a34ffbf3e7b62d2bceff3100fa16677e8c637e8023e47be7d159375",
+      "bytes": 163834,
       "outputs": [
         "wset-map-loire.svg",
         "wset-map-loire.png",
@@ -1238,12 +1494,16 @@
       "transformations": "INAO appellation commune membership joined to geo.api.gouv.fr commune boundaries; retained exterior rings, missing-code report",
       "acquired_at": null,
       "source_id": "aoc-vouvray",
-      "version": "2025-10-09"
+      "version": "2025-10-09",
+      "cache_path": ".inao-cache/aoc-vouvray.json",
+      "pre_format_sha256": "458ade7ef868e8acf3e74523da1f5dce86275edcbb160bb7620bf23668fd5488",
+      "pre_format_bytes": 70709,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/ava-calistoga.json",
-      "sha256": "dee47929c87d6d3ad189488f40da697eeb7493a1a8ec190cec3f3e398c5ea154",
-      "bytes": 153835,
+      "path": "inputs/uc-davis-ava/ava-calistoga.json",
+      "sha256": "a4c6107867e190a53386e7988cd9339a88a2b0847818f183f3ef1b60c661c607",
+      "bytes": 317753,
       "outputs": [
         "wset-map-napa.svg",
         "wset-map-napa.png",
@@ -1256,12 +1516,16 @@
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
       "acquired_at": null,
       "source_id": "ava-calistoga",
-      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9",
+      "cache_path": ".inao-cache/ava-calistoga.json",
+      "pre_format_sha256": "dee47929c87d6d3ad189488f40da697eeb7493a1a8ec190cec3f3e398c5ea154",
+      "pre_format_bytes": 153835,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/ava-central_coast.json",
-      "sha256": "12abd322873d453193eeece67cbab86f74355c139fcff3986537d161ed4153e1",
-      "bytes": 3399789,
+      "path": "inputs/uc-davis-ava/ava-central_coast.json",
+      "sha256": "1eca2fe1273645637de550f56c9af3c82793501fab775c9574d5082d5d27f39f",
+      "bytes": 7061433,
       "outputs": [
         "wset-map-california.svg",
         "wset-map-california.png",
@@ -1274,12 +1538,16 @@
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
       "acquired_at": null,
       "source_id": "ava-central_coast",
-      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9",
+      "cache_path": ".inao-cache/ava-central_coast.json",
+      "pre_format_sha256": "12abd322873d453193eeece67cbab86f74355c139fcff3986537d161ed4153e1",
+      "pre_format_bytes": 3399789,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/ava-los_carneros.json",
-      "sha256": "b0adc84f5835bdbcbc9e53c301f0697ec5767437a958181e21fc3c8fe3c12d44",
-      "bytes": 113591,
+      "path": "inputs/uc-davis-ava/ava-los_carneros.json",
+      "sha256": "51d88ac17c3eed6a777ffc1d1ff18f0d1e3d041cc5318d92509ed18f2a4d0284",
+      "bytes": 271865,
       "outputs": [
         "wset-map-california.svg",
         "wset-map-california.png",
@@ -1296,12 +1564,16 @@
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
       "acquired_at": null,
       "source_id": "ava-los_carneros",
-      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9",
+      "cache_path": ".inao-cache/ava-los_carneros.json",
+      "pre_format_sha256": "b0adc84f5835bdbcbc9e53c301f0697ec5767437a958181e21fc3c8fe3c12d44",
+      "pre_format_bytes": 113591,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/ava-napa_valley.json",
-      "sha256": "9e0c16816de8f3fa4d1cf27e91812f4f239117d51e5e60e6b4f02b03472a53a4",
-      "bytes": 238025,
+      "path": "inputs/uc-davis-ava/ava-napa_valley.json",
+      "sha256": "0f8ca9a6580bf623347484dc483d93d03c4ed590307ace85952da4cc7d2789cc",
+      "bytes": 611665,
       "outputs": [
         "wset-map-california.svg",
         "wset-map-california.png",
@@ -1318,12 +1590,16 @@
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
       "acquired_at": null,
       "source_id": "ava-napa_valley",
-      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9",
+      "cache_path": ".inao-cache/ava-napa_valley.json",
+      "pre_format_sha256": "9e0c16816de8f3fa4d1cf27e91812f4f239117d51e5e60e6b4f02b03472a53a4",
+      "pre_format_bytes": 238025,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/ava-oakville.json",
-      "sha256": "822d7c70321725572ea292fe86ad67c2bf4bb3eeab9844b1dd76c77360f17587",
-      "bytes": 54394,
+      "path": "inputs/uc-davis-ava/ava-oakville.json",
+      "sha256": "145ab46b7f97209f806e19ab01573673b6612048965eb935957e7baf071289c9",
+      "bytes": 108453,
       "outputs": [
         "wset-map-napa.svg",
         "wset-map-napa.png",
@@ -1336,12 +1612,16 @@
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
       "acquired_at": null,
       "source_id": "ava-oakville",
-      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9",
+      "cache_path": ".inao-cache/ava-oakville.json",
+      "pre_format_sha256": "822d7c70321725572ea292fe86ad67c2bf4bb3eeab9844b1dd76c77360f17587",
+      "pre_format_bytes": 54394,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/ava-rutherford.json",
-      "sha256": "0645e87873176cdc809d359de09bf3c4e43c486c12260e11078f12e2ac33c75a",
-      "bytes": 41323,
+      "path": "inputs/uc-davis-ava/ava-rutherford.json",
+      "sha256": "31fbf013ff5327992835a9d63e3aafe903f8a579a6df38813df09f6665022c49",
+      "bytes": 100168,
       "outputs": [
         "wset-map-napa.svg",
         "wset-map-napa.png",
@@ -1354,12 +1634,16 @@
       "transformations": "Selected AVA boundary; exterior rings; source revisions as recorded in JSON",
       "acquired_at": null,
       "source_id": "ava-rutherford",
-      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"
+      "version": "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9",
+      "cache_path": ".inao-cache/ava-rutherford.json",
+      "pre_format_sha256": "0645e87873176cdc809d359de09bf3c4e43c486c12260e11078f12e2ac33c75a",
+      "pre_format_bytes": 41323,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/county-US06083.json",
-      "sha256": "b0e17c23846972d6406397b5c0a6b1a0fb9f5f025f848e09608d4a07d137bdde",
-      "bytes": 7918,
+      "path": "inputs/natural-earth/county-US06083.json",
+      "sha256": "8b9fbf3dff13ff84946cf67f233874a59f11db3a9005d080d5e3bfac0445751d",
+      "bytes": 17093,
       "outputs": [
         "wset-map-california.svg",
         "wset-map-california.png",
@@ -1372,12 +1656,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "county-US06083",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/county-US06083.json",
+      "pre_format_sha256": "b0e17c23846972d6406397b5c0a6b1a0fb9f5f025f848e09608d4a07d137bdde",
+      "pre_format_bytes": 7918,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/county-US06097.json",
-      "sha256": "6a01cc6dececd844c65ca8ef5ea5202d8ae42dbf5c65a4cf5d1e26674bc19fdc",
-      "bytes": 2785,
+      "path": "inputs/natural-earth/county-US06097.json",
+      "sha256": "d0715e408cb3ef895cfe4f292281fd2eeed55559a239fdc3567af58462838cc3",
+      "bytes": 5990,
       "outputs": [
         "wset-map-california.svg",
         "wset-map-california.png",
@@ -1394,12 +1682,16 @@
       "transformations": "Selected administrative features; exterior rings grouped in geographic coordinates",
       "acquired_at": null,
       "source_id": "county-US06097",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".inao-cache/county-US06097.json",
+      "pre_format_sha256": "6a01cc6dececd844c65ca8ef5ea5202d8ae42dbf5c65a4cf5d1e26674bc19fdc",
+      "pre_format_bytes": 2785,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/doc-asti.json",
-      "sha256": "d1b6ed18d3c5d99648631961675d97e9b4422b92b35852c99cd6b96522549107",
-      "bytes": 289820,
+      "path": "inputs/piemonte/doc-asti.json",
+      "sha256": "20bc6c2cbbc2ed8530f9d1ccfad640274863a1529ab69e387a7b36c563d3eb6e",
+      "bytes": 507007,
       "outputs": [
         "wset-map-piemonte.svg",
         "wset-map-piemonte.png",
@@ -1412,12 +1704,16 @@
       "transformations": "Selected denominazi records; UTM 32N transformed to WGS84; exterior rings",
       "acquired_at": null,
       "source_id": "doc-asti",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/doc-asti.json",
+      "pre_format_sha256": "d1b6ed18d3c5d99648631961675d97e9b4422b92b35852c99cd6b96522549107",
+      "pre_format_bytes": 289820,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/doc-barbaresco.json",
-      "sha256": "706756b1be9c349bfde796db3eae1c05ac2730d21c14a3a3bf913c165f97f100",
-      "bytes": 111703,
+      "path": "inputs/piemonte/doc-barbaresco.json",
+      "sha256": "25b061938c6e00d096e4c82ca32e6614892e1e3fb60f02ab0ff0c49cf00630ee",
+      "bytes": 195370,
       "outputs": [
         "wset-map-piemonte.svg",
         "wset-map-piemonte.png",
@@ -1430,12 +1726,16 @@
       "transformations": "Selected denominazi records; UTM 32N transformed to WGS84; exterior rings",
       "acquired_at": null,
       "source_id": "doc-barbaresco",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/doc-barbaresco.json",
+      "pre_format_sha256": "706756b1be9c349bfde796db3eae1c05ac2730d21c14a3a3bf913c165f97f100",
+      "pre_format_bytes": 111703,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/doc-barbera-d-asti.json",
-      "sha256": "d5f05b218bf7223a4be875152ba17fedf4715288de49967ea4a25ce38f2dfdee",
-      "bytes": 1113496,
+      "path": "inputs/piemonte/doc-barbera-d-asti.json",
+      "sha256": "67e3b3dbd995295c445ad79253096c59656f97f9e193e4450c9ca7c934febccb",
+      "bytes": 1947333,
       "outputs": [
         "wset-map-piemonte.svg",
         "wset-map-piemonte.png",
@@ -1448,12 +1748,16 @@
       "transformations": "Selected denominazi records; UTM 32N transformed to WGS84; exterior rings",
       "acquired_at": null,
       "source_id": "doc-barbera-d-asti",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/doc-barbera-d-asti.json",
+      "pre_format_sha256": "d5f05b218bf7223a4be875152ba17fedf4715288de49967ea4a25ce38f2dfdee",
+      "pre_format_bytes": 1113496,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/doc-barolo.json",
-      "sha256": "6b34e22da67b172b2f32b95530b09f0f59c47ea35bb57e1ebb0fbc3de533cfe9",
-      "bytes": 77027,
+      "path": "inputs/piemonte/doc-barolo.json",
+      "sha256": "62aa893ea76b939cb9cff5cc1d0d1dc6ffced848f18fce15668a322773048170",
+      "bytes": 134534,
       "outputs": [
         "wset-map-piemonte.svg",
         "wset-map-piemonte.png",
@@ -1466,12 +1770,16 @@
       "transformations": "Selected denominazi records; UTM 32N transformed to WGS84; exterior rings",
       "acquired_at": null,
       "source_id": "doc-barolo",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/doc-barolo.json",
+      "pre_format_sha256": "6b34e22da67b172b2f32b95530b09f0f59c47ea35bb57e1ebb0fbc3de533cfe9",
+      "pre_format_bytes": 77027,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/doc-gavi-o-cortese-di-gavi.json",
-      "sha256": "d8dcb6097c3bd13081965946e493d917792673bc28496fa518a5c12c2015f897",
-      "bytes": 267402,
+      "path": "inputs/piemonte/doc-gavi-o-cortese-di-gavi.json",
+      "sha256": "cd021a5a296fb2286f3c01b82cc87b32acabbeb5a667f208261029fc305173b1",
+      "bytes": 467799,
       "outputs": [
         "wset-map-piemonte.svg",
         "wset-map-piemonte.png",
@@ -1484,12 +1792,16 @@
       "transformations": "Selected denominazi records; UTM 32N transformed to WGS84; exterior rings",
       "acquired_at": null,
       "source_id": "doc-gavi-o-cortese-di-gavi",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/doc-gavi-o-cortese-di-gavi.json",
+      "pre_format_sha256": "d8dcb6097c3bd13081965946e493d917792673bc28496fa518a5c12c2015f897",
+      "pre_format_bytes": 267402,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/gi-au-adelaide-hills.json",
-      "sha256": "c6a9cb8ae4655e3a61d85e570a0c6d52cf0a47467f4b913e3375c54584254f70",
-      "bytes": 111368,
+      "path": "inputs/wine-australia/gi-au-adelaide-hills.json",
+      "sha256": "a5864e9081e6a4cd04b65a1a743b39101e8cf8fc048ea57ef493f8806d5c2f8e",
+      "bytes": 204663,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -1510,12 +1822,16 @@
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
       "acquired_at": null,
       "source_id": "gi-au-adelaide-hills",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/gi-au-adelaide-hills.json",
+      "pre_format_sha256": "c6a9cb8ae4655e3a61d85e570a0c6d52cf0a47467f4b913e3375c54584254f70",
+      "pre_format_bytes": 111368,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/gi-au-barossa-valley.json",
-      "sha256": "441ca7b6d0624f4ebaa2a59f82d978293ebfc2eefed44e612b37d84b92c66985",
-      "bytes": 37318,
+      "path": "inputs/wine-australia/gi-au-barossa-valley.json",
+      "sha256": "db4490299b3888828628c8790c3a2e66df935e2d23a754ae675f6ef61cc8393d",
+      "bytes": 68543,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -1532,12 +1848,16 @@
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
       "acquired_at": null,
       "source_id": "gi-au-barossa-valley",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/gi-au-barossa-valley.json",
+      "pre_format_sha256": "441ca7b6d0624f4ebaa2a59f82d978293ebfc2eefed44e612b37d84b92c66985",
+      "pre_format_bytes": 37318,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/gi-au-clare-valley.json",
-      "sha256": "983d784f156a6af87efd49eba1ff6ecdbb6d24daecc84843f9f20147f4e2e93f",
-      "bytes": 33153,
+      "path": "inputs/wine-australia/gi-au-clare-valley.json",
+      "sha256": "6a2a54e93600ec48eb22d7adde9266091cfee73ef166ecfb22f4ea5f12cce63e",
+      "bytes": 60898,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -1554,12 +1874,16 @@
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
       "acquired_at": null,
       "source_id": "gi-au-clare-valley",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/gi-au-clare-valley.json",
+      "pre_format_sha256": "983d784f156a6af87efd49eba1ff6ecdbb6d24daecc84843f9f20147f4e2e93f",
+      "pre_format_bytes": 33153,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/gi-au-coonawarra.json",
-      "sha256": "0875c90b7fa37e4522d3018e84a324a6dcac9f5f8209dcc46de0c26d2ba9e377",
-      "bytes": 19567,
+      "path": "inputs/wine-australia/gi-au-coonawarra.json",
+      "sha256": "0f0fd64e00716cab4ceae1fd8442f0a3a5199b2e28e6d9dde8c53ec4e87b1fe5",
+      "bytes": 35972,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -1576,12 +1900,16 @@
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
       "acquired_at": null,
       "source_id": "gi-au-coonawarra",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/gi-au-coonawarra.json",
+      "pre_format_sha256": "0875c90b7fa37e4522d3018e84a324a6dcac9f5f8209dcc46de0c26d2ba9e377",
+      "pre_format_bytes": 19567,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/gi-au-eden-valley.json",
-      "sha256": "03b1f5b962135f4b2f07fa8233f11d921978a15269396c7d612b24a0250e4316",
-      "bytes": 19095,
+      "path": "inputs/wine-australia/gi-au-eden-valley.json",
+      "sha256": "d8dd82fc6db3c63933335443f0f808c4accb40bcf43e3a495cb6757b177f670c",
+      "bytes": 35050,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -1598,12 +1926,16 @@
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
       "acquired_at": null,
       "source_id": "gi-au-eden-valley",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/gi-au-eden-valley.json",
+      "pre_format_sha256": "03b1f5b962135f4b2f07fa8233f11d921978a15269396c7d612b24a0250e4316",
+      "pre_format_bytes": 19095,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/gi-au-hunter.json",
-      "sha256": "f6693c71e8c054ecb2d86b1ca3c061006a589c6316ae2b74a901c337b901c313",
-      "bytes": 491653,
+      "path": "inputs/wine-australia/gi-au-hunter.json",
+      "sha256": "4cbeccdbc55f41788a8f75763bed24f86eca123fc56312e44374f3232267d7ca",
+      "bytes": 903908,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -1620,12 +1952,16 @@
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
       "acquired_at": null,
       "source_id": "gi-au-hunter",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/gi-au-hunter.json",
+      "pre_format_sha256": "f6693c71e8c054ecb2d86b1ca3c061006a589c6316ae2b74a901c337b901c313",
+      "pre_format_bytes": 491653,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/gi-au-margaret-river.json",
-      "sha256": "1f8da153a174a1b0c6ef29d57d5725fc41a393ade4dfb42fe0e1c5f019158aee",
-      "bytes": 304966,
+      "path": "inputs/wine-australia/gi-au-margaret-river.json",
+      "sha256": "3a88e6d5f2031221c086595fb5829b5b756e5a8e2e6596a7ca71a40924b78d74",
+      "bytes": 564491,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -1646,12 +1982,16 @@
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
       "acquired_at": null,
       "source_id": "gi-au-margaret-river",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/gi-au-margaret-river.json",
+      "pre_format_sha256": "1f8da153a174a1b0c6ef29d57d5725fc41a393ade4dfb42fe0e1c5f019158aee",
+      "pre_format_bytes": 304966,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/gi-au-mclaren-vale.json",
-      "sha256": "732d2a6df6953e154e0f548bdcfe6610cd1891ad21f773a824946016961be6f3",
-      "bytes": 84413,
+      "path": "inputs/wine-australia/gi-au-mclaren-vale.json",
+      "sha256": "e0382fe80ebfd57c9c85cfad7737eb49bb330e4c52d11de09a183e995b213447",
+      "bytes": 155178,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -1668,12 +2008,16 @@
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
       "acquired_at": null,
       "source_id": "gi-au-mclaren-vale",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/gi-au-mclaren-vale.json",
+      "pre_format_sha256": "732d2a6df6953e154e0f548bdcfe6610cd1891ad21f773a824946016961be6f3",
+      "pre_format_bytes": 84413,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/gi-au-mornington-peninsula.json",
-      "sha256": "c48e46afa60d7833808020853e36449cd1075553941e4198a3584fff1ce2416c",
-      "bytes": 431869,
+      "path": "inputs/wine-australia/gi-au-mornington-peninsula.json",
+      "sha256": "5828349a1331c1c5ae0633a8448f4f4070fedbebdb2ec6ad76fd96d9a8330fa7",
+      "bytes": 794954,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -1690,12 +2034,16 @@
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
       "acquired_at": null,
       "source_id": "gi-au-mornington-peninsula",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/gi-au-mornington-peninsula.json",
+      "pre_format_sha256": "c48e46afa60d7833808020853e36449cd1075553941e4198a3584fff1ce2416c",
+      "pre_format_bytes": 431869,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/gi-au-yarra-valley.json",
-      "sha256": "5fb3571818a45b1610f92406a98891f79571bc975afa93978a778a6c721e1386",
-      "bytes": 1106536,
+      "path": "inputs/wine-australia/gi-au-yarra-valley.json",
+      "sha256": "4358f8cee739b1f337e3021a609852a99a7fb0a24df4805bae0d21e002e752ce",
+      "bytes": 2035391,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -1716,12 +2064,16 @@
       "transformations": "Selected GI_NAME in regions/subregions; output spatial reference 4326; retained exterior rings",
       "acquired_at": null,
       "source_id": "gi-au-yarra-valley",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/gi-au-yarra-valley.json",
+      "pre_format_sha256": "5fb3571818a45b1610f92406a98891f79571bc975afa93978a778a6c721e1386",
+      "pre_format_bytes": 1106536,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/osm-R112129.json",
-      "sha256": "5c20e9057856e9675932c96b3acd1a674ef1a0886588a8f5c728e8f96f397bdd",
-      "bytes": 267907,
+      "path": "inputs/openstreetmap/osm-R112129.json",
+      "sha256": "ee7d4bffdf3a030e5de41c05851b9444ffb713ea896845c1598402bc23f5d59f",
+      "bytes": 557672,
       "outputs": [
         "wset-map-chile.svg",
         "wset-map-chile.png",
@@ -1734,12 +2086,16 @@
       "transformations": "Administrative relation polygon; retained exterior rings, OSM relation id in filename",
       "acquired_at": null,
       "source_id": "osm-R112129",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/osm-R112129.json",
+      "pre_format_sha256": "5c20e9057856e9675932c96b3acd1a674ef1a0886588a8f5c728e8f96f397bdd",
+      "pre_format_bytes": 267907,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/osm-R1561024.json",
-      "sha256": "5d71956e297f4de0ef5e5d271a5a4270e8151862a6812edab7d97af45acb68fa",
-      "bytes": 205388,
+      "path": "inputs/openstreetmap/osm-R1561024.json",
+      "sha256": "56c972f502c36ad5027df682ae80f1307a2fe900c33921741456f79dbc324523",
+      "bytes": 427233,
       "outputs": [
         "wset-map-chile.svg",
         "wset-map-chile.png",
@@ -1752,12 +2108,16 @@
       "transformations": "Administrative relation polygon; retained exterior rings, OSM relation id in filename",
       "acquired_at": null,
       "source_id": "osm-R1561024",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/osm-R1561024.json",
+      "pre_format_sha256": "5d71956e297f4de0ef5e5d271a5a4270e8151862a6812edab7d97af45acb68fa",
+      "pre_format_bytes": 205388,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/osm-R1661314.json",
-      "sha256": "330d53639f0dde8a1b4419457db95ababb19adad57e37013a771e2f647eaa294",
-      "bytes": 469564,
+      "path": "inputs/openstreetmap/osm-R1661314.json",
+      "sha256": "7967f35c768a3523c2ab8b81aae16386e3011684acf788bf1df6ba5b5d56bb1e",
+      "bytes": 976619,
       "outputs": [
         "wset-map-chile.svg",
         "wset-map-chile.png",
@@ -1770,12 +2130,16 @@
       "transformations": "Administrative relation polygon; retained exterior rings, OSM relation id in filename",
       "acquired_at": null,
       "source_id": "osm-R1661314",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/osm-R1661314.json",
+      "pre_format_sha256": "330d53639f0dde8a1b4419457db95ababb19adad57e37013a771e2f647eaa294",
+      "pre_format_bytes": 469564,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-DE-A1270.json",
-      "sha256": "bc3ef06f6c602924113515c1be38ade7a72e6d716861dd8ce6896ab7412d6683",
-      "bytes": 151170,
+      "path": "inputs/eu-pdo/pdo-PDO-DE-A1270.json",
+      "sha256": "119d53e0d75d7453cf218b0a8acb02385eeaa4ace1f4c5899ac42b9d397404ae",
+      "bytes": 263877,
       "outputs": [
         "wset-map-germany.svg",
         "wset-map-germany.png",
@@ -1788,12 +2152,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-DE-A1270",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-DE-A1270.json",
+      "pre_format_sha256": "bc3ef06f6c602924113515c1be38ade7a72e6d716861dd8ce6896ab7412d6683",
+      "pre_format_bytes": 151170,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-DE-A1272.json",
-      "sha256": "999309927c8dd2428c3f88d77548992176dd23b1ffe4f44428fe67e3b982f6c8",
-      "bytes": 114401,
+      "path": "inputs/eu-pdo/pdo-PDO-DE-A1272.json",
+      "sha256": "24056b9d5e788f17e52294b5c6f414b49c594a57c02a9d90402e1060437b8e78",
+      "bytes": 199938,
       "outputs": [
         "wset-map-germany.svg",
         "wset-map-germany.png",
@@ -1806,12 +2174,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-DE-A1272",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-DE-A1272.json",
+      "pre_format_sha256": "999309927c8dd2428c3f88d77548992176dd23b1ffe4f44428fe67e3b982f6c8",
+      "pre_format_bytes": 114401,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-DE-A1273.json",
-      "sha256": "96ccc5330e00b18b005b8523cccf56ebd888012357079dc4b4ab93d821e3c8bc",
-      "bytes": 39183,
+      "path": "inputs/eu-pdo/pdo-PDO-DE-A1273.json",
+      "sha256": "a0db7aa9a55b873ce6c214358469f2e84239597a6c1fb4a923d26247a6b2db8b",
+      "bytes": 68500,
       "outputs": [
         "wset-map-germany.svg",
         "wset-map-germany.png",
@@ -1824,12 +2196,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-DE-A1273",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-DE-A1273.json",
+      "pre_format_sha256": "96ccc5330e00b18b005b8523cccf56ebd888012357079dc4b4ab93d821e3c8bc",
+      "pre_format_bytes": 39183,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-ES-A0117.json",
-      "sha256": "ce966c75250426ad677b2b10d080e546291a03d3855896f252f5be9249760117",
-      "bytes": 71867,
+      "path": "inputs/eu-pdo/pdo-PDO-ES-A0117.json",
+      "sha256": "70448c722c3b8ce14280ab420b8c0d0129bf63095eaebfaf6f662baf81cf87e5",
+      "bytes": 123464,
       "outputs": [
         "wset-map-northern-spain.svg",
         "wset-map-northern-spain.png",
@@ -1846,12 +2222,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-ES-A0117",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-ES-A0117.json",
+      "pre_format_sha256": "ce966c75250426ad677b2b10d080e546291a03d3855896f252f5be9249760117",
+      "pre_format_bytes": 71867,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-ES-A0127.json",
-      "sha256": "13bbdcc055aa02c5286fc58bc781d090892fcb88f7298047b22beff179fc3484",
-      "bytes": 109973,
+      "path": "inputs/eu-pdo/pdo-PDO-ES-A0127.json",
+      "sha256": "a9747ff8d0d753bf096694f86d7567dc9ad2a087b8f1230394d78168ba10644a",
+      "bytes": 188800,
       "outputs": [
         "wset-map-northern-spain.svg",
         "wset-map-northern-spain.png",
@@ -1868,12 +2248,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-ES-A0127",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-ES-A0127.json",
+      "pre_format_sha256": "13bbdcc055aa02c5286fc58bc781d090892fcb88f7298047b22beff179fc3484",
+      "pre_format_bytes": 109973,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-ES-A0626.json",
-      "sha256": "76167dc8e9abe50fdeda082e4182f58fcd27ab5ff022897d5f28122e1ee6fa1e",
-      "bytes": 52645,
+      "path": "inputs/eu-pdo/pdo-PDO-ES-A0626.json",
+      "sha256": "3cfefdc2db9c4f5c8b4c2b2a879b3a350bbef416a0a38272a352758af1570b99",
+      "bytes": 90622,
       "outputs": [
         "wset-map-northern-spain.svg",
         "wset-map-northern-spain.png",
@@ -1890,12 +2274,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-ES-A0626",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-ES-A0626.json",
+      "pre_format_sha256": "76167dc8e9abe50fdeda082e4182f58fcd27ab5ff022897d5f28122e1ee6fa1e",
+      "pre_format_bytes": 52645,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-ES-A1119.json",
-      "sha256": "478409c6396db57a2c8bb8e7c420b0ea84a50490396dadd57d9ba545714d15d9",
-      "bytes": 141109,
+      "path": "inputs/eu-pdo/pdo-PDO-ES-A1119.json",
+      "sha256": "c5d0b078a610ee18e5288affb34a8c5c97d086c3c6ad5a0aa73f1ce1052b6a0f",
+      "bytes": 244436,
       "outputs": [
         "wset-map-spain.svg",
         "wset-map-spain.png",
@@ -1908,12 +2296,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-ES-A1119",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-ES-A1119.json",
+      "pre_format_sha256": "478409c6396db57a2c8bb8e7c420b0ea84a50490396dadd57d9ba545714d15d9",
+      "pre_format_bytes": 141109,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-ES-A1483.json",
-      "sha256": "7d5dbb8ac2e4047d903738e595f95b42dfcc9ae778d513dd89a28d941fb67525",
-      "bytes": 43469,
+      "path": "inputs/eu-pdo/pdo-PDO-ES-A1483.json",
+      "sha256": "0824883c7bda032ff91c7fbc0288d25f7fdb5c75c410f15d999f8be15c415e84",
+      "bytes": 75106,
       "outputs": [
         "wset-map-spain.svg",
         "wset-map-spain.png",
@@ -1926,12 +2318,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-ES-A1483",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-ES-A1483.json",
+      "pre_format_sha256": "7d5dbb8ac2e4047d903738e595f95b42dfcc9ae778d513dd89a28d941fb67525",
+      "pre_format_bytes": 43469,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-ES-A1560.json",
-      "sha256": "83575042a10b8289ba314da922075887124398855c7f9fed985309834923dc44",
-      "bytes": 13618,
+      "path": "inputs/eu-pdo/pdo-PDO-ES-A1560.json",
+      "sha256": "724c792715ca95a0c835338e86eb8b256634112b63cad0093e18a39eb4d88240",
+      "bytes": 23545,
       "outputs": [
         "wset-map-catalunya.svg",
         "wset-map-catalunya.png",
@@ -1948,12 +2344,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-ES-A1560",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-ES-A1560.json",
+      "pre_format_sha256": "83575042a10b8289ba314da922075887124398855c7f9fed985309834923dc44",
+      "pre_format_bytes": 13618,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-HU-A1254.json",
-      "sha256": "1b00e03ec9771fa529d93db4fc7025da7e45ccd9106145c7d7c514b0241437e6",
-      "bytes": 76105,
+      "path": "inputs/eu-pdo/pdo-PDO-HU-A1254.json",
+      "sha256": "ea88715ff0ec10149cba2088a7f19ddd6094790bcf7d1e51be724edb855349bb",
+      "bytes": 132022,
       "outputs": [
         "wset-map-hungary.svg",
         "wset-map-hungary.png",
@@ -1966,12 +2366,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-HU-A1254",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-HU-A1254.json",
+      "pre_format_sha256": "1b00e03ec9771fa529d93db4fc7025da7e45ccd9106145c7d7c514b0241437e6",
+      "pre_format_bytes": 76105,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-IT-A0442.json",
-      "sha256": "71810813b8198496f017c905fee9514d968625c3ed6be57515717411a0a62c4a",
-      "bytes": 59225,
+      "path": "inputs/eu-pdo/pdo-PDO-IT-A0442.json",
+      "sha256": "a51247d0cb9cbf81dfda43592a8e53f46b34c011cad0866e1783450f1319682d",
+      "bytes": 102542,
       "outputs": [
         "wset-map-veneto.svg",
         "wset-map-veneto.png",
@@ -1984,12 +2388,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-IT-A0442",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-IT-A0442.json",
+      "pre_format_sha256": "71810813b8198496f017c905fee9514d968625c3ed6be57515717411a0a62c4a",
+      "pre_format_bytes": 59225,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-IT-A0472.json",
-      "sha256": "8e9fc1863963a89a1685c65ec86d008db6e844a7d18a1800daf2cd1abeda589b",
-      "bytes": 29830,
+      "path": "inputs/eu-pdo/pdo-PDO-IT-A0472.json",
+      "sha256": "12bd4bf45c3561bbf1c69f5004242722b31286a042b75168c2d9d30d36b2d125",
+      "bytes": 51607,
       "outputs": [
         "wset-map-veneto.svg",
         "wset-map-veneto.png",
@@ -2002,12 +2410,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-IT-A0472",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-IT-A0472.json",
+      "pre_format_sha256": "8e9fc1863963a89a1685c65ec86d008db6e844a7d18a1800daf2cd1abeda589b",
+      "pre_format_bytes": 29830,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-IT-A1199.json",
-      "sha256": "1094e2f08e329ff42964cd32464688e846d0f3d862ad5df28eb624e1bf6bd256",
-      "bytes": 37157,
+      "path": "inputs/eu-pdo/pdo-PDO-IT-A1199.json",
+      "sha256": "f7d63f2d40724fa431f2c6bb20d9b9b934c546d9f151fec48c0ddbd291d8d18e",
+      "bytes": 64304,
       "outputs": [
         "wset-map-tuscany.svg",
         "wset-map-tuscany.png",
@@ -2020,12 +2432,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-IT-A1199",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-IT-A1199.json",
+      "pre_format_sha256": "1094e2f08e329ff42964cd32464688e846d0f3d862ad5df28eb624e1bf6bd256",
+      "pre_format_bytes": 37157,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-IT-A1228.json",
-      "sha256": "6fad5d13b4e6afd30faf3d3ee27a987465979bf3e3a7af5c55c211bf423450f2",
-      "bytes": 223085,
+      "path": "inputs/eu-pdo/pdo-PDO-IT-A1228.json",
+      "sha256": "a9c7e04dfd0feeaa550b43f728539107e7fe31a532f4d382e3ee8bf42b7fefa8",
+      "bytes": 386222,
       "outputs": [
         "wset-map-tuscany.svg",
         "wset-map-tuscany.png",
@@ -2038,12 +2454,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-IT-A1228",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-IT-A1228.json",
+      "pre_format_sha256": "6fad5d13b4e6afd30faf3d3ee27a987465979bf3e3a7af5c55c211bf423450f2",
+      "pre_format_bytes": 223085,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-IT-A1514.json",
-      "sha256": "bccf6e6e71f8d57d26775669fa1f7f05da614bdfed0a85daa54b0445d925218f",
-      "bytes": 61119,
+      "path": "inputs/eu-pdo/pdo-PDO-IT-A1514.json",
+      "sha256": "0c48f9d4467e9b21b5763c45b7de3786eee2c5496db94db173caede7e2b0c0dd",
+      "bytes": 105786,
       "outputs": [
         "wset-map-tuscany.svg",
         "wset-map-tuscany.png",
@@ -2056,12 +2476,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-IT-A1514",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-IT-A1514.json",
+      "pre_format_sha256": "bccf6e6e71f8d57d26775669fa1f7f05da614bdfed0a85daa54b0445d925218f",
+      "pre_format_bytes": 61119,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".inao-cache/pdo-PDO-PT-A1539.json",
-      "sha256": "1b13e67283060e002419375d509873424c0e0884039e362698ae8bd72205aced",
-      "bytes": 238994,
+      "path": "inputs/eu-pdo/pdo-PDO-PT-A1539.json",
+      "sha256": "589cb90d81ea918164425bf3fa1da28185006c72bc8e3b29a76fe76c079097f6",
+      "bytes": 412821,
       "outputs": [
         "wset-map-portugal.svg",
         "wset-map-portugal.png",
@@ -2074,12 +2498,16 @@
       "transformations": "Selected eAmbrosia PDO id, exterior WKB rings; EPSG:3035 transformed to WGS84",
       "acquired_at": null,
       "source_id": "pdo-PDO-PT-A1539",
-      "version": null
+      "version": null,
+      "cache_path": ".inao-cache/pdo-PDO-PT-A1539.json",
+      "pre_format_sha256": "1b13e67283060e002419375d509873424c0e0884039e362698ae8bd72205aced",
+      "pre_format_bytes": 238994,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".naturalearth-cache/ne_10m_admin_0_boundary_lines_land.geojson",
-      "sha256": "74d9c16229c095fde65943a9919e337682f044bcebccb120764f38edf3b70f4a",
-      "bytes": 2284669,
+      "path": "inputs/natural-earth/ne_10m_admin_0_boundary_lines_land.geojson",
+      "sha256": "818ec318dc6e4a5d743261da4b6209e8efe47d4e25a5ad992c3dec4bd8d8966b",
+      "bytes": 7072190,
       "outputs": [
         "wset-map-alsace.svg",
         "wset-map-alsace.png",
@@ -2216,12 +2644,16 @@
       "transformations": "Unmodified upstream GeoJSON",
       "acquired_at": null,
       "source_id": "ne_10m_admin_0_boundary_lines_land",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".naturalearth-cache/ne_10m_admin_0_boundary_lines_land.geojson",
+      "pre_format_sha256": "74d9c16229c095fde65943a9919e337682f044bcebccb120764f38edf3b70f4a",
+      "pre_format_bytes": 2284669,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".naturalearth-cache/ne_10m_admin_0_countries.geojson",
-      "sha256": "239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255",
-      "bytes": 13287234,
+      "path": "inputs/natural-earth/ne_10m_admin_0_countries.geojson",
+      "sha256": "fe0194c989a95cf9e2313a70a994564ca2e4a567f6d9c20993ae6b5a7407f308",
+      "bytes": 48583525,
       "outputs": [
         "wset-map-alsace.svg",
         "wset-map-alsace.png",
@@ -2358,12 +2790,16 @@
       "transformations": "Unmodified upstream GeoJSON",
       "acquired_at": null,
       "source_id": "ne_10m_admin_0_countries",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".naturalearth-cache/ne_10m_admin_0_countries.geojson",
+      "pre_format_sha256": "239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255",
+      "pre_format_bytes": 13287234,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".naturalearth-cache/ne_10m_coastline.geojson",
-      "sha256": "6f75ae0e0de157b14946e2255eb1f5486d9a13819032e26d4610852d296788f6",
-      "bytes": 10110735,
+      "path": "inputs/natural-earth/ne_10m_coastline.geojson",
+      "sha256": "2ce6cfcb6e41db03cd4f3637670d2a8776fdb729f5f99774c5821cb98662271d",
+      "bytes": 30489760,
       "outputs": [
         "wset-map-alsace.svg",
         "wset-map-alsace.png",
@@ -2500,12 +2936,16 @@
       "transformations": "Unmodified upstream GeoJSON",
       "acquired_at": null,
       "source_id": "ne_10m_coastline",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".naturalearth-cache/ne_10m_coastline.geojson",
+      "pre_format_sha256": "6f75ae0e0de157b14946e2255eb1f5486d9a13819032e26d4610852d296788f6",
+      "pre_format_bytes": 10110735,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".naturalearth-cache/ne_10m_lakes.geojson",
-      "sha256": "2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9",
-      "bytes": 5043554,
+      "path": "inputs/natural-earth/ne_10m_lakes.geojson",
+      "sha256": "681b6f888f82cb77368567f4ee4c91c9e9922217b1e68dca37a0fa0fd203cfef",
+      "bytes": 14942941,
       "outputs": [
         "wset-map-alsace.svg",
         "wset-map-alsace.png",
@@ -2642,12 +3082,16 @@
       "transformations": "Unmodified upstream GeoJSON",
       "acquired_at": null,
       "source_id": "ne_10m_lakes",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".naturalearth-cache/ne_10m_lakes.geojson",
+      "pre_format_sha256": "2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9",
+      "pre_format_bytes": 5043554,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".naturalearth-cache/ne_10m_populated_places.geojson",
-      "sha256": "9b8e3de09048ef00dfc70357dbb9fa324493f214b5e0ae4daf1aa79a8d10116b",
-      "bytes": 19359003,
+      "path": "inputs/natural-earth/ne_10m_populated_places.geojson",
+      "sha256": "1b9618a8ff52a3d78d433ab5df5f6ff21cb1ef1836ccf28fd03d11ac8d1e0ba5",
+      "bytes": 30518918,
       "outputs": [
         "wset-map-alsace.svg",
         "wset-map-alsace.png",
@@ -2784,12 +3228,16 @@
       "transformations": "Unmodified upstream GeoJSON",
       "acquired_at": null,
       "source_id": "ne_10m_populated_places",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".naturalearth-cache/ne_10m_populated_places.geojson",
+      "pre_format_sha256": "9b8e3de09048ef00dfc70357dbb9fa324493f214b5e0ae4daf1aa79a8d10116b",
+      "pre_format_bytes": 19359003,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".naturalearth-cache/ne_10m_rivers_lake_centerlines.geojson",
-      "sha256": "bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a",
-      "bytes": 7307743,
+      "path": "inputs/natural-earth/ne_10m_rivers_lake_centerlines.geojson",
+      "sha256": "fb8bbd3f3e81ef7f7457974cd35c92e309f329d1c5ea2998e33bba466ca37ffa",
+      "bytes": 20959234,
       "outputs": [
         "wset-map-alsace.svg",
         "wset-map-alsace.png",
@@ -2926,12 +3374,16 @@
       "transformations": "Unmodified upstream GeoJSON",
       "acquired_at": null,
       "source_id": "ne_10m_rivers_lake_centerlines",
-      "version": "v5.1.2"
+      "version": "v5.1.2",
+      "cache_path": ".naturalearth-cache/ne_10m_rivers_lake_centerlines.geojson",
+      "pre_format_sha256": "bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a",
+      "pre_format_bytes": 7307743,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q1031793.json",
-      "sha256": "75a741885f5f5d773bef8c05076118a10161d74cc87c5306c9c5aee551992280",
-      "bytes": 173,
+      "path": "inputs/wikidata/Q1031793.json",
+      "sha256": "4b1732c1090eef7fe4b7596e115fb8d7817413f3ae9468e0865ea73f5d2bc8e3",
+      "bytes": 174,
       "outputs": [
         "wset-map-chile.svg",
         "wset-map-chile.png",
@@ -2944,12 +3396,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q1031793",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q1031793.json",
+      "pre_format_sha256": "75a741885f5f5d773bef8c05076118a10161d74cc87c5306c9c5aee551992280",
+      "pre_format_bytes": 173,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q1071629.json",
-      "sha256": "5fc4ac1cde39cc016ab0e0988460773aea85aedb83bc6427a43791bada4b3cfc",
-      "bytes": 127,
+      "path": "inputs/wikidata/Q1071629.json",
+      "sha256": "3d259a1c45370262a76281a25d326e9a621dc0ee481fa6b96e815888835c8245",
+      "bytes": 128,
       "outputs": [
         "wset-map-tuscany.svg",
         "wset-map-tuscany.png",
@@ -2962,12 +3418,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q1071629",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q1071629.json",
+      "pre_format_sha256": "5fc4ac1cde39cc016ab0e0988460773aea85aedb83bc6427a43791bada4b3cfc",
+      "pre_format_bytes": 127,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q1127739.json",
-      "sha256": "26b801254f6ca408f187212bec7f5e2725b3da5173da34bbf0ab3a8ab95066f3",
-      "bytes": 142,
+      "path": "inputs/wikidata/Q1127739.json",
+      "sha256": "e20fc9c64546eb6dfa1b9925730cd7ee1657e606d275f43bffc16ecd8b0347b3",
+      "bytes": 143,
       "outputs": [
         "wset-map-south-africa.svg",
         "wset-map-south-africa.png",
@@ -2980,12 +3440,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q1127739",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q1127739.json",
+      "pre_format_sha256": "26b801254f6ca408f187212bec7f5e2725b3da5173da34bbf0ab3a8ab95066f3",
+      "pre_format_bytes": 142,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q1129760.json",
-      "sha256": "60f921fd1521e52b51f1c38278f780d6f0f6dbc25d75a6427b51e1dd5383005f",
-      "bytes": 131,
+      "path": "inputs/wikidata/Q1129760.json",
+      "sha256": "eb8e023de107eda2aa9c526e93a2e6fe3945ade6dec098adf09358721214a414",
+      "bytes": 132,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -3002,12 +3466,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q1129760",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q1129760.json",
+      "pre_format_sha256": "60f921fd1521e52b51f1c38278f780d6f0f6dbc25d75a6427b51e1dd5383005f",
+      "pre_format_bytes": 131,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q12303.json",
-      "sha256": "14c549db1392467eb03b90658e8a31f6e71747ba815d2e0908dbdbc48c96d15a",
-      "bytes": 162,
+      "path": "inputs/wikidata/Q12303.json",
+      "sha256": "971a861b18db27a67438677de8b3007d081ea57631afdaf5911b36f19016dfae",
+      "bytes": 163,
       "outputs": [
         "wset-map-spain.svg",
         "wset-map-spain.png",
@@ -3020,12 +3488,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q12303",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q12303.json",
+      "pre_format_sha256": "14c549db1392467eb03b90658e8a31f6e71747ba815d2e0908dbdbc48c96d15a",
+      "pre_format_bytes": 162,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q1252756.json",
-      "sha256": "8b9b2e110a308d5a87ad749bb6f3b49b58f5ce2bec375b240f9f233c1e2b98c3",
-      "bytes": 128,
+      "path": "inputs/wikidata/Q1252756.json",
+      "sha256": "ccd4c8ccccf4470cfc6e88d0066edbc8ee73ff8992eb53c68e27e30ec077a804",
+      "bytes": 129,
       "outputs": [
         "wset-map-portugal.svg",
         "wset-map-portugal.png",
@@ -3038,12 +3510,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q1252756",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q1252756.json",
+      "pre_format_sha256": "8b9b2e110a308d5a87ad749bb6f3b49b58f5ce2bec375b240f9f233c1e2b98c3",
+      "pre_format_bytes": 128,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q1482982.json",
-      "sha256": "b2cfcddf9c9d11a8bf5b5ecc8c29749451f639b6847a103c37d1d81728ed1554",
-      "bytes": 182,
+      "path": "inputs/wikidata/Q1482982.json",
+      "sha256": "e5e9c8f1d40a7b19b2252e34a811bcc4c5910fbf110e61d7b2673b07a36b9a7f",
+      "bytes": 183,
       "outputs": [
         "wset-map-spain.svg",
         "wset-map-spain.png",
@@ -3056,12 +3532,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q1482982",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q1482982.json",
+      "pre_format_sha256": "b2cfcddf9c9d11a8bf5b5ecc8c29749451f639b6847a103c37d1d81728ed1554",
+      "pre_format_bytes": 182,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q155622.json",
-      "sha256": "f776bc530121034851d05013b2206bda5730012a16c1a981ed218de46c5b18e8",
-      "bytes": 148,
+      "path": "inputs/wikidata/Q155622.json",
+      "sha256": "74e0b3a17f784985add10369250ac66393327a191a44c7b8a4133130bfee8591",
+      "bytes": 149,
       "outputs": [
         "wset-map-germany.svg",
         "wset-map-germany.png",
@@ -3074,12 +3554,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q155622",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q155622.json",
+      "pre_format_sha256": "f776bc530121034851d05013b2206bda5730012a16c1a981ed218de46c5b18e8",
+      "pre_format_bytes": 148,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q1569384.json",
-      "sha256": "ddf835e4ea6a2b0302b583b2919fb4605fe96ca6f26601204250178814b81576",
-      "bytes": 118,
+      "path": "inputs/wikidata/Q1569384.json",
+      "sha256": "b02ecdb32d371c495f2010a35dde84e9fc4ddc4cd55cde9f32624331c79980cd",
+      "bytes": 119,
       "outputs": [
         "wset-map-northern-spain.svg",
         "wset-map-northern-spain.png",
@@ -3096,12 +3580,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q1569384",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q1569384.json",
+      "pre_format_sha256": "ddf835e4ea6a2b0302b583b2919fb4605fe96ca6f26601204250178814b81576",
+      "pre_format_bytes": 118,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q1612687.json",
-      "sha256": "20458b649e2e99362c0cf4aef3f04511408f4e1aea1049c58f2f87afa0a82ba3",
-      "bytes": 124,
+      "path": "inputs/wikidata/Q1612687.json",
+      "sha256": "9140bbf301bc9ab813d91194fdca17215941d333383eee827a9cb1e191780677",
+      "bytes": 125,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -3118,12 +3606,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q1612687",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q1612687.json",
+      "pre_format_sha256": "20458b649e2e99362c0cf4aef3f04511408f4e1aea1049c58f2f87afa0a82ba3",
+      "pre_format_bytes": 124,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q1638164.json",
-      "sha256": "6d9b2772cbdb0acc6dc0393c4e92364fd9b362b6c0009f0f086714b79128e9d9",
-      "bytes": 142,
+      "path": "inputs/wikidata/Q1638164.json",
+      "sha256": "fa6214cccb3381e383ae22d9806957ddf639e8f0c3d45d77881efc74755db64b",
+      "bytes": 143,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -3140,12 +3632,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q1638164",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q1638164.json",
+      "pre_format_sha256": "6d9b2772cbdb0acc6dc0393c4e92364fd9b362b6c0009f0f086714b79128e9d9",
+      "pre_format_bytes": 142,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q1754563.json",
-      "sha256": "9561247efdd9b03fc0951d9da5191f5b429e8f98d83e5dc2c063ce00f6c875fa",
-      "bytes": 133,
+      "path": "inputs/wikidata/Q1754563.json",
+      "sha256": "4f255cfb2748181b9ae40adf847863dce9483405391981c86e0e33dae1a6e38e",
+      "bytes": 134,
       "outputs": [
         "wset-map-catalunya.svg",
         "wset-map-catalunya.png",
@@ -3162,12 +3658,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q1754563",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q1754563.json",
+      "pre_format_sha256": "9561247efdd9b03fc0951d9da5191f5b429e8f98d83e5dc2c063ce00f6c875fa",
+      "pre_format_bytes": 133,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q201304.json",
-      "sha256": "6fad84fc236e10c150e06a5a5cd98a690ac91fde5ace09c4263ca7e80b453287",
-      "bytes": 127,
+      "path": "inputs/wikidata/Q201304.json",
+      "sha256": "e4f2115187d7eeec43f95a6b23c029f989b7028d88e3da3f7c4126404cc9ac07",
+      "bytes": 128,
       "outputs": [
         "wset-map-chile.svg",
         "wset-map-chile.png",
@@ -3180,12 +3680,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q201304",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q201304.json",
+      "pre_format_sha256": "6fad84fc236e10c150e06a5a5cd98a690ac91fde5ace09c4263ca7e80b453287",
+      "pre_format_bytes": 127,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q212376.json",
-      "sha256": "f85f44ee6575a1a6a5a42bfc7a58b28232c02ae71921c559a573a16c1addd7fc",
-      "bytes": 192,
+      "path": "inputs/wikidata/Q212376.json",
+      "sha256": "7657e8a952fef7e2a377f654881a1e63516d3208d637b427323c948d17ac85c9",
+      "bytes": 193,
       "outputs": [
         "wset-map-germany.svg",
         "wset-map-germany.png",
@@ -3198,12 +3702,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q212376",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q212376.json",
+      "pre_format_sha256": "f85f44ee6575a1a6a5a42bfc7a58b28232c02ae71921c559a573a16c1addd7fc",
+      "pre_format_bytes": 192,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q2263903.json",
-      "sha256": "f811ac93fc876002fd9fc096297a2e3d5c36f3d996b70ac5eadcc57d5bbf3a89",
-      "bytes": 149,
+      "path": "inputs/wikidata/Q2263903.json",
+      "sha256": "179eb294b6001114ac9b9e3b1813f30c8dba64116175d852226691dd45d89122",
+      "bytes": 150,
       "outputs": [
         "wset-map-south-africa.svg",
         "wset-map-south-africa.png",
@@ -3216,12 +3724,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q2263903",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q2263903.json",
+      "pre_format_sha256": "f811ac93fc876002fd9fc096297a2e3d5c36f3d996b70ac5eadcc57d5bbf3a89",
+      "pre_format_bytes": 149,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q23047.json",
-      "sha256": "2fb68f13cc3e1e8029cbf17432eb1ec2f7fa138107720d926329741eac02c9b8",
-      "bytes": 118,
+      "path": "inputs/wikidata/Q23047.json",
+      "sha256": "82bdbc9882ab9de6994f4ac23a2beba3bedb2fa2d146dcbd90e5472f1c21c868",
+      "bytes": 119,
       "outputs": [
         "wset-map-france.svg",
         "wset-map-france.png",
@@ -3234,12 +3746,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q23047",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q23047.json",
+      "pre_format_sha256": "2fb68f13cc3e1e8029cbf17432eb1ec2f7fa138107720d926329741eac02c9b8",
+      "pre_format_bytes": 118,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q27026.json",
-      "sha256": "6259b0b0d189465db82df72e7955cecaeb0fce84443a4b28664e5096648c86fe",
-      "bytes": 145,
+      "path": "inputs/wikidata/Q27026.json",
+      "sha256": "ff38b33c7aa292eca88291f272cb452e29c98d84f542826afdb42495cc3c95aa",
+      "bytes": 146,
       "outputs": [
         "wset-map-california.svg",
         "wset-map-california.png",
@@ -3252,12 +3768,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q27026",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q27026.json",
+      "pre_format_sha256": "6259b0b0d189465db82df72e7955cecaeb0fce84443a4b28664e5096648c86fe",
+      "pre_format_bytes": 145,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q326359.json",
-      "sha256": "b2c050297f90873527da5e545b0572ed5388d67a0328c2d1dc809c12a9908795",
-      "bytes": 144,
+      "path": "inputs/wikidata/Q326359.json",
+      "sha256": "658dc0dd05789a97fe2015acd135a44a782fdc8f019e2111aeb9053ef8c55c08",
+      "bytes": 145,
       "outputs": [
         "wset-map-germany.svg",
         "wset-map-germany.png",
@@ -3270,12 +3790,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q326359",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q326359.json",
+      "pre_format_sha256": "b2c050297f90873527da5e545b0572ed5388d67a0328c2d1dc809c12a9908795",
+      "pre_format_bytes": 144,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q353992.json",
-      "sha256": "0e2055cf83d892a6dcf19bf56a87107bba94de11f38793f720d6272d5d9267c9",
-      "bytes": 116,
+      "path": "inputs/wikidata/Q353992.json",
+      "sha256": "b5628423aad98a72ce3a4216645c00d3fa896df95b5d5cfaba7cf0ee555df8de",
+      "bytes": 117,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -3292,12 +3816,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q353992",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q353992.json",
+      "pre_format_sha256": "0e2055cf83d892a6dcf19bf56a87107bba94de11f38793f720d6272d5d9267c9",
+      "pre_format_bytes": 116,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q3742.json",
-      "sha256": "d71470f03e6dbe24e7b02a6eafad463e04622cf30e7e18a1740d8772599d8fcb",
-      "bytes": 122,
+      "path": "inputs/wikidata/Q3742.json",
+      "sha256": "47a492aec84d6282469e1ffb437c313dd8d14dde1f58f7e23fd1c15ee01157ba",
+      "bytes": 123,
       "outputs": [
         "wset-map-chile.svg",
         "wset-map-chile.png",
@@ -3310,12 +3838,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q3742",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q3742.json",
+      "pre_format_sha256": "d71470f03e6dbe24e7b02a6eafad463e04622cf30e7e18a1740d8772599d8fcb",
+      "pre_format_bytes": 122,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q47876.json",
-      "sha256": "7215856e1a451a79ffc162f4af6cfb3faeb8e4d4b439eeddf65e22fcea574107",
-      "bytes": 107,
+      "path": "inputs/wikidata/Q47876.json",
+      "sha256": "b11b51f06c06bdd2eb22fa2daf2ab690febe7b262f597877ba195fdc15a146be",
+      "bytes": 108,
       "outputs": [
         "wset-map-veneto.svg",
         "wset-map-veneto.png",
@@ -3328,12 +3860,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q47876",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q47876.json",
+      "pre_format_sha256": "7215856e1a451a79ffc162f4af6cfb3faeb8e4d4b439eeddf65e22fcea574107",
+      "pre_format_bytes": 107,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q522028.json",
-      "sha256": "afb46653100d5acfec19a41e25da760efad2f0c0664fac2397d8cd6c12e59f06",
-      "bytes": 173,
+      "path": "inputs/wikidata/Q522028.json",
+      "sha256": "aa1fd2b8a3b57c6bfc047ed2770e73cd90e25038c4ecb34ad572acc86582ab24",
+      "bytes": 174,
       "outputs": [
         "wset-map-south-africa.svg",
         "wset-map-south-africa.png",
@@ -3346,12 +3882,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q522028",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q522028.json",
+      "pre_format_sha256": "afb46653100d5acfec19a41e25da760efad2f0c0664fac2397d8cd6c12e59f06",
+      "pre_format_bytes": 173,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q5336950.json",
-      "sha256": "dba4a26346a42992b5d4c0c1dd1932a9fd918c85661adecfbf15835bb455f862",
-      "bytes": 119,
+      "path": "inputs/wikidata/Q5336950.json",
+      "sha256": "d506b9928880d97a89cba2e99eccffad9940225e17c2bfeaf2113f9a69aedd5c",
+      "bytes": 120,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -3368,12 +3908,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q5336950",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q5336950.json",
+      "pre_format_sha256": "dba4a26346a42992b5d4c0c1dd1932a9fd918c85661adecfbf15835bb455f862",
+      "pre_format_bytes": 119,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q582209.json",
-      "sha256": "0fff11b8dddbb3801b9297976ec4fc1b323d3289d56006c1e62e8223f1e82326",
-      "bytes": 103,
+      "path": "inputs/wikidata/Q582209.json",
+      "sha256": "172ed0e0b9d53df730761d5bf5d0925cb68d1542cb34b9eaf9805b6b94318afc",
+      "bytes": 104,
       "outputs": [
         "wset-map-hungary.svg",
         "wset-map-hungary.png",
@@ -3386,12 +3930,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q582209",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q582209.json",
+      "pre_format_sha256": "0fff11b8dddbb3801b9297976ec4fc1b323d3289d56006c1e62e8223f1e82326",
+      "pre_format_bytes": 103,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q631876.json",
-      "sha256": "f3e4e4f90c828cdfe853326182744b2c7e7d7e9f0378644fec00b34255316a38",
-      "bytes": 130,
+      "path": "inputs/wikidata/Q631876.json",
+      "sha256": "cb8f76d15e8fa80d4636ed8c17d5bd5fd92874f3aedff6668afedb2ae70cf01d",
+      "bytes": 131,
       "outputs": [
         "wset-map-northern-spain.svg",
         "wset-map-northern-spain.png",
@@ -3408,12 +3956,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q631876",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q631876.json",
+      "pre_format_sha256": "f3e4e4f90c828cdfe853326182744b2c7e7d7e9f0378644fec00b34255316a38",
+      "pre_format_bytes": 130,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q6759841.json",
-      "sha256": "04dde9a27f98ac45997ef09a79a3fd93ffefde54750f66499b6b163633313482",
-      "bytes": 134,
+      "path": "inputs/wikidata/Q6759841.json",
+      "sha256": "ff38b4f0840f2763a984abfbfa0c83ae3f48ab5d83dcf6b31591d989a1cbb616",
+      "bytes": 135,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -3430,12 +3982,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q6759841",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q6759841.json",
+      "pre_format_sha256": "04dde9a27f98ac45997ef09a79a3fd93ffefde54750f66499b6b163633313482",
+      "pre_format_bytes": 134,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q6802082.json",
-      "sha256": "252775cd2d6790cc3450f9339803a92b455817e1e341f552fe634773ce1a2ef7",
-      "bytes": 135,
+      "path": "inputs/wikidata/Q6802082.json",
+      "sha256": "1e03cb6c72750086231baa8bd335efb07ee7e1eec0d5e8bcbe7d2633e603bf9c",
+      "bytes": 136,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -3452,12 +4008,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q6802082",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q6802082.json",
+      "pre_format_sha256": "252775cd2d6790cc3450f9339803a92b455817e1e341f552fe634773ce1a2ef7",
+      "pre_format_bytes": 135,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q6913026.json",
-      "sha256": "07e8746fbe93acd8e7c354bb2aa33a255c7887a636f22b98447764d92eb56855",
-      "bytes": 130,
+      "path": "inputs/wikidata/Q6913026.json",
+      "sha256": "1fb1c3397efce81d30dee143a3d2eca39caa2b397f46bbd8c523f969acb77562",
+      "bytes": 131,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -3474,12 +4034,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q6913026",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q6913026.json",
+      "pre_format_sha256": "07e8746fbe93acd8e7c354bb2aa33a255c7887a636f22b98447764d92eb56855",
+      "pre_format_bytes": 130,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q698920.json",
-      "sha256": "83b102c1bef4d7cad5334aa3c7add9273aecd0390a1911c48832420ea7ab06ed",
-      "bytes": 157,
+      "path": "inputs/wikidata/Q698920.json",
+      "sha256": "6bdd08dad983dd8d217d1131819b5ade164c5cf6d7c9c9a38aeec8afe8949a34",
+      "bytes": 158,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -3496,12 +4060,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q698920",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q698920.json",
+      "pre_format_sha256": "83b102c1bef4d7cad5334aa3c7add9273aecd0390a1911c48832420ea7ab06ed",
+      "pre_format_bytes": 157,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q721450.json",
-      "sha256": "e4d4266e15223dbdea57fc319f9f717e5880d9678af07e8504d1ae1c0c1fc791",
-      "bytes": 123,
+      "path": "inputs/wikidata/Q721450.json",
+      "sha256": "1ba5d23a62b9f661a05e73d5374d2cd321aa8093e5d3445cc42b0b0f133fdac6",
+      "bytes": 124,
       "outputs": [
         "wset-map-chile.svg",
         "wset-map-chile.png",
@@ -3514,12 +4082,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q721450",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q721450.json",
+      "pre_format_sha256": "e4d4266e15223dbdea57fc319f9f717e5880d9678af07e8504d1ae1c0c1fc791",
+      "pre_format_bytes": 123,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q7962218.json",
-      "sha256": "d49ab14bf12153d34bff08de439662f963532e921e589c1c94fd81b7a4ddd0d1",
-      "bytes": 109,
+      "path": "inputs/wikidata/Q7962218.json",
+      "sha256": "e0272d3b1ea83dcf010252d31ac3f5981dc182cd787edf0aaebdd6b8a1526383",
+      "bytes": 110,
       "outputs": [
         "wset-map-south-africa.svg",
         "wset-map-south-africa.png",
@@ -3532,12 +4104,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q7962218",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q7962218.json",
+      "pre_format_sha256": "d49ab14bf12153d34bff08de439662f963532e921e589c1c94fd81b7a4ddd0d1",
+      "pre_format_bytes": 109,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q8049508.json",
-      "sha256": "f51ba1ffbf1cd1a9ec5fdc40b6075d5f62d1e75f5d96106ee12d603a0c020628",
-      "bytes": 135,
+      "path": "inputs/wikidata/Q8049508.json",
+      "sha256": "a27c584a0070e97923326c7ebad9f6192d71d87f0363334699e23f062b013b98",
+      "bytes": 136,
       "outputs": [
         "wset-map-australia.svg",
         "wset-map-australia.png",
@@ -3554,12 +4130,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q8049508",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q8049508.json",
+      "pre_format_sha256": "f51ba1ffbf1cd1a9ec5fdc40b6075d5f62d1e75f5d96106ee12d603a0c020628",
+      "pre_format_bytes": 135,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q852467.json",
-      "sha256": "dd231305cc649c1ddb4322befdf7d4f51a3c949d554083601ae8ebf61167b77a",
-      "bytes": 148,
+      "path": "inputs/wikidata/Q852467.json",
+      "sha256": "663bd0b019e19f9e81ec80e6c3e2914a6ca2a7f8d855cfbe4c66690660cfa4f1",
+      "bytes": 149,
       "outputs": [
         "wset-map-veneto.svg",
         "wset-map-veneto.png",
@@ -3572,12 +4152,16 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q852467",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q852467.json",
+      "pre_format_sha256": "dd231305cc649c1ddb4322befdf7d4f51a3c949d554083601ae8ebf61167b77a",
+      "pre_format_bytes": 148,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
-      "path": ".wikidata-cache/Q91208.json",
-      "sha256": "d3e2e69434183feb34d8e477a93e9e639925eb6beeca791a24b9b1c55e12d306",
-      "bytes": 120,
+      "path": "inputs/wikidata/Q91208.json",
+      "sha256": "c779f00e2cd8e5340e9502a6d97bf3309f54d26b4de32eb0cc78d7446866783f",
+      "bytes": 121,
       "outputs": [
         "wset-map-tuscany.svg",
         "wset-map-tuscany.png",
@@ -3590,8 +4174,11 @@
       "transformations": "Selected P625 coordinate, label and description; JSON record",
       "acquired_at": null,
       "source_id": "Q91208",
-      "version": null
+      "version": null,
+      "cache_path": ".wikidata-cache/Q91208.json",
+      "pre_format_sha256": "d3e2e69434183feb34d8e477a93e9e639925eb6beeca791a24b9b1c55e12d306",
+      "pre_format_bytes": 120,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     }
-  ],
-  "archive_sha256": "f6c7b3f2f68df2933a99de01bf892ce0e54fa7da959de45d8bc7fa1c9f776e7b"
+  ]
 }
