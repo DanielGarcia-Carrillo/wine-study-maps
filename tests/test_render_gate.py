@@ -19,7 +19,7 @@ class RenderGateTests(unittest.TestCase):
     def test_stale_outputs_do_not_hide_no_write_or_partial_renderer(self) -> None:
         for omit_one in (False, True):
             with self.subTest(omit_one=omit_one), tempfile.TemporaryDirectory() as tmp:
-                stale = Path(tmp) / "prior-output"
+                stale = Path(tmp).resolve() / "prior-output"
                 shutil.copytree(ROOT / "assets", stale)
                 before = (stale / "wset-map-france.png").read_bytes()
 
@@ -47,11 +47,11 @@ class RenderGateTests(unittest.TestCase):
 
     def test_output_symlink_is_rejected_without_running_or_deleting(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
-            real = Path(tmp) / "real"
+            real = Path(tmp).resolve() / "real"
             real.mkdir()
             sentinel = real / "sentinel"
             sentinel.write_text("keep")
-            alias = Path(tmp) / "alias"
+            alias = Path(tmp).resolve() / "alias"
             alias.symlink_to(real, target_is_directory=True)
             with (
                 patch.object(sys, "argv", ["validate_render", "--out", str(alias)]),

@@ -20,6 +20,9 @@ def compare(out: Path, exact_pixels: bool = False) -> None:
     expected = {
         f"wset-map-{i}{tag}.{ext}" for i in ids for tag in ("", "-blank") for ext in ("png", "svg")
     } | {"_contact_sheet.png"}
+    for image in out.iterdir():
+        if image.is_symlink() or not image.is_file():
+            raise ValueError(f"{image}: unsafe rendered output")
     actual = {p.name for p in out.iterdir()}
     if actual != expected:
         raise ValueError(
@@ -78,7 +81,7 @@ def main() -> int:
             cwd=ROOT,
             check=True,
         )
-        if not fresh.is_dir():
+        if not fresh.is_dir() or fresh.is_symlink():
             raise ValueError(f"{fresh}: renderer did not create output")
         compare(fresh, args.exact_pixels)
         args.out.mkdir(parents=True, exist_ok=True)
