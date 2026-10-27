@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import argparse
+import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 from PIL import Image, ImageChops
@@ -61,12 +63,31 @@ def main() -> int:
     parser.add_argument("--compare-only", action="store_true")
     parser.add_argument("--exact-pixels", action="store_true")
     args = parser.parse_args(namespace=Arguments())
-    if not args.compare_only:
+    if args.compare_only:
+        compare(args.out, args.exact_pixels)
+        return 0
+    # Never trust previous output as evidence that this invocation wrote a file.
+    # No output directory is deleted, and no output symlink is followed.
+    for ancestor in (args.out, *args.out.parents):
+        if ancestor.is_symlink():
+            raise ValueError(f"{ancestor}: output path must not contain a symlink")
+    with tempfile.TemporaryDirectory(prefix="wset2-maps-render-") as temporary:
+        fresh = Path(temporary) / "rendered"
         subprocess.run(
-            [sys.executable, str(ROOT / "scripts/render_maps.py"), "--out", str(args.out)],
+            [sys.executable, str(ROOT / "scripts/render_maps.py"), "--out", str(fresh)],
             cwd=ROOT,
             check=True,
         )
+        if not fresh.is_dir():
+            raise ValueError(f"{fresh}: renderer did not create output")
+        compare(fresh, args.exact_pixels)
+        args.out.mkdir(parents=True, exist_ok=True)
+        for image in fresh.iterdir():
+            destination = args.out / image.name
+            if destination.is_symlink() or (destination.exists() and not destination.is_file()):
+                raise ValueError(f"{destination}: unsafe existing output path")
+        for image in fresh.iterdir():
+            shutil.copyfile(image, args.out / image.name)
     compare(args.out, args.exact_pixels)
     return 0
 
