@@ -490,7 +490,11 @@ maps:
   country:
   - FRA
   bbox: auto
-  pad: 0.9
+  pad: 0.25
+  include:
+  - - 2.35
+    - 48.86
+  thin_places: true
   base:
   - land
   - coastline

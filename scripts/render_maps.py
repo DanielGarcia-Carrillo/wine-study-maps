@@ -21,6 +21,7 @@ from models import (
     Mark,
     Palette,
     Point,
+    Properties,
     Ring,
     Rings,
 )
@@ -309,6 +310,16 @@ def place_box(
     return (min(x0, x) - 2, y - CITY_PX / 2 - 1, max(x0 + w, x) + 2, y + CITY_PX / 2 + 2)
 
 
+def place_rank_of(props: Properties) -> float:
+    """Natural Earth's SCALERANK, where 0 is the most prominent - Paris, Rome.
+
+    Not `or 99`: that turned rank 0 into the least prominent, so no rank-0
+    capital was ever drawn.
+    """
+    rank = props.get("SCALERANK")
+    return 99 if rank is None else rank
+
+
 def crowded_places(
     data: FeatureCollection, p: Projection, focus: frozenset[str] = frozenset()
 ) -> set[int]:
@@ -327,7 +338,7 @@ def crowded_places(
         props, geom = f.get("properties", {}), f.get("geometry")
         if not geom or geom["type"] != "Point":
             continue
-        if (props.get("SCALERANK") or 99) > p.place_rank:
+        if place_rank_of(props) > p.place_rank:
             continue
         if focus and props.get("ADM0_A3") not in focus:
             continue
@@ -335,7 +346,7 @@ def crowded_places(
         if p.inside(lon, lat):
             cand.append(
                 (
-                    props.get("SCALERANK") or 99,
+                    place_rank_of(props),
                     f,
                     place_box(lon, lat, esc(props.get("NAME") or ""), p),
                 )
@@ -375,7 +386,7 @@ def draw_layer(
                 # Natural Earth ranks places by prominence. A tight frame can
                 # afford small towns; a continent cannot - Australia drew every
                 # town in the country and the labels became a grey smear.
-                if (props.get("SCALERANK") or 99) > p.place_rank:
+                if place_rank_of(props) > p.place_rank:
                     continue
                 # Only the map's own country gets cities; a neighbour is
                 # named once instead, by country_labels().
@@ -681,6 +692,9 @@ def auto_bbox(spec_map: MapSpec, ents: Entities) -> BBox:
             pts += [(ent["lon"] - d, ent["lat"] - d), (ent["lon"] + d, ent["lat"] + d)]
     if not pts:
         raise ValueError(f"{spec_map['id']}: nothing to fit a bbox to")
+    # `include:` - extra points the frame must reach, for a reference city
+    # just outside the region, such as Paris on the Champagne map.
+    pts += [cast(Point, tuple(pt)) for pt in spec_map.get("include", [])]
     w, e = min(p[0] for p in pts), max(p[0] for p in pts)
     s_, n = min(p[1] for p in pts), max(p[1] for p in pts)
     mx, my = max((e - w) * pad, 0.05), max((n - s_) * pad, 0.05)

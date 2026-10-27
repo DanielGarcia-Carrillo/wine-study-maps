@@ -110,6 +110,7 @@ class MapSpec(TypedDict, total=False):
     inset: Inset
     distinct: bool
     thin_places: bool
+    include: list[Position]
     country: Annotated[list[Annotated[str, Field(pattern=r"^[A-Z]{3}$")]], Field(min_length=1)]
 
 
