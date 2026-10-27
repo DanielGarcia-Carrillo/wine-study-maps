@@ -9,6 +9,10 @@ Region geometry comes from source data; label anchors and layout may be set
 explicitly in `catalogue.yaml`. The rendered maps simplify those inputs for
 illustration and are not official, legal or surveyed boundaries.
 
+Maps that use CC BY 4.0, ODbL or Licence Ouverte 2.0 inputs credit those sources
+on a pale panel in the bottom-right corner of the map. The text comes from `CREDITS` in `scripts/render_maps.py`,
+matched to each output through `data/input-manifest.json`.
+
 | Source | Used for | Licence |
 |---|---|---|
 | [Natural Earth](https://www.naturalearthdata.com/) 10m, pinned at [`v5.1.2`](https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2/geojson) | coastline, land, rivers, lakes, cities | Public domain |

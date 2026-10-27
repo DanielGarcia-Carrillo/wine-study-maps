@@ -3,6 +3,7 @@
   text { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .ti { font-size: 30px; font-weight: 700; fill: #2b2b33; }
   .city { font-size: 14px; fill: #6f6f79; }
+  .credit { font-size: 12.00px; fill: #2b2b33; }
 </style>
 <rect width="100%" height="100%" fill="#dbe7ef"/>
 <path d="M294.3,-2.9L294.9,-1.2L293.8,-1.0L293.1,-0.8L292.0,0.2L291.2,0.6L291.2,1.4L290.6,2.2L289.2,2.4L286.1,3.4L285.7,4.2L283.8,4.7L283.0,4.7L282.5,2.0L282.9,1.3L284.6,0.5L285.5,0.4L286.4,0.1L287.3,-0.1L288.3,-1.2L289.6,-1.9L290.1,-3.0L290.9,-4.0L292.1,-4.8L293.2,-5.2L294.0,-6.3L294.4,-5.6L294.4,-4.8L294.0,-3.9L293.7,-3.1Z" fill="#f6f3ec"/>
@@ -297,4 +298,6 @@
 <text x="269.4" y="345.3" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Western Australia</text>
 <text x="269.4" y="345.3" text-anchor="middle" font-size="20.0" font-weight="700" fill="#456426">Western Australia</text>
 <text x="34" y="38" class="ti">Australia</text>
+<rect x="767.0" y="695.3" width="227.0" height="20.4" rx="3.0" fill="#ffffff" fill-opacity="0.85"/>
+<text x="988.0" y="709.5" text-anchor="end" class="credit">Data: Wine Australia (CC BY 4.0)</text>
 </svg>

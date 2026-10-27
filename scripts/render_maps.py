@@ -23,7 +23,7 @@ from models import (
     Ring,
     Rings,
 )
-from validation import COLOURS, load_catalogue, read_json
+from validation import COLOURS, load_catalogue, load_manifest, read_json
 
 ROOT = Path(__file__).resolve().parents[1]
 MAPS = ROOT / "assets"
@@ -74,6 +74,33 @@ TIER = {
 # that keep labels off each other.
 CITY_PX = 14
 CITY_EM = 0.59 * CITY_PX
+
+# Sources whose licences require attribution are credited on every map they
+# feed, so a single image reused on its own keeps its credit. Public-domain
+# and CC0 sources are credited in ATTRIBUTION.md only. The credit is drawn
+# last, on a pale panel in the bottom-right corner, so it reads over sea or
+# land; labels are not placed around it, so check new maps for overlaps.
+CREDITS = {
+    "INAO and IGN/Etalab": "INAO, IGN/Etalab (Licence Ouverte 2.0, {version})",
+    "OpenStreetMap contributors": "© OpenStreetMap contributors (ODbL)",
+    "Regione Piemonte": "Regione Piemonte (CC BY 4.0)",
+    "Wine Australia": "Wine Australia (CC BY 4.0)",
+}
+# Credit text is sized against the full canvas width, so every PNG, which is
+# rendered at one fixed width, shows it at the same size however narrow the map.
+CREDIT_PX = 12
+
+
+def credit_lines(root: Path = ROOT) -> dict[str, str]:
+    """The credit line for each output file, from the input manifest."""
+    found: dict[str, set[str]] = {}
+    for row in load_manifest(root)["inputs"]:
+        if (text := CREDITS.get(row["source"])) is None:
+            continue
+        text = text.format(version=row["version"] or "undated")
+        for out in row["outputs"]:
+            found.setdefault(out, set()).add(text)
+    return {out: "Data: " + "; ".join(sorted(texts)) for out, texts in found.items()}
 
 
 # Reviewed label colours are explicit palette values.
@@ -628,6 +655,7 @@ def render(
     palette: Palette | None = None,
     canvas: tuple[float, float] | None = None,
     clip_id: str = "land",
+    credit: str = "",
 ) -> str:
     palette = palette or {}
     bbox = spec_map.get("bbox")
@@ -870,17 +898,31 @@ def render(
             f'<g clip-path="url(#{clip_id})">' + "\n".join(fills + lines) + "</g>"
         )
 
+    foot = credit_style = ""
+    if credit and not canvas:
+        px = CREDIT_PX * p.width / W
+        credit_style = f"\n  .credit {{ font-size: {px:.2f}px; fill: {INK}; }}"
+        gap = px / 2
+        bw, bh = len(credit) * 0.56 * px + 2 * gap, px * 1.7
+        bx, by = p.width - bw - gap, p.height - bh - gap
+        foot = (
+            f'\n<rect x="{bx:.1f}" y="{by:.1f}" width="{bw:.1f}" height="{bh:.1f}" '
+            f'rx="{gap / 2:.1f}" fill="#ffffff" fill-opacity="0.85"/>\n'
+            f'<text x="{bx + bw - gap:.1f}" y="{by + bh / 2 + px / 3:.1f}" '
+            f'text-anchor="end" class="credit">{esc(credit)}</text>'
+        )
+
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {p.width:.0f} {p.height:.0f}" width="{p.width:.0f}" height="{p.height:.0f}">
 <style>
   text {{ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }}
   .ti {{ font-size: 30px; font-weight: 700; fill: {INK}; }}
-  .city {{ font-size: {CITY_PX}px; fill: {CITY}; }}
+  .city {{ font-size: {CITY_PX}px; fill: {CITY}; }}{credit_style}
 </style>
 <rect width="100%" height="100%" fill="{SEA}"/>
 {layers}
 {clip}
 {chr(10).join(body)}{inset_svg}
-{title}
+{title}{foot}
 </svg>
 '''
 
@@ -979,6 +1021,7 @@ def main() -> int:
     qids = [r["wikidata"] for m in todo for r in m["regions"] if r.get("wikidata")]
     ents = fetch_entities(sorted(set(qids)))
 
+    credits = credit_lines()
     cairosvg = None if args.svg_only else load_cairosvg()
     if not args.svg_only and cairosvg is None:
         raise RuntimeError(
@@ -989,7 +1032,14 @@ def main() -> int:
         for blank in (False, True):
             tag = "-blank" if blank else ""
             stem = f"wset-map-{m['id']}{args.suffix}{tag}"
-            svg = render(m, ents, args.treatment, blank=blank, palette=spec.get("palette", {}))
+            svg = render(
+                m,
+                ents,
+                args.treatment,
+                blank=blank,
+                palette=spec.get("palette", {}),
+                credit=credits.get(f"wset-map-{m['id']}{tag}.svg", ""),
+            )
             (out_dir / f"{stem}.svg").write_text(svg, encoding="utf-8")
             if cairosvg:
                 cairosvg.svg2png(

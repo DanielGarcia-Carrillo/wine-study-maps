@@ -24,6 +24,18 @@ class ExtractionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Unreviewed label colour"):
             render_maps.readable("#abcdef", "#ffffff")
 
+    def test_attribution_licences_are_credited_on_their_maps(self) -> None:
+        credits = render_maps.credit_lines()
+        self.assertIn("OpenStreetMap", credits["wset-map-chile.svg"])
+        self.assertIn("OpenStreetMap", credits["wset-map-chile-blank.png"])
+        self.assertIn("Regione Piemonte", credits["wset-map-piemonte.svg"])
+        self.assertIn("Wine Australia", credits["wset-map-victoria.png"])
+        self.assertIn("2025-10-09", credits["wset-map-bordeaux.svg"])
+        # Natural Earth, Wikidata and CC0 inputs alone need no on-image credit.
+        self.assertNotIn("wset-map-napa.svg", credits)
+        svg = (ROOT / "assets/wset-map-chile.svg").read_text(encoding="utf-8")
+        self.assertIn(f'class="credit">{credits["wset-map-chile.svg"]}<', svg)
+
     def fixture(self, root: Path) -> tuple[Path, InputManifest]:
         manifest = load_manifest(ROOT)
         manifest["inputs"] = manifest["inputs"][:1]
