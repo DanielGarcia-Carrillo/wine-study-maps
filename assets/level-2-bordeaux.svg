@@ -94,9 +94,9 @@
 <line x1="238.6" y1="347.8" x2="96.6" y2="353.8" stroke="#7d4a86" stroke-width="0.9" stroke-opacity="0.6"/>
 <text x="96.6" y="359.8" text-anchor="middle" font-size="18.0" font-weight="600" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Margaux</text>
 <text x="96.6" y="359.8" text-anchor="middle" font-size="18.0" font-weight="600" fill="#7d4a86">Margaux</text>
-<line x1="209.6" y1="265.0" x2="51.2" y2="265.0" stroke="#365f94" stroke-width="0.9" stroke-opacity="0.6"/>
-<text x="51.2" y="271.0" text-anchor="middle" font-size="18.0" font-weight="600" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Pauillac</text>
-<text x="51.2" y="271.0" text-anchor="middle" font-size="18.0" font-weight="600" fill="#365f94">Pauillac</text>
+<line x1="209.6" y1="265.0" x2="286.1" y2="265.0" stroke="#365f94" stroke-width="0.9" stroke-opacity="0.6"/>
+<text x="286.1" y="271.0" text-anchor="middle" font-size="18.0" font-weight="600" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Pauillac</text>
+<text x="286.1" y="271.0" text-anchor="middle" font-size="18.0" font-weight="600" fill="#365f94">Pauillac</text>
 <line x1="286.2" y1="500.3" x2="159.1" y2="500.3" stroke="#74593b" stroke-width="0.9" stroke-opacity="0.6"/>
 <text x="159.1" y="507.0" text-anchor="middle" font-size="20.0" font-weight="700" fill="none" stroke="#f6f3ec" stroke-width="5.5" stroke-linejoin="round" stroke-opacity="0.9">Graves</text>
 <text x="159.1" y="507.0" text-anchor="middle" font-size="20.0" font-weight="700" fill="#74593b">Graves</text>
