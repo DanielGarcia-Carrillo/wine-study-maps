@@ -109,6 +109,7 @@ maps:
   - places
   regions:
   - name: Bordeaux
+    colour: '#4d5a6a'
     aoc: Bordeaux
     fill: false
     outline: true
@@ -116,15 +117,18 @@ maps:
     tier: 1
     extent: large
   - name: Médoc
-    colour: '#2f7d8c'
+    anchor:
+    - -0.98
+    - 45.40
+    dot: false
+    colour: '#6da4ae'
     outline: true
     aoc: Médoc
     tier: 1
     extent: large
     group: Left Bank
-    label: w
   - name: Haut-Médoc
-    colour: '#3c6aa5'
+    colour: '#2f7d8c'
     outline: true
     aoc: Haut-Médoc
     tier: 1
@@ -140,7 +144,7 @@ maps:
     group: Left Bank
     label: w
   - name: Pauillac
-    colour: '#7a1f2b'
+    colour: '#3c6aa5'
     outline: true
     aoc: Pauillac
     tier: 2
@@ -148,7 +152,7 @@ maps:
     group: Left Bank
     label: w
   - name: Graves
-    colour: '#a8661f'
+    colour: '#c29462'
     outline: true
     aoc: Graves
     tier: 1
@@ -156,7 +160,7 @@ maps:
     group: Left Bank
     label: w
   - name: Pessac-Léognan
-    colour: '#b5654f'
+    colour: '#a8661f'
     outline: true
     aoc: Pessac-Léognan
     tier: 2
@@ -180,7 +184,7 @@ maps:
     group: Right Bank
     label: e
   - name: Pomerol
-    colour: '#bf5f88'
+    colour: '#7a1f2b'
     outline: true
     aoc: Pomerol
     tier: 2
@@ -329,18 +333,27 @@ maps:
   - places
   regions:
   - name: Touraine
+    colour: '#2f7d8c'
     aoc: Touraine
     tier: 1
     extent: large
   - name: Vouvray
+    outline: true
+    colour: '#7d4a86'
     aoc: Vouvray
     tier: 2
     extent: small
   - name: Sancerre
+    label: n
+    outline: true
+    colour: '#7a1f2b'
     aoc: Sancerre
     tier: 1
     extent: medium
   - name: Pouilly-Fumé
+    label: e
+    outline: true
+    colour: '#a8661f'
     aoc: Pouilly-Fumé ou Blanc Fumé de Pouilly et Pouilly-sur-Loire
     tier: 2
     extent: small
@@ -375,16 +388,20 @@ maps:
     align: 0.9
   regions:
   - name: Côtes du Rhône
+    colour: '#c29462'
     aoc: Côtes du Rhône
     tier: 1
     extent: large
     label: e
   - name: Côtes du Rhône Villages
+    colour: '#5f8a34'
+    outline: true
     aoc: Côtes du Rhône Villages
     tier: 1
     extent: large
     label: e
   - name: Northern Rhône
+    colour: '#4d5a6a'
     aoc:
     - Côte Rôtie
     - Condrieu
@@ -401,6 +418,7 @@ maps:
     outline: dashed
     label: e
   - name: Southern Rhône
+    colour: '#4d5a6a'
     aoc:
     - Côtes du Rhône Villages
     - Châteauneuf-du-Pape
@@ -419,6 +437,7 @@ maps:
     outline: dashed
     label: w
   - name: Côte Rôtie
+    colour: '#7a1f2b'
     aoc: Côte Rôtie
     tier: 2
     extent: small
@@ -426,6 +445,7 @@ maps:
     label: e
     group: Northern Rhône
   - name: Condrieu
+    colour: '#2f7d8c'
     aoc: Condrieu
     tier: 2
     extent: small
@@ -433,6 +453,7 @@ maps:
     label: e
     group: Northern Rhône
   - name: Hermitage
+    colour: '#7d4a86'
     aoc: Hermitage
     tier: 2
     extent: small
@@ -440,6 +461,7 @@ maps:
     label: w
     group: Northern Rhône
   - name: Crozes-Hermitage
+    colour: '#3c6aa5'
     aoc: Crozes-Hermitage
     anchor:
     - 4.86
@@ -450,6 +472,7 @@ maps:
     label: w
     group: Northern Rhône
   - name: Châteauneuf-du-Pape
+    colour: '#7a1f2b'
     aoc: Châteauneuf-du-Pape
     tier: 2
     extent: small
@@ -573,21 +596,31 @@ maps:
     dot: false
     outline: true
   - name: Oakville
+    label: e
+    outline: true
+    colour: '#3c6aa5'
     parent: Napa Valley
     ava: oakville
     tier: 2
     extent: small
   - name: Rutherford
+    label: e
+    outline: true
+    colour: '#a8661f'
     parent: Napa Valley
     ava: rutherford
     tier: 2
     extent: small
   - name: Calistoga
+    outline: true
+    colour: '#7d4a86'
     parent: Napa Valley
     ava: calistoga
     tier: 2
     extent: small
   - name: Los Carneros
+    outline: true
+    colour: '#8a7c2f'
     parent: Napa Valley
     ava: los_carneros
     tier: 2
