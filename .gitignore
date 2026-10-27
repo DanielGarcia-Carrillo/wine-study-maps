@@ -6,3 +6,6 @@ work/
 *.apkg
 .DS_Store
 .maintenance-cache/
+
+.mypy_cache/
+.ruff_cache/

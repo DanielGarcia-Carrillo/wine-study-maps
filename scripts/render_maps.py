@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Render the standalone map catalogue. See README.md for offline build commands."""
+
 from __future__ import annotations
 
 import argparse
@@ -7,8 +8,22 @@ import math
 import re
 import sys
 from pathlib import Path
+from typing import Protocol, cast
 
-import yaml
+from models import (
+    Area,
+    BBox,
+    Entities,
+    FeatureCollection,
+    Geometry,
+    MapSpec,
+    Mark,
+    Palette,
+    Point,
+    Ring,
+    Rings,
+)
+from validation import COLOURS, load_catalogue, read_json
 
 ROOT = Path(__file__).resolve().parents[1]
 MAPS = ROOT / "assets"
@@ -17,8 +32,8 @@ SPEC = ROOT / "catalogue.yaml"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from source_geodata import area_of, fetch_entities, load_layer  # noqa: E402
 
-W, H = 1000, 750          # px, before bbox aspect correction
-PAD = 34                  # px of margin inside the frame
+W, H = 1000, 750  # px, before bbox aspect correction
+PAD = 34  # px of margin inside the frame
 # km radius, scaled to bbox. `broad` is for a marker standing for a whole
 # part of a country - "south-west France" - where even `large` would claim a
 # single appellation's worth of ground.
@@ -34,8 +49,18 @@ CITY = "#6f6f79"
 BORDER = "#a9a39a"
 # Hues for maps whose regions are peers rather than nested - a country and
 # its regions. Muted hues keep neighbouring regions visually distinct.
-HUES = ["#7a1f2b", "#2f7d8c", "#a8661f", "#5f8a34", "#7d4a86",
-        "#3c6aa5", "#b5654f", "#8a7c2f", "#bf5f88", "#2f6d6a"]
+HUES = [
+    "#7a1f2b",
+    "#2f7d8c",
+    "#a8661f",
+    "#5f8a34",
+    "#7d4a86",
+    "#3c6aa5",
+    "#b5654f",
+    "#8a7c2f",
+    "#bf5f88",
+    "#2f6d6a",
+]
 
 # Label sizes are canvas pixels. At about half the 1000px canvas width,
 # region labels display at roughly 9-11px; heavier weights aid readability.
@@ -54,11 +79,12 @@ CITY_EM = 0.59 * CITY_PX
 # Reviewed label colours are explicit palette values.
 # Extend data/label-colours.json after reviewing readability.
 def readable(hex_colour: str, bg: str, target: float = 75.0) -> str:
-    import json
-    colours = json.loads((ROOT / "data/label-colours.json").read_text())
+    colours = read_json(ROOT / "data/label-colours.json", COLOURS)
     key = f"{hex_colour}|{bg}|{target:g}"
     if key not in colours:
-        raise ValueError(f"Unreviewed label colour {key}; add an explicit reviewed colour to data/label-colours.json")
+        raise ValueError(
+            f"Unreviewed label colour {key}; add an explicit reviewed colour to data/label-colours.json"
+        )
     return colours[key]
 
 
@@ -75,7 +101,7 @@ def tint(hex_colour: str, amount: float) -> str:
 
 
 def esc(s: str) -> str:
-    return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 class Projection:
@@ -85,8 +111,7 @@ class Projection:
     fancier, and unlike Mercator it does not stretch the map vertically.
     """
 
-    def __init__(self, bbox: list[float], canvas: tuple[float, float] = (W, H),
-                 pad: float = PAD) -> None:
+    def __init__(self, bbox: BBox, canvas: tuple[float, float] = (W, H), pad: float = PAD) -> None:
         self.w, self.s, self.e, self.n = bbox
         self.pad = pad
         self.k = math.cos(math.radians((self.s + self.n) / 2))
@@ -103,24 +128,25 @@ class Projection:
         self.place_rank = 4 if span > 18 else 5 if span > 9 else 6 if span > 3.5 else 7
 
     def __call__(self, lon: float, lat: float) -> tuple[float, float]:
-        return (self.pad + (lon - self.w) * self.k * self.scale,
-                self.pad + (self.n - lat) * self.scale)
+        return (
+            self.pad + (lon - self.w) * self.k * self.scale,
+            self.pad + (self.n - lat) * self.scale,
+        )
 
     def km(self, km: float) -> float:
         """Convert a ground distance to pixels, for halo radii."""
         return km / 111.0 * self.scale
 
     def inside(self, lon: float, lat: float, slack: float = 0.0) -> bool:
-        return (self.w - slack <= lon <= self.e + slack
-                and self.s - slack <= lat <= self.n + slack)
+        return self.w - slack <= lon <= self.e + slack and self.s - slack <= lat <= self.n + slack
 
 
-def centroid(rings: list[list]) -> tuple[float, float]:
+def centroid(rings: Rings) -> tuple[float, float]:
     """Area-weighted centroid of a set of rings, for labelling a sourced area."""
     tx = ty = ta = 0.0
     for ring in rings:
         a = cx = cy = 0.0
-        for (x0, y0), (x1, y1) in zip(ring, ring[1:] + ring[:1]):
+        for (x0, y0), (x1, y1) in zip(ring, ring[1:] + ring[:1], strict=True):
             cross = x0 * y1 - x1 * y0
             a += cross
             cx += (x0 + x1) * cross
@@ -135,7 +161,7 @@ def centroid(rings: list[list]) -> tuple[float, float]:
     return (tx / ta, ty / ta)
 
 
-def dissolve(area_rings: list[list]) -> list[list]:
+def dissolve(area_rings: Rings) -> Rings:
     """The outer boundary of a union of rings, as polylines, without a geometry library.
 
     An appellation is a union of communes, and filled without strokes they
@@ -149,18 +175,18 @@ def dissolve(area_rings: list[list]) -> list[list]:
 
     A single ring - an AVA, a county - comes back as itself.
     """
-    count: dict[tuple, int] = {}
+    count: dict[tuple[Point, Point], int] = {}
     for ring in area_rings:
-        pts = [tuple(pt) for pt in ring]
+        pts = [cast(Point, tuple(pt)) for pt in ring]
         if pts and pts[0] != pts[-1]:
             pts.append(pts[0])
-        for a, b in zip(pts, pts[1:]):
+        for a, b in zip(pts, pts[1:], strict=False):
             if a != b:
                 key = (a, b) if a < b else (b, a)
                 count[key] = count.get(key, 0) + 1
-    adj: dict[tuple, list[tuple]] = {}
+    adj: dict[Point, list[Point]] = {}
     for (a, b), n in count.items():
-        if n % 2:                       # internal edges pair off and cancel
+        if n % 2:  # internal edges pair off and cancel
             adj.setdefault(a, []).append(b)
             adj.setdefault(b, []).append(a)
     lines = []
@@ -181,21 +207,22 @@ def dissolve(area_rings: list[list]) -> list[list]:
     return lines
 
 
-def rings(geom: dict) -> list[list]:
+def rings(geom: Geometry | None) -> Rings:
+    if geom is None:
+        return []
     """Flatten any GeoJSON geometry to a list of coordinate rings."""
-    t, c = geom["type"], geom["coordinates"]
-    if t == "Point":
-        return [[c]]
-    if t in ("LineString", "MultiPoint"):
-        return [c]
-    if t in ("Polygon", "MultiLineString"):
-        return c
-    if t == "MultiPolygon":
-        return [ring for poly in c for ring in poly]
+    if geom["type"] == "Point":
+        return [[geom["coordinates"]]]
+    if geom["type"] == "LineString" or geom["type"] == "MultiPoint":
+        return [geom["coordinates"]]
+    if geom["type"] == "Polygon" or geom["type"] == "MultiLineString":
+        return geom["coordinates"]
+    if geom["type"] == "MultiPolygon":
+        return [ring for poly in geom["coordinates"] for ring in poly]
     return []
 
 
-def path_of(ring: list, p: Projection, tol: float = 0.7) -> str:
+def path_of(ring: Ring, p: Projection, tol: float = 0.7) -> str:
     """Project a ring, dropping vertices closer together than `tol` pixels.
 
     Champagne's area is 635 communes and Touraine's is 143, each carrying
@@ -204,13 +231,14 @@ def path_of(ring: list, p: Projection, tol: float = 0.7) -> str:
     the set before this, and no visible difference after.
     """
     out: list[str] = []
-    lx = ly = None
+    lx: float | None = None
+    ly = 0.0
     for lon, lat in ring:
         x, y = p(lon, lat)
         if lx is None or abs(x - lx) > tol or abs(y - ly) > tol:
             out.append(f"{x:.1f},{y:.1f}")
             lx, ly = x, y
-    if len(out) < 3:                       # too small to be worth drawing
+    if len(out) < 3:  # too small to be worth drawing
         return ""
     return "M" + "L".join(out)
 
@@ -233,7 +261,9 @@ def land_paths(p: Projection) -> list[str]:
     return out
 
 
-def place_box(lon: float, lat: float, name: str, p: Projection) -> tuple:
+def place_box(
+    lon: float, lat: float, name: str, p: Projection
+) -> tuple[float, float, float, float]:
     """The label box draw_layer() gives a city - dot, name and the flip."""
     x, y = p(lon, lat)
     w = CITY_EM * len(name)
@@ -242,7 +272,7 @@ def place_box(lon: float, lat: float, name: str, p: Projection) -> tuple:
     return (min(x0, x) - 2, y - CITY_PX / 2 - 1, max(x0 + w, x) + 2, y + CITY_PX / 2 + 2)
 
 
-def crowded_places(data: dict, p: Projection) -> set[int]:
+def crowded_places(data: FeatureCollection, p: Projection) -> set[int]:
     """Cities whose labels would collide with a more prominent city's.
 
     Twin cities print on top of each other - Vancouver WA over Portland,
@@ -262,9 +292,15 @@ def crowded_places(data: dict, p: Projection) -> set[int]:
             continue
         lon, lat = geom["coordinates"][:2]
         if p.inside(lon, lat):
-            cand.append((props.get("SCALERANK") or 99, f,
-                         place_box(lon, lat, esc(props.get("NAME", "")), p)))
-    kept, hidden = [], set()
+            cand.append(
+                (
+                    props.get("SCALERANK") or 99,
+                    f,
+                    place_box(lon, lat, esc(props.get("NAME") or ""), p),
+                )
+            )
+    kept: list[tuple[float, float, float, float]] = []
+    hidden: set[int] = set()
     for _, f, b in sorted(cand, key=lambda c: c[0]):
         if any(not (b[2] < t[0] or b[0] > t[2] or b[3] < t[1] or b[1] > t[3]) for t in kept):
             hidden.add(id(f))
@@ -273,8 +309,12 @@ def crowded_places(data: dict, p: Projection) -> set[int]:
     return hidden
 
 
-def draw_layer(name: str, p: Projection, boxes: list | None = None,
-               thin: bool = False) -> str:
+def draw_layer(
+    name: str,
+    p: Projection,
+    boxes: list[tuple[float, float, float, float]] | None = None,
+    thin: bool = False,
+) -> str:
     """Clip a Natural Earth layer to the bbox, then project what survives."""
     data = load_layer("land" if name == "land" else name)
     out: list[str] = []
@@ -297,23 +337,26 @@ def draw_layer(name: str, p: Projection, boxes: list | None = None,
                     continue
                 lon, lat = ring[0]
                 if not p.inside(lon, lat) or id(f) in hidden:
-                    continue          # the 1.5 deg slack above is for polygons
+                    continue  # the 1.5 deg slack above is for polygons
                 x, y = p(lon, lat)
-                nm = esc(props.get("NAME", ""))
+                nm = esc(props.get("NAME") or "")
                 # Flip the label to the left of its dot when it would other-
                 # wise run off the edge and be rendered as "Saarbruec".
                 flip = x + 6 + CITY_EM * len(nm) > p.width - 4
                 tx, anchor = (x - 6, "end") if flip else (x + 6, "start")
-                common = (f'x="{tx:.1f}" y="{y + CITY_PX / 3:.1f}" class="city" '
-                          f'text-anchor="{anchor}"')
+                common = (
+                    f'x="{tx:.1f}" y="{y + CITY_PX / 3:.1f}" class="city" text-anchor="{anchor}"'
+                )
                 # Grouped and keyed by its index in `boxes`, so render() can
                 # drop a city whose name a region label ends up sitting on.
                 k = len(boxes) if boxes is not None else -1
-                out.append(f'<g data-city="{k}">'
-                           f'<circle cx="{x:.1f}" cy="{y:.1f}" r="2.4" fill="{CITY}"/>'
-                           f'<text {common} fill="none" stroke="{LAND}" stroke-width="3.6" '
-                           f'stroke-linejoin="round">{nm}</text>'
-                           f'<text {common}>{nm}</text></g>')
+                out.append(
+                    f'<g data-city="{k}">'
+                    f'<circle cx="{x:.1f}" cy="{y:.1f}" r="2.4" fill="{CITY}"/>'
+                    f'<text {common} fill="none" stroke="{LAND}" stroke-width="3.6" '
+                    f'stroke-linejoin="round">{nm}</text>'
+                    f"<text {common}>{nm}</text></g>"
+                )
                 if boxes is not None:
                     w = CITY_EM * len(nm)
                     x0 = tx - w if flip else tx
@@ -330,16 +373,21 @@ def draw_layer(name: str, p: Projection, boxes: list | None = None,
             elif name == "lakes":
                 out.append(f'<path d="{d}Z" fill="{SEA}" stroke="{COAST}" stroke-width="0.7"/>')
             elif name == "borders":
-                out.append(f'<path d="{d}" fill="none" stroke="{BORDER}" '
-                           f'stroke-width="1.1" stroke-dasharray="5 3" opacity="0.6"/>')
+                out.append(
+                    f'<path d="{d}" fill="none" stroke="{BORDER}" '
+                    f'stroke-width="1.1" stroke-dasharray="5 3" opacity="0.6"/>'
+                )
             elif name == "rivers":
-                out.append(f'<path d="{d}" fill="none" stroke="{RIVER}" '
-                           f'stroke-width="1.5" stroke-linecap="round" opacity="0.85"/>')
+                out.append(
+                    f'<path d="{d}" fill="none" stroke="{RIVER}" '
+                    f'stroke-width="1.5" stroke-linecap="round" opacity="0.85"/>'
+                )
     return "\n".join(out)
 
 
-def column_labels(marks: list[dict], outlines: list[list[tuple[float, float]]],
-                  width: float) -> list[tuple[float, float, float, float]]:
+def column_labels(
+    marks: list[Mark], outlines: list[list[tuple[float, float]]], width: float
+) -> list[tuple[float, float, float, float]]:
     """Labels given a side by `label: e|w` in catalogue.yaml, stacked in order.
 
     The free search in place_labels() sends a crowded label wherever there is
@@ -358,8 +406,10 @@ def column_labels(marks: list[dict], outlines: list[list[tuple[float, float]]],
     """
     boxes = []
     for side in (1, -1):
-        col = sorted((m for m in marks if {"e": 1, "w": -1}[m["side"]] == side),
-                     key=lambda m: m["y"])
+        col = sorted(
+            (m for m in marks if {"e": 1, "w": -1}[cast(str, m["side"])] == side),
+            key=lambda m: m["y"],
+        )
         if not col:
             continue
         hs = [m["size"] + 6 for m in col]
@@ -375,11 +425,10 @@ def column_labels(marks: list[dict], outlines: list[list[tuple[float, float]]],
                     moved = True
             if not moved:
                 break
-        for m, y, h in zip(col, ys, hs):
+        for m, y, h in zip(col, ys, hs, strict=True):
             w = 0.55 * m["size"] * len(m["name"]) + 10
             xs = [m["x"] + side * (m["r"] + 9)] if m["dot"] else []
-            xs += [px + side * 8 for pts in outlines for px, py in pts
-                   if abs(py - y) <= h / 2 + 4]
+            xs += [px + side * 8 for pts in outlines for px, py in pts if abs(py - y) <= h / 2 + 4]
             x0 = (max(xs) if side > 0 else min(xs)) if xs else m["x"]
             # Never off the canvas: better over the map than cut in half.
             cx = min(max(x0 + side * w / 2, w / 2 + 2), width - w / 2 - 2)
@@ -388,23 +437,31 @@ def column_labels(marks: list[dict], outlines: list[list[tuple[float, float]]],
     return boxes
 
 
-def place_labels(marks: list[dict], p: Projection,
-                 taken: list[tuple[float, float, float, float]] | None = None,
-                 obstacles: list[list[tuple[float, float]]] | None = None) -> None:
+def place_labels(
+    marks: list[Mark],
+    p: Projection,
+    taken: list[tuple[float, float, float, float]] | None = None,
+    obstacles: list[list[tuple[float, float]]] | None = None,
+) -> None:
     """Greedy label placement: try eight offsets, take the first that is clear.
 
     The Cote d'Or is the stress case - a dozen villages strung down 40km of
     escarpment, all wanting the same patch of canvas.
     """
     taken = list(taken or [])
-    ncity = len(taken)                 # the boxes passed in are city labels
-    outlines = [[p(*pt) for line in dissolve(m["area"]["rings"]) for pt in line]
-                for m in marks if m.get("outline") and m.get("area")]
-    taken += column_labels([m for m in marks if m.get("side") in ("e", "w")],
-                           outlines + (obstacles or []), p.width)
+    ncity = len(taken)  # the boxes passed in are city labels
+    outlines = [
+        [p(*pt) for line in dissolve(cast(Area, m["area"])["rings"]) for pt in line]
+        for m in marks
+        if m.get("outline") and m.get("area")
+    ]
+    taken += column_labels(
+        [m for m in marks if m.get("side") in ("e", "w")], outlines + (obstacles or []), p.width
+    )
     offsets = [(1, 0), (-1, 0), (1, -1), (-1, -1), (1, 1), (-1, 1), (0, -1), (0, 1)]
-    for m in sorted((m for m in marks if m.get("side") not in ("e", "w")),
-                    key=lambda m: -m["size"]):
+    for m in sorted(
+        (m for m in marks if m.get("side") not in ("e", "w")), key=lambda m: -m["size"]
+    ):
         w = 0.55 * m["size"] * len(m["name"]) + 10
         h = m["size"] + 6
         # A region drawn without a dot is an area label: try its own centre
@@ -414,7 +471,11 @@ def place_labels(marks: list[dict], p: Projection,
             # `label: s|n` - straight below or above the region's own shape,
             # into open ground (Montalcino's label had gone east across
             # Chianti).
-            ys = [p(*pt)[1] for ring in m["area"]["rings"] for pt in ring] if m.get("area") else [m["y"]]
+            ys = (
+                [p(*pt)[1] for ring in cast(Area, m["area"])["rings"] for pt in ring]
+                if m.get("area")
+                else [m["y"]]
+            )
             if m["side"] == "s":
                 cands += [(m["x"], max(ys) + h / 2 + gap) for gap in (6, 20, 40)]
             else:
@@ -423,10 +484,20 @@ def place_labels(marks: list[dict], p: Projection,
             # Widely spaced rings of candidate positions: a tight cluster of
             # appellations - Barolo, Barbaresco and Asti sit within a few km
             # of each other - needs somewhere further out to put its labels.
-            for dist in (m["r"] + 9, m["r"] + 26, m["r"] + 46,
-                         m["r"] + 72, m["r"] + 104, m["r"] + 140):
-                cands.append((m["x"] + ox * dist + (w / 2 if ox > 0 else -w / 2 if ox < 0 else 0),
-                              m["y"] + oy * dist))
+            for dist in (
+                m["r"] + 9,
+                m["r"] + 26,
+                m["r"] + 46,
+                m["r"] + 72,
+                m["r"] + 104,
+                m["r"] + 140,
+            ):
+                cands.append(
+                    (
+                        m["x"] + ox * dist + (w / 2 if ox > 0 else -w / 2 if ox < 0 else 0),
+                        m["y"] + oy * dist,
+                    )
+                )
         best = None
         for i, (cx, cy) in enumerate(cands):
             box = (cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2)
@@ -436,20 +507,24 @@ def place_labels(marks: list[dict], p: Projection,
             # region labels move it, and cities under it give way afterwards
             # (New South Wales had been pushed off its own state by Dubbo).
             fixed = i == 0 and not m.get("dot", True) and m.get("anchored")
-            if any(not (box[2] < t[0] or box[0] > t[2] or box[3] < t[1] or box[1] > t[3])
-                   for t in (taken[ncity:] if fixed else taken)):
+            if any(
+                not (box[2] < t[0] or box[0] > t[2] or box[3] < t[1] or box[1] > t[3])
+                for t in (taken[ncity:] if fixed else taken)
+            ):
                 continue
             best = (cx, cy, box)
             break
-        if best is None:                       # nowhere clear; stack it anyway
-            best = (m["x"], m["y"] - m["r"] - 12,
-                    (m["x"] - w / 2, m["y"] - m["r"] - 20, m["x"] + w / 2, m["y"] - m["r"] - 4))
+        if best is None:  # nowhere clear; stack it anyway
+            best = (
+                m["x"],
+                m["y"] - m["r"] - 12,
+                (m["x"] - w / 2, m["y"] - m["r"] - 20, m["x"] + w / 2, m["y"] - m["r"] - 4),
+            )
         m["lx"], m["ly"], _ = best
         taken.append(best[2])
 
 
-def main_rings(rings: list[list], share: float = 0.05,
-               far: float = 5.0) -> list[list]:
+def main_rings(rings: Rings, share: float = 0.05, far: float = 5.0) -> Rings:
     """Rings that should decide a map's frame, dropping distant minor ones.
 
     An administrative region can own territory thousands of kilometres from
@@ -479,7 +554,7 @@ def main_rings(rings: list[list], share: float = 0.05,
     return keep or rings
 
 
-def auto_bbox(spec_map: dict, ents: dict) -> list[float]:
+def auto_bbox(spec_map: MapSpec, ents: Entities) -> BBox:
     """Fit the frame to the regions actually drawn.
 
     Every hand-typed bbox is a number that can be wrong, and a wrong one
@@ -498,8 +573,8 @@ def auto_bbox(spec_map: dict, ents: dict) -> list[float]:
     for r in (r for r in spec_map["regions"] if r.get("fit", True)):
         area = area_of(r)
         if area:
-            pts += [tuple(pt) for ring in main_rings(area["rings"]) for pt in ring]
-        elif (ent := ents.get(r.get("wikidata"))):
+            pts += [cast(Point, tuple(pt)) for ring in main_rings(area["rings"]) for pt in ring]
+        elif ent := ents.get(r.get("wikidata", "")):
             # A marked region has no extent of its own, but its halo does, so
             # the halo has to be inside the frame we fit. Without this a map
             # whose regions are ALL marks - Portugal, Hungary - fits a frame
@@ -545,18 +620,26 @@ def auto_bbox(spec_map: dict, ents: dict) -> list[float]:
     return [w, s_, e, n]
 
 
-def render(spec_map: dict, ents: dict, treatment: str, blank: bool = False,
-           palette: dict | None = None, canvas: tuple[float, float] | None = None,
-           clip_id: str = "land") -> str:
+def render(
+    spec_map: MapSpec,
+    ents: Entities,
+    treatment: str,
+    blank: bool = False,
+    palette: Palette | None = None,
+    canvas: tuple[float, float] | None = None,
+    clip_id: str = "land",
+) -> str:
     palette = palette or {}
     bbox = spec_map.get("bbox")
-    bbox = auto_bbox(spec_map, ents) if bbox in (None, "auto") else bbox
+    bbox = auto_bbox(spec_map, ents) if bbox in (None, "auto") else cast(BBox, bbox)
     p = Projection(bbox, canvas, pad=10) if canvas else Projection(bbox)
     # City labels are drawn first, so region labels must be placed around
     # them - otherwise "Bordeaux" the region lands on top of Bordeaux the city.
     city_boxes: list[tuple[float, float, float, float]] = []
-    layers = "\n".join(draw_layer(n, p, city_boxes, bool(spec_map.get("thin_places")))
-                        for n in spec_map.get("base", []))
+    layers = "\n".join(
+        draw_layer(n, p, city_boxes, bool(spec_map.get("thin_places")))
+        for n in spec_map.get("base", [])
+    )
 
     # `inset:` - a zoomed panel of a few of this map's regions, for nesting
     # too small to see at the scale of the whole map. Crozes-Hermitage wraps
@@ -568,19 +651,30 @@ def render(spec_map: dict, ents: dict, treatment: str, blank: bool = False,
     obstacles: list[list[tuple[float, float]]] = []
     if (ins := spec_map.get("inset")) and not canvas:
         inset_names = set(ins["regions"])
-        sub = {"id": spec_map["id"], "title": ins.get("title", ""),
-               "base": ins.get("base", spec_map.get("base", [])),
-               "pad": ins.get("pad", 0.12), "min_aspect": ins.get("min_aspect", 0),
-               "align": ins.get("align", 0.5),
-               "regions": [r for r in spec_map["regions"] if r["name"] in inset_names]}
+        sub: MapSpec = {
+            "id": spec_map["id"],
+            "title": ins.get("title", ""),
+            "base": ins.get("base", spec_map.get("base", [])),
+            "pad": ins.get("pad", 0.12),
+            "min_aspect": ins.get("min_aspect", 0),
+            "align": ins.get("align", 0.5),
+            "regions": [r for r in spec_map["regions"] if r["name"] in inset_names],
+        }
         ip_bbox = auto_bbox(sub, ents)
         sub["bbox"] = ip_bbox
         cw, ch = ins.get("size", [240, 220])
         ip = Projection(ip_bbox, (cw, ch), pad=10)
         ix = min(ins["at"][0] * p.width, p.width - ip.width - 6)
         iy = min(ins["at"][1] * p.height, p.height - ip.height - 6)
-        inner = render(sub, ents, treatment, blank=blank, palette=palette,
-                       canvas=(cw, ch), clip_id="inset-land")
+        inner = render(
+            sub,
+            ents,
+            treatment,
+            blank=blank,
+            palette=palette,
+            canvas=(cw, ch),
+            clip_id="inset-land",
+        )
         inner = inner.split(">", 1)[1].rsplit("</svg>", 1)[0]
         # The extent box on the main map, and a connector to the panel.
         (x0, y0), (x1, y1) = p(ip_bbox[0], ip_bbox[3]), p(ip_bbox[2], ip_bbox[1])
@@ -597,12 +691,15 @@ def render(spec_map: dict, ents: dict, treatment: str, blank: bool = False,
             f'<svg x="{ix:.1f}" y="{iy:.1f}" width="{ip.width:.0f}" height="{ip.height:.0f}" '
             f'viewBox="0 0 {ip.width:.0f} {ip.height:.0f}">{inner}</svg>\n'
             f'<rect x="{ix:.1f}" y="{iy:.1f}" width="{ip.width:.1f}" height="{ip.height:.1f}" '
-            f'fill="none" stroke="{INK}" stroke-width="1.2"/>')
+            f'fill="none" stroke="{INK}" stroke-width="1.2"/>'
+        )
         city_boxes.append((ix - 4, iy - 4, ix + ip.width + 4, iy + ip.height + 4))
         # Labels stay off the extent box as they do off an outline.
         steps = range(0, 101, 4)
-        obstacles.append([(x0 + (x1 - x0) * t / 100, yy) for t in steps for yy in (y0, y1)]
-                         + [(xx, y0 + (y1 - y0) * t / 100) for t in steps for xx in (x0, x1)])
+        obstacles.append(
+            [(x0 + (x1 - x0) * t / 100, yy) for t in steps for yy in (y0, y1)]
+            + [(xx, y0 + (y1 - y0) * t / 100) for t in steps for xx in (x0, x1)]
+        )
 
     # On a map of peers, give each region its own hue; a sub-region takes a
     # tint of whichever region it names as its parent, so Barossa still reads
@@ -613,10 +710,10 @@ def render(spec_map: dict, ents: dict, treatment: str, blank: bool = False,
         for i, r in enumerate(peers):
             hues[r["name"]] = r.get("colour", HUES[i % len(HUES)])
 
-    marks = []
+    marks: list[Mark] = []
     for r in spec_map["regions"]:
         area = area_of(r)
-        ent = ents.get(r.get("wikidata"))
+        ent = ents.get(r.get("wikidata", ""))
         if area and r.get("anchor"):
             # A hand-chosen anchor, for an area whose centroid falls inside a
             # different region - Crozes-Hermitage's lands in Hermitage, which
@@ -638,23 +735,37 @@ def render(spec_map: dict, ents: dict, treatment: str, blank: bool = False,
         # this region's own map always agree. Explicit colour: wins; then the
         # palette entry for the map this region summarises; then the palette
         # entry for the map being drawn; then the default claret ramp.
-        base = (palette.get(r["region_of"]) if r.get("region_of") else None) \
-            or hues.get(r["name"]) \
-            or (hues.get(r["parent"]) if r.get("parent") else None) \
+        base = (
+            (palette.get(r["region_of"]) if r.get("region_of") else None)
+            or hues.get(r["name"])
+            or (hues.get(r["parent"]) if r.get("parent") else None)
             or palette.get(spec_map["id"])
+        )
         if base:
             colour = tint(base, 0.30) if r.get("tier", 1) >= 2 else base
         colour = r.get("colour", colour)
         radius = p.km(HALO.get(r.get("extent", "small"), 5.0))
-        marks.append({"name": r["name"], "x": x, "y": y, "r": max(radius, 4.0),
-                      "colour": colour, "ink": readable(colour, LAND),
-                      "alpha": alpha, "size": size,
-                      "weight": weight, "area": area,
-                      "fill": r.get("fill", True),
-                      "dot": r.get("dot", True) and r.get("named", True),
-                      "outline": r.get("outline", False), "side": r.get("label"),
-                      "tier": r.get("tier", 1), "anchored": bool(r.get("anchor")),
-                      "named": r.get("named", True) and r["name"] not in inset_names})
+        marks.append(
+            {
+                "name": r["name"],
+                "x": x,
+                "y": y,
+                "r": max(radius, 4.0),
+                "colour": colour,
+                "ink": readable(colour, LAND),
+                "alpha": alpha,
+                "size": size,
+                "weight": weight,
+                "area": area,
+                "fill": r.get("fill", True),
+                "dot": r.get("dot", True) and r.get("named", True),
+                "outline": r.get("outline", False),
+                "side": r.get("label"),
+                "tier": r.get("tier", 1),
+                "anchored": bool(r.get("anchor")),
+                "named": r.get("named", True) and r["name"] not in inset_names,
+            }
+        )
 
     fills: list[str] = []
     lines: list[str] = []
@@ -666,8 +777,10 @@ def render(spec_map: dict, ents: dict, treatment: str, blank: bool = False,
             # them, and no invented outline either.
             if m["fill"]:
                 d = "".join(path_of(ring, p) + "Z" for ring in m["area"]["rings"])
-                fills.append(f'<path d="{d}" fill="{m["colour"]}" fill-opacity="{m["alpha"]}" '
-                             f'fill-rule="nonzero" stroke="none"/>')
+                fills.append(
+                    f'<path d="{d}" fill="{m["colour"]}" fill-opacity="{m["alpha"]}" '
+                    f'fill-rule="nonzero" stroke="none"/>'
+                )
             if m["outline"]:
                 # The union's own boundary (see dissolve()), for a region whose
                 # extent matters as much as its position: the Côte de Nuits
@@ -677,57 +790,85 @@ def render(spec_map: dict, ents: dict, treatment: str, blank: bool = False,
                 d = "".join(path_of(line, p, tol=0.5) for line in dissolve(m["area"]["rings"]))
                 width = 2.0 if m["tier"] <= 1 else 1.3
                 dash = ' stroke-dasharray="6 3"' if m["outline"] == "dashed" else ""
-                lines.append(f'<path d="{d}" fill="none" stroke="{m["ink"]}" '
-                             f'stroke-width="{width}" stroke-opacity="0.85"{dash} '
-                             f'stroke-linejoin="round" stroke-linecap="round"/>')
+                lines.append(
+                    f'<path d="{d}" fill="none" stroke="{m["ink"]}" '
+                    f'stroke-width="{width}" stroke-opacity="0.85"{dash} '
+                    f'stroke-linejoin="round" stroke-linecap="round"/>'
+                )
         elif treatment == "b" or (treatment == "c" and not m["area"]):
-            fills.append(f'<circle cx="{m["x"]:.1f}" cy="{m["y"]:.1f}" r="{m["r"]:.1f}" '
-                        f'fill="{m["colour"]}" fill-opacity="{m["alpha"]}" '
-                        f'stroke="{m["colour"]}" stroke-width="1" stroke-opacity="0.5"/>')
+            fills.append(
+                f'<circle cx="{m["x"]:.1f}" cy="{m["y"]:.1f}" r="{m["r"]:.1f}" '
+                f'fill="{m["colour"]}" fill-opacity="{m["alpha"]}" '
+                f'stroke="{m["colour"]}" stroke-width="1" stroke-opacity="0.5"/>'
+            )
         if m["dot"]:
-            body.append(f'<circle cx="{m["x"]:.1f}" cy="{m["y"]:.1f}" r="3.4" fill="{m["ink"]}" '
-                        f'stroke="#fff" stroke-width="1.4"/>')
+            body.append(
+                f'<circle cx="{m["x"]:.1f}" cy="{m["y"]:.1f}" r="3.4" fill="{m["ink"]}" '
+                f'stroke="#fff" stroke-width="1.4"/>'
+            )
 
     if not blank:
         named = [m for m in marks if m["named"]]
         place_labels(named, p, city_boxes, obstacles)
         # Column labels and fallback positions can still overlap city names.
         # Wine-region labels take priority over contextual city labels.
-        label_boxes = [(m["lx"] - (0.55 * m["size"] * len(m["name"]) + 10) / 2,
-                        m["ly"] - (m["size"] + 6) / 2,
-                        m["lx"] + (0.55 * m["size"] * len(m["name"]) + 10) / 2,
-                        m["ly"] + (m["size"] + 6) / 2) for m in named]
-        covered = {k for k, b in enumerate(city_boxes)
-                   if any(not (b[2] < t[0] or b[0] > t[2] or b[3] < t[1] or b[1] > t[3])
-                          for t in label_boxes)}
-        layers = re.sub(r'<g data-city="(\d+)">.*?</g>\n?',
-                        lambda g: "" if int(g.group(1)) in covered else g.group(0),
-                        layers)
+        label_boxes = [
+            (
+                m["lx"] - (0.55 * m["size"] * len(m["name"]) + 10) / 2,
+                m["ly"] - (m["size"] + 6) / 2,
+                m["lx"] + (0.55 * m["size"] * len(m["name"]) + 10) / 2,
+                m["ly"] + (m["size"] + 6) / 2,
+            )
+            for m in named
+        ]
+        covered = {
+            k
+            for k, b in enumerate(city_boxes)
+            if any(
+                not (b[2] < t[0] or b[0] > t[2] or b[3] < t[1] or b[1] > t[3]) for t in label_boxes
+            )
+        }
+        layers = re.sub(
+            r'<g data-city="(\d+)">.*?</g>\n?',
+            lambda g: "" if int(g.group(1)) in covered else g.group(0),
+            layers,
+        )
         for m in named:
             # Leader line only when the label had to be pushed away - and
             # never from a region drawn without a dot, whose outline is what
             # the label names; a line would end on nothing.
             if m["dot"] and math.hypot(m["lx"] - m["x"], m["ly"] - m["y"]) > m["r"] + 14:
-                body.append(f'<line x1="{m["x"]:.1f}" y1="{m["y"]:.1f}" x2="{m["lx"]:.1f}" '
-                            f'y2="{m["ly"]:.1f}" stroke="{m["ink"]}" stroke-width="0.9" '
-                            f'stroke-opacity="0.6"/>')
+                body.append(
+                    f'<line x1="{m["x"]:.1f}" y1="{m["y"]:.1f}" x2="{m["lx"]:.1f}" '
+                    f'y2="{m["ly"]:.1f}" stroke="{m["ink"]}" stroke-width="0.9" '
+                    f'stroke-opacity="0.6"/>'
+                )
             # Two passes, not paint-order="stroke": that is SVG2, and cairosvg
             # silently ignores it, painting the white halo over the letters.
-            common = (f'x="{m["lx"]:.1f}" y="{m["ly"] + m["size"] / 3:.1f}" '
-                      f'text-anchor="middle" font-size="{m["size"]}" '
-                      f'font-weight="{m["weight"]}"')
-            body.append(f'<text {common} fill="none" stroke="{LAND}" stroke-width="5.5" '
-                        f'stroke-linejoin="round" stroke-opacity="0.9">{esc(m["name"])}</text>')
+            common = (
+                f'x="{m["lx"]:.1f}" y="{m["ly"] + m["size"] / 3:.1f}" '
+                f'text-anchor="middle" font-size="{m["size"]}" '
+                f'font-weight="{m["weight"]}"'
+            )
+            body.append(
+                f'<text {common} fill="none" stroke="{LAND}" stroke-width="5.5" '
+                f'stroke-linejoin="round" stroke-opacity="0.9">{esc(m["name"])}</text>'
+            )
             body.append(f'<text {common} fill="{m["ink"]}">{esc(m["name"])}</text>')
 
-    title = "" if blank or not spec_map.get("title") else (
-        f'<text x="{PAD}" y="{PAD + 4}" class="ti">{esc(spec_map["title"])}</text>')
+    title = (
+        ""
+        if blank or not spec_map.get("title")
+        else (f'<text x="{PAD}" y="{PAD + 4}" class="ti">{esc(spec_map["title"])}</text>')
+    )
 
     clip = ""
     if fills or lines:
         paths = "".join(f'<path d="{d}"/>' for d in land_paths(p))
-        clip = (f'<defs><clipPath id="{clip_id}">{paths}</clipPath></defs>'
-                f'<g clip-path="url(#{clip_id})">' + "\n".join(fills + lines) + "</g>")
+        clip = (
+            f'<defs><clipPath id="{clip_id}">{paths}</clipPath></defs>'
+            f'<g clip-path="url(#{clip_id})">' + "\n".join(fills + lines) + "</g>"
+        )
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {p.width:.0f} {p.height:.0f}" width="{p.width:.0f}" height="{p.height:.0f}">
 <style>
@@ -751,6 +892,7 @@ def contact_sheet(ids: list[str], out_dir: Path, cols: int = 4) -> None:
     and individual maps for ambiguous labels and layout problems.
     """
     from PIL import Image
+
     tiles = [out_dir / f"wset-map-{i}.png" for i in ids]
     missing = [str(t) for t in tiles if not t.is_file()]
     if missing:
@@ -771,7 +913,11 @@ def contact_sheet(ids: list[str], out_dir: Path, cols: int = 4) -> None:
     print(f"  {dest.name}  ({len(tiles)} maps)")
 
 
-def load_cairosvg():
+class Rasterizer(Protocol):
+    def svg2png(self, *, bytestring: bytes, write_to: str, output_width: int) -> None: ...
+
+
+def load_cairosvg() -> Rasterizer | None:
     """Import cairosvg, or return None and say why.
 
     cairosvg needs the native libcairo, which Homebrew installs somewhere the
@@ -781,19 +927,31 @@ def load_cairosvg():
     The caller decides whether missing Cairo is allowed for SVG-only output.
     """
     import os
+
     if sys.platform == "darwin":
         for prefix in ("/opt/homebrew/lib", "/usr/local/lib"):
             if Path(prefix).is_dir():
                 os.environ["DYLD_FALLBACK_LIBRARY_PATH"] = (
-                    prefix + ":" + os.environ.get("DYLD_FALLBACK_LIBRARY_PATH", ""))
+                    prefix + ":" + os.environ.get("DYLD_FALLBACK_LIBRARY_PATH", "")
+                )
     try:
         import cairosvg
+
         return cairosvg
     except ImportError:
         print("! cairosvg not installed (run uv sync --locked)")
     except OSError:
         print("! libcairo not found (try `brew install cairo`)")
     return None
+
+
+class Arguments(argparse.Namespace):
+    spec: Path
+    svg_only: bool
+    only: str | None
+    treatment: str
+    suffix: str
+    out: str | None
 
 
 def main() -> int:
@@ -804,14 +962,15 @@ def main() -> int:
     ap.add_argument("--treatment", default="c", choices=["a", "b", "c"])
     ap.add_argument("--suffix", default="", help="append to output filename (for samples)")
     ap.add_argument("--out", default=None, help="output directory (default assets)")
-    args = ap.parse_args()
+    args = ap.parse_args(namespace=Arguments())
 
     out_dir = Path(args.out) if args.out else MAPS
     out_dir.mkdir(parents=True, exist_ok=True)
 
     from snapshots import prepare
+
     prepare()
-    spec = yaml.safe_load(args.spec.read_text(encoding="utf-8"))
+    spec = load_catalogue(args.spec)
     todo = [m for m in spec["maps"] if not args.only or m["id"] == args.only]
     if not todo:
         print(f"no map with id {args.only!r}")
@@ -822,18 +981,22 @@ def main() -> int:
 
     cairosvg = None if args.svg_only else load_cairosvg()
     if not args.svg_only and cairosvg is None:
-        raise RuntimeError("PNG output requires CairoSVG and native Cairo; use --svg-only only when PNG is not required")
+        raise RuntimeError(
+            "PNG output requires CairoSVG and native Cairo; use --svg-only only when PNG is not required"
+        )
 
     for m in todo:
         for blank in (False, True):
             tag = "-blank" if blank else ""
             stem = f"wset-map-{m['id']}{args.suffix}{tag}"
-            svg = render(m, ents, args.treatment, blank=blank,
-                         palette=spec.get("palette", {}))
+            svg = render(m, ents, args.treatment, blank=blank, palette=spec.get("palette", {}))
             (out_dir / f"{stem}.svg").write_text(svg, encoding="utf-8")
             if cairosvg:
-                cairosvg.svg2png(bytestring=svg.encode(), write_to=str(out_dir / f"{stem}.png"),
-                                 output_width=int(W * 1.4))
+                cairosvg.svg2png(
+                    bytestring=svg.encode(),
+                    write_to=str(out_dir / f"{stem}.png"),
+                    output_width=int(W * 1.4),
+                )
             print(f"  {stem}  ({len(m['regions'])} regions)")
 
     if cairosvg and not args.suffix:

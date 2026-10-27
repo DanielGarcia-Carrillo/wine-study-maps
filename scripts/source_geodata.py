@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Geographic sources, transformations and independent coordinate checks."""
+
 from __future__ import annotations
 
 import argparse
@@ -8,9 +9,35 @@ import math
 import re
 import subprocess
 import sys
+from collections.abc import Callable
+from functools import lru_cache
 from pathlib import Path
+from typing import cast
 
-import yaml
+from models import (
+    Area,
+    Bindings,
+    Catalogue,
+    Entities,
+    Entity,
+    Feature,
+    FeatureCollection,
+    Geometry,
+    Point,
+    Region,
+    Rings,
+)
+from validation import (
+    ENTITY,
+    FEATURES,
+    OSM,
+    decode_json,
+    load_catalogue,
+    read_area,
+    read_features,
+    read_json,
+)
+from validation import SPARQL as SPARQL_SCHEMA
 
 ROOT = Path(__file__).resolve().parents[1]
 MAPS = ROOT / ".cache"
@@ -50,8 +77,10 @@ SPARQL = "https://query.wikidata.org/sparql"
 # and union the commune boundaries, rather than to trace an outline by eye.
 # That is what these two give us, and it is why the polygons are sourced data
 # rather than approximations.
-INAO_CSV = ("https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/"
-            "20251009-122320/2025-10-09-comagri-communes-aires-ao.csv")
+INAO_CSV = (
+    "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/"
+    "20251009-122320/2025-10-09-comagri-communes-aires-ao.csv"
+)
 GEO_API = "https://geo.api.gouv.fr/communes"
 
 # OpenStreetMap, used ONLY for administrative units that Natural Earth does
@@ -68,31 +97,41 @@ NOMINATIM = "https://nominatim.openstreetmap.org/lookup"
 # Shapefile only, in UTM zone 32N, hence the reader and the reprojection.
 # EU wine PDO areas (Candiago et al. 2022, Scientific Data), CC0, on figshare
 EU_PDO = "https://ndownloader.figshare.com/files/35955185"
-WINE_AUSTRALIA_GI = ("https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/"
-                     "Wine_Geographical_Indications_Australia/FeatureServer")
+WINE_AUSTRALIA_GI = (
+    "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/"
+    "Wine_Geographical_Indications_Australia/FeatureServer"
+)
 
-PIEMONTE_DOC = ("https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/"
-                "AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip")
+PIEMONTE_DOC = (
+    "https://www.datigeo-piem-download.it/direct/Geoportale/RegionePiemonte/"
+    "AGRICOLTURA/Aree_vini_DOC_DOCG/aree_produzione_vini.zip"
+)
 
 # US appellation boundaries, digitised by the UC Davis Library AVA project
 # from the TTB's legal descriptions. CC0. Pinned to a commit for the same
 # reason the Natural Earth tag is pinned: a re-run should redraw the same
 # boundary, not whatever the project has revised since.
-AVA_SHA = "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"   # 2025-12-10
+AVA_SHA = "5208ac65eeb9c3250945f1fa182b4f2ebb7756a9"  # 2025-12-10
 AVA_BASE = f"https://raw.githubusercontent.com/UCDavisLibrary/ava/{AVA_SHA}/avas"
 
 
-
 REFRESH = False
-def require_refresh():
+
+
+def require_refresh() -> None:
     if not REFRESH:
-        raise FileNotFoundError("Missing pinned source input; offline builds never fetch. Restore the individually tracked data/inputs files or explicitly run source_geodata.py --refresh for source maintenance.")
+        raise FileNotFoundError(
+            "Missing pinned source input; offline builds never fetch. Restore the individually tracked data/inputs files or explicitly run source_geodata.py --refresh for source maintenance."
+        )
 
 
 def curl(args: list[str]) -> str:
     require_refresh()
-    r = subprocess.run(["curl", "-fsSL", "--max-time", "180", "-H", f"User-Agent: {UA}", *args],
-                       capture_output=True, text=True)
+    r = subprocess.run(
+        ["curl", "-fsSL", "--max-time", "180", "-H", f"User-Agent: {UA}", *args],
+        capture_output=True,
+        text=True,
+    )
     if r.returncode != 0:
         raise RuntimeError(f"fetch failed: {r.stderr[:300]}")
     return r.stdout
@@ -110,25 +149,45 @@ def layer_path(name: str) -> Path:
     return dest
 
 
-def load_layer(name: str) -> dict:
-    return json.loads(layer_path(name).read_text(encoding="utf-8"))
+@lru_cache(maxsize=8)
+def _validated_layer(path: Path, signature: tuple[int, int]) -> FeatureCollection:
+    """Reuse read-only basemap features within one render, after file validation.
+
+    The file path and stat signature separate pinned and maintenance inputs.
+    Committed-file integrity is still checked by prepare() before every build.
+    """
+    return read_features(path)
 
 
-def sparql(query: str) -> list[dict]:
-    out = curl(["-G", "-H", "Accept: application/sparql-results+json",
-                "--data-urlencode", f"query={query}", SPARQL])
-    return json.loads(out)["results"]["bindings"]
+def load_layer(name: str) -> FeatureCollection:
+    path = layer_path(name)
+    stat = path.stat()
+    return _validated_layer(path, (stat.st_mtime_ns, stat.st_size))
 
 
-def fetch_entities(qids: list[str]) -> dict[str, dict]:
+def sparql(query: str) -> list[Bindings]:
+    out = curl(
+        [
+            "-G",
+            "-H",
+            "Accept: application/sparql-results+json",
+            "--data-urlencode",
+            f"query={query}",
+            SPARQL,
+        ]
+    )
+    return decode_json(out, SPARQL_SCHEMA, SPARQL)["results"]["bindings"]
+
+
+def fetch_entities(qids: list[str]) -> Entities:
     """Coordinate + label + description for each pinned Q-id, cached per id."""
     WD_CACHE.mkdir(parents=True, exist_ok=True)
-    out: dict[str, dict] = {}
+    out: Entities = {}
     missing = []
     for q in qids:
         c = WD_CACHE / f"{q}.json"
         if c.exists():
-            out[q] = json.loads(c.read_text())
+            out[q] = read_json(c, ENTITY)
         else:
             missing.append(q)
 
@@ -144,8 +203,13 @@ def fetch_entities(qids: list[str]) -> dict[str, dict]:
         for b in rows:
             q = b["item"]["value"].rsplit("/", 1)[1]
             lon, lat = parse_point(b["coord"]["value"])
-            rec = {"qid": q, "label": b["itemLabel"]["value"],
-                   "desc": b.get("desc", {}).get("value", ""), "lon": lon, "lat": lat}
+            rec: Entity = {
+                "qid": q,
+                "label": b["itemLabel"]["value"],
+                "desc": b.get("desc", {"value": ""}).get("value", ""),
+                "lon": lon,
+                "lat": lat,
+            }
             (WD_CACHE / f"{q}.json").write_text(json.dumps(rec, indent=2, ensure_ascii=False))
             out[q] = rec
     return out
@@ -168,11 +232,24 @@ def inao_table() -> dict[str, list[str]]:
     if not raw.exists():
         print("  fetching INAO appellation/commune table ...", flush=True)
         require_refresh()
-        subprocess.run(["curl", "-fsSL", "--max-time", "180", "-H", f"User-Agent: {UA}",
-                        "-o", str(raw), INAO_CSV], check=True)
-    import csv, io
+        subprocess.run(
+            [
+                "curl",
+                "-fsSL",
+                "--max-time",
+                "180",
+                "-H",
+                f"User-Agent: {UA}",
+                "-o",
+                str(raw),
+                INAO_CSV,
+            ],
+            check=True,
+        )
+    import csv
+
     table: dict[str, list[str]] = {}
-    with io.open(raw, encoding="cp1252") as fh:
+    with open(raw, encoding="cp1252") as fh:
         for row in csv.DictReader(fh, delimiter=";"):
             table.setdefault(row["Aire géographique"], []).append(row["CI"])
     return table
@@ -183,27 +260,31 @@ def departement(insee: str) -> str:
     return insee[:3] if insee.startswith("97") else insee[:2]
 
 
-def communes(dep: str) -> dict[str, dict]:
+def communes(dep: str) -> dict[str, Feature]:
     """Every commune of one departement, with its boundary, from geo.api.gouv.fr."""
     INAO_CACHE.mkdir(parents=True, exist_ok=True)
     path = INAO_CACHE / f"communes-{dep}.geojson"
     if not path.exists():
         print(f"  fetching commune boundaries for departement {dep} ...", flush=True)
-        path.write_text(curl([f"{GEO_API}?codeDepartement={dep}&format=geojson"
-                              "&geometry=contour&fields=code,nom"]), encoding="utf-8")
-    data = json.loads(path.read_text(encoding="utf-8"))
+        path.write_text(
+            curl(
+                [f"{GEO_API}?codeDepartement={dep}&format=geojson&geometry=contour&fields=code,nom"]
+            ),
+            encoding="utf-8",
+        )
+    data = read_features(path)
     return {f["properties"]["code"]: f for f in data["features"]}
 
 
-def ava_area(ava_id: str) -> dict:
+def ava_area(ava_id: str) -> Area:
     """One US AVA's boundary, by its UC Davis ava_id (e.g. "napa_valley")."""
     INAO_CACHE.mkdir(parents=True, exist_ok=True)
     path = INAO_CACHE / f"ava-{ava_id}.json"
     if not path.exists():
         print(f"  fetching AVA boundary {ava_id} ...", flush=True)
         path.write_text(curl([f"{AVA_BASE}/{ava_id}.geojson"]), encoding="utf-8")
-    data = json.loads(path.read_text(encoding="utf-8"))
-    feats = data["features"] if data.get("type") == "FeatureCollection" else [data]
+    data = read_features(path)
+    feats = data["features"]
 
     # These files carry the AVA's SUPERSEDED boundaries alongside its current
     # one - Los Carneros has three, Central Coast four - distinguished only by
@@ -212,16 +293,22 @@ def ava_area(ava_id: str) -> dict:
     # factual error. The undated ava_id is the boundary in force.
     current = [f for f in feats if f["properties"].get("ava_id") == ava_id]
     if not current:
-        raise KeyError(f"{ava_id}: no current boundary among "
-                       f"{[f['properties'].get('ava_id') for f in feats]}")
+        raise KeyError(
+            f"{ava_id}: no current boundary among {[f['properties'].get('ava_id') for f in feats]}"
+        )
     superseded = len(feats) - len(current)
 
     rings = [r for f in current for r in rings_of(f["geometry"])]
-    return {"name": current[0]["properties"].get("name", ava_id),
-            "communes": 0, "missing": [], "superseded": superseded, "rings": rings}
+    return {
+        "name": (current[0]["properties"].get("name") or ava_id),
+        "communes": 0,
+        "missing": [],
+        "superseded": superseded,
+        "rings": rings,
+    }
 
 
-def admin1_area(spec: str) -> dict:
+def admin1_area(spec: str) -> Area:
     """A first-level administrative region, as "Country/Name".
 
     Many of the regions the syllabus teaches outside France and the USA are
@@ -240,19 +327,30 @@ def admin1_area(spec: str) -> dict:
     slug = re.sub(r"[^a-z0-9]+", "-", spec.lower()).strip("-")
     path = INAO_CACHE / f"admin1-{slug}.json"
     if not path.exists():
-        feats = [f for f in load_layer("states")["features"]
-                 if f["properties"].get("admin") == country
-                 and name in (f["properties"].get("name"), f["properties"].get("region"))]
+        feats = [
+            f
+            for f in load_layer("states")["features"]
+            if f["properties"].get("admin") == country
+            and name in (f["properties"].get("name"), f["properties"].get("region"))
+        ]
         if not feats:
-            near = sorted({f["properties"].get("region") or f["properties"].get("name")
-                           for f in load_layer("states")["features"]
-                           if f["properties"].get("admin") == country})
+            near = sorted(
+                {
+                    f["properties"].get("region") or f["properties"].get("name") or ""
+                    for f in load_layer("states")["features"]
+                    if f["properties"].get("admin") == country
+                }
+            )
             raise KeyError(f"no admin-1 unit {name!r} in {country}; known: {near[:14]}")
-        rec = {"name": name, "communes": len(feats), "missing": [],
-               "rings": [r for f in feats for r in rings_of(f["geometry"])]}
+        rec: Area = {
+            "name": name,
+            "communes": len(feats),
+            "missing": [],
+            "rings": [r for f in feats for r in rings_of(f["geometry"])],
+        }
         INAO_CACHE.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(rec), encoding="utf-8")
-    return json.loads(path.read_text(encoding="utf-8"))
+    return read_area(path)
 
 
 def utm_to_wgs84(easting: float, northing: float, zone: int = 32) -> tuple[float, float]:
@@ -273,11 +371,13 @@ def utm_to_wgs84(easting: float, northing: float, zone: int = 32) -> tuple[float
     x = easting - 500000.0
     m = northing / k0
     mu = m / (a * (1 - e2 / 4 - 3 * e2**2 / 64 - 5 * e2**3 / 256))
-    phi1 = (mu
-            + (3 * e1 / 2 - 27 * e1**3 / 32) * math.sin(2 * mu)
-            + (21 * e1**2 / 16 - 55 * e1**4 / 32) * math.sin(4 * mu)
-            + (151 * e1**3 / 96) * math.sin(6 * mu)
-            + (1097 * e1**4 / 512) * math.sin(8 * mu))
+    phi1 = (
+        mu
+        + (3 * e1 / 2 - 27 * e1**3 / 32) * math.sin(2 * mu)
+        + (21 * e1**2 / 16 - 55 * e1**4 / 32) * math.sin(4 * mu)
+        + (151 * e1**3 / 96) * math.sin(6 * mu)
+        + (1097 * e1**4 / 512) * math.sin(8 * mu)
+    )
 
     sin1, cos1, tan1 = math.sin(phi1), math.cos(phi1), math.tan(phi1)
     c1 = ep2 * cos1**2
@@ -289,15 +389,24 @@ def utm_to_wgs84(easting: float, northing: float, zone: int = 32) -> tuple[float
     lat = phi1 - (n1 * tan1 / r1) * (
         d**2 / 2
         - (5 + 3 * t1 + 10 * c1 - 4 * c1**2 - 9 * ep2) * d**4 / 24
-        + (61 + 90 * t1 + 298 * c1 + 45 * t1**2 - 252 * ep2 - 3 * c1**2) * d**6 / 720)
-    lon = (d
-           - (1 + 2 * t1 + c1) * d**3 / 6
-           + (5 - 2 * c1 + 28 * t1 - 3 * c1**2 + 8 * ep2 + 24 * t1**2) * d**5 / 120) / cos1
+        + (61 + 90 * t1 + 298 * c1 + 45 * t1**2 - 252 * ep2 - 3 * c1**2) * d**6 / 720
+    )
+    lon = (
+        d
+        - (1 + 2 * t1 + c1) * d**3 / 6
+        + (5 - 2 * c1 + 28 * t1 - 3 * c1**2 + 8 * ep2 + 24 * t1**2) * d**5 / 120
+    ) / cos1
     lon0 = math.radians(zone * 6 - 183)
     return (math.degrees(lon0 + lon), math.degrees(lat))
 
 
-def doc_area(name: str) -> dict:
+def record_text(value: object, field: str) -> str:
+    if not isinstance(value, str):
+        raise ValueError(f"Piemonte shapefile:{field}: expected text")
+    return value
+
+
+def doc_area(name: str) -> Area:
     """A Piedmont DOC/DOCG production area, by its `denominazi` value.
 
     The only Italian appellation boundaries published as open data that a
@@ -307,7 +416,7 @@ def doc_area(name: str) -> dict:
     slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")[:60]
     cached = INAO_CACHE / f"doc-{slug}.json"
     if cached.exists():
-        return json.loads(cached.read_text(encoding="utf-8"))
+        return read_area(cached)
 
     INAO_CACHE.mkdir(parents=True, exist_ok=True)
     base = INAO_CACHE / "piemonte-doc"
@@ -316,9 +425,22 @@ def doc_area(name: str) -> dict:
         if not zp.exists():
             print("  fetching Piemonte DOC/DOCG areas ...", flush=True)
             require_refresh()
-            subprocess.run(["curl", "-fsSL", "--max-time", "600", "-H", f"User-Agent: {UA}",
-                            "-o", str(zp), PIEMONTE_DOC], check=True)
+            subprocess.run(
+                [
+                    "curl",
+                    "-fsSL",
+                    "--max-time",
+                    "600",
+                    "-H",
+                    f"User-Agent: {UA}",
+                    "-o",
+                    str(zp),
+                    PIEMONTE_DOC,
+                ],
+                check=True,
+            )
         import zipfile
+
         with zipfile.ZipFile(zp) as z:
             for member in z.namelist():
                 ext = Path(member).suffix
@@ -326,24 +448,32 @@ def doc_area(name: str) -> dict:
                     base.with_suffix(ext).write_bytes(z.read(member))
 
     import shapefile
+
     reader = shapefile.Reader(str(base))
-    rings, kind = [], ""
+    rings: Rings = []
+    kind = ""
     for sr in reader.shapeRecords():
         if sr.record["denominazi"] != name:
             continue
-        kind = sr.record["tipo"]
+        kind = record_text(sr.record["tipo"], "tipo")
         shp = sr.shape
         parts = list(shp.parts) + [len(shp.points)]
         for i in range(len(shp.parts)):
-            ring = [utm_to_wgs84(x, y) for x, y in shp.points[parts[i]:parts[i + 1]]]
+            ring = [utm_to_wgs84(x, y) for x, y in shp.points[parts[i] : parts[i + 1]]]
             if len(ring) >= 3:
                 rings.append(ring)
     if not rings:
-        near = sorted({r["denominazi"] for r in reader.records()
-                       if name.lower()[:5] in r["denominazi"].lower()})
-        raise KeyError(f"no Piemonte DOC/DOCG named {name!r}"
-                       + (f"; did you mean {near}?" if near else ""))
-    rec = {"name": name, "kind": kind, "communes": 0, "missing": [], "rings": rings}
+        near = sorted(
+            {
+                record_text(r["denominazi"], "denominazi")
+                for r in reader.records()
+                if name.lower()[:5] in record_text(r["denominazi"], "denominazi").lower()
+            }
+        )
+        raise KeyError(
+            f"no Piemonte DOC/DOCG named {name!r}" + (f"; did you mean {near}?" if near else "")
+        )
+    rec: Area = {"name": name, "kind": kind, "communes": 0, "missing": [], "rings": rings}
     cached.write_text(json.dumps(rec), encoding="utf-8")
     return rec
 
@@ -360,8 +490,9 @@ def laea_to_wgs84(x: float, y: float) -> tuple[float, float]:
 
     def q(phi: float) -> float:
         s = math.sin(phi)
-        return (1 - e2) * (s / (1 - e2 * s * s)
-                           - (1 / (2 * e)) * math.log((1 - e * s) / (1 + e * s)))
+        return (1 - e2) * (
+            s / (1 - e2 * s * s) - (1 / (2 * e)) * math.log((1 - e * s) / (1 + e * s))
+        )
 
     qp, q0 = q(math.pi / 2), q(lat0)
     rq = a * math.sqrt(qp / 2)
@@ -372,27 +503,32 @@ def laea_to_wgs84(x: float, y: float) -> tuple[float, float]:
     if rho == 0:
         return (math.degrees(lon0), math.degrees(lat0))
     c = 2 * math.asin(rho / (2 * rq))
-    beta = math.asin(math.cos(c) * math.sin(beta0)
-                     + d * dy * math.sin(c) * math.cos(beta0) / rho)
-    lon = lon0 + math.atan2(dx * math.sin(c),
-                            d * rho * math.cos(beta0) * math.cos(c)
-                            - d * d * dy * math.sin(beta0) * math.sin(c))
-    lat = (beta + (e2 / 3 + 31 * e2 ** 2 / 180 + 517 * e2 ** 3 / 5040) * math.sin(2 * beta)
-           + (23 * e2 ** 2 / 360 + 251 * e2 ** 3 / 3780) * math.sin(4 * beta)
-           + (761 * e2 ** 3 / 45360) * math.sin(6 * beta))
+    beta = math.asin(math.cos(c) * math.sin(beta0) + d * dy * math.sin(c) * math.cos(beta0) / rho)
+    lon = lon0 + math.atan2(
+        dx * math.sin(c),
+        d * rho * math.cos(beta0) * math.cos(c) - d * d * dy * math.sin(beta0) * math.sin(c),
+    )
+    lat = (
+        beta
+        + (e2 / 3 + 31 * e2**2 / 180 + 517 * e2**3 / 5040) * math.sin(2 * beta)
+        + (23 * e2**2 / 360 + 251 * e2**3 / 3780) * math.sin(4 * beta)
+        + (761 * e2**3 / 45360) * math.sin(6 * beta)
+    )
     return (math.degrees(lon), math.degrees(lat))
 
 
-def _wkb_polygons(b: bytes) -> list[list[list[tuple[float, float]]]]:
+def _wkb_polygons(b: bytes) -> list[Rings]:
     """Polygons (lists of rings of (x, y)) from (Multi)Polygon WKB."""
     import struct
-    out, i = [], 0
+
+    out: list[Rings] = []
+    i = 0
 
     def geom(i: int) -> int:
         bo = "<" if b[i] == 1 else ">"
         kind = struct.unpack_from(bo + "I", b, i + 1)[0] % 1000
         i += 5
-        if kind == 6:                                   # MultiPolygon
+        if kind == 6:  # MultiPolygon
             n = struct.unpack_from(bo + "I", b, i)[0]
             i += 4
             for _ in range(n):
@@ -402,13 +538,13 @@ def _wkb_polygons(b: bytes) -> list[list[list[tuple[float, float]]]]:
             raise ValueError(f"unexpected WKB geometry type {kind}")
         nrings = struct.unpack_from(bo + "I", b, i)[0]
         i += 4
-        poly = []
+        poly: Rings = []
         for _ in range(nrings):
             npts = struct.unpack_from(bo + "I", b, i)[0]
             i += 4
-            pts = struct.unpack_from(bo + f"{2 * npts}d", b, i)
+            pts = cast(tuple[float, ...], struct.unpack_from(bo + f"{2 * npts}d", b, i))
             i += 16 * npts
-            poly.append(list(zip(pts[0::2], pts[1::2])))
+            poly.append(list(zip(pts[0::2], pts[1::2], strict=True)))
         out.append(poly)
         return i
 
@@ -416,7 +552,7 @@ def _wkb_polygons(b: bytes) -> list[list[list[tuple[float, float]]]]:
     return out
 
 
-def pdo_area(pdo_id: str) -> dict:
+def pdo_area(pdo_id: str) -> Area:
     """An EU wine PDO's area, by its eAmbrosia id (PDO-ES-A0117 is Rioja).
 
     From Candiago et al. 2022, "A geospatial inventory of regulatory
@@ -427,17 +563,32 @@ def pdo_area(pdo_id: str) -> dict:
     """
     cached = INAO_CACHE / f"pdo-{pdo_id}.json"
     if cached.exists():
-        return json.loads(cached.read_text(encoding="utf-8"))
+        return read_area(cached)
     INAO_CACHE.mkdir(parents=True, exist_ok=True)
     gpkg = INAO_CACHE / "EU_PDO.gpkg"
     if not gpkg.exists():
         print("  fetching EU wine PDO areas (45 MB) ...", flush=True)
         require_refresh()
-        subprocess.run(["curl", "-fsSL", "--max-time", "900", "-H", f"User-Agent: {UA}",
-                        "-o", str(gpkg), EU_PDO], check=True)
+        subprocess.run(
+            [
+                "curl",
+                "-fsSL",
+                "--max-time",
+                "900",
+                "-H",
+                f"User-Agent: {UA}",
+                "-o",
+                str(gpkg),
+                EU_PDO,
+            ],
+            check=True,
+        )
     import sqlite3
+
     con = sqlite3.connect(gpkg)
-    rows = con.execute('select Shape from EU_PDO where PDOid = ?', (pdo_id,)).fetchall()
+    rows: list[tuple[bytes]] = con.execute(
+        "select Shape from EU_PDO where PDOid = ?", (pdo_id,)
+    ).fetchall()
     if not rows:
         raise KeyError(f"no PDO with id {pdo_id!r} in EU_PDO.gpkg")
     rings = []
@@ -445,11 +596,11 @@ def pdo_area(pdo_id: str) -> dict:
         # GeoPackage binary: 'GP', version, flags, srs_id, then an envelope
         # whose size the flags give, then plain WKB
         env = {0: 0, 1: 32, 2: 48, 3: 48, 4: 64}[(blob[3] >> 1) & 7]
-        for poly in _wkb_polygons(blob[8 + env:]):
-            for ring in poly[:1]:                    # outer rings only
+        for poly in _wkb_polygons(blob[8 + env :]):
+            for ring in poly[:1]:  # outer rings only
                 if len(ring) >= 3:
                     rings.append([laea_to_wgs84(x, y) for x, y in ring])
-    rec = {"name": pdo_id, "kind": "PDO", "communes": 0, "missing": [], "rings": rings}
+    rec: Area = {"name": pdo_id, "kind": "PDO", "communes": 0, "missing": [], "rings": rings}
     cached.write_text(json.dumps(rec), encoding="utf-8")
     return rec
 
@@ -458,34 +609,43 @@ def pdo_area(pdo_id: str) -> dict:
 # inside the PDO it is listed under: a wrong reprojection puts the polygons in
 # another country and still draws something plausible.
 PDO_CONTROL = {
-    "PDO-ES-A0117": [(-2.847, 42.578)],     # Haro, Rioja Alta
-    "PDO-ES-A0626": [(-3.689, 41.670)],     # Aranda de Duero
-    "PDO-ES-A1560": [(0.776, 41.205)],      # Gratallops
-    "PDO-DE-A1270": [(7.073, 49.917)],      # Bernkastel-Kues, Mittelmosel
-    "PDO-DE-A1272": [(8.140, 49.350)],      # Neustadt an der Weinstrasse
-    "PDO-IT-A1199": [(11.489, 43.058)],     # Montalcino
-    "PDO-HU-A1254": [(21.409, 48.124)],     # Tokaj
+    "PDO-ES-A0117": [(-2.847, 42.578)],  # Haro, Rioja Alta
+    "PDO-ES-A0626": [(-3.689, 41.670)],  # Aranda de Duero
+    "PDO-ES-A1560": [(0.776, 41.205)],  # Gratallops
+    "PDO-DE-A1270": [(7.073, 49.917)],  # Bernkastel-Kues, Mittelmosel
+    "PDO-DE-A1272": [(8.140, 49.350)],  # Neustadt an der Weinstrasse
+    "PDO-IT-A1199": [(11.489, 43.058)],  # Montalcino
+    "PDO-HU-A1254": [(21.409, 48.124)],  # Tokaj
 }
 
 
-def gi_area(spec: str) -> dict:
+def gi_area(spec: str) -> Area:
     """Wine Australia registered GI; source legal text prevails over geometry."""
     kind, _, rest = spec.partition("/")
     slug = re.sub(r"[^a-z0-9]+", "-", spec.lower()).strip("-")
     cached = INAO_CACHE / f"gi-{slug}.json"
     if cached.exists():
-        return json.loads(cached.read_text(encoding="utf-8"))
+        return read_area(cached)
     INAO_CACHE.mkdir(parents=True, exist_ok=True)
     if kind == "au":
         feats = []
-        for layer in (1, 0):                        # regions, then subregions
+        for layer in (1, 0):  # regions, then subregions
             where = f"UPPER(GI_NAME) = '{rest.upper()}'"
-            out = curl(["-G", f"{WINE_AUSTRALIA_GI}/{layer}/query",
-                        "--data-urlencode", f"where={where}",
-                        "--data-urlencode", "outFields=GI_NAME,GI_TYPE",
-                        "--data-urlencode", "outSR=4326",
-                        "--data-urlencode", "f=geojson"])
-            feats = json.loads(out).get("features", [])
+            out = curl(
+                [
+                    "-G",
+                    f"{WINE_AUSTRALIA_GI}/{layer}/query",
+                    "--data-urlencode",
+                    f"where={where}",
+                    "--data-urlencode",
+                    "outFields=GI_NAME,GI_TYPE",
+                    "--data-urlencode",
+                    "outSR=4326",
+                    "--data-urlencode",
+                    "f=geojson",
+                ]
+            )
+            feats = decode_json(out, FEATURES, WINE_AUSTRALIA_GI)["features"]
             if feats:
                 break
         if not feats:
@@ -494,63 +654,84 @@ def gi_area(spec: str) -> dict:
         name = feats[0]["properties"]["GI_NAME"]
     else:
         raise KeyError(f'public gi must be "au/<name>", got {spec!r}')
-    rec = {"name": name, "communes": 0, "missing": [], "rings": rings}
+    rec: Area = {"name": name, "communes": 0, "missing": [], "rings": rings}
     cached.write_text(json.dumps(rec), encoding="utf-8")
     return rec
 
 
 GI_CONTROL = {
-    "au/Barossa Valley": [(138.960, -34.524)],     # Tanunda
-    "au/Coonawarra": [(140.835, -37.380)],         # Penola's vineyards strip
-    "au/Margaret River": [(115.075, -33.955)],     # Margaret River town
-    "au/Hunter": [(151.290, -32.780)],             # Pokolbin
+    "au/Barossa Valley": [(138.960, -34.524)],  # Tanunda
+    "au/Coonawarra": [(140.835, -37.380)],  # Penola's vineyards strip
+    "au/Margaret River": [(115.075, -33.955)],  # Margaret River town
+    "au/Hunter": [(151.290, -32.780)],  # Pokolbin
 }
 
 
-def area_of(r: dict) -> dict | None:
-    """The sourced area for one catalogue.yaml region, or None for a marker.
-
-    admin1 and osm take a list where a region is legally a union of
-    administrative units - Chile's DOs are defined by provinces and comunas.
-    """
-    for key, fn in (("aoc", aoc_area), ("ava", ava_area), ("county", county_area),
-                    ("admin1", admin1_area), ("osm", osm_area), ("doc", doc_area),
-                    ("pdo", pdo_area), ("gi", gi_area)):
-        v = r.get(key)
-        if not v:
+def area_of(r: Region) -> Area | None:
+    """Resolve the first declared area source, preserving catalogue precedence."""
+    if aoc := r.get("aoc"):
+        return aoc_area(aoc)
+    sources: list[tuple[str | list[str] | None, Callable[[str], Area]]] = [
+        (r.get("ava"), ava_area),
+        (r.get("county"), county_area),
+        (r.get("admin1"), admin1_area),
+        (r.get("osm"), osm_area),
+        (r.get("doc"), doc_area),
+        (r.get("pdo"), pdo_area),
+        (r.get("gi"), gi_area),
+    ]
+    for value, resolver in sources:
+        if not value:
             continue
-        if isinstance(v, list) and key != "aoc":
-            parts = [fn(x) for x in v]
-            return {"name": parts[0]["name"], "communes": sum(p["communes"] for p in parts),
-                    "missing": [m for p in parts for m in p["missing"]],
-                    "rings": [ring for p in parts for ring in p["rings"]]}
-        return fn(v)
+        if isinstance(value, list):
+            parts = [resolver(item) for item in value]
+            return {
+                "name": parts[0]["name"],
+                "communes": sum(p["communes"] for p in parts),
+                "missing": [m for p in parts for m in p["missing"]],
+                "rings": [ring for p in parts for ring in p["rings"]],
+            }
+        return resolver(value)
     return None
 
 
-def osm_area(osm_id: str) -> dict:
+def osm_area(osm_id: str) -> Area:
     """One OSM administrative relation, e.g. "R112129" (Casablanca comuna)."""
     path = INAO_CACHE / f"osm-{osm_id}.json"
     if not path.exists():
         print(f"  fetching OSM boundary {osm_id} ...", flush=True)
-        out = curl(["-G", NOMINATIM, "--data-urlencode", f"osm_ids={osm_id}",
-                    "--data-urlencode", "format=json",
-                    "--data-urlencode", "polygon_geojson=1"])
-        data = json.loads(out)
+        out = curl(
+            [
+                "-G",
+                NOMINATIM,
+                "--data-urlencode",
+                f"osm_ids={osm_id}",
+                "--data-urlencode",
+                "format=json",
+                "--data-urlencode",
+                "polygon_geojson=1",
+            ]
+        )
+        data = decode_json(out, OSM, NOMINATIM)
         if not data:
             raise KeyError(f"OSM lookup returned nothing for {osm_id}")
         d = data[0]
         if d.get("class") != "boundary":
-            raise KeyError(f"{osm_id} is a {d.get('class')}/{d.get('type')}, "
-                           f"not an administrative boundary")
-        rec = {"name": d.get("display_name", osm_id).split(",")[0], "communes": 0,
-               "missing": [], "rings": rings_of(d["geojson"])}
+            raise KeyError(
+                f"{osm_id} is a {d.get('class')}/{d.get('type')}, not an administrative boundary"
+            )
+        rec: Area = {
+            "name": d.get("display_name", osm_id).split(",")[0],
+            "communes": 0,
+            "missing": [],
+            "rings": rings_of(d["geojson"]),
+        }
         INAO_CACHE.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(rec), encoding="utf-8")
-    return json.loads(path.read_text(encoding="utf-8"))
+    return read_area(path)
 
 
-def county_area(fips: str) -> dict:
+def county_area(fips: str) -> Area:
     """One US county, by FIPS code.
 
     For the two Californian regions in this catalogue that are counties
@@ -559,18 +740,23 @@ def county_area(fips: str) -> dict:
     """
     path = INAO_CACHE / f"county-{fips}.json"
     if not path.exists():
-        feats = [f for f in load_layer("counties")["features"]
-                 if f["properties"].get("FIPS") == fips]
+        feats = [
+            f for f in load_layer("counties")["features"] if f["properties"].get("FIPS") == fips
+        ]
         if not feats:
             raise KeyError(f"no US county with FIPS {fips!r}")
-        rec = {"name": feats[0]["properties"].get("NAME", fips), "communes": 0,
-               "missing": [], "rings": [r for f in feats for r in rings_of(f["geometry"])]}
+        rec: Area = {
+            "name": (feats[0]["properties"].get("NAME") or fips),
+            "communes": 0,
+            "missing": [],
+            "rings": [r for f in feats for r in rings_of(f["geometry"])],
+        }
         INAO_CACHE.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(rec), encoding="utf-8")
-    return json.loads(path.read_text(encoding="utf-8"))
+    return read_area(path)
 
 
-def aoc_area(name: str | list[str]) -> dict:
+def aoc_area(name: str | list[str]) -> Area:
     """The polygons making up one appellation's geographic area.
 
     Returned as the raw commune polygons rather than a dissolved outline: drawn
@@ -581,18 +767,19 @@ def aoc_area(name: str | list[str]) -> dict:
     slug = re.sub(r"[^a-z0-9]+", "-", "+".join(names).lower()).strip("-")[:80]
     cached = INAO_CACHE / f"aoc-{slug}.json"
     if cached.exists():
-        return json.loads(cached.read_text(encoding="utf-8"))
+        return read_area(cached)
 
     table = inao_table()
     codes: list[str] = []
     for n in names:
         if n not in table:
             near = [k for k in table if n.lower()[:8] in k.lower()][:6]
-            raise KeyError(f"no INAO appellation named {n!r}"
-                           + (f"; did you mean {near}?" if near else ""))
+            raise KeyError(
+                f"no INAO appellation named {n!r}" + (f"; did you mean {near}?" if near else "")
+            )
         codes.extend(table[n])
     codes = sorted(set(codes))
-    rings: list[list] = []
+    rings: Rings = []
     missing: list[str] = []
     for dep in sorted({departement(c) for c in codes}):
         idx = communes(dep)
@@ -604,26 +791,27 @@ def aoc_area(name: str | list[str]) -> dict:
                 missing.append(c)
                 continue
             rings.extend(rings_of(f["geometry"]))
-    rec = {"name": names[0], "communes": len(codes), "missing": missing, "rings": rings}
+    rec: Area = {"name": names[0], "communes": len(codes), "missing": missing, "rings": rings}
     cached.write_text(json.dumps(rec), encoding="utf-8")
     return rec
 
 
-def rings_of(geom: dict) -> list[list]:
-    t, c = geom["type"], geom["coordinates"]
-    if t == "Polygon":
-        return c[:1]              # outer ring only; holes are not meaningful here
-    if t == "MultiPolygon":
-        return [poly[0] for poly in c]
+def rings_of(geom: Geometry | None) -> Rings:
+    if geom is None:
+        return []
+    if geom["type"] == "Polygon":
+        return geom["coordinates"][:1]  # outer ring only; holes are not meaningful here
+    if geom["type"] == "MultiPolygon":
+        return [poly[0] for poly in geom["coordinates"]]
     return []
 
 
-def in_rings(pt: list[float], area_rings: list[list]) -> bool:
+def in_rings(pt: Point | list[float], area_rings: Rings) -> bool:
     """Whether a (lon, lat) point falls inside any of the rings (ray casting)."""
     x, y = pt
     for ring in area_rings:
         inside = False
-        for (x0, y0), (x1, y1) in zip(ring, ring[1:] + ring[:1]):
+        for (x0, y0), (x1, y1) in zip(ring, ring[1:] + ring[:1], strict=True):
             if (y0 > y) != (y1 > y) and x < x0 + (y - y0) * (x1 - x0) / (y1 - y0):
                 inside = not inside
         if inside:
@@ -643,26 +831,31 @@ def candidates(name: str, country: str | None) -> None:
   SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en". }}
 }} LIMIT 60""")
     if not rows:
-        print(f"no coordinate-bearing item found for {name!r}"
-              + (f" in {country}" if country else ""))
+        print(
+            f"no coordinate-bearing item found for {name!r}" + (f" in {country}" if country else "")
+        )
         return
     seen = set()
     print(f"\ncandidates for {name!r}:\n")
     for b in rows:
         q = b["item"]["value"].rsplit("/", 1)[1]
-        cls = b.get("classLabel", {}).get("value", "")
+        cls = b.get("classLabel", {"value": ""}).get("value", "")
         if (q, cls) in seen:
             continue
         seen.add((q, cls))
         lon, lat = parse_point(b["coord"]["value"])
         wine = "  <- wine-typed" if "wine" in cls.lower() else ""
-        print(f"  {q:12} {cls[:30]:32} {b.get('desc', {}).get('value', '')[:44]:46} "
-              f"{lat:8.3f},{lon:9.3f}{wine}")
-    print("\nPin the wine-typed row if there is one; otherwise the commune is the "
-          "honest anchor.\nRecord its description verbatim as wd_desc in catalogue.yaml.")
+        print(
+            f"  {q:12} {cls[:30]:32} {b.get('desc', {'value': ''}).get('value', '')[:44]:46} "
+            f"{lat:8.3f},{lon:9.3f}{wine}"
+        )
+    print(
+        "\nPin the wine-typed row if there is one; otherwise the commune is the "
+        "honest anchor.\nRecord its description verbatim as wd_desc in catalogue.yaml."
+    )
 
 
-def verify(spec: dict) -> int:
+def verify(spec: Catalogue) -> int:
     """Check every region resolves, and that independent sources agree."""
     qids = [r["wikidata"] for m in spec["maps"] for r in m["regions"] if r.get("wikidata")]
     ents = fetch_entities(sorted(set(qids)))
@@ -679,19 +872,31 @@ def verify(spec: dict) -> int:
                 continue
 
             if area is None and not r.get("wikidata"):
-                print(f"  X  {r['name']:24} nothing to place it by "
-                      f"(aoc/ava/county/admin1/wikidata)")
+                print(
+                    f"  X  {r['name']:24} nothing to place it by (aoc/ava/county/admin1/wikidata)"
+                )
                 problems += 1
                 continue
 
             note = ""
             if area:
-                src = ("INAO" if r.get("aoc") else "AVA " if r.get("ava")
-                       else "FIPS" if r.get("county")
-                       else "OSM " if r.get("osm")
-                       else "DOC " if r.get("doc")
-                       else "PDO " if r.get("pdo")
-                       else "GI  " if r.get("gi") else "NE  ")
+                src = (
+                    "INAO"
+                    if r.get("aoc")
+                    else "AVA "
+                    if r.get("ava")
+                    else "FIPS"
+                    if r.get("county")
+                    else "OSM "
+                    if r.get("osm")
+                    else "DOC "
+                    if r.get("doc")
+                    else "PDO "
+                    if r.get("pdo")
+                    else "GI  "
+                    if r.get("gi")
+                    else "NE  "
+                )
                 note = f"{src} {area['communes'] or len(area['rings']):4d} "
                 note += "communes" if r.get("aoc") else "rings   "
                 if r.get("county"):
@@ -703,8 +908,11 @@ def verify(spec: dict) -> int:
                     note = f"OSM  {osm:10} district "
                 if r.get("gi"):
                     note = f"GI   {r['gi']:24} {len(area['rings']):3d} rings "
-                    bad = [pt for pt in GI_CONTROL.get(r["gi"], [])
-                           if not in_rings(list(pt), area["rings"])]
+                    bad = [
+                        pt
+                        for pt in GI_CONTROL.get(r["gi"], [])
+                        if not in_rings(list(pt), area["rings"])
+                    ]
                     if bad:
                         print(f"  X  {r['name']:24} control point(s) {bad} outside the GI")
                         problems += 1
@@ -712,11 +920,16 @@ def verify(spec: dict) -> int:
                     note = f"DOC  {area.get('kind', ''):<5} {len(area['rings']):3d} rings   "
                 if r.get("pdo"):
                     note = f"PDO  {r['pdo']:12} {len(area['rings']):3d} rings "
-                    bad = [pt for pt in PDO_CONTROL.get(r["pdo"], [])
-                           if not in_rings(list(pt), area["rings"])]
+                    bad = [
+                        pt
+                        for pt in PDO_CONTROL.get(r["pdo"], [])
+                        if not in_rings(list(pt), area["rings"])
+                    ]
                     if bad:
-                        print(f"  X  {r['name']:24} control point(s) {bad} outside the "
-                              f"reprojected PDO - check laea_to_wgs84()")
+                        print(
+                            f"  X  {r['name']:24} control point(s) {bad} outside the "
+                            f"reprojected PDO - check laea_to_wgs84()"
+                        )
                         problems += 1
                 if area.get("superseded"):
                     note += f"  (skipped {area['superseded']} superseded boundary revision(s))"
@@ -765,29 +978,46 @@ def verify(spec: dict) -> int:
     return problems
 
 
+class Arguments(argparse.Namespace):
+    refresh: bool
+    candidates: str | None
+    country: str | None
+    layers: bool
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--refresh", action="store_true", help="fetch/verify upstream inputs in a separate, unpinned maintenance cache")
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    ap.add_argument(
+        "--refresh",
+        action="store_true",
+        help="fetch/verify upstream inputs in a separate, unpinned maintenance cache",
+    )
     ap.add_argument("--candidates", metavar="NAME", help="list Q-id options for a region")
     ap.add_argument("--country", metavar="QID", help="narrow --candidates to a country, e.g. Q142")
     ap.add_argument("--layers", action="store_true", help="pre-fetch all Natural Earth layers")
-    args = ap.parse_args()
+    args = ap.parse_args(namespace=Arguments())
 
     global REFRESH, MAPS, NE_CACHE, WD_CACHE, INAO_CACHE
     REFRESH = args.refresh
     MAPS = ROOT / (".maintenance-cache" if REFRESH else ".cache")
-    NE_CACHE, WD_CACHE, INAO_CACHE = (MAPS / ".naturalearth-cache", MAPS / ".wikidata-cache", MAPS / ".inao-cache")
+    NE_CACHE, WD_CACHE, INAO_CACHE = (
+        MAPS / ".naturalearth-cache",
+        MAPS / ".wikidata-cache",
+        MAPS / ".inao-cache",
+    )
     if args.candidates:
         candidates(args.candidates, args.country)
         return 0
 
     if not REFRESH:
         from snapshots import prepare
+
         prepare()
-    spec = yaml.safe_load(SPEC.read_text(encoding="utf-8"))
-    wanted = sorted({l for m in spec["maps"] for l in m.get("base", [])})
-    for name in (sorted(LAYERS) if args.layers else wanted):
+    spec = load_catalogue(SPEC)
+    wanted = sorted({layer for m in spec["maps"] for layer in m.get("base", [])})
+    for name in sorted(LAYERS) if args.layers else wanted:
         layer_path(name)
 
     problems = verify(spec)

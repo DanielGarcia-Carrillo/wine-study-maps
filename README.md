@@ -86,22 +86,49 @@ insets enlarge crowded detail. These heuristics do not guarantee collision-free
 or unambiguous placement, so visual review of individual maps and the contact
 sheet remains necessary.
 
-## Existing checks
+## Quality gate
 
-- Nine `unittest` cases cover input corruption, missing/changed inputs, reviewed
-  label colours, projection origins and town controls, isolated maintenance fetches,
-  required Cairo for PNGs, and missing contact-sheet tiles.
-- `scripts/check_project.py` checks catalogue and asset counts, file hashes,
-  required provenance keys and a public-content allowlist.
-- `scripts/source_geodata.py` checks recorded geographic inputs, available pinned
-  coordinates and descriptions, manual anchors and selected independent town controls.
-  Default checks use the snapshot, rather than querying current upstream data.
-- `uv.lock` fixes Python dependency versions; native Cairo and system fonts remain
-  environment dependencies.
+Install the pinned development tools, then run the same fail-fast command used by CI:
 
-There is currently no configured linter, formatter, type checker, full catalogue or
-manifest schema validator, or CI workflow. The checks above are targeted checks,
-not a full schema or a guarantee of cartographic accuracy.
+```sh
+uv sync --locked --group dev
+uv run --locked --group dev python scripts/quality.py
+```
+
+The gate runs Ruff lint and formatter checks, strict mypy checking of every
+maintained script/test/stub, Pydantic structural validation, committed-input and
+asset integrity checks, geographic checks, the regression tests and a full offline
+32-map render. Catalogue/region, provenance/asset/upstream manifest, palette and
+geometry contracts are concrete typed models. Validation reports the input file
+and field path, rejects malformed/unknown configuration fields, bad references,
+unsafe paths and non-finite numbers. Upstream foreign members and variable
+attributes are retained; the models specify the fields and geometry actually
+consumed rather than inventing a fixed schema for every provider property.
+
+The checked-in Actions workflow uses read-only permissions, pinned action commits,
+Python 3.11 and 3.14, locked Python tools, native Cairo and Liberation fonts. It
+runs the command above unchanged. A configured workflow and a local gate result
+are separate from an observed hosted CI result.
+
+Render validation requires exact SVGs, the expected file inventory, valid decoded
+PNGs and canonical image dimensions. Native Cairo/fonts can change PNG pixels
+across systems. In an environment matching the canonical images, additionally run:
+
+```sh
+uv run --locked --group dev python scripts/validate_render.py --compare-only --exact-pixels
+```
+
+This compares the gate's `work/quality-render` PNG bytes and pixels exactly. The
+portable gate does not waive SVG or PNG decoding/dimension checks on other platforms.
+
+Source inputs are structurally validated at file/provider boundaries; the full
+corpus is validated by the gate. During a render, a bounded in-memory cache reuses
+read-only basemap layers keyed by path and file stat, avoiding repeated validation
+of the same large layer. `prepare()` still verifies committed bytes before every
+build; this cache does not replace source-integrity checks. Native dependencies,
+visual clarity and upstream authenticity/licence rights remain outside the guarantees
+of static types and structural models. Narrow local CairoSVG/pyshp interface stubs
+cover only the APIs consumed; pyshp attributes are checked before use as text.
 
 ## Colours and licensing
 
