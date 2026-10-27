@@ -36,6 +36,13 @@ class ExtractionTests(unittest.TestCase):
         svg = (ROOT / "assets/wset-map-chile.svg").read_text(encoding="utf-8")
         self.assertIn(f'class="credit">{credits["wset-map-chile.svg"]}<', svg)
 
+    def test_region_named_by_the_title_is_not_labelled_again(self) -> None:
+        labelled = (ROOT / "assets/wset-map-piemonte.svg").read_text(encoding="utf-8")
+        self.assertEqual(labelled.count(">Piemonte<"), 1)
+        self.assertIn('class="ti">Piemonte<', labelled)
+        # Barolo shares no name with the title, so it keeps its label.
+        self.assertIn(">Barolo<", labelled)
+
     def fixture(self, root: Path) -> tuple[Path, InputManifest]:
         manifest = load_manifest(ROOT)
         manifest["inputs"] = manifest["inputs"][:1]

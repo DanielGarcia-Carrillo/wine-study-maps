@@ -127,6 +127,10 @@ def tint(hex_colour: str, amount: float) -> str:
     return "#" + "".join(f"{round(c + (255 - c) * amount):02x}" for c in rgb)
 
 
+def same_name(a: str, b: str) -> bool:
+    return a.casefold() == b.casefold()
+
+
 def esc(s: str) -> str:
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
@@ -773,6 +777,11 @@ def render(
             colour = tint(base, 0.30) if r.get("tier", 1) >= 2 else base
         colour = r.get("colour", colour)
         radius = p.km(HALO.get(r.get("extent", "small"), 5.0))
+        # A region the map is titled after is already named by the title, so
+        # it keeps its fill but loses its dot and label. Blank maps have no
+        # title, so they keep the dot.
+        titled = not blank and same_name(r["name"], spec_map.get("title", ""))
+        labelled = r.get("named", True) and not titled
         marks.append(
             {
                 "name": r["name"],
@@ -786,12 +795,12 @@ def render(
                 "weight": weight,
                 "area": area,
                 "fill": r.get("fill", True),
-                "dot": r.get("dot", True) and r.get("named", True),
+                "dot": r.get("dot", True) and labelled,
                 "outline": r.get("outline", False),
                 "side": r.get("label"),
                 "tier": r.get("tier", 1),
                 "anchored": bool(r.get("anchor")),
-                "named": r.get("named", True) and r["name"] not in inset_names,
+                "named": labelled and r["name"] not in inset_names,
             }
         )
 
