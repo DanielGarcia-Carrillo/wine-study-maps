@@ -860,6 +860,8 @@ maps:
     tier: 2
     extent: small
   - name: Gavi
+    outline: true
+    colour: '#a8661f'
     doc: Gavi o Cortese di Gavi
     parent: Piemonte
     tier: 2
