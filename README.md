@@ -20,7 +20,9 @@ Dots and halos indicate position and rough scale, not boundaries.
 ## Use and build
 
 Ready-to-use images are in `assets/`; use an exact Git revision when you need a
-stable version. Rendering requires Python 3.11 or later, `uv`, and native Cairo
+stable version. Each file is prefixed with the WSET level it covers, such as
+`level-2-bordeaux.png` and `level-2-bordeaux-blank.svg`, so maps for another level
+can sit alongside these without ambiguity. Rendering requires Python 3.11 or later, `uv`, and native Cairo
 (`brew install cairo` on macOS). Python dependencies are locked in `uv.lock`.
 
 ```sh

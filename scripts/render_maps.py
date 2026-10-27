@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Protocol, cast
 
 from models import (
+    LEVEL,
     Area,
     BBox,
     Entities,
@@ -944,7 +945,7 @@ def contact_sheet(ids: list[str], out_dir: Path, cols: int = 4) -> None:
     """
     from PIL import Image
 
-    tiles = [out_dir / f"wset-map-{i}.png" for i in ids]
+    tiles = [out_dir / f"{LEVEL}{i}.png" for i in ids]
     missing = [str(t) for t in tiles if not t.is_file()]
     if missing:
         raise FileNotFoundError("Contact sheet requires every map PNG: " + ", ".join(missing))
@@ -1040,14 +1041,14 @@ def main() -> int:
     for m in todo:
         for blank in (False, True):
             tag = "-blank" if blank else ""
-            stem = f"wset-map-{m['id']}{args.suffix}{tag}"
+            stem = f"{LEVEL}{m['id']}{args.suffix}{tag}"
             svg = render(
                 m,
                 ents,
                 args.treatment,
                 blank=blank,
                 palette=spec.get("palette", {}),
-                credit=credits.get(f"wset-map-{m['id']}{tag}.svg", ""),
+                credit=credits.get(f"{LEVEL}{m['id']}{tag}.svg", ""),
             )
             (out_dir / f"{stem}.svg").write_text(svg, encoding="utf-8")
             if cairosvg:

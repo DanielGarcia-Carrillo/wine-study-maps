@@ -26,18 +26,18 @@ class ExtractionTests(unittest.TestCase):
 
     def test_attribution_licences_are_credited_on_their_maps(self) -> None:
         credits = render_maps.credit_lines()
-        self.assertIn("OpenStreetMap", credits["wset-map-chile.svg"])
-        self.assertIn("OpenStreetMap", credits["wset-map-chile-blank.png"])
-        self.assertIn("Regione Piemonte", credits["wset-map-piemonte.svg"])
-        self.assertIn("Wine Australia", credits["wset-map-victoria.png"])
-        self.assertIn("2025-10-09", credits["wset-map-bordeaux.svg"])
+        self.assertIn("OpenStreetMap", credits["level-2-chile.svg"])
+        self.assertIn("OpenStreetMap", credits["level-2-chile-blank.png"])
+        self.assertIn("Regione Piemonte", credits["level-2-piemonte.svg"])
+        self.assertIn("Wine Australia", credits["level-2-victoria.png"])
+        self.assertIn("2025-10-09", credits["level-2-bordeaux.svg"])
         # Natural Earth, Wikidata and CC0 inputs alone need no on-image credit.
-        self.assertNotIn("wset-map-napa.svg", credits)
-        svg = (ROOT / "assets/wset-map-chile.svg").read_text(encoding="utf-8")
-        self.assertIn(f'class="credit">{credits["wset-map-chile.svg"]}<', svg)
+        self.assertNotIn("level-2-napa.svg", credits)
+        svg = (ROOT / "assets/level-2-chile.svg").read_text(encoding="utf-8")
+        self.assertIn(f'class="credit">{credits["level-2-chile.svg"]}<', svg)
 
     def test_region_named_by_the_title_is_not_labelled_again(self) -> None:
-        labelled = (ROOT / "assets/wset-map-piemonte.svg").read_text(encoding="utf-8")
+        labelled = (ROOT / "assets/level-2-piemonte.svg").read_text(encoding="utf-8")
         self.assertEqual(labelled.count(">Piemonte<"), 1)
         self.assertIn('class="ti">Piemonte<', labelled)
         # Barolo shares no name with the title, so it keeps its label.

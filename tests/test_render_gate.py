@@ -21,7 +21,7 @@ class RenderGateTests(unittest.TestCase):
             with self.subTest(omit_one=omit_one), tempfile.TemporaryDirectory() as tmp:
                 stale = Path(tmp).resolve() / "prior-output"
                 shutil.copytree(ROOT / "assets", stale)
-                before = (stale / "wset-map-france.png").read_bytes()
+                before = (stale / "level-2-france.png").read_bytes()
 
                 def incomplete(
                     command: list[str], *, produce_partial: bool = omit_one, **kwargs: object
@@ -30,7 +30,7 @@ class RenderGateTests(unittest.TestCase):
                         fresh = Path(command[command.index("--out") + 1])
                         fresh.mkdir()
                         for image in (ROOT / "assets").iterdir():
-                            if image.name != "wset-map-france.png":
+                            if image.name != "level-2-france.png":
                                 shutil.copyfile(image, fresh / image.name)
                     return subprocess.CompletedProcess(command, 0)
 
@@ -42,7 +42,7 @@ class RenderGateTests(unittest.TestCase):
                     ),
                 ):
                     validate_render.main()
-                self.assertEqual((stale / "wset-map-france.png").read_bytes(), before)
+                self.assertEqual((stale / "level-2-france.png").read_bytes(), before)
                 self.assertEqual(len(list(stale.iterdir())), 129)
 
     def test_output_symlink_is_rejected_without_running_or_deleting(self) -> None:

@@ -43,8 +43,11 @@ Rings: TypeAlias = list[Ring]
 PolygonRing: TypeAlias = Annotated[Ring, Field(min_length=3)]
 BBox: TypeAlias = Annotated[list[Number], Field(min_length=4, max_length=4)]
 Palette: TypeAlias = dict[Slug, Colour]
+# Every map file is prefixed with the WSET level it serves, so maps for
+# another level never collide with or hide among these.
+LEVEL = "level-2-"
 AssetName: TypeAlias = Annotated[
-    str, Field(pattern=r"^(?:wset-map-[a-z0-9-]+\.(?:svg|png)|_contact_sheet\.png)$")
+    str, Field(pattern=r"^(?:level-[0-9]-[a-z0-9-]+\.(?:svg|png)|_contact_sheet\.png)$")
 ]
 AssetManifest: TypeAlias = dict[AssetName, SHA256]
 LabelColours: TypeAlias = dict[

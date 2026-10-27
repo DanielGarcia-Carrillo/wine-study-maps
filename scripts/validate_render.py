@@ -9,6 +9,7 @@ import sys
 import tempfile
 from pathlib import Path
 
+from models import LEVEL
 from PIL import Image, ImageChops
 from validation import load_catalogue
 
@@ -18,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def compare(out: Path, exact_pixels: bool = False) -> None:
     ids = [m["id"] for m in load_catalogue(ROOT / "catalogue.yaml")["maps"]]
     expected = {
-        f"wset-map-{i}{tag}.{ext}" for i in ids for tag in ("", "-blank") for ext in ("png", "svg")
+        f"{LEVEL}{i}{tag}.{ext}" for i in ids for tag in ("", "-blank") for ext in ("png", "svg")
     } | {"_contact_sheet.png"}
     for generated in out.iterdir():
         if generated.is_symlink() or not generated.is_file():

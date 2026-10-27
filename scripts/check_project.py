@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from models import LEVEL
 from snapshots import digest, prepare
 from validation import (
     ASSETS,
@@ -37,7 +38,7 @@ def check(root: Path = ROOT) -> None:
         "catalogue.yaml:$.maps: unsupported public GI source",
     )
     expected = {
-        f"wset-map-{i}{tag}.{ext}" for i in ids for tag in ("", "-blank") for ext in ("svg", "png")
+        f"{LEVEL}{i}{tag}.{ext}" for i in ids for tag in ("", "-blank") for ext in ("svg", "png")
     } | {"_contact_sheet.png"}
     assets = read_json(root / "data/asset-manifest.json", ASSETS)
     require(
