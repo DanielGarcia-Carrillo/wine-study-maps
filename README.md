@@ -81,6 +81,11 @@ A region's position comes from its sourced area's centroid or an explicit manual
 Wikidata coordinate locates the marker. A centroid need not fall inside a concave
 or multipart region, so anchors can help place labels more meaningfully.
 
+Each recipe names its focus `country` (ISO 3166 alpha-3, as Natural Earth's
+`ADM0_A3`). Only that country's cities are drawn; each neighbouring country in
+frame is named once instead, at Natural Earth's label point or the middle of its
+visible area, when that spot is clear.
+
 Labels use approximate text boxes and a greedy search for space around cities and
 other labels. Catalogue hints can put labels in side columns ordered north to
 south, or above/below a region. Leader lines connect displaced labels to markers;

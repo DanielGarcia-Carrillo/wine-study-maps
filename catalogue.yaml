@@ -27,6 +27,8 @@ palette:
 maps:
 - id: france
   title: France
+  country:
+  - FRA
   bbox: auto
   pad: 0.06
   base:
@@ -94,6 +96,8 @@ maps:
     extent: broad
 - id: bordeaux
   title: Bordeaux
+  country:
+  - FRA
   bbox: auto
   base:
   - land
@@ -159,6 +163,8 @@ maps:
     label: e
 - id: burgundy
   title: Burgundy
+  country:
+  - FRA
   bbox: auto
   min_aspect: 0.95
   base:
@@ -258,6 +264,8 @@ maps:
     extent: small
 - id: beaujolais
   title: Beaujolais
+  country:
+  - FRA
   bbox: auto
   base:
   - land
@@ -281,6 +289,8 @@ maps:
     extent: small
 - id: loire
   title: Loire Valley
+  country:
+  - FRA
   bbox: auto
   base:
   - land
@@ -308,6 +318,8 @@ maps:
     extent: small
 - id: rhone
   title: Rhône Valley
+  country:
+  - FRA
   bbox: auto
   min_aspect: 0.75
   base:
@@ -418,6 +430,8 @@ maps:
     group: Southern Rhône
 - id: languedoc-roussillon
   title: Languedoc-Roussillon
+  country:
+  - FRA
   bbox: auto
   pad: 1.6
   base:
@@ -434,6 +448,8 @@ maps:
     extent: medium
 - id: provence
   title: Provence
+  country:
+  - FRA
   bbox: auto
   pad: 1.1
   base:
@@ -450,6 +466,8 @@ maps:
     extent: large
 - id: alsace
   title: Alsace
+  country:
+  - FRA
   bbox: auto
   base:
   - land
@@ -469,6 +487,8 @@ maps:
     extent: medium
 - id: champagne
   title: Champagne
+  country:
+  - FRA
   bbox: auto
   pad: 0.9
   base:
@@ -485,6 +505,8 @@ maps:
     extent: large
 - id: napa
   title: Napa & Sonoma
+  country:
+  - USA
   distinct: true
   bbox: auto
   pad: 0.12
@@ -533,6 +555,8 @@ maps:
     extent: small
 - id: oregon
   title: Oregon
+  country:
+  - USA
   distinct: true
   bbox: auto
   pad: 0.4
@@ -563,6 +587,8 @@ maps:
     outline: true
 - id: california
   title: California
+  country:
+  - USA
   distinct: true
   bbox: auto
   pad: 0.18
@@ -604,6 +630,8 @@ maps:
     extent: large
 - id: italy
   title: Italy
+  country:
+  - ITA
   distinct: true
   bbox: auto
   pad: 0.1
@@ -653,6 +681,8 @@ maps:
     extent: medium
 - id: piemonte
   title: Piemonte
+  country:
+  - ITA
   bbox: auto
   pad: 0.1
   base:
@@ -711,6 +741,8 @@ maps:
     extent: small
 - id: veneto
   title: Veneto & Friuli
+  country:
+  - ITA
   bbox: auto
   pad: 0.1
   base:
@@ -746,6 +778,8 @@ maps:
     extent: small
 - id: tuscany
   title: Tuscany
+  country:
+  - ITA
   bbox: auto
   pad: 0.1
   base:
@@ -794,6 +828,8 @@ maps:
     extent: small
 - id: spain
   title: Spain
+  country:
+  - ESP
   distinct: true
   bbox: auto
   pad: 0.1
@@ -853,6 +889,8 @@ maps:
     extent: medium
 - id: northern-spain
   title: Northern Spain
+  country:
+  - ESP
   bbox: auto
   pad: 0.12
   base:
@@ -887,6 +925,8 @@ maps:
     extent: medium
 - id: catalunya
   title: Catalunya
+  country:
+  - ESP
   bbox: auto
   pad: 0.1
   base:
@@ -912,6 +952,8 @@ maps:
     extent: small
 - id: germany
   title: Germany
+  country:
+  - DEU
   distinct: true
   bbox: auto
   min_span: 4.0
@@ -944,6 +986,8 @@ maps:
     extent: medium
 - id: portugal
   title: Portugal
+  country:
+  - PRT
   bbox: auto
   min_span: 5.5
   pad: 0.9
@@ -963,6 +1007,8 @@ maps:
     extent: large
 - id: australia
   title: Australia
+  country:
+  - AUS
   distinct: true
   bbox: auto
   pad: 0.06
@@ -1086,6 +1132,8 @@ maps:
     extent: small
 - id: australian-chardonnay
   title: Australian Chardonnay
+  country:
+  - AUS
   distinct: true
   bbox:
   - 113.5
@@ -1144,6 +1192,8 @@ maps:
     extent: small
 - id: south-africa
   title: South Africa
+  country:
+  - ZAF
   distinct: true
   bbox: auto
   pad: 0.1
@@ -1185,6 +1235,8 @@ maps:
     extent: small
 - id: chile
   title: Chile
+  country:
+  - CHL
   distinct: true
   bbox: auto
   min_span: 7.0
@@ -1234,6 +1286,8 @@ maps:
     extent: small
 - id: argentina
   title: Argentina
+  country:
+  - ARG
   bbox: auto
   pad: 0.25
   base:
@@ -1250,6 +1304,8 @@ maps:
     extent: large
 - id: hungary
   title: Hungary
+  country:
+  - HUN
   bbox: auto
   min_span: 5.5
   pad: 0.9
@@ -1269,6 +1325,8 @@ maps:
     extent: medium
 - id: south-australia
   title: South Australia
+  country:
+  - AUS
   distinct: true
   bbox: auto
   pad: 0.12
@@ -1325,6 +1383,8 @@ maps:
     extent: small
 - id: western-australia
   title: Western Australia
+  country:
+  - AUS
   distinct: true
   bbox: auto
   min_span: 4.5
@@ -1352,6 +1412,8 @@ maps:
     extent: small
 - id: victoria
   title: Victoria
+  country:
+  - AUS
   distinct: true
   bbox: auto
   min_span: 2.5
@@ -1385,6 +1447,8 @@ maps:
     extent: small
 - id: new-south-wales
   title: New South Wales
+  country:
+  - AUS
   distinct: true
   bbox: auto
   min_span: 3.5

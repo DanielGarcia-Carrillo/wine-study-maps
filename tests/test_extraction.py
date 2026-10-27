@@ -43,6 +43,14 @@ class ExtractionTests(unittest.TestCase):
         # Barolo shares no name with the title, so it keeps its label.
         self.assertIn(">Barolo<", labelled)
 
+    def test_only_the_focus_country_has_cities(self) -> None:
+        france = (ROOT / "assets/level-2-france.svg").read_text(encoding="utf-8")
+        self.assertIn('class="country" text-anchor="middle">SPAIN<', france)
+        self.assertIn(">Lyon<", france)
+        # Geneva and Turin are in frame but belong to neighbouring countries.
+        self.assertNotIn(">Geneva<", france)
+        self.assertNotIn(">Turin<", france)
+
     def fixture(self, root: Path) -> tuple[Path, InputManifest]:
         manifest = load_manifest(ROOT)
         manifest["inputs"] = manifest["inputs"][:1]

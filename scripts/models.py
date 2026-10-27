@@ -110,6 +110,7 @@ class MapSpec(TypedDict, total=False):
     inset: Inset
     distinct: bool
     thin_places: bool
+    country: Annotated[list[Annotated[str, Field(pattern=r"^[A-Z]{3}$")]], Field(min_length=1)]
 
 
 @with_config(ConfigDict(extra="forbid", strict=True))
@@ -194,6 +195,9 @@ class Area(TypedDict):
 class Properties(TypedDict, total=False):
     NAME: str | None
     SCALERANK: Number | None
+    ADM0_A3: str | None
+    LABEL_X: Number | None
+    LABEL_Y: Number | None
     admin: str | None
     name: str | None
     region: str | None

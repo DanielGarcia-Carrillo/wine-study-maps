@@ -31,7 +31,7 @@ MAPS = ROOT / "assets"
 SPEC = ROOT / "catalogue.yaml"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from source_geodata import area_of, fetch_entities, load_layer  # noqa: E402
+from source_geodata import area_of, fetch_entities, in_rings, load_layer  # noqa: E402
 
 W, H = 1000, 750  # px, before bbox aspect correction
 PAD = 34  # px of margin inside the frame
@@ -75,6 +75,11 @@ TIER = {
 # that keep labels off each other.
 CITY_PX = 14
 CITY_EM = 0.59 * CITY_PX
+# Neighbouring countries are named in spaced capitals, a step quieter than
+# cities, so they read as context for the map's own country.
+COUNTRY_PX = 12
+COUNTRY_EM = 0.72 * COUNTRY_PX + 2  # glyph plus letter-spacing
+COUNTRY = "#a39b8e"
 
 # Sources whose licences require attribution are credited on every map they
 # feed, so a single image reused on its own keeps its credit. Public-domain
@@ -304,7 +309,9 @@ def place_box(
     return (min(x0, x) - 2, y - CITY_PX / 2 - 1, max(x0 + w, x) + 2, y + CITY_PX / 2 + 2)
 
 
-def crowded_places(data: FeatureCollection, p: Projection) -> set[int]:
+def crowded_places(
+    data: FeatureCollection, p: Projection, focus: frozenset[str] = frozenset()
+) -> set[int]:
     """Cities whose labels would collide with a more prominent city's.
 
     Twin cities print on top of each other - Vancouver WA over Portland,
@@ -321,6 +328,8 @@ def crowded_places(data: FeatureCollection, p: Projection) -> set[int]:
         if not geom or geom["type"] != "Point":
             continue
         if (props.get("SCALERANK") or 99) > p.place_rank:
+            continue
+        if focus and props.get("ADM0_A3") not in focus:
             continue
         lon, lat = geom["coordinates"][:2]
         if p.inside(lon, lat):
@@ -346,11 +355,12 @@ def draw_layer(
     p: Projection,
     boxes: list[tuple[float, float, float, float]] | None = None,
     thin: bool = False,
+    focus: frozenset[str] = frozenset(),
 ) -> str:
     """Clip a Natural Earth layer to the bbox, then project what survives."""
     data = load_layer("land" if name == "land" else name)
     out: list[str] = []
-    hidden = crowded_places(data, p) if name == "places" and thin else set()
+    hidden = crowded_places(data, p, focus) if name == "places" and thin else set()
     for f in data["features"]:
         props, geom = f.get("properties", {}), f.get("geometry")
         if not geom:
@@ -366,6 +376,10 @@ def draw_layer(
                 # afford small towns; a continent cannot - Australia drew every
                 # town in the country and the labels became a grey smear.
                 if (props.get("SCALERANK") or 99) > p.place_rank:
+                    continue
+                # Only the map's own country gets cities; a neighbour is
+                # named once instead, by country_labels().
+                if focus and props.get("ADM0_A3") not in focus:
                     continue
                 lon, lat = ring[0]
                 if not p.inside(lon, lat) or id(f) in hidden:
@@ -414,6 +428,57 @@ def draw_layer(
                     f'<path d="{d}" fill="none" stroke="{RIVER}" '
                     f'stroke-width="1.5" stroke-linecap="round" opacity="0.85"/>'
                 )
+    return "\n".join(out)
+
+
+def country_labels(
+    p: Projection,
+    focus: frozenset[str],
+    boxes: list[tuple[float, float, float, float]],
+) -> str:
+    """Name each neighbouring country once, in place of its cities.
+
+    The name goes on Natural Earth's own label point when that is in frame,
+    otherwise on the middle of the country's visible vertices, and only if
+    that spot is inside the country and clear of every city already placed.
+    """
+    out: list[str] = []
+    for f in load_layer("land")["features"]:
+        props = f.get("properties", {})
+        code = props.get("ADM0_A3")
+        if not code or code in focus:
+            continue
+        area = rings(f.get("geometry"))
+        seen = [(lon, lat) for ring in area for lon, lat in ring if p.inside(lon, lat)]
+        if len(seen) < 12:
+            continue
+        name = (props.get("NAME") or "").upper()
+        lx, ly = props.get("LABEL_X"), props.get("LABEL_Y")
+        spots = [(float(lx), float(ly))] if lx is not None and ly is not None else []
+        spots.append((sum(s[0] for s in seen) / len(seen), sum(s[1] for s in seen) / len(seen)))
+        w = COUNTRY_EM * len(name)
+        for lon, lat in spots:
+            if not p.inside(lon, lat) or not in_rings((lon, lat), area):
+                continue
+            x, y = p(lon, lat)
+            box = (x - w / 2 - 4, y - COUNTRY_PX / 2 - 3, x + w / 2 + 4, y + COUNTRY_PX / 2 + 3)
+            if box[0] < 4 or box[2] > p.width - 4 or box[1] < 4 or box[3] > p.height - 4:
+                continue
+            if any(
+                not (b[2] < box[0] or b[0] > box[2] or b[3] < box[1] or b[1] > box[3])
+                for b in boxes
+            ):
+                continue
+            boxes.append(box)
+            common = (
+                f'x="{x:.1f}" y="{y + COUNTRY_PX / 3:.1f}" class="country" text-anchor="middle"'
+            )
+            out.append(
+                f'<text {common} fill="none" stroke="{LAND}" stroke-width="3.6" '
+                f'stroke-linejoin="round">{esc(name)}</text>'
+                f"<text {common}>{esc(name)}</text>"
+            )
+            break
     return "\n".join(out)
 
 
@@ -669,10 +734,13 @@ def render(
     # City labels are drawn first, so region labels must be placed around
     # them - otherwise "Bordeaux" the region lands on top of Bordeaux the city.
     city_boxes: list[tuple[float, float, float, float]] = []
+    focus = frozenset(spec_map.get("country", []))
     layers = "\n".join(
-        draw_layer(n, p, city_boxes, bool(spec_map.get("thin_places")))
+        draw_layer(n, p, city_boxes, bool(spec_map.get("thin_places")), focus)
         for n in spec_map.get("base", [])
     )
+    if focus and not canvas and "places" in spec_map.get("base", []):
+        layers += "\n" + country_labels(p, focus, city_boxes)
 
     # `inset:` - a zoomed panel of a few of this map's regions, for nesting
     # too small to see at the scale of the whole map. Crozes-Hermitage wraps
@@ -693,6 +761,8 @@ def render(
             "align": ins.get("align", 0.5),
             "regions": [r for r in spec_map["regions"] if r["name"] in inset_names],
         }
+        if "country" in spec_map:
+            sub["country"] = spec_map["country"]
         ip_bbox = auto_bbox(sub, ents)
         sub["bbox"] = ip_bbox
         cw, ch = ins.get("size", [240, 220])
@@ -926,7 +996,8 @@ def render(
 <style>
   text {{ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }}
   .ti {{ font-size: 30px; font-weight: 700; fill: {INK}; }}
-  .city {{ font-size: {CITY_PX}px; fill: {CITY}; }}{credit_style}
+  .city {{ font-size: {CITY_PX}px; fill: {CITY}; }}
+  .country {{ font-size: {COUNTRY_PX}px; font-weight: 600; letter-spacing: 2px; fill: {COUNTRY}; }}{credit_style}
 </style>
 <rect width="100%" height="100%" fill="{SEA}"/>
 {layers}
