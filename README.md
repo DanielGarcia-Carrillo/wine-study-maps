@@ -1,4 +1,4 @@
-# WSET 2 Maps
+# Wine Study Maps
 
 Wine-region maps for WSET Level 2 study can be hard to access, and many available
 maps are crowded or difficult to read, even though much of the underlying

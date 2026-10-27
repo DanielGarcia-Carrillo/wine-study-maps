@@ -46,7 +46,7 @@ NE_CACHE = MAPS / ".naturalearth-cache"
 WD_CACHE = MAPS / ".wikidata-cache"
 INAO_CACHE = MAPS / ".inao-cache"
 
-UA = "WSET2-Maps/1.0 (geographic source validation)"
+UA = "WineStudyMaps/1.0 (geographic source validation)"
 
 # Pinned release of nvkelso/natural-earth-vector. The geojson/ directory there
 # serves plain JSON, so nothing here needs a shapefile reader or a geo stack.

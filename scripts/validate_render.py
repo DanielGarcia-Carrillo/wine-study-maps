@@ -74,7 +74,7 @@ def main() -> int:
     for ancestor in (args.out, *args.out.parents):
         if ancestor.is_symlink():
             raise ValueError(f"{ancestor}: output path must not contain a symlink")
-    with tempfile.TemporaryDirectory(prefix="wset2-maps-render-") as temporary:
+    with tempfile.TemporaryDirectory(prefix="wine-study-maps-render-") as temporary:
         fresh = Path(temporary) / "rendered"
         subprocess.run(
             [sys.executable, str(ROOT / "scripts/render_maps.py"), "--out", str(fresh)],
