@@ -20,9 +20,9 @@ def compare(out: Path, exact_pixels: bool = False) -> None:
     expected = {
         f"wset-map-{i}{tag}.{ext}" for i in ids for tag in ("", "-blank") for ext in ("png", "svg")
     } | {"_contact_sheet.png"}
-    for image in out.iterdir():
-        if image.is_symlink() or not image.is_file():
-            raise ValueError(f"{image}: unsafe rendered output")
+    for generated in out.iterdir():
+        if generated.is_symlink() or not generated.is_file():
+            raise ValueError(f"{generated}: unsafe rendered output")
     actual = {p.name for p in out.iterdir()}
     if actual != expected:
         raise ValueError(
