@@ -15,9 +15,13 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    { include-group = "watermark" },
     "mypy==2.4.0",
     "ruff==0.17.3",
     "types-pyyaml==6.0.12.20260906",
+]
+watermark = [
+    "numpy==2.3.4",
 ]
 
 [tool.ruff]
