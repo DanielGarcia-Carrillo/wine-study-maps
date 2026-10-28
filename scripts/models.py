@@ -75,9 +75,8 @@ class Region(TypedDict, total=False):
     colour: Colour
     group: Text
     label: Side
-    fill: bool
+    role: Literal["focus", "area", "umbrella"]
     dot: bool
-    outline: Outline
     anchor: Point
     parent: Text
     fit: bool

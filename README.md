@@ -81,6 +81,12 @@ A region's position comes from its sourced area's centroid or an explicit manual
 Wikidata coordinate locates the marker. A centroid need not fall inside a concave
 or multipart region, so anchors can help place labels more meaningfully.
 
+Each region plays one `role`, which alone decides its styling. The map's own
+region (by default, the one it is titled after) is a grey border with no shading.
+A wine `area`, the default, is shaded and bordered in its own colour, and an area
+nested in another takes a shade of its parent's colour. An `umbrella` that would
+hide the areas inside it is a dashed border in its colour.
+
 Each recipe names its focus `country` (ISO 3166 alpha-3, as Natural Earth's
 `ADM0_A3`). Only that country's cities are drawn; each neighbouring country in
 frame is named once instead, at Natural Earth's label point or the middle of its

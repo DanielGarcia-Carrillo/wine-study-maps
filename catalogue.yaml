@@ -111,8 +111,6 @@ maps:
   - name: Bordeaux
     colour: '#4d5a6a'
     aoc: Bordeaux
-    fill: false
-    outline: true
     dot: false
     tier: 1
     extent: large
@@ -122,14 +120,12 @@ maps:
     - -0.98
     - 45.40
     dot: false
-    outline: true
     aoc: Médoc
     tier: 1
     extent: large
     group: Left Bank
   - name: Haut-Médoc
     colour: '#2f7d8c'
-    outline: true
     aoc: Haut-Médoc
     tier: 1
     extent: large
@@ -137,7 +133,6 @@ maps:
     label: w
   - name: Margaux
     colour: '#6da4ae'
-    outline: true
     aoc: Margaux
     tier: 2
     extent: small
@@ -146,14 +141,12 @@ maps:
   - name: Pauillac
     colour: '#3f6f9a'
     label: e
-    outline: true
     aoc: Pauillac
     tier: 2
     extent: small
     group: Left Bank
   - name: Graves
     colour: '#c29462'
-    outline: true
     aoc: Graves
     tier: 1
     extent: medium
@@ -161,7 +154,6 @@ maps:
     label: w
   - name: Pessac-Léognan
     colour: '#a8661f'
-    outline: true
     aoc: Pessac-Léognan
     tier: 2
     extent: small
@@ -169,7 +161,6 @@ maps:
     label: w
   - name: Sauternes
     colour: '#8a7c2f'
-    outline: true
     aoc: Sauternes
     tier: 2
     extent: small
@@ -177,7 +168,6 @@ maps:
     label: w
   - name: Saint-Émilion
     colour: '#5f8a34'
-    outline: true
     aoc: Saint-Emilion
     tier: 1
     extent: medium
@@ -188,7 +178,6 @@ maps:
     - - -0.2003
       - 44.9306
     colour: '#7a1f2b'
-    outline: true
     aoc: Pomerol
     tier: 2
     extent: small
@@ -213,6 +202,7 @@ maps:
     tier: 1
     extent: medium
   - name: Côte de Nuits
+    role: umbrella
     aoc:
     - Côte de Nuits-Villages
     - Marsannay
@@ -225,11 +215,10 @@ maps:
     - Nuits-Saint-Georges
     tier: 1
     extent: small
-    fill: false
     dot: false
-    outline: dashed
     label: e
   - name: Côte de Beaune
+    role: umbrella
     aoc:
     - Côte de Beaune-Villages
     - Ladoix
@@ -253,9 +242,7 @@ maps:
     - Maranges
     tier: 1
     extent: small
-    fill: false
     dot: false
-    outline: dashed
     label: e
   - name: Gevrey-Chambertin
     aoc: Gevrey-Chambertin
@@ -341,21 +328,18 @@ maps:
     tier: 1
     extent: large
   - name: Vouvray
-    outline: true
     colour: '#7d4a86'
     aoc: Vouvray
     tier: 2
     extent: small
   - name: Sancerre
     label: n
-    outline: true
     colour: '#7a1f2b'
     aoc: Sancerre
     tier: 1
     extent: medium
   - name: Pouilly-Fumé
     label: e
-    outline: true
     colour: '#a8661f'
     aoc: Pouilly-Fumé ou Blanc Fumé de Pouilly et Pouilly-sur-Loire
     tier: 2
@@ -391,7 +375,6 @@ maps:
     - Cornas
     - Saint-Péray
     colour: '#7a1f2b'
-    outline: true
     tier: 1
     extent: large
     label: e
@@ -408,7 +391,6 @@ maps:
     - Lirac
     - Tavel
     colour: '#5f8a34'
-    outline: true
     tier: 1
     extent: large
     label: w
@@ -437,8 +419,6 @@ maps:
     - Crozes-Hermitage
     - Cornas
     - Saint-Péray
-    fill: false
-    outline: dashed
     colour: '#4d5a6a'
     tier: 1
     extent: large
@@ -447,21 +427,18 @@ maps:
     aoc: Côte Rôtie
     tier: 2
     extent: small
-    outline: true
     label: e
   - name: Condrieu
     colour: '#2f7d8c'
     aoc: Condrieu
     tier: 2
     extent: small
-    outline: true
     label: e
   - name: Hermitage
     colour: '#7d4a86'
     aoc: Hermitage
     tier: 2
     extent: small
-    outline: true
     label: w
   - name: Crozes-Hermitage
     colour: '#3c6aa5'
@@ -471,7 +448,6 @@ maps:
     - 45.02
     tier: 2
     extent: small
-    outline: true
     label: w
 - id: southern-rhone
   title: Southern Rhône
@@ -499,12 +475,11 @@ maps:
     - Beaumes de Venise
     - Lirac
     - Tavel
-    fill: false
-    outline: dashed
     colour: '#4d5a6a'
     tier: 1
     extent: large
   - name: Côtes du Rhône
+    role: umbrella
     named: false
     aoc: Côtes du Rhône
     colour: '#c29462'
@@ -517,7 +492,6 @@ maps:
     dot: false
     aoc: Côtes du Rhône Villages
     colour: '#5f8a34'
-    outline: true
     tier: 1
     extent: large
   - name: Châteauneuf-du-Pape
@@ -528,7 +502,6 @@ maps:
     aoc: Châteauneuf-du-Pape
     tier: 2
     extent: small
-    outline: true
     label: w
 - id: languedoc-roussillon
   title: Languedoc-Roussillon
@@ -549,7 +522,6 @@ maps:
     tier: 1
     extent: large
   - name: Minervois
-    outline: true
     colour: '#7a1f2b'
     aoc: Minervois
     tier: 1
@@ -586,6 +558,7 @@ maps:
   - places
   regions:
   - name: Alsace AOC
+    role: focus
     named: false
     aoc: Alsace suivi d’un nom de lieu-dit
     tier: 1
@@ -639,16 +612,13 @@ maps:
     tier: 1
     extent: large
     dot: false
-    outline: true
   - name: Sonoma
     county: US06097
     tier: 1
     extent: large
     dot: false
-    outline: true
   - name: Oakville
     label: e
-    outline: true
     colour: '#3c6aa5'
     parent: Napa Valley
     ava: oakville
@@ -656,21 +626,18 @@ maps:
     extent: small
   - name: Rutherford
     label: e
-    outline: true
     colour: '#a8661f'
     parent: Napa Valley
     ava: rutherford
     tier: 2
     extent: small
   - name: Calistoga
-    outline: true
     colour: '#7d4a86'
     parent: Napa Valley
     ava: calistoga
     tier: 2
     extent: small
   - name: Los Carneros
-    outline: true
     colour: '#8a7c2f'
     parent: Napa Valley
     ava: los_carneros
@@ -697,7 +664,6 @@ maps:
     tier: 1
     extent: large
     dot: false
-    outline: true
   - name: California
     admin1: United States of America/California
     anchor:
@@ -707,7 +673,6 @@ maps:
     tier: 1
     extent: large
     dot: false
-    outline: true
 - id: california
   title: California
   country:
@@ -841,34 +806,29 @@ maps:
     tier: 1
     extent: large
   - name: Barolo
-    outline: true
     doc: Barolo
     parent: Piemonte
     tier: 2
     extent: small
   - name: Barbaresco
-    outline: true
     doc: Barbaresco
     parent: Piemonte
     tier: 2
     extent: small
   - name: Barbera d'Asti
-    outline: true
     colour: '#7d4a86'
     doc: Barbera D'Asti
     parent: Piemonte
     tier: 2
     extent: small
   - name: Gavi
-    outline: true
     colour: '#a8661f'
     doc: Gavi o Cortese di Gavi
     parent: Piemonte
     tier: 2
     extent: small
   - name: Asti
-    fill: false
-    outline: true
+    role: umbrella
     colour: '#2f7d8c'
     doc: Asti
     parent: Piemonte
@@ -891,18 +851,15 @@ maps:
   - name: Veneto
     dot: false
     admin1: Italy/Veneto
-    outline: true
     tier: 1
     extent: large
   - name: Friuli-Venezia Giulia
     dot: false
     admin1: Italy/Friuli-Venezia Giulia
     colour: '#7d4a86'
-    outline: true
     tier: 1
     extent: medium
   - name: Valpolicella
-    outline: true
     colour: '#7a1f2b'
     pdo: PDO-IT-A0442
     wikidata: Q852467
@@ -910,7 +867,6 @@ maps:
     tier: 2
     extent: small
   - name: Soave
-    outline: true
     colour: '#a8661f'
     pdo: PDO-IT-A0472
     wikidata: Q47876
@@ -932,8 +888,6 @@ maps:
   - places
   regions:
   - name: Tuscany
-    fill: false
-    outline: true
     dot: false
     anchor:
     - 10.89
@@ -955,12 +909,10 @@ maps:
   - name: Chianti Classico
     pdo: PDO-IT-A1514
     colour: '#7a1f2b'
-    outline: true
     tier: 2
     extent: small
   - name: Montalcino
     colour: '#2f7d8c'
-    outline: true
     label: s
     pdo: PDO-IT-A1199
     wikidata: Q91208
@@ -1050,14 +1002,12 @@ maps:
     wikidata: Q1569384
     wd_desc: Spanish wine region
     colour: '#7a1f2b'
-    outline: true
     tier: 1
     extent: medium
   - name: Navarra
     dot: false
     pdo: PDO-ES-A0127
     colour: '#2f7d8c'
-    outline: true
     tier: 1
     extent: medium
   - name: Ribera del Duero
@@ -1065,7 +1015,6 @@ maps:
     wikidata: Q631876
     wd_desc: comarca of Burgos Province
     colour: '#5f8a34'
-    outline: true
     tier: 1
     extent: medium
 - id: catalunya
@@ -1092,7 +1041,6 @@ maps:
     wikidata: Q1754563
     wd_desc: Spanish Denominación de Origen Calificada
     parent: Catalunya
-    outline: true
     tier: 2
     extent: small
 - id: germany
@@ -1496,8 +1444,6 @@ maps:
   - name: South Australia
     admin1: Australia/South Australia
     fit: false
-    fill: false
-    outline: true
     tier: 0
     extent: large
   - name: Barossa Valley
@@ -1558,8 +1504,6 @@ maps:
   - name: Western Australia
     admin1: Australia/Western Australia
     fit: false
-    fill: false
-    outline: true
     tier: 0
     extent: large
   - name: Margaret River
@@ -1587,8 +1531,6 @@ maps:
   - name: Victoria
     admin1: Australia/Victoria
     fit: false
-    fill: false
-    outline: true
     tier: 0
     extent: large
   - name: Yarra Valley
@@ -1623,8 +1565,6 @@ maps:
   - name: New South Wales
     admin1: Australia/New South Wales
     fit: false
-    fill: false
-    outline: true
     tier: 0
     extent: large
   - name: Hunter Valley

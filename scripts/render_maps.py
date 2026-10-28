@@ -81,6 +81,8 @@ CITY_EM = 0.59 * CITY_PX
 COUNTRY_PX = 12
 COUNTRY_EM = 0.72 * COUNTRY_PX + 2  # glyph plus letter-spacing
 COUNTRY = "#a39b8e"
+# The border of the region a map is about, neutral so its wine areas stand out.
+FOCUS = "#4d5a6a"
 
 # Sources whose licences require attribution are credited on every map they
 # feed, so a single image reused on its own keeps its credit. Public-domain
@@ -555,7 +557,15 @@ def column_labels(
         for m, y, h in zip(col, ys, hs, strict=True):
             w = label_size(m)[0]
             xs = [m["x"] + side * (m["r"] + 9)] if m["dot"] else []
-            xs += [px + side * 8 for pts in outlines for px, py in pts if abs(py - y) <= h / 2 + 4]
+            # Only outlines between the region and where its label would go:
+            # a distant outline at the same height (Rías Baixas, across Spain
+            # from Rioja) must not push the label across the map.
+            xs += [
+                px + side * 8
+                for pts in outlines
+                for px, py in pts
+                if abs(py - y) <= h / 2 + 4 and 0 <= side * (px - m["x"]) <= w + 60
+            ]
             x0 = (max(xs) if side > 0 else min(xs)) if xs else m["x"]
             # Never off the canvas: better over the map than cut in half.
             cx = min(max(x0 + side * w / 2, w / 2 + 2), width - w / 2 - 2)
@@ -880,6 +890,14 @@ def render(
             colour = tint(base, 0.30) if r.get("tier", 1) >= 2 else base
         colour = r.get("colour", colour)
         radius = p.km(HALO.get(r.get("extent", "small"), 5.0))
+        # Every region plays one role, which alone decides how it is drawn:
+        # the map's own region (by default, the one it is titled after) is a
+        # grey border; a wine area is shaded and bordered in its colour; an
+        # umbrella that would hide the areas inside it is a dashed border.
+        title = spec_map.get("title", "")
+        role = r.get("role") or ("focus" if same_name(r["name"], title) else "area")
+        if role == "focus":
+            colour = FOCUS
         # A region the map is titled after is already named by the title, so
         # it keeps its fill but loses its dot and label. Blank maps have no
         # title, so they keep the dot.
@@ -897,9 +915,9 @@ def render(
                 "size": size,
                 "weight": weight,
                 "area": area,
-                "fill": r.get("fill", True),
+                "fill": role == "area",
                 "dot": r.get("dot", True) and labelled,
-                "outline": r.get("outline", False),
+                "outline": "dashed" if role == "umbrella" else True,
                 "side": r.get("label"),
                 "tier": r.get("tier", 1),
                 "anchored": bool(r.get("anchor")),
