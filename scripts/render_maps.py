@@ -532,7 +532,7 @@ def country_labels(
         x0, x1 = min(s[0] for s in seen), max(s[0] for s in seen)
         y0, y1 = min(s[1] for s in seen), max(s[1] for s in seen)
         grid = [
-            (x0 + (x1 - x0) * i / 9, y0 + (y1 - y0) * j / 9) for i in range(10) for j in range(10)
+            (x0 + (x1 - x0) * i / 24, y0 + (y1 - y0) * j / 24) for i in range(25) for j in range(25)
         ]
         grid.sort(key=lambda g: (g[0] - mid[0]) ** 2 + (g[1] - mid[1]) ** 2)
         spots += [mid, *grid]
