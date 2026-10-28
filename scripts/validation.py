@@ -188,8 +188,12 @@ def catalogue_value(value: object, source: Path | str) -> Catalogue:
                 fail(source, f"$.maps[{i}].inset", "at must be fractions and size must be positive")
         for j, region in enumerate(mp["regions"]):
             loc = f"$.maps[{i}].regions[{j}]"
-            if (parent := region.get("parent")) and parent not in names:
-                fail(source, loc + ".parent", f"unknown region {parent!r}")
+            parent = region.get("parent")
+            for name in ([parent] if isinstance(parent, str) else parent or []) + region.get(
+                "exclude", []
+            ):
+                if name not in names:
+                    fail(source, loc + ".parent", f"unknown region {name!r}")
             if (other := region.get("region_of")) and other not in ids:
                 fail(source, loc + ".region_of", f"unknown map {other!r}")
             if (anchor := region.get("anchor")) and not (

@@ -75,14 +75,15 @@ class Region(TypedDict, total=False):
     colour: Colour
     group: Text
     label: Side
-    role: Literal["focus", "area", "umbrella"]
+    role: Literal["focus", "area"]
     dot: bool
     anchor: Point
-    parent: Text
+    parent: Text | Annotated[list[Text], Field(min_length=2)]
     fit: bool
     named: bool
     wrap: bool
     keep: Annotated[list[Position], Field(min_length=1)]
+    exclude: Annotated[list[Text], Field(min_length=1)]
 
 
 @with_config(ConfigDict(extra="forbid", strict=True))
@@ -295,5 +296,9 @@ class Mark(TypedDict):
     anchored: bool
     named: bool
     lines: list[str]
+    role: Literal["focus", "area"]
+    parents: list[str]
+    own_colour: bool
+    nested: bool
     lx: NotRequired[float]
     ly: NotRequired[float]

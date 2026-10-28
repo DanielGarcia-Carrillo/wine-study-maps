@@ -51,6 +51,18 @@ class ExtractionTests(unittest.TestCase):
         self.assertNotIn(">Geneva<", france)
         self.assertNotIn(">Turin<", france)
 
+    def test_overlaps_are_striped_and_nesting_is_declared(self) -> None:
+        veneto = (ROOT / "assets/level-2-veneto.svg").read_text(encoding="utf-8")
+        # Valpolicella and Soave overlap without either containing the other.
+        self.assertIn("<pattern", veneto)
+        tuscany = (ROOT / "assets/level-2-tuscany.svg").read_text(encoding="utf-8")
+        # Chianti Classico is declared nested in Chianti, so it gets the darker
+        # shade; Montalcino is not, though it lies inside Chianti's outline.
+        self.assertIn(f'fill-opacity="{render_maps.NESTED}"', tuscany)
+        napa = (ROOT / "assets/level-2-napa.svg").read_text(encoding="utf-8")
+        # Los Carneros takes each county's shade on its side of the border.
+        self.assertGreaterEqual(napa.count(f'fill-opacity="{render_maps.NESTED}" clip-path'), 2)
+
     def fixture(self, root: Path) -> tuple[Path, InputManifest]:
         manifest = load_manifest(ROOT)
         manifest["inputs"] = manifest["inputs"][:1]

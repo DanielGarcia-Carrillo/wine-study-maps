@@ -81,11 +81,16 @@ A region's position comes from its sourced area's centroid or an explicit manual
 Wikidata coordinate locates the marker. A centroid need not fall inside a concave
 or multipart region, so anchors can help place labels more meaningfully.
 
-Each region plays one `role`, which alone decides its styling. The map's own
-region (by default, the one it is titled after) is a grey border with no shading.
-A wine `area`, the default, is shaded and bordered in its own colour, and an area
-nested in another takes a shade of its parent's colour. An `umbrella` that would
-hide the areas inside it is a dashed border in its colour.
+Region styling follows one scheme. The map's own region (by default, the one it
+is titled after, or any region given `role: focus`) is a grey border over a light
+grey wash. Every other region is a wine area, shaded and bordered in its colour.
+An area whose `parent:` is another wine area on the map is drawn in a darker
+shade, in its own colour if it has one or else its parent's. Nesting is declared,
+never inferred from boundaries. An area with two parents, such as Los Carneros,
+takes each parent's shade on its side of their border. Where two areas overlap
+without either containing the other, the overlap is striped in both areas' own
+tones. `exclude:` drops the communes another region on the map also lists, and
+`keep:` limits an appellation to the communes containing given points.
 
 Each recipe names its focus `country` (ISO 3166 alpha-3, as Natural Earth's
 `ADM0_A3`). Only that country's cities are drawn; each neighbouring country in

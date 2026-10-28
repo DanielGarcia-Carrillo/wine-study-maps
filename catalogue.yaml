@@ -115,6 +115,8 @@ maps:
     tier: 1
     extent: large
   - name: Médoc
+    exclude:
+    - Haut-Médoc
     colour: '#a480aa'
     anchor:
     - -0.98
@@ -132,6 +134,7 @@ maps:
     group: Left Bank
     label: w
   - name: Margaux
+    parent: Haut-Médoc
     colour: '#6da4ae'
     aoc: Margaux
     tier: 2
@@ -139,6 +142,7 @@ maps:
     group: Left Bank
     label: w
   - name: Pauillac
+    parent: Haut-Médoc
     colour: '#3f6f9a'
     label: e
     aoc: Pauillac
@@ -153,6 +157,7 @@ maps:
     group: Left Bank
     label: w
   - name: Pessac-Léognan
+    parent: Graves
     colour: '#a8661f'
     aoc: Pessac-Léognan
     tier: 2
@@ -160,7 +165,7 @@ maps:
     group: Left Bank
     label: w
   - name: Sauternes
-    colour: '#8a7c2f'
+    colour: '#4a5f2f'
     aoc: Sauternes
     tier: 2
     extent: small
@@ -269,7 +274,6 @@ maps:
   regions:
   - name: Côte de Nuits
     colour: '#7a1f2b'
-    role: umbrella
     aoc:
     - Côte de Nuits-Villages
     - Marsannay
@@ -286,7 +290,6 @@ maps:
     label: e
   - name: Côte de Beaune
     colour: '#a8661f'
-    role: umbrella
     aoc:
     - Côte de Beaune-Villages
     - Ladoix
@@ -313,37 +316,37 @@ maps:
     dot: false
     label: e
   - name: Gevrey-Chambertin
-    colour: '#a2626b'
+    parent: Côte de Nuits
     aoc: Gevrey-Chambertin
     tier: 2
     extent: small
     label: w
   - name: Nuits-Saint-Georges
-    colour: '#7a1f2b'
+    parent: Côte de Nuits
     aoc: Nuits-Saint-Georges
     tier: 2
     extent: small
     label: w
   - name: Beaune
-    colour: '#c29462'
+    parent: Côte de Beaune
     aoc: Beaune
     tier: 2
     extent: small
     label: w
   - name: Pommard
-    colour: '#8a6a2f'
+    parent: Côte de Beaune
     aoc: Pommard
     tier: 2
     extent: small
     label: w
   - name: Meursault
-    colour: '#c29462'
+    parent: Côte de Beaune
     aoc: Meursault
     tier: 2
     extent: small
     label: w
   - name: Puligny-Montrachet
-    colour: '#8a6a2f'
+    parent: Côte de Beaune
     aoc: Puligny-Montrachet
     tier: 2
     extent: small
@@ -545,15 +548,17 @@ maps:
     tier: 1
     extent: large
   - name: Côtes du Rhône
-    role: umbrella
-    named: false
+    label: e
+    anchor:
+    - 4.9616
+    - 44.1006
     aoc: Côtes du Rhône
     colour: '#c29462'
     fit: false
     tier: 1
     extent: large
-    label: e
   - name: Côtes du Rhône Villages
+    parent: Côtes du Rhône
     wrap: true
     dot: false
     aoc: Côtes du Rhône Villages
@@ -561,6 +566,7 @@ maps:
     tier: 1
     extent: large
   - name: Châteauneuf-du-Pape
+    parent: Côtes du Rhône Villages
     keep:
     - - 4.8326
       - 44.0566
@@ -704,8 +710,9 @@ maps:
     tier: 2
     extent: small
   - name: Los Carneros
-    colour: '#8a7c2f'
-    parent: Napa Valley
+    parent:
+    - Napa Valley
+    - Sonoma
     ava: los_carneros
     tier: 2
     extent: small
@@ -766,7 +773,9 @@ maps:
     tier: 1
     extent: medium
   - name: Los Carneros
-    parent: Napa Valley
+    parent:
+    - Napa Valley
+    - Sonoma
     ava: los_carneros
     tier: 2
     extent: small
@@ -894,7 +903,6 @@ maps:
     tier: 2
     extent: small
   - name: Asti
-    role: umbrella
     colour: '#2f7d8c'
     doc: Asti
     parent: Piemonte
@@ -926,6 +934,7 @@ maps:
     tier: 1
     extent: medium
   - name: Valpolicella
+    parent: Veneto
     colour: '#7a1f2b'
     pdo: PDO-IT-A0442
     wikidata: Q852467
@@ -933,6 +942,7 @@ maps:
     tier: 2
     extent: small
   - name: Soave
+    parent: Veneto
     colour: '#a8661f'
     pdo: PDO-IT-A0472
     wikidata: Q47876
@@ -973,6 +983,7 @@ maps:
     tier: 2
     extent: medium
   - name: Chianti Classico
+    parent: Chianti
     pdo: PDO-IT-A1514
     colour: '#7a1f2b'
     tier: 2

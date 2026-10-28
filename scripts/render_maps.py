@@ -83,6 +83,29 @@ COUNTRY_EM = 0.72 * COUNTRY_PX + 2  # glyph plus letter-spacing
 COUNTRY = "#a39b8e"
 # The border of the region a map is about, neutral so its wine areas stand out.
 FOCUS = "#4d5a6a"
+FOCUS_WASH = 0.10  # fill opacity of the map region's light grey wash
+NESTED = 0.38  # fill opacity of an area nested inside another, a darker shade
+
+
+def touches(a: Mark, b: Mark) -> bool:
+    """Whether two areas plausibly overlap, from a sample of their vertices."""
+    ra, rb = cast(Area, a["area"])["rings"], cast(Area, b["area"])["rings"]
+
+    def box(rings: Rings) -> tuple[float, float, float, float]:
+        xs = [x for ring in rings for x, _ in ring]
+        ys = [y for ring in rings for _, y in ring]
+        return min(xs), min(ys), max(xs), max(ys)
+
+    ba, bb = box(ra), box(rb)
+    if ba[2] < bb[0] or bb[2] < ba[0] or ba[3] < bb[1] or bb[3] < ba[1]:
+        return False
+    for one, other in ((ra, rb), (rb, ra)):
+        pts = [pt for ring in one for pt in ring]
+        pts = pts[:: max(1, len(pts) // 80)]
+        if any(in_rings(pt, other) for pt in pts):
+            return True
+    return False
+
 
 # Sources whose licences require attribution are credited on every map they
 # feed, so a single image reused on its own keeps its credit. Public-domain
@@ -855,9 +878,25 @@ def render(
         for i, r in enumerate(peers):
             hues[r["name"]] = r.get("colour", HUES[i % len(HUES)])
 
+    # `exclude:` - leave out the communes another region on the map also
+    # lists. INAO's Médoc takes in the whole peninsula, Haut-Médoc included,
+    # so without this the two would overlap where the map means them apart.
+    areas_by_name = {r["name"]: area_of(r) for r in spec_map["regions"]}
+
+    def ring_key(ring: Ring) -> tuple[tuple[float, float], ...]:
+        return tuple((round(x, 6), round(y, 6)) for x, y in ring[:4])
+
     marks: list[Mark] = []
     for r in spec_map["regions"]:
-        area = area_of(r)
+        area = areas_by_name[r["name"]]
+        if area and r.get("exclude"):
+            drop = {
+                ring_key(ring)
+                for name in r["exclude"]
+                if (other := areas_by_name.get(name))
+                for ring in other["rings"]
+            }
+            area = {**area, "rings": [ring for ring in area["rings"] if ring_key(ring) not in drop]}
         ent = ents.get(r.get("wikidata", ""))
         if area and r.get("anchor"):
             # A hand-chosen anchor, for an area whose centroid falls inside a
@@ -875,6 +914,8 @@ def render(
         else:
             continue
         x, y = p(lon, lat)
+        parent = r.get("parent")
+        parents = [parent] if isinstance(parent, str) else list(parent or [])
         colour, alpha, size, weight = TIER[r.get("tier", 1)]
         # Resolve the hue from the shared palette so the France overview and
         # this region's own map always agree. Explicit colour: wins; then the
@@ -883,17 +924,17 @@ def render(
         base = (
             (palette.get(r["region_of"]) if r.get("region_of") else None)
             or hues.get(r["name"])
-            or (hues.get(r["parent"]) if r.get("parent") else None)
+            or (hues.get(parents[0]) if parents else None)
             or palette.get(spec_map["id"])
         )
         if base:
             colour = tint(base, 0.30) if r.get("tier", 1) >= 2 else base
         colour = r.get("colour", colour)
         radius = p.km(HALO.get(r.get("extent", "small"), 5.0))
-        # Every region plays one role, which alone decides how it is drawn:
-        # the map's own region (by default, the one it is titled after) is a
-        # grey border; a wine area is shaded and bordered in its colour; an
-        # umbrella that would hide the areas inside it is a dashed border.
+        # The map's own region (by default, the one it is titled after) is a
+        # grey border over a light grey wash; every other region is a wine
+        # area, shaded and bordered in its colour. See the fills below for
+        # nesting and overlaps.
         title = spec_map.get("title", "")
         role = r.get("role") or ("focus" if same_name(r["name"], title) else "area")
         if role == "focus":
@@ -915,16 +956,61 @@ def render(
                 "size": size,
                 "weight": weight,
                 "area": area,
-                "fill": role == "area",
+                "fill": True,
                 "dot": r.get("dot", True) and labelled,
-                "outline": "dashed" if role == "umbrella" else True,
+                "outline": True,
                 "side": r.get("label"),
                 "tier": r.get("tier", 1),
                 "anchored": bool(r.get("anchor")),
                 "named": labelled and r["name"] not in inset_names,
                 "lines": wrap(r["name"]) if r.get("wrap") else [r["name"]],
+                "role": role,
+                "parents": parents,
+                "own_colour": "colour" in r,
+                "nested": False,
             }
         )
+
+    # Nesting is declared, never guessed from the boundaries: Montalcino lies
+    # inside the Chianti zone's outline but is its own wine. A wine area whose
+    # `parent:` is another wine area on this map is drawn in a darker shade -
+    # its own colour if it has one, else its parent's. One with two parents
+    # (Los Carneros, across Napa and Sonoma) takes each parent's shade on its
+    # side of their border.
+    by_name = {m["name"]: m for m in marks}
+    for m in marks:
+        ps = [by_name[n] for n in m["parents"] if n in by_name and by_name[n]["role"] == "area"]
+        m["nested"] = m["role"] == "area" and bool(ps)
+        if len(ps) > 1:
+            m["ink"] = readable(FOCUS, LAND)
+        elif ps and not m["own_colour"]:
+            m["colour"], m["ink"] = ps[0]["colour"], ps[0]["ink"]
+
+    def ancestors(m: Mark) -> list[Mark]:
+        out: list[Mark] = []
+        todo = [by_name[n] for n in m["parents"] if n in by_name]
+        while todo:
+            a = todo.pop()
+            if a not in out:
+                out.append(a)
+                todo += [by_name[n] for n in a["parents"] if n in by_name]
+        return out
+
+    def opacity(m: Mark) -> float:
+        return FOCUS_WASH if m["role"] == "focus" else NESTED if m["nested"] else m["alpha"]
+
+    def shape(m: Mark) -> str:
+        return "".join(path_of(ring, p) + "Z" for ring in cast(Area, m["area"])["rings"])
+
+    defs: list[str] = []
+    clipped: dict[str, str] = {}
+
+    def clip_to(m: Mark) -> str:
+        if m["name"] not in clipped:
+            cid = f"{clip_id}-c{len(clipped)}"
+            defs.append(f'<clipPath id="{cid}"><path d="{shape(m)}"/></clipPath>')
+            clipped[m["name"]] = cid
+        return clipped[m["name"]]
 
     fills: list[str] = []
     lines: list[str] = []
@@ -935,11 +1021,20 @@ def render(
             # they read as one shape - no geometry library needed to dissolve
             # them, and no invented outline either.
             if m["fill"]:
-                d = "".join(path_of(ring, p) + "Z" for ring in m["area"]["rings"])
-                fills.append(
-                    f'<path d="{d}" fill="{m["colour"]}" fill-opacity="{m["alpha"]}" '
-                    f'fill-rule="nonzero" stroke="none"/>'
-                )
+                d = shape(m)
+                split = [by_name[n] for n in m["parents"] if n in by_name] if m["nested"] else []
+                if len(split) > 1:
+                    for parent_mark in split:
+                        fills.append(
+                            f'<path d="{d}" fill="{parent_mark["colour"]}" '
+                            f'fill-opacity="{NESTED}" clip-path="url(#{clip_to(parent_mark)})" '
+                            f'stroke="none"/>'
+                        )
+                else:
+                    fills.append(
+                        f'<path d="{d}" fill="{m["colour"]}" fill-opacity="{opacity(m)}" '
+                        f'fill-rule="nonzero" stroke="none"/>'
+                    )
             if m["outline"]:
                 # The union's own boundary (see dissolve()), for a region whose
                 # extent matters as much as its position: the Côte de Nuits
@@ -1024,6 +1119,33 @@ def render(
             )
             body.append(f'<text {common} fill="{m["ink"]}">{text}</text>')
 
+    # Two wine areas that overlap without either containing the other -
+    # Asti and Barbera d'Asti, Valpolicella and Soave - share their overlap
+    # in alternating stripes of each one's own tone. The overlap is not a
+    # named place, so it is repainted in the same light tones as the areas
+    # around it rather than left as the darker sum of both fills.
+    areas = [m for m in marks if m["role"] == "area" and m["area"] and m["fill"]]
+    for i, a in enumerate(areas):
+        for b in areas[i + 1 :]:
+            if a in ancestors(b) or b in ancestors(a) or not touches(a, b):
+                continue
+            k = len(defs)
+            defs.append(
+                f'<pattern id="{clip_id}-s{k}" patternUnits="userSpaceOnUse" width="8" '
+                f'height="8" patternTransform="rotate(45)">'
+                f'<rect width="4" height="8" fill="{a["colour"]}" fill-opacity="{opacity(a)}"/>'
+                f'<rect x="4" width="4" height="8" fill="{b["colour"]}" '
+                f'fill-opacity="{opacity(b)}"/></pattern>'
+            )
+            under = [f'fill="{LAND}"'] + [
+                f'fill="{c["colour"]}" fill-opacity="{opacity(c)}"'
+                for c in ancestors(a)
+                if c in ancestors(b) or c["role"] == "focus"
+            ]
+            under += [f'fill="url(#{clip_id}-s{k})"']
+            group = "".join(f'<path d="{shape(b)}" {paint} stroke="none"/>' for paint in under)
+            fills.append(f'<g clip-path="url(#{clip_to(a)})">{group}</g>')
+
     title = (
         ""
         if blank or not spec_map.get("title")
@@ -1034,7 +1156,7 @@ def render(
     if fills or lines:
         paths = "".join(f'<path d="{d}"/>' for d in land_paths(p))
         clip = (
-            f'<defs><clipPath id="{clip_id}">{paths}</clipPath></defs>'
+            f'<defs><clipPath id="{clip_id}">{paths}</clipPath>{"".join(defs)}</defs>'
             f'<g clip-path="url(#{clip_id})">' + "\n".join(fills + lines) + "</g>"
         )
 
