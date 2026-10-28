@@ -548,10 +548,7 @@ maps:
     tier: 1
     extent: large
   - name: Côtes du Rhône
-    label: e
-    anchor:
-    - 4.9616
-    - 44.1006
+    named: false
     aoc: Côtes du Rhône
     colour: '#c29462'
     fit: false
