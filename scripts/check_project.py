@@ -74,6 +74,7 @@ def check(root: Path = ROOT) -> None:
         validate_input(root / "data" / row["path"], row)
     roots = {
         ".gitignore",
+        "AGENTS.md",
         "ATTRIBUTION.md",
         "LICENSE",
         "LICENSE-ARTWORK.md",
@@ -92,6 +93,7 @@ def check(root: Path = ROOT) -> None:
     for path in root.iterdir():
         if path.name in {
             ".git",
+            ".claude",
             ".venv",
             ".cache",
             ".maintenance-cache",
@@ -99,6 +101,12 @@ def check(root: Path = ROOT) -> None:
             ".ruff_cache",
             "work",
         }:
+            continue
+        if path.name == "CLAUDE.md":
+            require(
+                path.is_symlink() and path.readlink() == Path("AGENTS.md"),
+                "CLAUDE.md must be a symlink to AGENTS.md",
+            )
             continue
         require(
             path.name in roots and not path.is_symlink(),
