@@ -11,7 +11,8 @@ from pathlib import Path
 
 from models import LEVEL
 from PIL import Image, ImageChops
-from validation import load_catalogue
+from snapshots import digest
+from validation import ASSETS, load_catalogue, read_json
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -29,12 +30,14 @@ def compare(out: Path, exact_pixels: bool = False) -> None:
         raise ValueError(
             f"{out}: rendered inventory differs: missing={expected - actual}, unexpected={actual - expected}"
         )
+    pinned = read_json(ROOT / "data/asset-manifest.json", ASSETS)
     for name in sorted(expected):
         canonical = ROOT / "assets" / name
         rendered = out / name
         if name.endswith(".svg"):
-            if canonical.read_bytes() != rendered.read_bytes():
-                raise ValueError(f"{rendered}: SVG differs from canonical image")
+            # SVGs are not committed; their digests are.
+            if digest(rendered) != pinned[name]:
+                raise ValueError(f"{rendered}: SVG differs from the pinned digest")
             continue
         with Image.open(canonical) as reference, Image.open(rendered) as image:
             image.load()

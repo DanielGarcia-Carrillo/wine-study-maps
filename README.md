@@ -3,8 +3,8 @@
 Wine-region maps for WSET Level 2 study can be hard to access, and many available
 maps are crowded or difficult to read, even though much of the underlying
 geographic data is freely available. This project provides clear, focused
-alternatives: 35 maps, each with labelled and blank SVG and PNG versions, plus
-a contact sheet for reviewing the set.
+alternatives: 35 maps, each as a labelled and a blank PNG, plus a contact sheet
+for reviewing the set.
 
 Wine annotations are deliberately limited to wine regions, geographical indications
 (GIs) and protected designations of origin (PDOs) explicitly named in the WSET
@@ -21,7 +21,7 @@ Dots and halos indicate position and rough scale, not boundaries.
 
 Ready-to-use images are in `assets/`; use an exact Git revision when you need a
 stable version. Each file is prefixed with the WSET level it covers, such as
-`level-2-bordeaux.png` and `level-2-bordeaux-blank.svg`, so maps for another level
+`level-2-bordeaux.png` and `level-2-bordeaux-blank.png`, so maps for another level
 can sit alongside these without ambiguity. Rendering requires Python 3.11 or later, `uv`, and native Cairo
 (`brew install cairo` on macOS). Python dependencies are locked in `uv.lock`.
 
@@ -34,8 +34,10 @@ uv run --locked python -m unittest discover -s tests
 ```
 
 After dependency installation, validation and rendering run offline. The renderer
-writes labelled and blank SVGs and PNGs, plus a contact sheet. PNG output requires
-Cairo; `--svg-only` explicitly requests SVG alone. `--only bordeaux` limits a render,
+writes labelled and blank SVGs and PNGs, plus a contact sheet. A render into
+`assets/` puts its SVGs in `work/svg/` instead: only the PNGs are published, and
+`data/asset-manifest.json` pins the SVGs by digest. PNG output requires Cairo;
+`--svg-only` explicitly requests SVG alone. `--only bordeaux` limits a render,
 and `--spec` selects an external catalogue.
 
 The renderer uses Helvetica Neue / Helvetica / Arial fallback and installed fonts.
@@ -129,7 +131,7 @@ Python 3.11 and 3.14, locked Python tools, native Cairo and Liberation fonts. It
 runs the command above unchanged. A configured workflow and a local gate result
 are separate from an observed hosted CI result.
 
-Render validation requires exact SVGs, the expected file inventory, valid decoded
+Render validation requires SVGs matching their pinned digests, the expected file inventory, valid decoded
 PNGs and canonical image dimensions. Native Cairo/fonts can change PNG pixels
 across systems. In an environment matching the canonical images, additionally run:
 

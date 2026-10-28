@@ -33,18 +33,18 @@ class ExtractionTests(unittest.TestCase):
         self.assertIn("2025-10-09", credits["level-2-bordeaux.svg"])
         # Natural Earth, Wikidata and CC0 inputs alone need no on-image credit.
         self.assertNotIn("level-2-napa.svg", credits)
-        svg = (ROOT / "assets/level-2-chile.svg").read_text(encoding="utf-8")
+        svg = render_maps.map_svg("chile")
         self.assertIn(f'class="credit">{credits["level-2-chile.svg"]}<', svg)
 
     def test_region_named_by_the_title_is_not_labelled_again(self) -> None:
-        labelled = (ROOT / "assets/level-2-piemonte.svg").read_text(encoding="utf-8")
+        labelled = render_maps.map_svg("piemonte")
         self.assertEqual(labelled.count(">Piemonte<"), 1)
         self.assertIn('class="ti">Piemonte<', labelled)
         # Barolo shares no name with the title, so it keeps its label.
         self.assertIn(">Barolo<", labelled)
 
     def test_only_the_focus_country_has_cities(self) -> None:
-        france = (ROOT / "assets/level-2-france.svg").read_text(encoding="utf-8")
+        france = render_maps.map_svg("france")
         self.assertIn('class="country" text-anchor="middle">SPAIN<', france)
         self.assertIn(">Lyon<", france)
         # Geneva and Turin are in frame but belong to neighbouring countries.
@@ -52,14 +52,14 @@ class ExtractionTests(unittest.TestCase):
         self.assertNotIn(">Turin<", france)
 
     def test_overlaps_are_striped_and_nesting_is_declared(self) -> None:
-        veneto = (ROOT / "assets/level-2-veneto.svg").read_text(encoding="utf-8")
+        veneto = render_maps.map_svg("veneto")
         # Valpolicella and Soave overlap without either containing the other.
         self.assertIn("<pattern", veneto)
-        tuscany = (ROOT / "assets/level-2-tuscany.svg").read_text(encoding="utf-8")
+        tuscany = render_maps.map_svg("tuscany")
         # Chianti Classico is declared nested in Chianti, so it gets the darker
         # shade; Montalcino is not, though it lies inside Chianti's outline.
         self.assertIn(f'fill-opacity="{render_maps.NESTED[0]}"', tuscany)
-        napa = (ROOT / "assets/level-2-napa.svg").read_text(encoding="utf-8")
+        napa = render_maps.map_svg("napa")
         # Los Carneros takes each county's shade on its side of the border.
         self.assertGreaterEqual(napa.count(f'fill-opacity="{render_maps.NESTED[0]}" clip-path'), 2)
 

@@ -30,6 +30,7 @@ from validation import COLOURS, load_catalogue, load_manifest, read_json
 
 ROOT = Path(__file__).resolve().parents[1]
 MAPS = ROOT / "assets"
+SVGS = ROOT / "work/svg"  # SVGs of a render into assets/, which commits only PNGs
 SPEC = ROOT / "catalogue.yaml"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -1316,6 +1317,25 @@ def load_watermark() -> Callable[[Path], None] | None:
     return lambda path: watermark.mark_file(path, key)
 
 
+def map_svg(map_id: str, blank: bool = False) -> str:
+    """One catalogue map's SVG, rendered in memory as main() would write it."""
+    from snapshots import prepare
+
+    prepare()
+    spec = load_catalogue(SPEC)
+    m = next(m for m in spec["maps"] if m["id"] == map_id)
+    ents = fetch_entities(sorted({r["wikidata"] for r in m["regions"] if r.get("wikidata")}))
+    tag = "-blank" if blank else ""
+    return render(
+        m,
+        ents,
+        "c",
+        blank=blank,
+        palette=spec.get("palette", {}),
+        credit=credit_lines().get(f"{LEVEL}{map_id}{tag}.svg", ""),
+    )
+
+
 class Arguments(argparse.Namespace):
     spec: Path
     svg_only: bool
@@ -1337,6 +1357,9 @@ def main() -> int:
 
     out_dir = Path(args.out) if args.out else MAPS
     out_dir.mkdir(parents=True, exist_ok=True)
+    # The SVGs are not published: anyone could rasterise one into an unmarked PNG.
+    svg_dir = SVGS if out_dir.resolve() == MAPS.resolve() else out_dir
+    svg_dir.mkdir(parents=True, exist_ok=True)
 
     from snapshots import prepare
 
@@ -1370,7 +1393,7 @@ def main() -> int:
                 palette=spec.get("palette", {}),
                 credit=credits.get(f"{LEVEL}{m['id']}{tag}.svg", ""),
             )
-            (out_dir / f"{stem}.svg").write_text(svg, encoding="utf-8")
+            (svg_dir / f"{stem}.svg").write_text(svg, encoding="utf-8")
             if cairosvg:
                 cairosvg.svg2png(
                     bytestring=svg.encode(),

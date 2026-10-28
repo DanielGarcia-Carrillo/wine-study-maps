@@ -40,12 +40,17 @@ def check(root: Path = ROOT) -> None:
     expected = {
         f"{LEVEL}{i}{tag}.{ext}" for i in ids for tag in ("", "-blank") for ext in ("svg", "png")
     } | {"_contact_sheet.png"}
+    # The manifest pins every render output; only the PNGs are committed. SVG
+    # digests are checked against a fresh render by validate_render.py.
+    committed = {name for name in expected if name.endswith(".png")}
     assets = read_json(root / "data/asset-manifest.json", ASSETS)
     require(
-        set(assets) == expected == {p.name for p in (root / "assets").iterdir()},
+        set(assets) == expected and committed == {p.name for p in (root / "assets").iterdir()},
         "assets/: inventory differs from catalogue/manifest",
     )
     for name, sha in assets.items():
+        if name not in committed:
+            continue
         path = root / "assets" / safe_relative(name, "asset-manifest.json", name)
         require(
             not path.is_symlink() and digest(path) == sha,

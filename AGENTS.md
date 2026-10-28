@@ -16,8 +16,9 @@ uv run --locked --group dev python scripts/quality.py          # the full gate, 
 
 Run the quality gate before every commit. It fails if `assets/` or `docs/legend.svg`
 differ from a fresh render, so after changing the catalogue or renderer: render,
-update the SHA-256 values in `data/asset-manifest.json` for every changed asset,
-then run the gate. Adding or removing a map also changes the expected counts in
+update the SHA-256 values in `data/asset-manifest.json` for every changed asset
+(PNGs in `assets/`, SVGs in `work/svg/`), then run the gate. Render with the
+watermark key available (see README), or the PNGs come out unmarked. Adding or removing a map also changes the expected counts in
 `scripts/check_project.py` and the README. Delete `work/quality-render` if stale
 files from a renamed map make the gate complain.
 
@@ -32,7 +33,9 @@ those files by hand; source changes go through
 - `scripts/models.py`, `scripts/validation.py`: strict schemas for every file;
   unknown catalogue keys are rejected, so a new key needs a model field too.
 - `scripts/source_geodata.py`: turns pinned inputs into region outlines.
-- `assets/level-2-<id>.{svg,png}` and `-blank` variants: committed outputs. The
+- `assets/level-2-<id>.png` and `-blank` variants: committed outputs. Their SVGs
+  are not committed (a render into `assets/` writes them to `work/svg/`); the
+  manifest pins them by digest. The
   `level-2-` prefix is the WSET level; maps for another level get their own prefix.
 - `docs/legend.*`: the one shared legend, generated, never hand-edited.
 
