@@ -509,7 +509,8 @@ def country_labels(
 
     The name goes on Natural Earth's own label point when that is in frame,
     otherwise on the middle of the country's visible vertices, and only if
-    that spot is inside the country and clear of every city already placed.
+    the whole name sits inside the country and clear of every city already
+    placed - FRANCE had run over Andorra on the Catalunya map.
     """
     out: list[str] = []
     for f in load_layer("land")["features"]:
@@ -524,13 +525,29 @@ def country_labels(
         name = (props.get("NAME") or "").upper()
         lx, ly = props.get("LABEL_X"), props.get("LABEL_Y")
         spots = [(float(lx), float(ly))] if lx is not None and ly is not None else []
-        spots.append((sum(s[0] for s in seen) / len(seen), sum(s[1] for s in seen) / len(seen)))
+        mid = (sum(s[0] for s in seen) / len(seen), sum(s[1] for s in seen) / len(seen))
+        # Then a grid over the visible part, nearest its middle first, for a
+        # neighbour seen only as a band along one edge (France above
+        # Catalunya), where neither point above lands inside it.
+        x0, x1 = min(s[0] for s in seen), max(s[0] for s in seen)
+        y0, y1 = min(s[1] for s in seen), max(s[1] for s in seen)
+        grid = [
+            (x0 + (x1 - x0) * i / 9, y0 + (y1 - y0) * j / 9) for i in range(10) for j in range(10)
+        ]
+        grid.sort(key=lambda g: (g[0] - mid[0]) ** 2 + (g[1] - mid[1]) ** 2)
+        spots += [mid, *grid]
         w = COUNTRY_EM * len(name)
+        screen = [
+            [p(*pt) for pt in ring] for ring in area if any(p.inside(*pt, 1.5) for pt in ring)
+        ]
         for lon, lat in spots:
             if not p.inside(lon, lat) or not in_rings((lon, lat), area):
                 continue
             x, y = p(lon, lat)
             box = (x - w / 2 - 4, y - COUNTRY_PX / 2 - 3, x + w / 2 + 4, y + COUNTRY_PX / 2 + 3)
+            edge = [(bx, by) for bx in (box[0], x, box[2]) for by in (box[1], box[3])]
+            if not all(in_rings(pt, screen) for pt in edge):
+                continue
             if box[0] < 4 or box[2] > p.width - 4 or box[1] < 4 or box[3] > p.height - 4:
                 continue
             if any(

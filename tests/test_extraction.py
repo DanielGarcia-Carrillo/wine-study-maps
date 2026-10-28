@@ -63,6 +63,12 @@ class ExtractionTests(unittest.TestCase):
         # Los Carneros takes each county's shade on its side of the border.
         self.assertGreaterEqual(napa.count(f'fill-opacity="{render_maps.NESTED[0]}" clip-path'), 2)
 
+    def test_committed_legend_matches_the_renderer(self) -> None:
+        import render_legend
+
+        committed = (ROOT / "docs/legend.svg").read_text(encoding="utf-8")
+        self.assertEqual(committed, render_legend.legend())
+
     def fixture(self, root: Path) -> tuple[Path, InputManifest]:
         manifest = load_manifest(ROOT)
         manifest["inputs"] = manifest["inputs"][:1]

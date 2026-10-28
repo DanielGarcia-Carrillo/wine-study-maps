@@ -87,6 +87,7 @@ def check(root: Path = ROOT) -> None:
         "data",
         "typings",
         ".github",
+        "docs",
     }
     for path in root.iterdir():
         if path.name in {
@@ -111,6 +112,10 @@ def check(root: Path = ROOT) -> None:
         "upstream-archive-inventory.json",
     }
     require({p.name for p in (root / "data").iterdir()} == allowed_data, "Unexpected data path")
+    require(
+        {p.name for p in (root / "docs").iterdir()} == {"legend.svg", "legend.png"},
+        "docs/ must hold exactly the legend from scripts/render_legend.py",
+    )
     for directory in ("scripts", "tests", "typings"):
         for path in (root / directory).rglob("*"):
             if "__pycache__" in path.parts:

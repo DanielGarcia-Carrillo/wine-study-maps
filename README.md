@@ -81,7 +81,8 @@ A region's position comes from its sourced area's centroid or an explicit manual
 Wikidata coordinate locates the marker. A centroid need not fall inside a concave
 or multipart region, so anchors can help place labels more meaningfully.
 
-Region styling follows one scheme. The map's own region (by default, the one it
+Region styling follows one scheme, summarised in the shared [legend](docs/legend.svg)
+(regenerate it with `uv run --locked python scripts/render_legend.py`). The map's own region (by default, the one it
 is titled after, or any region given `role: focus`) is a grey border over a light
 grey wash. Every other region is a wine area, shaded and bordered in its colour.
 An area whose `parent:` is another wine area on the map is drawn in a darker
