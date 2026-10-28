@@ -58,10 +58,10 @@ class ExtractionTests(unittest.TestCase):
         tuscany = (ROOT / "assets/level-2-tuscany.svg").read_text(encoding="utf-8")
         # Chianti Classico is declared nested in Chianti, so it gets the darker
         # shade; Montalcino is not, though it lies inside Chianti's outline.
-        self.assertIn(f'fill-opacity="{render_maps.NESTED}"', tuscany)
+        self.assertIn(f'fill-opacity="{render_maps.NESTED[0]}"', tuscany)
         napa = (ROOT / "assets/level-2-napa.svg").read_text(encoding="utf-8")
         # Los Carneros takes each county's shade on its side of the border.
-        self.assertGreaterEqual(napa.count(f'fill-opacity="{render_maps.NESTED}" clip-path'), 2)
+        self.assertGreaterEqual(napa.count(f'fill-opacity="{render_maps.NESTED[0]}" clip-path'), 2)
 
     def fixture(self, root: Path) -> tuple[Path, InputManifest]:
         manifest = load_manifest(ROOT)

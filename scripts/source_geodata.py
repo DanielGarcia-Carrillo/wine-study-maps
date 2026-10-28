@@ -669,17 +669,22 @@ GI_CONTROL = {
 
 def area_of(r: Region) -> Area | None:
     """Resolve the first declared area source, preserving catalogue precedence."""
+    area = source_area(r)
+    if area and (keep := r.get("keep")):
+        # `keep:` - only the parts containing these points. INAO lists whole
+        # communes, and some lists overlap a neighbour's: Pomerol's takes in
+        # Libourne and Saint-Émilion, so it covered its neighbour. The
+        # Rheingau has an exclave 150km away, the Böddiger Berg near Kassel.
+        rings = [ring for ring in area["rings"] if any(in_rings(pt, [ring]) for pt in keep)]
+        if not rings:
+            raise ValueError(f"{r['name']}: no part of the area contains a `keep` point")
+        area = {**area, "communes": len(rings), "rings": rings}
+    return area
+
+
+def source_area(r: Region) -> Area | None:
     if aoc := r.get("aoc"):
-        area = aoc_area(aoc)
-        if keep := r.get("keep"):
-            # `keep:` - only the communes containing these points. INAO lists
-            # whole communes, and some lists overlap a neighbour's: Pomerol's
-            # takes in Libourne and Saint-Émilion, so it covered its neighbour.
-            rings = [ring for ring in area["rings"] if any(in_rings(pt, [ring]) for pt in keep)]
-            if not rings:
-                raise ValueError(f"{r['name']}: no commune contains a `keep` point")
-            area = {**area, "communes": len(rings), "rings": rings}
-        return area
+        return aoc_area(aoc)
     sources: list[tuple[str | list[str] | None, Callable[[str], Area]]] = [
         (r.get("ava"), ava_area),
         (r.get("county"), county_area),

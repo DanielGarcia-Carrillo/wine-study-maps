@@ -89,12 +89,6 @@ maps:
     aoc: Champagne
     tier: 1
     extent: large
-  - name: South-west France
-    wikidata: Q23047
-    wd_desc: commune in Lot, France
-    colour: '#4d5a6a'
-    tier: 1
-    extent: broad
 - id: bordeaux
   title: Bordeaux
   country:
@@ -203,6 +197,7 @@ maps:
   - places
   regions:
   - name: Chablis
+    colour: '#3c6aa5'
     aoc: Chablis
     tier: 1
     extent: medium
@@ -250,10 +245,12 @@ maps:
     extent: small
     label: e
   - name: Mâcon
+    colour: '#5f8a34'
     aoc: Mâcon
     tier: 1
     extent: medium
   - name: Pouilly-Fuissé
+    parent: Mâcon
     aoc: Pouilly-Fuissé
     tier: 2
     extent: small
@@ -375,6 +372,7 @@ maps:
     tier: 1
     extent: medium
   - name: Fleurie
+    parent: Beaujolais Villages
     aoc: Fleurie
     tier: 2
     extent: small
@@ -397,7 +395,7 @@ maps:
     tier: 1
     extent: large
   - name: Vouvray
-    colour: '#7d4a86'
+    parent: Touraine
     aoc: Vouvray
     tier: 2
     extent: small
@@ -559,7 +557,6 @@ maps:
     wrap: true
     dot: false
     aoc: Côtes du Rhône Villages
-    colour: '#5f8a34'
     tier: 1
     extent: large
   - name: Châteauneuf-du-Pape
@@ -567,7 +564,6 @@ maps:
     keep:
     - - 4.8326
       - 44.0566
-    colour: '#7a1f2b'
     aoc: Châteauneuf-du-Pape
     tier: 2
     extent: small
@@ -688,20 +684,17 @@ maps:
     dot: false
   - name: Oakville
     label: e
-    colour: '#3c6aa5'
     parent: Napa Valley
     ava: oakville
     tier: 2
     extent: small
   - name: Rutherford
     label: e
-    colour: '#a8661f'
     parent: Napa Valley
     ava: rutherford
     tier: 2
     extent: small
   - name: Calistoga
-    colour: '#7d4a86'
     parent: Napa Valley
     ava: calistoga
     tier: 2
@@ -982,7 +975,6 @@ maps:
   - name: Chianti Classico
     parent: Chianti
     pdo: PDO-IT-A1514
-    colour: '#7a1f2b'
     tier: 2
     extent: small
   - name: Montalcino
@@ -1140,6 +1132,10 @@ maps:
     tier: 1
     extent: medium
   - name: Rheingau
+    label: e
+    keep:
+    - - 8.118
+      - 50.027
     pdo: PDO-DE-A1273
     wikidata: Q212376
     wd_desc: landscape at the Northern side of the Rine between Wiesbaden
@@ -1428,23 +1424,21 @@ maps:
     tier: 1
     extent: large
   - name: Maipo Valley
+    parent: Central Valley
     dot: false
     anchor:
     - -70.95
     - -33.75
-    colour: '#7a1f2b'
     admin1: Chile/Región Metropolitana de Santiago
-    parent: Central Valley
     wikidata: Q721450
     wd_desc: province of Chile
     tier: 2
     extent: small
   - name: Colchagua Valley
-    colour: '#a8661f'
+    parent: Central Valley
     osm:
     - R1661314
     - R1561024
-    parent: Central Valley
     wikidata: Q201304
     wd_desc: province of Chile
     tier: 2

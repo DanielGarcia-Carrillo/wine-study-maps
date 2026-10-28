@@ -84,7 +84,21 @@ COUNTRY = "#a39b8e"
 # The border of the region a map is about, neutral so its wine areas stand out.
 FOCUS = "#4d5a6a"
 FOCUS_WASH = 0.10  # fill opacity of the map region's light grey wash
-NESTED = 0.38  # fill opacity of an area nested inside another, a darker shade
+# Fill opacity of a nested area by depth: inside one wine area, then inside
+# a nested one (Châteauneuf-du-Pape inside the Villages inside Côtes du Rhône).
+NESTED = (0.38, 0.6)
+
+
+def depth_of(m: Mark, by_name: dict[str, Mark]) -> int:
+    """How many regions on the map this one is nested inside."""
+    seen: set[str] = set()
+    todo = list(m["parents"])
+    while todo:
+        name = todo.pop()
+        if name in by_name and name not in seen:
+            seen.add(name)
+            todo += by_name[name]["parents"]
+    return len(seen)
 
 
 def touches(a: Mark, b: Mark) -> bool:
@@ -951,7 +965,9 @@ def render(
                 "y": y,
                 "r": max(radius, 4.0),
                 "colour": colour,
-                "ink": readable(colour, LAND),
+                # A nested area without its own colour takes its parent's
+                # below, so its label colour is looked up only after that.
+                "ink": "" if parents and "colour" not in r else readable(colour, LAND),
                 "alpha": alpha,
                 "size": size,
                 "weight": weight,
@@ -978,13 +994,24 @@ def render(
     # (Los Carneros, across Napa and Sonoma) takes each parent's shade on its
     # side of their border.
     by_name = {m["name"]: m for m in marks}
-    for m in marks:
+    # A map whose only region is its own (Champagne, Côtes de Provence) draws
+    # it as a wine area in its France-map colour, not as a grey frame.
+    if [m["role"] for m in marks if m["area"]] == ["focus"]:
+        for m in marks:
+            if m["role"] == "focus":
+                m["role"] = "area"
+                m["colour"] = palette.get(spec_map["id"], m["colour"])
+                m["ink"] = readable(m["colour"], LAND)
+    # Parents first, so a grandchild inherits a colour already inherited.
+    for m in sorted(marks, key=lambda m: len(m["parents"]) and depth_of(m, by_name)):
         ps = [by_name[n] for n in m["parents"] if n in by_name and by_name[n]["role"] == "area"]
         m["nested"] = m["role"] == "area" and bool(ps)
         if len(ps) > 1:
             m["ink"] = readable(FOCUS, LAND)
         elif ps and not m["own_colour"]:
             m["colour"], m["ink"] = ps[0]["colour"], ps[0]["ink"]
+        if not m["ink"]:
+            m["ink"] = readable(m["colour"], LAND)
 
     def ancestors(m: Mark) -> list[Mark]:
         out: list[Mark] = []
@@ -997,7 +1024,10 @@ def render(
         return out
 
     def opacity(m: Mark) -> float:
-        return FOCUS_WASH if m["role"] == "focus" else NESTED if m["nested"] else m["alpha"]
+        if m["role"] == "focus":
+            return FOCUS_WASH
+        depth = len([a for a in ancestors(m) if a["role"] == "area"])
+        return NESTED[min(depth, len(NESTED)) - 1] if m["nested"] else m["alpha"]
 
     def shape(m: Mark) -> str:
         return "".join(path_of(ring, p) + "Z" for ring in cast(Area, m["area"])["rings"])
@@ -1027,7 +1057,7 @@ def render(
                     for parent_mark in split:
                         fills.append(
                             f'<path d="{d}" fill="{parent_mark["colour"]}" '
-                            f'fill-opacity="{NESTED}" clip-path="url(#{clip_to(parent_mark)})" '
+                            f'fill-opacity="{NESTED[0]}" clip-path="url(#{clip_to(parent_mark)})" '
                             f'stroke="none"/>'
                         )
                 else:
