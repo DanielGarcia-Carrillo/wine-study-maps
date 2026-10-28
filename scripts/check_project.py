@@ -30,8 +30,8 @@ def check(root: Path = ROOT) -> None:
     spec = load_catalogue(root / "catalogue.yaml")
     ids = [m["id"] for m in spec["maps"]]
     require(
-        len(ids) == 34 and "new-zealand" not in ids,
-        "catalogue.yaml:$.maps: expected 34 public maps",
+        len(ids) == 35 and "new-zealand" not in ids,
+        "catalogue.yaml:$.maps: expected 35 public maps",
     )
     require(
         all(not str(r.get("gi", "")).startswith("nz/") for m in spec["maps"] for r in m["regions"]),

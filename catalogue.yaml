@@ -202,6 +202,73 @@ maps:
     tier: 1
     extent: medium
   - name: Côte de Nuits
+    dot: false
+    colour: '#7a1f2b'
+    aoc:
+    - Côte de Nuits-Villages
+    - Marsannay
+    - Fixin
+    - Gevrey-Chambertin
+    - Morey-Saint-Denis
+    - Chambolle-Musigny
+    - Vougeot
+    - Vosne-Romanée
+    - Nuits-Saint-Georges
+    tier: 1
+    extent: small
+    label: e
+  - name: Côte de Beaune
+    dot: false
+    colour: '#a8661f'
+    aoc:
+    - Côte de Beaune-Villages
+    - Ladoix
+    - Aloxe-Corton
+    - Pernand-Vergelesses
+    - Savigny-lès-Beaune
+    - Chorey-lès-Beaune
+    - Beaune
+    - Côte de Beaune
+    - Pommard
+    - Volnay
+    - Monthélie
+    - Auxey-Duresses
+    - Saint-Romain
+    - Meursault
+    - Blagny
+    - Puligny-Montrachet
+    - Chassagne-Montrachet
+    - Saint-Aubin
+    - Santenay
+    - Maranges
+    tier: 1
+    extent: small
+    label: e
+  - name: Mâcon
+    aoc: Mâcon
+    tier: 1
+    extent: medium
+  - name: Pouilly-Fuissé
+    aoc: Pouilly-Fuissé
+    tier: 2
+    extent: small
+- id: cote-d-or
+  title: Côte d'Or
+  country:
+  - FRA
+  bbox: auto
+  pad: 0.15
+  min_aspect: 0.75
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Côte de Nuits
+    colour: '#7a1f2b'
     role: umbrella
     aoc:
     - Côte de Nuits-Villages
@@ -218,6 +285,7 @@ maps:
     dot: false
     label: e
   - name: Côte de Beaune
+    colour: '#a8661f'
     role: umbrella
     aoc:
     - Côte de Beaune-Villages
@@ -245,43 +313,41 @@ maps:
     dot: false
     label: e
   - name: Gevrey-Chambertin
+    colour: '#a2626b'
     aoc: Gevrey-Chambertin
     tier: 2
     extent: small
     label: w
   - name: Nuits-Saint-Georges
+    colour: '#7a1f2b'
     aoc: Nuits-Saint-Georges
     tier: 2
     extent: small
     label: w
   - name: Beaune
+    colour: '#c29462'
     aoc: Beaune
     tier: 2
     extent: small
     label: w
   - name: Pommard
+    colour: '#8a6a2f'
     aoc: Pommard
     tier: 2
     extent: small
     label: w
   - name: Meursault
+    colour: '#c29462'
     aoc: Meursault
     tier: 2
     extent: small
     label: w
   - name: Puligny-Montrachet
+    colour: '#8a6a2f'
     aoc: Puligny-Montrachet
     tier: 2
     extent: small
     label: w
-  - name: Mâcon
-    aoc: Mâcon
-    tier: 1
-    extent: medium
-  - name: Pouilly-Fuissé
-    aoc: Pouilly-Fuissé
-    tier: 2
-    extent: small
 - id: beaujolais
   title: Beaujolais
   country:
@@ -454,7 +520,7 @@ maps:
   country:
   - FRA
   bbox: auto
-  pad: 0.12
+  pad: 0.4
   base:
   - land
   - coastline

@@ -3,7 +3,7 @@
 Wine-region maps for WSET Level 2 study can be hard to access, and many available
 maps are crowded or difficult to read, even though much of the underlying
 geographic data is freely available. This project provides clear, focused
-alternatives: 34 maps, each with labelled and blank SVG and PNG versions, plus
+alternatives: 35 maps, each with labelled and blank SVG and PNG versions, plus
 a contact sheet for reviewing the set.
 
 Wine annotations are deliberately limited to wine regions, geographical indications
@@ -111,7 +111,7 @@ uv run --locked --group dev python scripts/quality.py
 The gate runs Ruff lint and formatter checks, strict mypy checking of every
 maintained script/test/stub, Pydantic structural validation, committed-input and
 asset integrity checks, geographic checks, the regression tests and a full offline
-34-map render. Catalogue/region, provenance/asset/upstream manifest, palette and
+35-map render. Catalogue/region, provenance/asset/upstream manifest, palette and
 geometry contracts are concrete typed models. Validation reports the input file
 and field path, rejects malformed/unknown configuration fields, bad references,
 unsafe paths and non-finite numbers. Upstream foreign members and variable

@@ -591,10 +591,10 @@
       "sha256": "d5ae387a2bb677a9227ea97f3ffe3466f6613f65f6f3c2b05e70fe27a2d739a3",
       "bytes": 25430,
       "outputs": [
-        "level-2-burgundy.svg",
-        "level-2-burgundy.png",
-        "level-2-burgundy-blank.svg",
-        "level-2-burgundy-blank.png"
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -664,7 +664,11 @@
         "level-2-burgundy.svg",
         "level-2-burgundy.png",
         "level-2-burgundy-blank.svg",
-        "level-2-burgundy-blank.png"
+        "level-2-burgundy-blank.png",
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -686,7 +690,11 @@
         "level-2-burgundy.svg",
         "level-2-burgundy.png",
         "level-2-burgundy-blank.svg",
-        "level-2-burgundy-blank.png"
+        "level-2-burgundy-blank.png",
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -1013,10 +1021,10 @@
       "sha256": "d2c35d2d0a287030b9fff36c819299330e4210b8bd3ae3d02509d421689230de",
       "bytes": 42901,
       "outputs": [
-        "level-2-burgundy.svg",
-        "level-2-burgundy.png",
-        "level-2-burgundy-blank.svg",
-        "level-2-burgundy-blank.png"
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -1197,10 +1205,10 @@
       "sha256": "bad6fee5a4ec23d1cafde3361267c0026b7ee0a17960cf21d51e0995635a0bc1",
       "bytes": 20623,
       "outputs": [
-        "level-2-burgundy.svg",
-        "level-2-burgundy.png",
-        "level-2-burgundy-blank.svg",
-        "level-2-burgundy-blank.png"
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -1241,10 +1249,10 @@
       "sha256": "93ba9f880f6888d88ac918ea15d9fbe5de3bd3e9165496da86287cd962e2ce23",
       "bytes": 37124,
       "outputs": [
-        "level-2-burgundy.svg",
-        "level-2-burgundy.png",
-        "level-2-burgundy-blank.svg",
-        "level-2-burgundy-blank.png"
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -1329,10 +1337,10 @@
       "sha256": "3af5b8502470430015f5698b83b611485f9fcef9692d5a02b16e8ce4a6f735f2",
       "bytes": 19938,
       "outputs": [
-        "level-2-burgundy.svg",
-        "level-2-burgundy.png",
-        "level-2-burgundy-blank.svg",
-        "level-2-burgundy-blank.png"
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -1395,10 +1403,10 @@
       "sha256": "d89cc79a301a75000f1019329da4605d7c6e1db956073719036a2a23dbdd927b",
       "bytes": 12383,
       "outputs": [
-        "level-2-burgundy.svg",
-        "level-2-burgundy.png",
-        "level-2-burgundy-blank.svg",
-        "level-2-burgundy-blank.png"
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "INAO and IGN/Etalab",
       "licence": "Licence Ouverte 2.0",
@@ -2688,7 +2696,11 @@
         "level-2-southern-rhone.svg",
         "level-2-southern-rhone.png",
         "level-2-southern-rhone-blank.svg",
-        "level-2-southern-rhone-blank.png"
+        "level-2-southern-rhone-blank.png",
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",
@@ -2842,7 +2854,11 @@
         "level-2-southern-rhone.svg",
         "level-2-southern-rhone.png",
         "level-2-southern-rhone-blank.svg",
-        "level-2-southern-rhone-blank.png"
+        "level-2-southern-rhone-blank.png",
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",
@@ -2996,7 +3012,11 @@
         "level-2-southern-rhone.svg",
         "level-2-southern-rhone.png",
         "level-2-southern-rhone-blank.svg",
-        "level-2-southern-rhone-blank.png"
+        "level-2-southern-rhone-blank.png",
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",
@@ -3150,7 +3170,11 @@
         "level-2-southern-rhone.svg",
         "level-2-southern-rhone.png",
         "level-2-southern-rhone-blank.svg",
-        "level-2-southern-rhone-blank.png"
+        "level-2-southern-rhone-blank.png",
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",
@@ -3304,7 +3328,11 @@
         "level-2-southern-rhone.svg",
         "level-2-southern-rhone.png",
         "level-2-southern-rhone-blank.svg",
-        "level-2-southern-rhone-blank.png"
+        "level-2-southern-rhone-blank.png",
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",
@@ -3458,7 +3486,11 @@
         "level-2-southern-rhone.svg",
         "level-2-southern-rhone.png",
         "level-2-southern-rhone-blank.svg",
-        "level-2-southern-rhone-blank.png"
+        "level-2-southern-rhone-blank.png",
+        "level-2-cote-d-or.svg",
+        "level-2-cote-d-or.png",
+        "level-2-cote-d-or-blank.svg",
+        "level-2-cote-d-or-blank.png"
       ],
       "source": "Natural Earth",
       "licence": "Public domain",
