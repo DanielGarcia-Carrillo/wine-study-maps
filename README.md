@@ -3,13 +3,13 @@
 Wine-region maps for WSET Level 2 study can be hard to access, and many available
 maps are crowded or difficult to read, even though much of the underlying
 geographic data is freely available. This project provides clear, focused
-alternatives: 35 maps, each as a labelled and a blank PNG, plus a contact sheet
+alternatives: 36 maps, each as a labelled and a blank PNG, plus a contact sheet
 for reviewing the set.
 
 Wine annotations are deliberately limited to wine regions, geographical indications
 (GIs) and protected designations of origin (PDOs) explicitly named in the WSET
 Level 2 curriculum. Cities, rivers, coastlines and administrative areas provide
-orientation. Coverage is not complete; New Zealand maps are not currently included.
+orientation. Coverage is not complete.
 
 This is an independent project, **not associated with, endorsed by, or produced by
 the Wine & Spirit Education Trust (WSET)**. The maps use real geospatial inputs,
@@ -46,9 +46,9 @@ and decoded PNG pixels when reviewing a rebuild, and inspect the contact sheet.
 
 ## Source snapshots
 
-All 147 map-ready inputs are individually tracked under `data/inputs/`, grouped
+All 153 map-ready inputs are individually tracked under `data/inputs/`, grouped
 by source: `natural-earth`, `wikidata`, `inao-ign`, `piemonte`, `eu-pdo`,
-`wine-australia`, `uc-davis-ava` and `openstreetmap`. JSON is UTF-8 with two-space
+`wine-australia`, `iponz`, `uc-davis-ava` and `openstreetmap`. JSON is UTF-8 with two-space
 indentation so coordinate and property changes appear directly in Git diffs.
 The formatted input checkout occupies about 234.5 MB. No input archive is needed
 to inspect or build the checkout.
@@ -119,7 +119,7 @@ uv run --locked --group dev python scripts/quality.py
 The gate runs Ruff lint and formatter checks, strict mypy checking of every
 maintained script/test/stub, Pydantic structural validation, committed-input and
 asset integrity checks, geographic checks, the regression tests and a full offline
-35-map render. Catalogue/region, provenance/asset/upstream manifest, palette and
+36-map render. Catalogue/region, provenance/asset/upstream manifest, palette and
 geometry contracts are concrete typed models. Validation reports the input file
 and field path, rejects malformed/unknown configuration fields, bad references,
 unsafe paths and non-finite numbers. Upstream foreign members and variable

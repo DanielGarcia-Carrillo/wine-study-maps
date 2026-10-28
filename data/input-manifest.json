@@ -2123,6 +2123,94 @@
       "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     },
     {
+      "path": "inputs/iponz/gi-nz-1830-marlborough.json",
+      "sha256": "9a428810da505323281ec3ea8876e168801cc7ff24e24495a0712f4b9625fab6",
+      "bytes": 5508711,
+      "outputs": [
+        "level-2-new-zealand.svg",
+        "level-2-new-zealand.png",
+        "level-2-new-zealand-blank.svg",
+        "level-2-new-zealand-blank.png"
+      ],
+      "source": "IPONZ",
+      "licence": "NZ-Crown-copyright",
+      "source_url": "https://www.iponz.govt.nz/assets/GIRegister/1830/Marlborough-GI-boundary.zip",
+      "transformations": "Esri JSON from the register entry's boundary ZIP; retained clockwise exterior rings",
+      "acquired_at": null,
+      "source_id": "gi-nz-1830-marlborough",
+      "version": null,
+      "cache_path": ".inao-cache/gi-nz-1830-marlborough.json",
+      "pre_format_sha256": "68fdbbb23ae6988dae2ed1c94f8eff2641e1510e2b7ce596f97d83b2d3b364be",
+      "pre_format_bytes": 3209846,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
+    },
+    {
+      "path": "inputs/iponz/gi-nz-1833-hawkes-bay.json",
+      "sha256": "7eec5464b557d108723b6245faf1f114369d380e3d63cc97ca6c3a1fe96066bf",
+      "bytes": 2172790,
+      "outputs": [
+        "level-2-new-zealand.svg",
+        "level-2-new-zealand.png",
+        "level-2-new-zealand-blank.svg",
+        "level-2-new-zealand-blank.png"
+      ],
+      "source": "IPONZ",
+      "licence": "NZ-Crown-copyright",
+      "source_url": "https://www.iponz.govt.nz/assets/GIRegister/1833/Hawkes-Bay-GI-boundary.zip",
+      "transformations": "Esri JSON from the register entry's boundary ZIP; retained clockwise exterior rings",
+      "acquired_at": null,
+      "source_id": "gi-nz-1833-hawkes-bay",
+      "version": null,
+      "cache_path": ".inao-cache/gi-nz-1833-hawkes-bay.json",
+      "pre_format_sha256": "dcd4386e1dd5c55746b927324bee7ca5f6c871233984affc40b0ab6376adaf9c",
+      "pre_format_bytes": 1266755,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
+    },
+    {
+      "path": "inputs/iponz/gi-nz-1839-central-otago.json",
+      "sha256": "4ace368538a7e62bdb190f719030ae00d8ef6725cfe85031a4d28dc1a8f923ec",
+      "bytes": 1206137,
+      "outputs": [
+        "level-2-new-zealand.svg",
+        "level-2-new-zealand.png",
+        "level-2-new-zealand-blank.svg",
+        "level-2-new-zealand-blank.png"
+      ],
+      "source": "IPONZ",
+      "licence": "NZ-Crown-copyright",
+      "source_url": "https://www.iponz.govt.nz/assets/GIRegister/1839/Central-Otago-GI-boundary.zip",
+      "transformations": "Esri JSON from the register entry's boundary ZIP; retained clockwise exterior rings",
+      "acquired_at": null,
+      "source_id": "gi-nz-1839-central-otago",
+      "version": null,
+      "cache_path": ".inao-cache/gi-nz-1839-central-otago.json",
+      "pre_format_sha256": "dbc48db1c8d07d886d6f3c84aba08586c015f3a8533c0d8209039bf94560ed0a",
+      "pre_format_bytes": 702952,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
+    },
+    {
+      "path": "inputs/iponz/gi-nz-1848-martinborough.json",
+      "sha256": "b723dde37a12f6d580345f86c6bcdfbea922b958801406deb6660521ddb787cf",
+      "bytes": 145945,
+      "outputs": [
+        "level-2-new-zealand.svg",
+        "level-2-new-zealand.png",
+        "level-2-new-zealand-blank.svg",
+        "level-2-new-zealand-blank.png"
+      ],
+      "source": "IPONZ",
+      "licence": "NZ-Crown-copyright",
+      "source_url": "https://www.iponz.govt.nz/assets/GIRegister/1848/Martinborough-GI-boundary.zip",
+      "transformations": "Esri JSON from the register entry's boundary ZIP; retained clockwise exterior rings",
+      "acquired_at": null,
+      "source_id": "gi-nz-1848-martinborough",
+      "version": null,
+      "cache_path": ".inao-cache/gi-nz-1848-martinborough.json",
+      "pre_format_sha256": "904c0438d2825868a66f9b1b7b41cdedb5698d9bef66b4c4668449ef80988314",
+      "pre_format_bytes": 85080,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
+    },
+    {
       "path": "inputs/openstreetmap/osm-R112129.json",
       "sha256": "ee7d4bffdf3a030e5de41c05851b9444ffb713ea896845c1598402bc23f5d59f",
       "bytes": 557672,
@@ -4302,6 +4390,50 @@
       "cache_path": ".wikidata-cache/Q91208.json",
       "pre_format_sha256": "d3e2e69434183feb34d8e477a93e9e639925eb6beeca791a24b9b1c55e12d306",
       "pre_format_bytes": 120,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
+    },
+    {
+      "path": "inputs/wikidata/Q12711322.json",
+      "sha256": "983f3399331914b061d148c7aec19a1acc72fb65e268c76a521b29c6f378db99",
+      "bytes": 124,
+      "outputs": [
+        "level-2-new-zealand.svg",
+        "level-2-new-zealand.png",
+        "level-2-new-zealand-blank.svg",
+        "level-2-new-zealand-blank.png"
+      ],
+      "source": "Wikidata",
+      "licence": "CC0-1.0",
+      "source_url": "https://www.wikidata.org/wiki/Q12711322",
+      "transformations": "Selected P625 coordinate, label and description; JSON record",
+      "acquired_at": null,
+      "source_id": "Q12711322",
+      "version": null,
+      "cache_path": ".wikidata-cache/Q12711322.json",
+      "pre_format_sha256": "bc45d340a7ef7751cf4f9903b5563b5b18350b3e2247804c265cec66fd92f65a",
+      "pre_format_bytes": 123,
+      "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
+    },
+    {
+      "path": "inputs/wikidata/Q1905554.json",
+      "sha256": "ea1a8b4bb4fe15fcccf4b3da068b0b907b9ddabd7c3c32b06916e919367d4edd",
+      "bytes": 133,
+      "outputs": [
+        "level-2-new-zealand.svg",
+        "level-2-new-zealand.png",
+        "level-2-new-zealand-blank.svg",
+        "level-2-new-zealand-blank.png"
+      ],
+      "source": "Wikidata",
+      "licence": "CC0-1.0",
+      "source_url": "https://www.wikidata.org/wiki/Q1905554",
+      "transformations": "Selected P625 coordinate, label and description; JSON record",
+      "acquired_at": null,
+      "source_id": "Q1905554",
+      "version": null,
+      "cache_path": ".wikidata-cache/Q1905554.json",
+      "pre_format_sha256": "e77aecbb47947c1f7ca6f8a463bcd0fcda4652b43cde3afa5b16e0f2d99b299e",
+      "pre_format_bytes": 132,
       "text_format": "JSON UTF-8, two-space indentation, final newline; all parsed values unchanged"
     }
   ]

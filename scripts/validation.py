@@ -109,6 +109,7 @@ def load_manifest(root: Path) -> InputManifest:
         "Regione Piemonte": "piemonte",
         "Candiago et al. 2022": "eu-pdo",
         "Wine Australia": "wine-australia",
+        "IPONZ": "iponz",
         "UC Davis Library AVA": "uc-davis-ava",
         "OpenStreetMap contributors": "openstreetmap",
     }

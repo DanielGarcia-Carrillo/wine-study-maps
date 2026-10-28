@@ -136,6 +136,7 @@ class InputRecord(TypedDict):
         "Regione Piemonte",
         "Candiago et al. 2022",
         "Wine Australia",
+        "IPONZ",
         "UC Davis Library AVA",
         "OpenStreetMap contributors",
     ]

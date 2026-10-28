@@ -1353,6 +1353,45 @@ maps:
     gi: au/Yarra Valley
     tier: 1
     extent: small
+- id: new-zealand
+  title: New Zealand
+  country:
+  - NZL
+  distinct: true
+  thin_places: true
+  bbox: auto
+  min_span: 14.0
+  pad: 0.08
+  base:
+  - land
+  - coastline
+  - borders
+  - rivers
+  - lakes
+  - places
+  regions:
+  - name: Marlborough
+    label: w
+    gi: nz/1830/Marlborough
+    tier: 1
+    extent: medium
+  - name: Hawke's Bay
+    gi: nz/1833/Hawkes_Bay
+    tier: 1
+    extent: medium
+  - name: Central Otago
+    gi: nz/1839/Central_Otago
+    wikidata: Q12711322
+    wd_desc: region in New Zealand
+    tier: 2
+    extent: medium
+  - name: Martinborough
+    label: e
+    gi: nz/1848/Martinborough
+    wikidata: Q1905554
+    wd_desc: town in New Zealand
+    tier: 2
+    extent: small
 - id: south-africa
   title: South Africa
   country:

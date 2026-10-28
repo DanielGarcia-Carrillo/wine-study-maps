@@ -30,12 +30,8 @@ def check(root: Path = ROOT) -> None:
     spec = load_catalogue(root / "catalogue.yaml")
     ids = [m["id"] for m in spec["maps"]]
     require(
-        len(ids) == 35 and "new-zealand" not in ids,
-        "catalogue.yaml:$.maps: expected 35 public maps",
-    )
-    require(
-        all(not str(r.get("gi", "")).startswith("nz/") for m in spec["maps"] for r in m["regions"]),
-        "catalogue.yaml:$.maps: unsupported public GI source",
+        len(ids) == 36,
+        "catalogue.yaml:$.maps: expected 36 public maps",
     )
     expected = {
         f"{LEVEL}{i}{tag}.{ext}" for i in ids for tag in ("", "-blank") for ext in ("svg", "png")
@@ -68,11 +64,10 @@ def check(root: Path = ROOT) -> None:
             f"upstream-archive-inventory.json:$[{i}].filename: expected basename",
         )
     manifest = load_manifest(root)
-    require(len(manifest["inputs"]) == 147, "input-manifest.json:$.inputs: expected 147 inputs")
+    require(len(manifest["inputs"]) == 153, "input-manifest.json:$.inputs: expected 153 inputs")
     for i, row in enumerate(manifest["inputs"]):
         if not set(row["outputs"]) <= expected:
             fail("input-manifest.json", f"$.inputs[{i}].outputs", "unknown output reference")
-        require("gi-nz-" not in row["path"], f"{row['path']}: unsupported public input")
     # Validate integrity before interpreting provider input structures.
     prepare(root)
     for row in manifest["inputs"]:

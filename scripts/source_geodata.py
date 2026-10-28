@@ -4,11 +4,13 @@
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import math
 import re
 import subprocess
 import sys
+import zipfile
 from collections.abc import Callable
 from functools import lru_cache
 from pathlib import Path
@@ -97,6 +99,7 @@ NOMINATIM = "https://nominatim.openstreetmap.org/lookup"
 # Shapefile only, in UTM zone 32N, hence the reader and the reprojection.
 # EU wine PDO areas (Candiago et al. 2022, Scientific Data), CC0, on figshare
 EU_PDO = "https://ndownloader.figshare.com/files/35955185"
+IPONZ_GI = "https://www.iponz.govt.nz/assets/GIRegister"
 WINE_AUSTRALIA_GI = (
     "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/"
     "Wine_Geographical_Indications_Australia/FeatureServer"
@@ -620,7 +623,14 @@ PDO_CONTROL = {
 
 
 def gi_area(spec: str) -> Area:
-    """Wine Australia registered GI; source legal text prevails over geometry."""
+    """A registered wine GI boundary.
+
+    "au/<GI name>": Wine Australia's GI dataset, an interpretation of the legal
+    text, which prevails where they differ. "nz/<register id>/<file stem>": the
+    boundary file attached to the GI's entry on IPONZ's register, e.g.
+    "nz/1848/Martinborough". Both datums (GDA2020, NZGD2000) are within a metre
+    or two of WGS84; each GI is checked against a town inside it (GI_CONTROL).
+    """
     kind, _, rest = spec.partition("/")
     slug = re.sub(r"[^a-z0-9]+", "-", spec.lower()).strip("-")
     cached = INAO_CACHE / f"gi-{slug}.json"
@@ -652,8 +662,29 @@ def gi_area(spec: str) -> Area:
             raise KeyError(f"no Wine Australia GI named {rest!r}")
         rings = [r for f in feats for r in rings_of(f["geometry"])]
         name = feats[0]["properties"]["GI_NAME"]
+    elif kind == "nz":
+        reg, _, stem = rest.partition("/")
+        url = f"{IPONZ_GI}/{reg}/{stem.replace('_', '-')}-GI-boundary.zip"
+        print(f"  fetching IPONZ GI boundary {stem} ...", flush=True)
+        require_refresh()
+        blob = subprocess.run(
+            ["curl", "-fsSL", "--max-time", "180", "-H", f"User-Agent: {UA}", url],
+            check=True,
+            capture_output=True,
+        ).stdout
+        with zipfile.ZipFile(io.BytesIO(blob)) as z:
+            member = next(n for n in z.namelist() if n.lower().endswith(".json"))
+            esri = json.loads(z.read(member))
+        rings = []
+        for f in esri["features"]:
+            for ring in f["geometry"]["rings"]:
+                # Esri JSON gives outer rings clockwise and holes anticlockwise.
+                pairs = zip(ring, ring[1:], strict=False)
+                if sum(x0 * y1 - x1 * y0 for (x0, y0), (x1, y1) in pairs) < 0:
+                    rings.append([(x, y) for x, y in ring])
+        name = esri["features"][0]["attributes"].get("GI_Name", stem)
     else:
-        raise KeyError(f'public gi must be "au/<name>", got {spec!r}')
+        raise KeyError(f'gi must be "au/<name>" or "nz/<id>/<stem>", got {spec!r}')
     rec: Area = {"name": name, "communes": 0, "missing": [], "rings": rings}
     cached.write_text(json.dumps(rec), encoding="utf-8")
     return rec
@@ -664,6 +695,10 @@ GI_CONTROL = {
     "au/Coonawarra": [(140.835, -37.380)],  # Penola's vineyards strip
     "au/Margaret River": [(115.075, -33.955)],  # Margaret River town
     "au/Hunter": [(151.290, -32.780)],  # Pokolbin
+    "nz/1830/Marlborough": [(173.960, -41.514)],  # Blenheim
+    "nz/1833/Hawkes_Bay": [(176.840, -39.640)],  # Hastings
+    "nz/1839/Central_Otago": [(169.195, -45.038)],  # Cromwell
+    "nz/1848/Martinborough": [(175.459, -41.218)],  # Martinborough
 }
 
 

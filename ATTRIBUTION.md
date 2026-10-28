@@ -9,7 +9,7 @@ Region geometry comes from source data; label anchors and layout may be set
 explicitly in `catalogue.yaml`. The rendered maps simplify those inputs for
 illustration and are not official, legal or surveyed boundaries.
 
-Maps that use CC BY 4.0, ODbL or Licence Ouverte 2.0 inputs credit those sources
+Maps that use CC BY 4.0, ODbL, Licence Ouverte 2.0 or New Zealand Crown copyright inputs credit those sources
 on a pale panel in the bottom-right corner of the map. The text comes from `CREDITS` in `scripts/render_maps.py`,
 matched to each output through `data/input-manifest.json`.
 
@@ -21,6 +21,7 @@ matched to each output through `data/input-manifest.json`.
 | [Regione Piemonte](https://www.dati.gov.it/) — [Aree di produzione dei vini DOC/DOCG](https://www.datigeo-piem-download.it/) | Piedmont's DOC and DOCG production areas | CC BY 4.0 |
 | Candiago et al. 2022, [*A geospatial inventory of regulatory information for wine protected designations of origin in Europe*](https://doi.org/10.1038/s41597-022-01513-0) — [EU_PDO.gpkg](https://doi.org/10.6084/m9.figshare.c.5877659.v1) | DO, DOCG, Anbaugebiet and DOC areas in Spain, Italy (Veneto, Tuscany), Germany, Portugal (Douro) and Hungary (Tokaj) | CC0 |
 | [Wine Australia](https://www.wineaustralia.com/) — [Wine Geographical Indications Australia](https://hub.arcgis.com/datasets/2dd4c385f0ed4d109c2e18ae99e819e2) | Australian GI regions | CC BY 4.0 |
+| [IPONZ](https://www.iponz.govt.nz/get-ip/geographical-indications/register/) — boundary file attached to each wine GI's register entry | New Zealand GIs (Marlborough, Hawke's Bay, Martinborough, Central Otago) | © New Zealand Crown copyright ([terms](https://www.iponz.govt.nz/about-iponz/copyright/)) |
 | [UC Davis Library AVA project](https://github.com/UCDavisLibrary/ava), pinned at [`5208ac6`](https://github.com/UCDavisLibrary/ava/tree/5208ac65eeb9c3250945f1fa182b4f2ebb7756a9) | US AVA boundaries | CC0 |
 | [Natural Earth](https://www.naturalearthdata.com/) admin-1 and US counties | regions that are administrative units | Public domain |
 | [OpenStreetMap](https://www.openstreetmap.org/copyright) via Nominatim | administrative units Natural Earth lacks (Chile's provinces and comunas) | ODbL 1.0 — © OpenStreetMap contributors |
@@ -50,6 +51,13 @@ the Pfalz, Montalcino inside Brunello di Montalcino and Tokaj inside Tokaj.
 Catalunya stays the administrative region, since the catalogue uses it as one.
 
 **Australia.** Wine Australia GI boundaries are an interpretation of the legal text; the legal text prevails. Hunter Valley is registered as "Hunter".
+
+**New Zealand.** The four GIs are the boundary files IPONZ attaches to each
+GI's register entry, on NZGD2000, within a metre or two of WGS84. Each is
+checked against a town inside it. They are not under an open licence. IPONZ's
+[copyright page](https://www.iponz.govt.nz/about-iponz/copyright/) permits free
+reproduction for personal or in-house use when it is accurate, not misleading,
+and acknowledges the source and its copyright status; the map credit names both.
 
 **Chile.** Decreto 464 defines every Chilean wine DO by administrative units,
 so the units are the boundary: the Central Valley region is the Región
