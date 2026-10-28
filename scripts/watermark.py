@@ -34,7 +34,7 @@ SCALES = np.geomspace(0.4, 2.5, 200)  # resize factors searched when the size is
 REFINE = 4  # coarse candidates refined on the whole image
 
 
-def read_key() -> str:
+def find_key() -> str | None:
     if key := os.environ.get("WSM_WATERMARK_KEY"):
         return key
     try:
@@ -45,8 +45,14 @@ def read_key() -> str:
             check=True,
         )
     except (OSError, subprocess.CalledProcessError):
-        sys.exit(f"no watermark key: set WSM_WATERMARK_KEY or add keychain item {KEYCHAIN_SERVICE}")
-    return out.stdout.strip()
+        return None
+    return out.stdout.strip() or None
+
+
+def read_key() -> str:
+    if key := find_key():
+        return key
+    sys.exit(f"no watermark key: set WSM_WATERMARK_KEY or add keychain item {KEYCHAIN_SERVICE}")
 
 
 def blur(a: np.ndarray, sigma: float) -> np.ndarray:
@@ -77,6 +83,12 @@ def embed(img: Image.Image, key: str) -> Image.Image:
     p = np.tile(pattern(key), (h // TILE + 1, w // TILE + 1))[:h, :w]
     out = np.clip(a + STRENGTH * p[..., None], 0, 255).round().astype(np.uint8)
     return Image.fromarray(out)
+
+
+def mark_file(src: Path, key: str, dest: Path | None = None) -> None:
+    with Image.open(src) as img:
+        marked = embed(img, key)
+    marked.save(dest or src, optimize=True)
 
 
 def score(img: Image.Image, tile_fft: np.ndarray) -> float:
@@ -135,7 +147,7 @@ def main() -> None:
         if args.cmd == "embed":
             dest = args.out / path.name if args.out else path
             dest.parent.mkdir(parents=True, exist_ok=True)
-            embed(img, key).save(dest, optimize=True)
+            mark_file(path, key, dest)
             print(f"marked {dest}")
         else:
             s, scale = detect(img, key, search=not args.no_search)

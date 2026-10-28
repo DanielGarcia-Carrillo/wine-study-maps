@@ -7,6 +7,7 @@ import argparse
 import math
 import re
 import sys
+from collections.abc import Callable
 from pathlib import Path
 from typing import Protocol, cast
 
@@ -1297,6 +1298,24 @@ def load_cairosvg() -> Rasterizer | None:
     return None
 
 
+def load_watermark() -> Callable[[Path], None] | None:
+    """The keyed PNG watermark, when its key and numpy are available.
+
+    The committed PNGs carry it; renders without the key are unmarked but
+    otherwise identical, which is all the gate compares.
+    """
+    try:
+        import watermark
+    except ImportError:
+        print("  no watermark: numpy is missing (install the watermark group)")
+        return None
+    key = watermark.find_key()
+    if key is None:
+        print("  no watermark: key not set, PNGs are unmarked")
+        return None
+    return lambda path: watermark.mark_file(path, key)
+
+
 class Arguments(argparse.Namespace):
     spec: Path
     svg_only: bool
@@ -1332,6 +1351,7 @@ def main() -> int:
     ents = fetch_entities(sorted(set(qids)))
 
     credits = credit_lines()
+    mark = None if args.svg_only else load_watermark()
     cairosvg = None if args.svg_only else load_cairosvg()
     if not args.svg_only and cairosvg is None:
         raise RuntimeError(
@@ -1357,6 +1377,8 @@ def main() -> int:
                     write_to=str(out_dir / f"{stem}.png"),
                     output_width=int(W * 1.4),
                 )
+                if mark:
+                    mark(out_dir / f"{stem}.png")
             print(f"  {stem}  ({len(m['regions'])} regions)")
 
     if cairosvg and not args.suffix:

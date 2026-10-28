@@ -140,6 +140,10 @@ uv run --locked --group dev python scripts/validate_render.py --compare-only --e
 This compares the gate's `work/quality-render` PNG bytes and pixels exactly. The
 portable gate does not waive SVG or PNG decoding/dimension checks on other platforms.
 
+The committed PNGs carry an invisible keyed watermark (`scripts/watermark.py`), so
+exact pixels match only when the render has the maintainer's key. Without it the
+renderer says so and writes unmarked PNGs, which the portable gate accepts.
+
 Source inputs are structurally validated at file/provider boundaries; the full
 corpus is validated by the gate. During a render, a bounded in-memory cache reuses
 read-only basemap layers keyed by path and file stat, avoiding repeated validation
