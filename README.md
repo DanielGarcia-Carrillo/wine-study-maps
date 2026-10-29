@@ -173,8 +173,8 @@ source data retain their own terms in the input manifest and
 rights in generated maps. OpenStreetMap-derived administrative geometry remains
 under ODbL; generated maps are produced works with contributor attribution.
 
-Maps built from sources whose licences require attribution (CC BY 4.0, ODbL and
-Licence Ouverte 2.0) carry a credit in the bottom-right corner of the map, derived from the
-input manifest, so a single image reused on its own keeps its credit. Retain that credit
-when reusing those images. Public-domain and CC0 sources are credited here and in
+Every map carries a credit in its bottom-right corner, "© DGC, CC BY-SA 4.0", so a
+single image reused on its own keeps it. Maps built from sources whose licences require
+attribution (CC BY 4.0, ODbL and Licence Ouverte 2.0) add a data credit there, derived
+from the input manifest. Retain the whole credit when reusing an image. Public-domain and CC0 sources are credited here and in
 ATTRIBUTION.md only.

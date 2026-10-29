@@ -123,9 +123,10 @@ def touches(a: Mark, b: Mark) -> bool:
     return False
 
 
-# Sources whose licences require attribution are credited on every map they
-# feed, so a single image reused on its own keeps its credit. Public-domain
-# and CC0 sources are credited in ATTRIBUTION.md only. The credit is drawn
+# The author credit is on every map. Sources whose licences require
+# attribution are also credited on every map they feed, so a single image
+# reused on its own keeps its credit. Public-domain and CC0 sources are
+# credited in ATTRIBUTION.md only. The credit is drawn
 # last, on a pale panel in the bottom-right corner, so it reads over sea or
 # land; labels are not placed around it, so check new maps for overlaps.
 CREDITS = {
@@ -134,6 +135,8 @@ CREDITS = {
     "Regione Piemonte": "Regione Piemonte (CC BY 4.0)",
     "Wine Australia": "Wine Australia (CC BY 4.0)",
 }
+# Every map credits its author and licence, ahead of any data credit.
+AUTHOR_CREDIT = "© DGC, CC BY-SA 4.0"
 # Credit text is sized against the full canvas width, so every PNG, which is
 # rendered at one fixed width, shows it at the same size however narrow the map.
 CREDIT_PX = 12
@@ -1210,7 +1213,8 @@ def render(
         )
 
     foot = credit_style = ""
-    if credit and not canvas:
+    if not canvas:
+        credit = f"{AUTHOR_CREDIT} · {credit}" if credit else AUTHOR_CREDIT
         px = CREDIT_PX * p.width / W
         credit_style = f"\n  .credit {{ font-size: {px:.2f}px; fill: {INK}; }}"
         gap = px / 2

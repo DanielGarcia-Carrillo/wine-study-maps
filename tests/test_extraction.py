@@ -34,7 +34,9 @@ class ExtractionTests(unittest.TestCase):
         # Natural Earth, Wikidata and CC0 inputs alone need no on-image credit.
         self.assertNotIn("level-2-napa.svg", credits)
         svg = render_maps.map_svg("chile")
-        self.assertIn(f'class="credit">{credits["level-2-chile.svg"]}<', svg)
+        self.assertIn(
+            f'class="credit">{render_maps.AUTHOR_CREDIT} · {credits["level-2-chile.svg"]}<', svg
+        )
 
     def test_region_named_by_the_title_is_not_labelled_again(self) -> None:
         labelled = render_maps.map_svg("piemonte")

@@ -72,8 +72,9 @@ Keep to this scheme; the legend and README describe the same thing.
 - A region with no mapped boundary is a dot with a soft halo.
 - Only the focus country's cities are drawn. A neighbouring country is named once,
   in capitals, and only if the whole name fits inside it.
-- Credits go in the bottom-right panel only for maps using attribution-licensed
-  data (CC BY, ODbL, Licence Ouverte); they are derived from the input manifest.
+- Every map has a credit panel in the bottom-right: "© DGC, CC BY-SA 4.0", then a
+  data credit for maps using attribution-licensed data (CC BY, ODbL, Licence
+  Ouverte), derived from the input manifest.
 - Only regions named in the WSET Level 2 curriculum are annotated.
 
 Check every changed map visually, not just the gate: open the PNG and look at the
