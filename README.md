@@ -142,9 +142,10 @@ uv run --locked --group dev python scripts/validate_render.py --compare-only --e
 This compares the gate's `work/quality-render` PNG bytes and pixels exactly. The
 portable gate does not waive SVG or PNG decoding/dimension checks on other platforms.
 
-The committed PNGs carry an invisible keyed watermark (`scripts/watermark.py`), so
-exact pixels match only when the render has the maintainer's key. Without it the
-renderer says so and writes unmarked PNGs, which the portable gate accepts.
+The PNGs carry an invisible watermark from a fixed seed in `scripts/watermark.py`;
+`watermark.py detect` finds it in a copy, even after JPEG, resizing or cropping.
+Without numpy the renderer says so and writes unmarked PNGs, which the portable
+gate accepts.
 
 Source inputs are structurally validated at file/provider boundaries; the full
 corpus is validated by the gate. During a render, a bounded in-memory cache reuses
@@ -164,7 +165,7 @@ The target is a lookup-key component, not a live contrast calculation or a
 compliance guarantee. Review readability at the actual display size and on the
 contact sheet. Region fill overrides use the recipe's `colour` field.
 
-Eligible project code is GPL-3.0-or-later; see [LICENSE](LICENSE). Original project
+Eligible project code is AGPL-3.0-or-later; see [LICENSE](LICENSE). Original project
 documentation and original artwork contributions are CC BY-SA 4.0 where the author
 has the rights to grant it; see [LICENSE-ARTWORK.md](LICENSE-ARTWORK.md). Third-party
 source data retain their own terms in the input manifest and
