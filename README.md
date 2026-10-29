@@ -142,10 +142,10 @@ uv run --locked --group dev python scripts/validate_render.py --compare-only --e
 This compares the gate's `work/quality-render` PNG bytes and pixels exactly. The
 portable gate does not waive SVG or PNG decoding/dimension checks on other platforms.
 
-The PNGs carry an invisible watermark from a fixed seed in `scripts/watermark.py`;
-`watermark.py detect` finds it in a copy, even after JPEG, resizing or cropping.
-Without numpy the renderer says so and writes unmarked PNGs, which the portable
-gate accepts.
+The committed PNGs carry an invisible watermark keyed by a secret that is not in the
+repository; `watermark.py detect` finds it in a copy, even after JPEG, resizing or
+cropping. It records provenance and is not tamper-proof. Without the key or numpy
+the renderer says so and writes unmarked PNGs, which the portable gate accepts.
 
 Source inputs are structurally validated at file/provider boundaries; the full
 corpus is validated by the gate. During a render, a bounded in-memory cache reuses
@@ -175,6 +175,6 @@ under ODbL; generated maps are produced works with contributor attribution.
 
 Every map carries a credit in its bottom-right corner, "© DGC, CC BY-SA 4.0", so a
 single image reused on its own keeps it. Maps built from sources whose licences require
-attribution (CC BY 4.0, ODbL and Licence Ouverte 2.0) add a data credit there, derived
+attribution (CC BY 4.0, ODbL, Licence Ouverte 2.0 and NZ Crown copyright) add a data credit there, derived
 from the input manifest. Retain the whole credit when reusing an image. Public-domain and CC0 sources are credited here and in
 ATTRIBUTION.md only.

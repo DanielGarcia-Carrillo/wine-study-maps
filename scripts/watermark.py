@@ -3,7 +3,9 @@
 
 The mark is a faint tile of band-pass noise, at most a couple of brightness
 levels, repeated across the image. It is generated from a secret key, so the
-method can be public: without the key the pattern cannot be found or removed.
+method can be public and only the key holder can test a copy for it. It marks
+provenance and is not tamper-proof: anyone can render the maps unmarked from this
+repository, or subtract such a render from a published PNG to recover the tile.
 Detection folds the image onto one tile and correlates it with the keyed
 pattern, which survives JPEG, resizing and cropping.
 
