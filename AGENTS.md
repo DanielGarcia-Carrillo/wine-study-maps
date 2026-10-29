@@ -18,7 +18,7 @@ Run the quality gate before every commit. It fails if `assets/` or `docs/legend.
 differ from a fresh render, so after changing the catalogue or renderer: render,
 update the SHA-256 values in `data/asset-manifest.json` for every changed asset
 (PNGs in `assets/`, SVGs in `work/svg/`), then run the gate. Render with the
-dev group installed, or the PNGs come out without the watermark. Adding or removing a map also changes the expected counts in
+watermark key available (see README), or the PNGs come out unmarked. Adding or removing a map also changes the expected counts in
 `scripts/check_project.py` and the README. Delete `work/quality-render` if stale
 files from a renamed map make the gate complain.
 

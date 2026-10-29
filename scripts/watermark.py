@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Embed or find an invisible watermark in the rendered map PNGs.
+"""Embed or find a keyed, invisible watermark in the rendered map PNGs.
 
 The mark is a faint tile of band-pass noise, at most a couple of brightness
-levels, repeated across the image and generated from SEED. Detection folds
-the image onto one tile and correlates it with the seeded pattern, which
-survives JPEG, resizing and cropping.
+levels, repeated across the image. It is generated from a secret key, so the
+method can be public: without the key the pattern cannot be found or removed.
+Detection folds the image onto one tile and correlates it with the keyed
+pattern, which survives JPEG, resizing and cropping.
 
-The seed is public, so the mark shows where a map came from rather than
-resisting removal. WSM_WATERMARK_KEY overrides it for experiments; the
-published maps use the default.
+The key is read from WSM_WATERMARK_KEY, or else from the macOS keychain item
+named by KEYCHAIN_SERVICE. It is never stored in the repository.
 
     uv run --locked --group watermark python scripts/watermark.py embed assets/level-2-bordeaux.png
     uv run --locked --group watermark python scripts/watermark.py detect suspect.jpg
@@ -19,12 +19,14 @@ from __future__ import annotations
 import argparse
 import hashlib
 import os
+import subprocess
+import sys
 from pathlib import Path
 
 import numpy as np
 from PIL import Image
 
-SEED = "Wine Study Maps by DGC, CC BY-SA 4.0"
+KEYCHAIN_SERVICE = "wine-study-maps-watermark"
 TILE = 128  # pattern period in pixels
 STRENGTH = 1.5  # peak-ish amplitude, in 0-255 brightness levels
 THRESHOLD = 9.0  # detection score that counts as found; unmarked images score 4-5
@@ -32,8 +34,25 @@ SCALES = np.geomspace(0.4, 2.5, 200)  # resize factors searched when the size is
 REFINE = 4  # coarse candidates refined on the whole image
 
 
-def find_key() -> str:
-    return os.environ.get("WSM_WATERMARK_KEY") or SEED
+def find_key() -> str | None:
+    if key := os.environ.get("WSM_WATERMARK_KEY"):
+        return key
+    try:
+        out = subprocess.run(
+            ["security", "find-generic-password", "-s", KEYCHAIN_SERVICE, "-w"],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return out.stdout.strip() or None
+
+
+def read_key() -> str:
+    if key := find_key():
+        return key
+    sys.exit(f"no watermark key: set WSM_WATERMARK_KEY or add keychain item {KEYCHAIN_SERVICE}")
 
 
 def blur(a: np.ndarray, sigma: float) -> np.ndarray:
@@ -121,7 +140,7 @@ def main() -> None:
     d.add_argument("images", nargs="+", type=Path)
     d.add_argument("--no-search", action="store_true", help="assume the original size")
     args = ap.parse_args()
-    key = find_key()
+    key = read_key()
 
     for path in args.images:
         img = Image.open(path)

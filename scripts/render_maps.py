@@ -1300,13 +1300,20 @@ def load_cairosvg() -> Rasterizer | None:
 
 
 def load_watermark() -> Callable[[Path], None] | None:
-    """The PNG watermark, when numpy is available."""
+    """The keyed PNG watermark, when its key and numpy are available.
+
+    The committed PNGs carry it; renders without the key are unmarked but
+    otherwise identical, which is all the gate compares.
+    """
     try:
         import watermark
     except ImportError:
         print("  no watermark: numpy is missing (install the watermark group)")
         return None
     key = watermark.find_key()
+    if key is None:
+        print("  no watermark: key not set, PNGs are unmarked")
+        return None
     return lambda path: watermark.mark_file(path, key)
 
 
