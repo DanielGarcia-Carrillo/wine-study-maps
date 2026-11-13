@@ -73,7 +73,7 @@ Keep to this scheme; the legend and README describe the same thing.
 - Only the focus country's cities are drawn. A neighbouring country is named once,
   in capitals, and only if the whole name fits inside it.
 - Every map has a credit panel in the bottom-right:
-  "© 2026 Daniel Garcia Carrillo, CC BY-SA 4.0", then a data credit for maps using
+  "© 2026 Daniel Garcia-Carrillo, CC BY-SA 4.0", then a data credit for maps using
   attribution-licensed data (CC BY, ODbL, Licence Ouverte, NZ Crown copyright),
   derived from the input manifest.
 - Only regions named in the WSET Level 2 curriculum are annotated.
