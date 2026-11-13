@@ -1,8 +1,8 @@
 # Original artwork and documentation
 
-Copyright DGC. Original project documentation and original artwork contributions
-are licensed under Creative Commons Attribution-ShareAlike 4.0 International,
-with attribution to DGC:
+Copyright © 2026 Daniel Garcia-Carrillo. Original project documentation and original
+artwork contributions are licensed under Creative Commons Attribution-ShareAlike
+4.0 International, with attribution to Daniel Garcia-Carrillo:
 https://creativecommons.org/licenses/by-sa/4.0/
 Legal code: https://creativecommons.org/licenses/by-sa/4.0/legalcode
 
