@@ -138,7 +138,7 @@ CREDITS = {
     "IPONZ": "IPONZ (© New Zealand Crown copyright)",
 }
 # Every map credits its author and licence, ahead of any data credit.
-AUTHOR_CREDIT = "© DGC, CC BY-SA 4.0"
+AUTHOR_CREDIT = "© 2026 Daniel Garcia Carrillo, CC BY-SA 4.0"
 # Credit text is sized against the full canvas width, so every PNG, which is
 # rendered at one fixed width, shows it at the same size however narrow the map.
 CREDIT_PX = 12
