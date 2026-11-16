@@ -138,10 +138,41 @@ CREDITS = {
     "IPONZ": "IPONZ (© New Zealand Crown copyright)",
 }
 # Every map credits its author and licence, ahead of any data credit.
-AUTHOR_CREDIT = "© DGC, CC BY-SA 4.0"
+AUTHOR_CREDIT = "© 2026 Daniel Garcia-Carrillo, CC BY-SA 4.0"
 # Credit text is sized against the full canvas width, so every PNG, which is
 # rendered at one fixed width, shows it at the same size however narrow the map.
 CREDIT_PX = 12
+# Helvetica advances in thousandths of an em. Pin these instead of
+# measuring installed fonts so SVGs stay reproducible across platforms. The
+# panel's padding also covers small differences in Helvetica/Arial fallbacks.
+CREDIT_ADVANCES = {
+    char: advance / 1000
+    for advance, chars in (
+        (191, "'"),
+        (222, "ijl"),
+        (260, "|"),
+        (278, "ftI!,.:;[] ·"),
+        (302, "/"),
+        (333, "r()-`"),
+        (334, "{}"),
+        (355, '"\\'),
+        (389, "*"),
+        (469, "^"),
+        (500, "cksvxyzJ"),
+        (556, "0123456789abdeghnopquL#$?_"),
+        (584, "+<=>~"),
+        (611, "FTZ"),
+        (667, "ABEKPSVXY&"),
+        (722, "wCDHNRU"),
+        (737, "©"),
+        (778, "GOQ"),
+        (833, "mM"),
+        (889, "%"),
+        (944, "W"),
+        (1015, "@"),
+    )
+    for char in chars
+}
 
 
 def credit_lines(root: Path = ROOT) -> dict[str, str]:
@@ -1218,9 +1249,14 @@ def render(
     if not canvas:
         credit = f"{AUTHOR_CREDIT} · {credit}" if credit else AUTHOR_CREDIT
         px = CREDIT_PX * p.width / W
-        credit_style = f"\n  .credit {{ font-size: {px:.2f}px; fill: {INK}; }}"
+        credit_style = (
+            "\n  .credit { font-family: Helvetica, Arial, sans-serif; "
+            f"font-size: {px:.2f}px; fill: {INK}; }}"
+        )
         gap = px / 2
-        bw, bh = len(credit) * 0.56 * px + 2 * gap, px * 1.7
+        # Reserve a full em for any glyph outside the pinned Latin metrics.
+        bw = sum(CREDIT_ADVANCES.get(char, 1.0) for char in credit) * px + 2 * gap
+        bh = px * 1.7
         bx, by = p.width - bw - gap, p.height - bh - gap
         foot = (
             f'\n<rect x="{bx:.1f}" y="{by:.1f}" width="{bw:.1f}" height="{bh:.1f}" '
